@@ -38,7 +38,7 @@ export default function Header({
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-[#004c97] text-white ${className}`}
+      className={`sticky top-0 z-50 bg-[#004c97] text-white ${className}`}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
         {/* altura maior: h-28 */}

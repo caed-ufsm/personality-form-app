@@ -1,5 +1,4 @@
 import AboutCAED from '@/components/about';
-import Header from '@/components/header';
 
 export const metadata = {
   title: 'Sobre o CAEd — UFSM',
