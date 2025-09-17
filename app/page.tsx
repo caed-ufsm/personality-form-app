@@ -23,7 +23,7 @@ async function getNews(): Promise<NewsItem[]> {
 
   const { items } = await res.json();
 
-  // 🔧 Normaliza: garante `href` e absoluto
+  // Normaliza: garante `href` e absoluto
   const normalized: NewsItem[] = (items ?? []).map((n: any) => ({
     id: n.id,
     title: n.title,
@@ -32,8 +32,8 @@ async function getNews(): Promise<NewsItem[]> {
     href: toAbsoluteUFSM(n.href ?? n.link), // usa href se existir; senão link
   }));
 
-  // Dica: esse console.log sai no terminal (server), não no DevTools do navegador
-  console.log("[CAED News sample]", normalized[0]);
+  // esse console.log sai no terminal (server)
+  // console.log("[CAED News sample]", normalized[0]);
 
   return normalized;
 }
