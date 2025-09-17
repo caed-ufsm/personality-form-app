@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-const TOTAL = 5; // ajuste para 96 quando precisar
+const TOTAL = 12; // ajuste para 96 quando precisar
 
 // Schema para formato q1..qN
 const QSchema = z.object(
