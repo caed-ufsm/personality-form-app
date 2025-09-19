@@ -94,11 +94,12 @@ export default function FormsIndexPage() {
               {/* Footer: ação */}
               <div className="mt-8">
                 <Link
-                  href={`/forms/${f.id}`}
-                  className="inline-block rounded-lg bg-indigo-600 px-6 py-3 text-base font-medium text-white transition hover:bg-indigo-500"
+                href={`/forms/${f.id}`}
+                className="inline-block rounded-lg bg-[#0353a3] px-6 py-3 text-base font-medium text-white transition hover:bg-blue-800"
                 >
-                  Abrir formulário
+                Abrir formulário
                 </Link>
+
               </div>
             </li>
           ))}

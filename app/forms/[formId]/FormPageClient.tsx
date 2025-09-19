@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import type { FormDefinition } from "../lib/types";
 import { FormProvider } from "react-hook-form";
 import { useFormEngine } from "../hook/useFormEngine";
@@ -35,13 +35,14 @@ export default function FormPageClient({
     catIndex,
     setCatIndex,
     status,
-    onSubmit,
     goPrev,
     goNext,
     onClear,
     setStatus,
     storageKey,
   } = engine;
+
+  const [downloading, setDownloading] = useState(false);
 
   const SCALE = useMemo(() => generateScale(RED, GREEN, 5), []);
   const colorForOption = (n: number) => SCALE[n - 1] ?? "#ddd";
@@ -57,6 +58,71 @@ export default function FormPageClient({
   const progress = Math.round((filled / total) * 100);
 
   const cat = def.categories[catIndex];
+
+  // Submit que gera e baixa o PDF
+  const handleSubmit = methods.handleSubmit(async (data) => {
+    try {
+      setDownloading(true);
+      setStatus?.("saving");
+
+      // Inferir nome/email se existirem no formulário
+      const respondent =
+        ("name" in data || "email" in data)
+          ? {
+            name: (data as any).name || undefined,
+            email: (data as any).email || undefined,
+          }
+          : undefined;
+
+      // Agrupar respostas por categoria
+      const groups = def.categories.map((c) => ({
+        title: c.title,
+        items: c.questions.map((q) => ({
+          label: q.label,
+          value: (data as any)[q.id] ?? "",
+        })),
+      }));
+
+      const payload = {
+        title: def.title,
+        respondent,
+        groups, // preferível no PDFReport
+        // answers: groups.flatMap(g => g.items), // opcional: retrocompatível
+        footerNote: `Gerado automaticamente para o formulário "${def.title}" em ${new Date().toLocaleString("pt-BR")}.`,
+        themeColor: def.themeColor ?? "#0353a3",
+        logo: { src: "/logo.png", width: 40, height: 40 }, // precisa existir em /public
+      };
+
+      const res = await fetch("/api/report", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const info = await res.json().catch(() => ({}));
+        throw new Error(info?.error || "Falha ao gerar PDF");
+      }
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `${def.id ?? "form"}-respostas.pdf`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+
+      setStatus?.("saved");
+    } catch (err: any) {
+      setStatus?.("error");
+      alert(err?.message || "Erro ao gerar PDF");
+    } finally {
+      setDownloading(false);
+    }
+  });
+
 
   return (
     <FormProvider {...methods}>
@@ -84,7 +150,8 @@ export default function FormPageClient({
             onSelect={setCatIndex}
           />
 
-          <form onSubmit={methods.handleSubmit(onSubmit)} className="space-y-4">
+          {/* status mapeado: downloading ? "saving" : status */}
+          <form onSubmit={handleSubmit} className="space-y-4">
             {cat.questions.map((q, i) => (
               <QuestionItem
                 key={q.id}
@@ -102,7 +169,7 @@ export default function FormPageClient({
             <PagerActions
               page={catIndex}
               numPages={def.categories.length}
-              status={status}
+              status={downloading ? "saving" : status}
               goPrev={goPrev}
               goNext={goNext}
               onClear={onClear}

@@ -26,7 +26,6 @@ export default function Header({
     { label: 'Home', href: '/' },
     { label: 'Formulários', href: '/forms' },
     { label: 'Sobre', href: '/about' },
-    { label: 'Criar', href: '/create-form' },
   ],
   cta,
   className = '',

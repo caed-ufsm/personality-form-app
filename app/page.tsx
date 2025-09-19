@@ -46,7 +46,7 @@ export default async function HomePage() {
       <Hero
         title="CAEd — Centro de Avaliação Educacional"
         subtitle="Projetos, pesquisas e tecnologia a serviço da educação na UFSM."
-        ctas={[{ label: 'Conheça nossos projetos', href: '#projetos' }]}
+        ctas={[{ label: 'Conheça a CAEd', href: '/about' }]}
       />
 
       <NewsEventsSection title="Últimas Notícias" items={news} />
