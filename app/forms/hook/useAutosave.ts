@@ -1,17 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { DRAFT_KEY } from "../lib/constants";
-import { useForm } from "react-hook-form";
-import type { AnswersForm } from "../lib/schemas";
+import { useForm, type FieldValues } from "react-hook-form";
+
+const DRAFT_KEY = "form_draft";
 
 type StatusSetter = React.Dispatch<
   React.SetStateAction<null | "idle" | "saving" | "saved" | "error">
 >;
 
-export function useAutosave(
-  watch: ReturnType<typeof useForm<AnswersForm>>["watch"],
-  getValues: ReturnType<typeof useForm<AnswersForm>>["getValues"],
+export function useAutosave<T extends FieldValues>(
+  watch: ReturnType<typeof useForm<T>>["watch"],
+  getValues: ReturnType<typeof useForm<T>>["getValues"],
   range: { start: number; end: number },
   setStatus: StatusSetter
 ) {
@@ -22,11 +22,13 @@ export function useAutosave(
       if (!info?.name) return;
       const m = /^answers\.(\d+)$/.exec(String(info.name));
       if (!m) return;
+
       const idx = Number(m[1]);
       if (idx < range.start || idx >= range.end) return;
 
       if (timerRef.current) window.clearTimeout(timerRef.current);
       setStatus("saving");
+
       timerRef.current = window.setTimeout(() => {
         try {
           const data = getValues();

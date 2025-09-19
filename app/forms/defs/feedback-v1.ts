@@ -4,6 +4,21 @@ export const feedbackV1: FormDefinition = {
   id: "feedback-v1",
   title: "Formulário de Feedback",
   storageVersion: 1,
+
+  // --- novos metadados para UI ---
+  subtitle: "Avaliação de colaboração e processos",
+  description:
+    "Ajude-nos a melhorar continuamente dando seu feedback sobre alinhamento, execução e cultura do time.",
+  iconEmoji: "💬",
+  themeColor: "#22c55e", // tailwind green-500
+  tags: ["Time", "Produto", "Cultura"],
+  estimatedMinutes: 8,
+  totalQuestions: 30, // já sabemos pelas categorias
+  versionLabel: "v1",
+  lastUpdatedISO: "2025-09-15",
+  author: "Equipe de Produto",
+
+  // --- estrutura original ---
   categories: [
     {
       key: "context",

@@ -22,4 +22,17 @@ export type FormDefinition = {
   title: string;
   storageVersion?: number;   // para invalidar rascunho antigo
   categories: Category[];
+
+  // --- novos campos para UI/listagem ---
+  subtitle?: string;         // linha auxiliar sob o título
+  description?: string;      // texto curto pro card
+  iconEmoji?: string;        // ícone simples (ex: "🧠", "💬")
+  themeColor?: string;       // cor principal (hex ou tailwind token)
+  coverImageUrl?: string;    // opcional: imagem de capa do card
+  tags?: string[];           // badges (ex: ["UX", "Pesquisa"])
+  estimatedMinutes?: number; // tempo médio para completar
+  totalQuestions?: number;   // nº de perguntas (pré-calculado)
+  versionLabel?: string;     // ex: "v1"
+  lastUpdatedISO?: string;   // data de última atualização (ISO string)
+  author?: string;           // responsável pelo formulário
 };

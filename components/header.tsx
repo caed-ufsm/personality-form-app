@@ -24,7 +24,7 @@ export default function Header({
   brand = { name: 'Caed-UFSM', href: '/', logoSrc: '/brasao.svg' },
   items = [
     { label: 'Home', href: '/' },
-    { label: 'Formulários', href: '/forms/personality-v1' },
+    { label: 'Formulários', href: '/forms' },
     { label: 'Sobre', href: '/about' },
     { label: 'Criar', href: '/create-form' },
   ],

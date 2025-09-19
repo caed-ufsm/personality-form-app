@@ -2,8 +2,23 @@ import type { FormDefinition } from "../lib/types";
 
 export const personalityV1: FormDefinition = {
   id: "personality-v1",
-  title: "Teste de personalidade",
+  title: "Teste de Personalidade",
   storageVersion: 1,
+
+  // --- novos metadados para UI ---
+  subtitle: "Mapeamento de traços e preferências",
+  description:
+    "Um teste rápido para entender aspectos do seu perfil pessoal e profissional, incluindo colaboração, autonomia e estilo de trabalho.",
+  iconEmoji: "🧠",
+  themeColor: "#0ea5e9", // tailwind sky-500
+  tags: ["Psicologia", "Autoconhecimento", "Perfil"],
+  estimatedMinutes: 5,
+  totalQuestions: 16, // somando todas as categorias
+  versionLabel: "v1",
+  lastUpdatedISO: "2025-09-15",
+  author: "Equipe Research",
+
+  // --- estrutura original ---
   categories: [
     {
       key: "x",
@@ -31,9 +46,9 @@ export const personalityV1: FormDefinition = {
     },
     {
       key: "t",
-      title: "Teste 444 ",
+      title: "Teste 444",
       questions: [
-        { id: "q13",  type: "likert", label: " VAZIO VAZIO VAZIO", required: true },
+        { id: "q13", type: "likert", label: "VAZIO VAZIO VAZIO", required: true },
         { id: "q14", type: "likert", label: "Aprendo rapidamente com erros.", required: true },
         { id: "q15", type: "likert", label: "Comunico ideias com clareza.", required: true },
         { id: "q16", type: "likert", label: "Tenho facilidade em priorizar tarefas.", required: true },
