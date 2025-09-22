@@ -29,7 +29,6 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
   controlApi,
 }: PagerActionsProps<TValues>) {
   const { getValues, setStatus, storageKey } = controlApi;
-  const isLast = page >= numPages - 1;
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-1">
@@ -49,23 +48,19 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
           Categoria anterior
         </button>
 
-        {isLast ? (
-          <button
-            type="submit"
-            className="px-3 py-2 rounded bg-green-600 hover:bg-green-700 text-white w-full sm:w-auto text-sm"
-            disabled={status === "saving"}
-          >
-            Enviar tudo
-          </button>
-        ) : (
-          <button
-            type="button"
-            onClick={goNext}
-            className="px-3 py-2 rounded bg-[#005C8B] hover:bg-[#00476b] text-white w-full sm:w-auto text-sm"
-          >
-            Próxima categoria
-          </button>
-        )}
+        <button
+          type="button"
+          onClick={goNext}
+          disabled={page >= numPages - 1}
+          className={`px-3 py-2 rounded text-white w-full sm:w-auto text-sm
+            ${
+              page >= numPages - 1
+                ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                : "bg-[#005C8B] hover:bg-[#00476b]"
+            }`}
+        >
+          Próxima categoria
+        </button>
       </div>
 
       {/* Ações secundárias */}

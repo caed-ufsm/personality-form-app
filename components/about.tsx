@@ -20,23 +20,24 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
   return (
     <section
       aria-label="Sobre o CAEd/UFSM"
-      className={`mx-auto max-w-5xl px-4 py-10 sm:py-14 bg-white text-gray-800 ${className}`}
+      className={`mx-auto max-w-7xl px-6 py-12 sm:py-16 bg-white text-gray-800 ${className}`}
     >
       {/* Hero */}
-      <header className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-[#004c97]">
+      <header className="mb-12">
+        <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#004c97]">
           CAEd — Coordenadoria de Ações Educacionais (UFSM)
         </h1>
-        <p className="mt-3 max-w-3xl">
+        <br></br>
+        <p className="mt-4 max-w-4xl text-lg leading-relaxed">
           A CAEd, vinculada à PROGRAD/UFSM, desenvolve ações de apoio ao ensino com foco em
-          <strong className="text-[#004c97]"> acessibilidade</strong>,{" "}
-          <strong className="text-[#004c97]">ações afirmativas</strong> e{" "}
+          <strong className="text-[#004c97]"> acessibilidade</strong>,{' '}
+          <strong className="text-[#004c97]">ações afirmativas</strong> e{' '}
           <strong className="text-[#004c97]">apoio à aprendizagem</strong>, favorecendo o acesso, a permanência e o sucesso acadêmico.
         </p>
-        <div className="mt-4 flex flex-wrap items-center gap-3">
+        <div className="mt-5 flex flex-wrap items-center gap-3">
           <button
             onClick={copyEmail}
-            className="rounded-lg bg-[#004c97] px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-[#003870] focus:outline-none focus:ring-2 focus:ring-[#004c97] focus:ring-offset-2"
+            className="rounded-lg bg-[#004c97] px-5 py-2.5 text-base font-semibold text-white shadow-sm transition hover:bg-[#003870] focus:outline-none focus:ring-2 focus:ring-[#004c97] focus:ring-offset-2"
             aria-live="polite"
           >
             {copied ? 'E-mail copiado!' : `Copiar e-mail: ${email}`}
@@ -44,7 +45,7 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
           <Link
             href="https://www.ufsm.br/pro-reitorias/prograd/caed/"
             target="_blank"
-            className="rounded-lg border border-[#004c97] px-4 py-2 text-sm font-medium text-[#004c97] transition hover:bg-[#004c97] hover:text-white"
+            className="rounded-lg border border-[#004c97] px-5 py-2.5 text-base font-medium text-[#004c97] transition hover:bg-[#004c97] hover:text-white"
           >
             Site oficial do CAEd
           </Link>
@@ -52,19 +53,29 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
       </header>
 
       {/* O que faz */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold text-[#004c97]">O que o CAEd faz</h2>
-        <ul className="mt-3 list-disc space-y-2 pl-6">
-          <li>Atendimentos e orientações em <strong className="text-[#004c97]">acessibilidade</strong> (acadêmica e comunicacional).</li>
-          <li>Coordenação e acompanhamento de <strong className="text-[#004c97]">ações afirmativas</strong> (sociais, étnico-raciais e indígenas).</li>
-          <li><strong className="text-[#004c97]">Apoio à aprendizagem</strong> com ações pedagógicas e monitorias temáticas.</li>
-          <li>Produção de <strong className="text-[#004c97]">materiais acessíveis</strong> (ex.: descrição/audiodescrição, transcrição em Braille).</li>
-          <li>Gestão de demandas de <strong className="text-[#004c97]">Tradução/Interpretação em Libras</strong> (TILSP).</li>
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold text-[#004c97]">O que o CAEd faz</h2>
+        <ul className="mt-4 list-disc space-y-3 pl-7 text-lg leading-relaxed">
+          <li>
+            Atendimentos e orientações em <strong className="text-[#004c97]">acessibilidade</strong> (acadêmica e comunicacional).
+          </li>
+          <li>
+            Coordenação e acompanhamento de <strong className="text-[#004c97]">ações afirmativas</strong> (sociais, étnico-raciais e indígenas).
+          </li>
+          <li>
+            <strong className="text-[#004c97]">Apoio à aprendizagem</strong> com ações pedagógicas e monitorias temáticas.
+          </li>
+          <li>
+            Produção de <strong className="text-[#004c97]">materiais acessíveis</strong> (ex.: descrição/audiodescrição, transcrição em Braille).
+          </li>
+          <li>
+            Gestão de demandas de <strong className="text-[#004c97]">Tradução/Interpretação em Libras</strong> (TILSP).
+          </li>
         </ul>
       </section>
 
       {/* Áreas */}
-      <section className="mb-10 grid gap-6 md:grid-cols-2">
+      <section className="mb-12 grid gap-8 md:grid-cols-2">
         {[
           {
             title: 'Acessibilidade',
@@ -89,18 +100,18 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
         ].map((c) => (
           <article
             key={c.title}
-            className="rounded-2xl border border-[#004c97]/20 bg-white p-5 shadow-sm hover:shadow-md transition"
+            className="rounded-2xl border border-[#004c97]/20 bg-white p-6 sm:p-7 shadow-sm hover:shadow-md transition"
           >
-            <h3 className="text-lg font-semibold text-[#004c97]">{c.title}</h3>
-            <p className="mt-2">{c.desc}</p>
+            <h3 className="text-xl font-semibold text-[#004c97]">{c.title}</h3>
+            <p className="mt-3 text-lg leading-relaxed">{c.desc}</p>
           </article>
         ))}
       </section>
 
       {/* Contatos rápidos */}
-      <section className="mb-10">
-        <h2 className="text-xl font-semibold text-[#004c97]">Contatos</h2>
-        <div className="mt-3 grid gap-4 rounded-2xl border border-[#004c97]/20 bg-white p-5 shadow-sm">
+      <section className="mb-12">
+        <h2 className="text-2xl font-semibold text-[#004c97]">Contatos</h2>
+        <div className="mt-4 grid gap-4 rounded-2xl border border-[#004c97]/20 bg-white p-6 sm:p-7 shadow-sm text-lg leading-relaxed">
           <p>
             <strong>Secretaria / Geral:</strong>{' '}
             <a className="underline text-[#004c97]" href={`mailto:${email}`}>
@@ -147,8 +158,8 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
 
       {/* Links úteis */}
       <section>
-        <h2 className="text-xl font-semibold text-[#004c97]">Links úteis</h2>
-        <ul className="mt-3 space-y-2">
+        <h2 className="text-2xl font-semibold text-[#004c97]">Links úteis</h2>
+        <ul className="mt-4 space-y-2 text-lg leading-relaxed">
           <li>
             <Link
               href="https://www.ufsm.br/pro-reitorias/prograd/caed/sobre-a-caed"
