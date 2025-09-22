@@ -9,6 +9,7 @@ export type LikertQuestion = {
   minLabel?: string;         // default = "Discordo totalmente"
   maxLabel?: string;         // default = "Concordo totalmente"
   help?: string;
+  reverse?: boolean;         // default = false
 };
 
 export type Category = {

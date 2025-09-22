@@ -1,11 +1,17 @@
 // app/forms/lib/registry.ts
 import type { FormDefinition } from "./types";
-import { personalityV1 } from "../defs/personality-v1";
-import { feedbackV1 } from "../defs/feedback-v1";
+import { neuroticismV1 } from "../defs/neuroticismo";
+import { extroversaoV1 } from "../defs/extroversao";
+import { aberturaExperienciaV1 } from "../defs/aberturaExperiencia";
+import { amabilidadeV1 } from "../defs/amabilidade";
+import { conscienciosidadeV1 } from "../defs/conscienciosidade";
 
 const REGISTRY: Record<string, FormDefinition> = {
-  "personality-v1": personalityV1,
-  "feedback-v1": feedbackV1,
+  "neuroticismo-v1": neuroticismV1,
+  "extroversao-v1": extroversaoV1,
+  "abertura-experiencia-v1": aberturaExperienciaV1,
+  "amabilidade-v1": amabilidadeV1,
+  "conscienciosidade-v1": conscienciosidadeV1,
 };
 
 export function getFormDefinition(formId: string): FormDefinition | null {
