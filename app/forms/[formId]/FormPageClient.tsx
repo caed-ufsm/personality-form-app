@@ -59,70 +59,48 @@ export default function FormPageClient({
 
   const cat = def.categories[catIndex];
 
-  // Submit que gera e baixa o PDF
-  const handleSubmit = methods.handleSubmit(async (data) => {
-    try {
-      setDownloading(true);
-      setStatus?.("saving");
+// dentro do FormPageClient
+const handleSubmit = methods.handleSubmit(async (data) => {
+  try {
+    setDownloading(true);
+    setStatus?.("saving");
 
-      // Inferir nome/email se existirem no formulário
-      const respondent =
-        ("name" in data || "email" in data)
-          ? {
-            name: (data as any).name || undefined,
-            email: (data as any).email || undefined,
-          }
-          : undefined;
+    const payload = {
+      formId,
+      answers: data, // { [questionId]: number }
+    };
 
-      // Agrupar respostas por categoria
-      const groups = def.categories.map((c) => ({
-        title: c.title,
-        items: c.questions.map((q) => ({
-          label: q.label,
-          value: (data as any)[q.id] ?? "",
-        })),
-      }));
+    const res = await fetch("/api/pdf/report", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    });
 
-      const payload = {
-        title: def.title,
-        respondent,
-        groups, // preferível no PDFReport
-        // answers: groups.flatMap(g => g.items), // opcional: retrocompatível
-        footerNote: `Gerado automaticamente para o formulário "${def.title}" em ${new Date().toLocaleString("pt-BR")}.`,
-        themeColor: def.themeColor ?? "#0353a3",
-        logo: { src: "/logo.png", width: 40, height: 40 }, // precisa existir em /public
-      };
-
-      const res = await fetch("/api/report", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        const info = await res.json().catch(() => ({}));
-        throw new Error(info?.error || "Falha ao gerar PDF");
-      }
-
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = `${def.id ?? "form"}-respostas.pdf`;
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      URL.revokeObjectURL(url);
-
-      setStatus?.("saved");
-    } catch (err: any) {
-      setStatus?.("error");
-      alert(err?.message || "Erro ao gerar PDF");
-    } finally {
-      setDownloading(false);
+    if (!res.ok) {
+      throw new Error("Falha ao gerar PDF");
     }
-  });
 
+    // recebe o PDF como blob
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+
+    // força download
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `${formId}-report.pdf`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+
+    window.URL.revokeObjectURL(url);
+    setStatus?.("saved");
+  } catch (err) {
+    console.error(err);
+    setStatus?.("error");
+  } finally {
+    setDownloading(false);
+  }
+});
 
   return (
     <FormProvider {...methods}>
@@ -150,7 +128,7 @@ export default function FormPageClient({
             onSelect={setCatIndex}
           />
 
-          {/* status mapeado: downloading ? "saving" : status */}
+          {/* submit do form dispara a geração do PDF */}
           <form onSubmit={handleSubmit} className="space-y-4">
             {cat.questions.map((q, i) => (
               <QuestionItem
@@ -180,9 +158,23 @@ export default function FormPageClient({
               }}
             />
 
-            <p className="text-xs text-gray-500 mt-2">
-              Você pode salvar o rascunho e continuar depois.
-            </p>
+            {/* Botão para enviar e gerar o PDF (genérico para qualquer formulário) */}
+            <div className="w-full">
+              <button
+                type="submit"
+                disabled={downloading}
+                className={`px-4 py-3 rounded w-full text-white text-sm transition ${downloading
+                    ? "bg-gray-400 cursor-not-allowed"
+                    : "bg-emerald-600 hover:bg-emerald-700"
+                  }`}
+              >
+                {downloading ? "Gerando PDF..." : "Gerar PDF do formulário"}
+              </button>
+
+              <p className="text-xs text-gray-500 mt-2">
+                Você pode salvar o rascunho e continuar depois.
+              </p>
+            </div>
           </form>
         </div>
       </section>

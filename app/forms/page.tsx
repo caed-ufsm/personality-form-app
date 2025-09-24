@@ -5,6 +5,26 @@ import React from "react";
 import Link from "next/link";
 import { getAllForms } from "./lib/registry";
 
+/** ---- Types ------------------------------------------------------------- */
+type Nullable<T> = T | null | undefined;
+
+interface FormMeta {
+  id: string;
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  tags?: string[];
+  estimatedMinutes?: number;
+  totalQuestions?: number;
+  versionLabel?: string;
+  lastUpdatedISO?: string;
+  author?: string;
+  iconEmoji?: string;
+  themeColor?: string;
+}
+
+/** ---- Utils ------------------------------------------------------------- */
+
 function formatDate(iso?: string) {
   if (!iso) return null;
   try {
@@ -19,17 +39,16 @@ function formatDate(iso?: string) {
   }
 }
 
-/** normaliza para comparar ids/keys (minúsculas, sem acentos, com hífens) */
 function slugify(s: string) {
   return s
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // remove acentos
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/(^-|-$)/g, "");
 }
 
-function safeParse<T = any>(raw: string | null): T | null {
+function safeParse<T = any>(raw: Nullable<string>): T | null {
   if (!raw) return null;
   try {
     return JSON.parse(raw) as T;
@@ -38,71 +57,88 @@ function safeParse<T = any>(raw: string | null): T | null {
   }
 }
 
-/** tenta casar um formId com uma key do localStorage (aceita sufixos de versão) */
+function scoreKeyMatch(formSlug: string, keySlug: string) {
+  if (keySlug === formSlug) return 100;
+  if (keySlug.startsWith(formSlug + "-")) return 90;
+  if (keySlug.includes(formSlug)) return 70;
+  if (formSlug.startsWith(keySlug)) return 60;
+  return -1;
+}
+
 function findStorageKeyForForm(formId: string, ls: Storage): string | null {
   const formSlug = slugify(formId);
-
-  // 1) Igual exato
   const exact = ls.getItem(formId);
   if (exact != null) return formId;
 
-  // 2) Varre todas as keys e casa por slug (startsWith / includes)
   let best: { key: string; score: number } | null = null;
-
   for (let i = 0; i < ls.length; i++) {
     const key = ls.key(i);
     if (!key) continue;
-
     const keySlug = slugify(key);
-
-    // Pontuação: prioriza startsWith(formSlug) e menor diferença de comprimento
-    let score = -1;
-    if (keySlug === formSlug) score = 100;
-    else if (keySlug.startsWith(formSlug + "-")) score = 90;
-    else if (keySlug.includes(formSlug)) score = 70;
-    else if (formSlug.startsWith(keySlug)) score = 60;
-
-    if (score > -1) {
-      // desempate por “proximidade” de tamanho
-      const proximity = Math.abs(keySlug.length - formSlug.length);
-      const finalScore = score - Math.min(proximity, 30);
-      if (!best || finalScore > best.score) {
-        best = { key, score: finalScore };
-      }
-    }
+    const baseScore = scoreKeyMatch(formSlug, keySlug);
+    if (baseScore < 0) continue;
+    const proximity = Math.abs(keySlug.length - formSlug.length);
+    const finalScore = baseScore - Math.min(proximity, 30);
+    if (!best || finalScore > best.score) best = { key, score: finalScore };
   }
-
   return best?.key ?? null;
 }
 
-/** conta respostas não vazias (strings com conteúdo, números, booleanos true) */
 function countNonEmptyAnswers(obj: Record<string, any>): number {
   return Object.values(obj).filter((v) => {
     if (v === null || v === undefined) return false;
     if (typeof v === "string") return v.trim().length > 0;
     if (typeof v === "number") return true;
     if (typeof v === "boolean") return v === true;
-    // arrays/objetos: conta se tem conteúdo
     if (Array.isArray(v)) return v.length > 0;
     if (typeof v === "object") return Object.keys(v).length > 0;
     return false;
   }).length;
 }
 
-export default function FormsIndexPage() {
-  const forms = getAllForms();
+/** ---- Download helpers -------------------------------------------------- */
 
-  const handleValidateAndSend = React.useCallback(() => {
+function extractFilenameFromContentDisposition(cd?: string | null) {
+  if (!cd) return null;
+  // filename*=UTF-8''nome.pdf  |  filename="nome.pdf"
+  const utf8Match = cd.match(/filename\*\s*=\s*UTF-8''([^;]+)/i);
+  if (utf8Match?.[1]) return decodeURIComponent(utf8Match[1]);
+  const plainMatch = cd.match(/filename\s*=\s*"?([^";]+)"?/i);
+  return plainMatch?.[1] ?? null;
+}
+
+function triggerDownload(filename: string, blob: Blob) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+/** ---- Component --------------------------------------------------------- */
+
+export default function FormsIndexPage() {
+  const forms = React.useMemo<FormMeta[]>(() => getAllForms(), []);
+  const [submitting, setSubmitting] = React.useState(false);
+
+  const handleValidateAndSend = React.useCallback(async () => {
     if (typeof window === "undefined") return;
+    if (submitting) return;
 
     const ls = window.localStorage;
-    const incompletos: Array<{
+
+    type Incompleto = {
       id: string;
       title?: string;
       storageKey?: string | null;
       responded: number;
       expected?: number;
-    }> = [];
+    };
+
+    const incompletos: Incompleto[] = [];
     const payload: {
       forms: Array<{
         id: string;
@@ -114,20 +150,23 @@ export default function FormsIndexPage() {
       }>;
     } = { forms: [] };
 
-    // Debug: lista todas as keys do LS
-    const allKeys = Array.from({ length: ls.length }, (_, i) => ls.key(i)).filter(Boolean);
+    const allKeys = Array.from({ length: ls.length }, (_, i) => ls.key(i)).filter(
+      Boolean
+    );
     console.debug("[forms] localStorage keys:", allKeys);
 
     for (const f of forms) {
       const key = findStorageKeyForForm(f.id, ls);
       const raw = key ? ls.getItem(key) : null;
-      const data = safeParse<Record<string, any>>(raw) ?? {};
+      const data = (safeParse<Record<string, any>>(raw) ?? {}) as Record<
+        string,
+        any
+      >;
+
       const responded = countNonEmptyAnswers(data);
       const expected =
         typeof f.totalQuestions === "number" ? f.totalQuestions : undefined;
 
-      // considera completo quando há expected e responded >= expected
-      // se não houver expected, considera completo se houver pelo menos 1 resposta
       const isComplete = expected != null ? responded >= expected : responded > 0;
 
       console.debug("[forms] check", {
@@ -181,12 +220,73 @@ export default function FormsIndexPage() {
       return;
     }
 
-    // Tudo completo -> simula o envio (apenas print)
-    console.log(">>> ENVIAR PARA BACKEND (simulação) <<<");
-    console.log(payload);
+    // ---- Envio ao backend e download do PDF -----------------------------
+    const ENDPOINT_URL = "/api/pdf/report"; // <<<<<< AJUSTE AQUI
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 60_000); // 60s
 
-    alert("Formulários completos! Simulando envio (veja o console).");
-  }, [forms]);
+    try {
+      setSubmitting(true);
+
+      const res = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/pdf,application/json",
+        },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+        credentials: "same-origin",
+      });
+
+      // Se o backend retornar JSON de erro, tente ler e exibir
+      const contentType = res.headers.get("Content-Type") || "";
+      if (!res.ok) {
+        if (contentType.includes("application/json")) {
+          const err = await res.json().catch(() => null);
+          const msg =
+            (err && (err.message || err.error || JSON.stringify(err))) ||
+            `Erro ${res.status}`;
+          throw new Error(msg);
+        }
+        const text = await res.text().catch(() => "");
+        throw new Error(text || `Erro ${res.status}`);
+      }
+
+      // Espera-se PDF
+      if (!contentType.includes("application/pdf")) {
+        // Se vier JSON de sucesso com link, trate aqui se quiser
+        const maybeJson = await res.json().catch(() => null);
+        if (maybeJson?.fileUrl) {
+          window.location.href = maybeJson.fileUrl;
+          alert("PDF gerado. Iniciando download pelo link retornado.");
+          return;
+        }
+        throw new Error(
+          "Resposta não é PDF. Verifique o endpoint ou o 'Content-Type'."
+        );
+      }
+
+      const blob = await res.blob();
+      const cd = res.headers.get("Content-Disposition");
+      const filename =
+        extractFilenameFromContentDisposition(cd) ||
+        `respostas-${new Date().toISOString().slice(0, 19).replace(/[:T]/g, "-")}.pdf`;
+
+      triggerDownload(filename, blob);
+      alert("PDF gerado com sucesso! O download foi iniciado.");
+    } catch (e: any) {
+      if (e?.name === "AbortError") {
+        alert("Tempo de espera excedido ao gerar o PDF. Tente novamente.");
+      } else {
+        console.error(e);
+        alert(`Falha ao gerar PDF: ${e?.message || e}`);
+      }
+    } finally {
+      clearTimeout(timeout);
+      setSubmitting(false);
+    }
+  }, [forms, submitting]);
 
   return (
     <main className="mx-auto max-w-7xl p-8">
@@ -197,20 +297,20 @@ export default function FormsIndexPage() {
           {forms.length !== 1 ? "s" : ""}
         </p>
 
-        {/* Botão de validar/enviar (simulado) */}
+        {/* Botão de validar/enviar (simulado -> agora envia e baixa PDF) */}
         <div className="mt-6">
           <button
             type="button"
             onClick={handleValidateAndSend}
             className="inline-flex items-center gap-2 rounded-lg bg-[#0353a3] px-5 py-3 text-base font-semibold text-white shadow transition hover:bg-blue-800"
-            disabled={forms.length === 0}
-            title="Valida os formulários no navegador e simula o envio"
+            disabled={forms.length === 0 || submitting}
+            title="Valida os formulários no navegador e gera o PDF (download)"
           >
-            Validar e enviar respostas
+            {submitting ? "Gerando PDF..." : "Validar e enviar respostas"}
           </button>
           <p className="mt-2 text-sm text-gray-500">
-            O sistema verifica os rascunhos salvos no navegador. Se estiver tudo OK,
-            apenas fará um <code>console.log</code> com o payload.
+            O sistema verifica os rascunhos salvos no navegador e envia ao servidor.
+            Se tudo certo, o PDF é gerado e baixado automaticamente.
           </p>
         </div>
       </header>
@@ -269,9 +369,7 @@ export default function FormsIndexPage() {
                   <span>❓ {f.totalQuestions} perguntas</span>
                 )}
                 {f.versionLabel && <span>📌 {f.versionLabel}</span>}
-                {f.lastUpdatedISO && (
-                  <span>🗓 {formatDate(f.lastUpdatedISO)}</span>
-                )}
+                {f.lastUpdatedISO && <span>🗓 {formatDate(f.lastUpdatedISO)}</span>}
                 {f.author && <span>👤 {f.author}</span>}
               </div>
 

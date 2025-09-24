@@ -1,0 +1,695 @@
+{
+    "Neuroticismo": {
+        "descricao": "O fator da personalidade Neuroticismo está associado à propensão a experimentar emoções negativas (ansiedade, irritação, insegurança). A seguir, avaliaremos como cada uma das seis facetas ou características que compõem este fator se relacionam com a carreira docente.",
+        "facetas": {
+            "Ansiedade": {
+                "descricao": "Tendência a se preocupar excessivamente com prazos, metas e demandas institucionais, afetando a concentração e a tranquilidade.",
+                "perguntas": [
+                    {
+                        "id": "N1",
+                        "texto": "Sinto preocupação constante com prazos de lançamento de notas, elaboração de relatórios e outras exigências burocráticas.",
+                        "feedbacks": {
+                            "baixo": "Sua postura tranquila ajuda a manter o equilíbrio emocional e evita sobrecarga. Contudo, utilize lembretes e organize um calendário institucional para garantir que nenhuma obrigação seja esquecida.",
+                            "medio": "Você mantém atenção aos prazos quando necessário, sem que isso se torne fonte de tensão. Continue utilizando ferramentas de planejamento para manter o fluxo de trabalho estável.",
+                            "alto": "A atenção constante aos prazos garante que suas obrigações estejam sempre em dia, mas pode gerar estresse desnecessário. Considere reservar momentos específicos para lidar com essas demandas, evitando que interfiram em outras atividades acadêmicas."
+                        }
+                    },
+                    {
+                        "id": "N2",
+                        "texto": "Fico nervoso(a) ao pensar em possíveis avaliações (por exemplo, avaliações institucionais ou pareceres) que possam julgar meu desempenho.",
+                        "feedbacks": {
+                            "baixo": "Sua tranquilidade diante de avaliações favorece a objetividade e a manutenção da confiança. Mantenha essa postura para analisar resultados de forma construtiva e buscar melhorias quando necessário.",
+                            "medio": "Você demonstra preocupação moderada, o que mantém o equilíbrio entre autocrítica e serenidade. Preserve essa postura, preparando-se previamente para avaliações e transformando feedbacks em oportunidades de desenvolvimento.",
+                            "alto": "A ansiedade em relação a avaliações pode prejudicar a confiança e o foco. Praticar técnicas de atenção plena e revisar seu desempenho de forma objetiva antes de avaliações pode ajudar a reduzir a tensão e melhorar sua segurança."
+                        }
+                    },
+                    {
+                        "id": "N3",
+                        "texto": "Em algumas fases do semestre, perco o sono por temer não conseguir cumprir todas as atividades profissionais.",
+                        "feedbacks": {
+                            "baixo": "Você mantém o descanso preservado mesmo em períodos de maior demanda, o que contribui para a clareza mental e a produtividade. Continue priorizando hábitos de sono saudáveis para sustentar seu rendimento ao longo do semestre.",
+                            "medio": "Eventualmente, suas preocupações afetam o sono, mas sem comprometer de forma recorrente sua rotina. Manter estratégias de organização e pausas regulares pode ajudar a prevenir que períodos de sobrecarga impactem seu descanso.",
+                            "alto": "A perda frequente de sono devido a preocupações indica que o estresse está afetando seu bem-estar. Estabelecer limites de trabalho, delegar tarefas quando possível e praticar técnicas de relaxamento antes de dormir pode contribuir para um descanso mais reparador."
+                        }
+                    },
+                    {
+                        "id": "N4",
+                        "texto": "Meu coração acelera diante de situações que envolvem cobranças ou mudanças repentinas na grade ou no plano de aula.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra boa adaptação diante de imprevistos e cobranças, mantendo o controle emocional mesmo em situações de pressão. Continue cultivando essa estabilidade para lidar com desafios acadêmicos.",
+                            "medio": "Situações inesperadas podem gerar alguma tensão, mas você tende a recuperar o equilíbrio rapidamente. Manter um planejamento flexível e técnicas de respiração pode ajudar a reduzir ainda mais essas reações físicas.",
+                            "alto": "A reação física intensa a cobranças ou mudanças indica que a pressão afeta seu estado emocional e fisiológico. Investir em estratégias de manejo de estresse, como pausas conscientes, exercícios respiratórios ou preparação antecipada para imprevistos, pode trazer mais tranquilidade nessas ocasiões."
+                        }
+                    },
+                    {
+                        "id": "N5",
+                        "texto": "Em momentos de alta pressão institucional, tenho dificuldade para manter a calma e me desligar mentalmente das obrigações.",
+                        "feedbacks": {
+                            "baixo": "Você consegue preservar a calma e separar o trabalho das demais áreas da vida, mesmo em períodos de pressão. Continue praticando hábitos que favoreçam o equilíbrio mental, como momentos de lazer e descanso regular.",
+                            "medio": "Consegue manter certo controle emocional, mas nem sempre se desconecta completamente das obrigações. Criar rotinas de transição entre o trabalho e a vida pessoal pode ajudar a estabelecer limites mais claros.",
+                            "alto": "A dificuldade de se desligar e manter a calma em contextos de alta pressão pode gerar desgaste físico e mental. Adotar técnicas de relaxamento, estabelecer pausas programadas e definir horários claros para encerrar o expediente pode reduzir essa sobrecarga."
+                        }
+                    },
+                    {
+                        "id": "N6",
+                        "texto": "Quando percebo sinais físicos de ansiedade (como insônia, tensão muscular ou aceleração dos batimentos), busco estratégias para retomar o equilíbrio emocional.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não recorrer ativamente a estratégias para lidar com sintomas físicos de ansiedade, o que pode prolongar o desconforto. Experimentar técnicas simples, como respiração profunda, alongamento ou pausas curtas, pode ajudar a aliviar a tensão.",
+                            "medio": "Reconhece os sinais de ansiedade e, em alguns casos, procura estratégias para amenizá-los. Tornar essas ações mais consistentes pode fortalecer sua resiliência e evitar que o desconforto aumente.",
+                            "alto": "Você demonstra atenção aos sinais físicos de ansiedade e utiliza estratégias para recuperar o equilíbrio emocional. Manter essa prática e diversificar os recursos (como exercícios físicos, mindfulness ou atividades relaxantes) contribui para preservar o bem-estar."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Ansiedade (Nível Baixo) para Docentes",
+                        "definicao": "A faceta Ansiedade avalia a tendência a experimentar preocupações e tensões relacionadas aos prazos e demandas institucionais. Em nível baixo, os docentes apresentam uma postura mais tranquila e confiante, lidando com as obrigações acadêmicas sem pânico, embora isso possa levar à subestimação de prazos ou à crença de que tudo se resolverá naturalmente.",
+                        "caracteristicas": [
+                            "Tranquilidade Predominante: Geralmente mantém uma postura calma e serena em relação aos prazos e às demandas, mesmo em períodos intensos.",
+                            "Resistência ao Pânico: Lida com problemas e imprevistos sem apresentar reações exageradas, demonstrando uma estabilidade emocional que favorece a execução das tarefas.",
+                            "Confiança na Solução Natural: Pode acreditar que os desafios institucionais serão superados sem a necessidade de intervenções imediatas."
+                        ],
+                        "vantagens": [
+                            "Estabilidade Emocional: A tranquilidade ajuda a manter o foco nas atividades e a evitar o estresse excessivo.",
+                            "Consistência na Execução: A abordagem calma permite que as atividades sejam realizadas de maneira constante.",
+                            "Boa Capacidade de Adaptação: A confiança natural facilita a adaptação a mudanças e imprevistos."
+                        ],
+                        "dificuldades": [
+                            "Subestimação de Prazos: Pode levar a não antecipar demandas críticas.",
+                            "Risco de Complacência: Pode esperar que os problemas se resolvam sozinhos.",
+                            "Possível Falta de Urgência: Pode reagir mais devagar em situações críticas."
+                        ],
+                        "estrategias": [
+                            "Criar Alertas e Lembretes.",
+                            "Definir Metas Intermediárias.",
+                            "Simulações de Eventos Desafiadores.",
+                            "Solicitar feedback contínuo de colegas e gestores."
+                        ],
+                        "conclusao": "Docentes com baixos níveis de ansiedade desfrutam de estabilidade emocional e consistência no trabalho, mas precisam manter um senso de urgência adequado para não cair na complacência."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Ansiedade (Nível Médio) para Docentes",
+                        "definicao": "A faceta Ansiedade está relacionada à propensão a sentir preocupações e tensões frente a prazos, metas e demandas institucionais. Em nível médio, os docentes vivenciam momentos de apreensão, mas conseguem alternar entre períodos de tranquilidade e tensão.",
+                        "caracteristicas": [
+                            "Sensibilidade Moderada a Prazos.",
+                            "Reações Proporcionais.",
+                            "Oscilação do Nível de Ansiedade."
+                        ],
+                        "vantagens": [
+                            "Equilíbrio entre urgência e calma.",
+                            "Capacidade de recuperação após eventos estressantes.",
+                            "Produtividade flexível."
+                        ],
+                        "dificuldades": [
+                            "Picos de ansiedade em períodos de alta pressão.",
+                            "Risco de reatividade emocional.",
+                            "Fadiga intermitente."
+                        ],
+                        "estrategias": [
+                            "Monitorar sinais físicos e emocionais.",
+                            "Estabelecer rotinas de cuidado.",
+                            "Planejar períodos de pico.",
+                            "Treinar respostas rápidas a imprevistos."
+                        ],
+                        "conclusao": "Docentes com níveis médios de ansiedade mantêm equilíbrio, mas precisam se preparar para períodos de maior pressão para evitar desgaste."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Ansiedade (Nível Alto) para Docentes",
+                        "definicao": "A faceta Ansiedade está associada à tendência de se preocupar excessivamente com prazos, metas e demandas institucionais. Em nível alto, docentes experimentam sentimentos intensos de ansiedade e nervosismo que podem afetar o desempenho.",
+                        "caracteristicas": [
+                            "Preocupação Contínua.",
+                            "Reação Emocional Intensa.",
+                            "Impacto Físico (insônia, aceleração cardíaca)."
+                        ],
+                        "vantagens": [
+                            "Impulso para a produtividade.",
+                            "Atenção aos detalhes."
+                        ],
+                        "dificuldades": [
+                            "Estresse contínuo prejudica a concentração.",
+                            "Sobrecarga e cansaço."
+                        ],
+                        "estrategias": [
+                            "Praticar técnicas de relaxamento.",
+                            "Manter cronogramas claros.",
+                            "Buscar apoio psicológico quando necessário.",
+                            "Estabelecer pausas programadas."
+                        ],
+                        "conclusao": "Docentes com altos níveis de ansiedade tendem a ser produtivos e atentos aos detalhes, mas precisam equilibrar a pressão para evitar estresse e desgaste contínuo."
+                    }
+                }
+            },
+            "Hostilidade": {
+                "descricao": "Tendência a reagir com irritação frente a imprevistos e obstáculos, prejudicando o controle emocional no âmbito pessoal e profissional.",
+                "perguntas": [
+                    {
+                        "id": "H1",
+                        "texto": "Fico irritado(a) quando alguém interrompe minhas atividades de forma abrupta.",
+                        "feedbacks": {
+                            "baixo": "Você lida bem com interrupções, demonstrando flexibilidade e paciência. Apenas cuide para que essa tolerância não prejudique a proteção do seu tempo de foco em tarefas importantes.",
+                            "medio": "Interrupções podem incomodá-lo(a) em alguns momentos, mas você tende a se adaptar. Estabelecer acordos claros sobre horários de trabalho pode reduzir essas situações e manter a produtividade.",
+                            "alto": "A irritação com interrupções é um sinal de que valoriza seu tempo e concentração. Porém, reações muito intensas podem gerar desgaste nas relações. Usar comunicação assertiva para explicar sua necessidade de foco pode minimizar conflitos."
+                        }
+                    },
+                    {
+                        "id": "H2",
+                        "texto": "Quando acho que meu cronograma está sendo prejudicado por reuniões excessivas ou demandas de última hora, sinto que posso 'explodir'.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra boa tolerância a imprevistos e reorganiza sua agenda sem grande estresse. Apenas cuide para que a flexibilidade não comprometa a clareza das suas prioridades.",
+                            "medio": "Você se incomoda com reuniões ou demandas inesperadas, mas geralmente consegue administrar a situação. Definir limites e comunicar previamente seu tempo disponível pode reduzir impactos negativos.",
+                            "alto": "A frustração intensa com mudanças de agenda indica que a sobrecarga pesa significativamente. Para evitar desgaste, considere reservar blocos de tempo 'protegido' para atividades essenciais e negociar a participação apenas em reuniões realmente relevantes."
+                        }
+                    },
+                    {
+                        "id": "H3",
+                        "texto": "Às vezes, sinto raiva de colegas que parecem ter facilidades administrativas ou infraestrutura superior à minha.",
+                        "feedbacks": {
+                            "baixo": "Você mantém uma postura equilibrada diante das diferenças de recursos, evitando comparações prejudiciais. Continue focando no que está sob seu controle e aproveitando ao máximo os recursos disponíveis.",
+                            "medio": "O sentimento de comparação surge ocasionalmente, mas você consegue mantê-lo sob controle. Reforce estratégias de autorregulação, como focar em metas próprias e buscar soluções criativas para superar limitações.",
+                            "alto": "A raiva frequente pode indicar sensação de injustiça ou desigualdade que afeta seu bem-estar. Para reduzir esse impacto, invista em diálogo com a gestão sobre melhorias possíveis e desenvolva práticas de autocuidado que ajudem a canalizar essa energia de forma construtiva."
+                        }
+                    },
+                    {
+                        "id": "H4",
+                        "texto": "Incomoda-me profundamente quando meu trabalho (de extensão ou pesquisa) é subestimado ou minimizado por outros.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra resiliência diante de críticas ou falta de reconhecimento, mantendo o foco no valor que atribui ao próprio trabalho. Continue valorizando seus resultados internos e reconhecendo seu progresso de forma independente da opinião externa.",
+                            "medio": "A desvalorização ocasional incomoda, mas não compromete seu engajamento. Preserve esse equilíbrio e, quando necessário, procure espaços para apresentar de forma clara e objetiva os impactos e resultados do seu trabalho.",
+                            "alto": "O incômodo intenso pode gerar desgaste emocional e afetar a motivação. Para lidar melhor, fortaleça sua rede de apoio profissional, documente suas entregas e resultados e pratique estratégias de comunicação assertiva para defender seu trabalho de forma construtiva."
+                        }
+                    },
+                    {
+                        "id": "H5",
+                        "texto": "Fico impaciente quando preciso refazer tarefas devido a falhas ou atrasos causados por outras pessoas.",
+                        "feedbacks": {
+                            "baixo": "Você tende a lidar bem com imprevistos e erros alheios, mantendo uma postura colaborativa. Continue valorizando essa paciência, mas garanta que ela não resulte em sobrecarga silenciosa.",
+                            "medio": "A impaciência surge em situações específicas, mas não domina sua reação. Preserve esse controle e, quando possível, negocie prazos ou responsabilidades para reduzir retrabalhos.",
+                            "alto": "A impaciência elevada pode gerar estresse e prejudicar relações profissionais. Busque separar o problema da pessoa envolvida e adote estratégias de comunicação que permitam prevenir falhas recorrentes e redistribuir responsabilidades de forma justa."
+                        }
+                    },
+                    {
+                        "id": "H6",
+                        "texto": "Quando percebo que estou prestes a reagir com irritação, consigo parar e evitar uma resposta impulsiva.",
+                        "feedbacks": {
+                            "baixo": "A dificuldade em conter reações impulsivas pode intensificar conflitos e desgastar relações. Vale investir em técnicas de respiração, pausas estratégicas e treinamento de autocontrole para reduzir respostas automáticas.",
+                            "medio": "Você consegue se controlar em algumas situações, mas nem sempre. Reforçar a prática dos meios de autocontrole que já utiliza e ampliar seu repertório pode trazer mais constância no manejo da irritação.",
+                            "alto": "Você demonstra bom domínio emocional, conseguindo interromper respostas impulsivas na maior parte das vezes. Continue fortalecendo esse recurso, aplicando-o também em situações de pressão extrema ou quando há desgaste acumulado."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Baixo (Docentes)",
+                        "definicao": "A faceta Hostilidade (Raiva) reflete a capacidade de responder com irritação aos imprevistos e obstáculos. Em nível baixo, os docentes apresentam uma postura mais tranquila e tolerante, mantendo a calma mesmo diante de desafios, embora isso possa resultar em uma abordagem que negligencia a resolução de problemas estruturais.",
+                        "caracteristicas": [
+                            "Postura Tranquila: Geralmente, não reage com raiva quando há interrupções ou demandas inesperadas.",
+                            "Tolerância a Inconveniências: Permanece sereno mesmo quando o cronograma é afetado por reuniões excessivas ou mudanças repentinas.",
+                            "Foco na Execução: Concentra-se nas atividades sem permitir que pequenas irritações o desmotivem."
+                        ],
+                        "vantagens": [
+                            "Ambiente de Trabalho Harmonioso.",
+                            "Estabilidade Emocional.",
+                            "Execução consistente mesmo em períodos de alta demanda."
+                        ],
+                        "dificuldades": [
+                            "Negligência de Problemas Estruturais.",
+                            "Risco de Acúmulo de Frustrações.",
+                            "Perda de Oportunidades de Melhoria."
+                        ],
+                        "estrategias": [
+                            "Expressar incômodos de forma proativa.",
+                            "Participar de debates coletivos.",
+                            "Formar grupos de trabalho para propor soluções.",
+                            "Acompanhar demandas usando ferramentas de monitoramento."
+                        ],
+                        "conclusao": "Docentes com um baixo nível de hostilidade mantêm uma postura serena e colaborativa, o que contribui para um ambiente de trabalho harmonioso. Contudo, é importante não deixar que essa tranquilidade se transforme em passividade, pois problemas estruturais podem passar despercebidos."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Médio (Docentes)",
+                        "definicao": "A faceta Hostilidade (Raiva) está associada à tendência de reagir com irritação e frustração diante de imprevistos e obstáculos. Em nível médio, os docentes apresentam reações de irritação em algumas situações específicas, especialmente quando percebem prejuízo ao cronograma ou desvalorização de seu trabalho, mas conseguem retomar o controle emocional de forma relativamente rápida.",
+                        "caracteristicas": [
+                            "Reatividade Controlada: Irritação diante de interrupções, mas sem prolongar a emoção.",
+                            "Sensibilidade a Impactos no Cronograma.",
+                            "Valorização do Trabalho."
+                        ],
+                        "vantagens": [
+                            "Atenção a Problemas Estruturais.",
+                            "Equilíbrio Entre Firmeza e Diplomacia.",
+                            "Preservação das Relações Profissionais."
+                        ],
+                        "dificuldades": [
+                            "Oscilações na Concentração.",
+                            "Risco de Acúmulo de Pequenos Incômodos.",
+                            "Reatividade em Momentos Críticos."
+                        ],
+                        "estrategias": [
+                            "Gerenciar o tom de resposta.",
+                            "Expressar incômodos no momento adequado.",
+                            "Utilizar feedback construtivo.",
+                            "Praticar autoconsciência emocional."
+                        ],
+                        "conclusao": "Docentes com níveis médios de hostilidade equilibram a firmeza necessária para apontar problemas com a diplomacia que preserva relações profissionais."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Alto (Docentes)",
+                        "definicao": "A faceta Hostilidade (Raiva) está associada à tendência de reagir com irritação e frustração diante de imprevistos e obstáculos. Em nível alto, docentes podem experimentar reações intensas ao enfrentar interrupções inesperadas, sobrecarga de reuniões ou problemas administrativos.",
+                        "caracteristicas": [
+                            "Reatividade Emocional Elevada.",
+                            "Comparação e Inveja diante de colegas com mais recursos.",
+                            "Sensibilidade à Valorização do Trabalho."
+                        ],
+                        "vantagens": [
+                            "Impulso para a Melhoria.",
+                            "Determinação na Resolução de Problemas."
+                        ],
+                        "dificuldades": [
+                            "Risco de Conflitos.",
+                            "Prejuízo na Concentração.",
+                            "Sobrecarga Emocional."
+                        ],
+                        "estrategias": [
+                            "Identificação de gatilhos de irritação.",
+                            "Prática de time-outs (pausas conscientes).",
+                            "Expressão assertiva de insatisfações.",
+                            "Uso da mediação de conflitos de forma construtiva."
+                        ],
+                        "conclusao": "Para docentes com nível alto de hostilidade, a intensidade emocional pode ser um motor de mudanças, desde que canalizada de forma construtiva."
+                    }
+                }
+            },
+            "Depressao": {
+                "descricao": "Tendência a sentir desmotivação e desesperança, comprometendo a regularidade e a qualidade das atividades pessoais e docentes.",
+                "perguntas": [
+                    {
+                        "id": "D1",
+                        "texto": "Com frequência, sinto desânimo quanto ao futuro da minha carreira acadêmica, achando que não conseguirei avançar nos projetos.",
+                        "feedbacks": {
+                            "baixo": "Seu otimismo e confiança no futuro ajudam a manter a motivação, mesmo diante de obstáculos. Continue definindo metas realistas e celebrando avanços para sustentar essa visão positiva.",
+                            "medio": "Você mantém uma visão equilibrada, alternando momentos de confiança e de dúvida. Criar um plano de ação claro e revisá-lo periodicamente pode ajudar a manter o ânimo e a clareza de propósito.",
+                            "alto": "O desânimo frequente pode comprometer sua produtividade e satisfação profissional. Busque apoio de colegas ou mentores, celebre pequenas conquistas e utilize técnicas de reestruturação cognitiva para fortalecer a esperança no progresso da carreira."
+                        }
+                    },
+                    {
+                        "id": "D2",
+                        "texto": "Tenho momentos em que me sinto sem esperança sobre a progressão na carreira (promoções, estabilidade de projetos).",
+                        "feedbacks": {
+                            "baixo": "Sua confiança na progressão profissional é um recurso valioso. Continue cultivando dessa segurança para planejar o futuro, investindo em ações consistentes que fortaleçam sua trajetória.",
+                            "medio": "Você apresenta um equilíbrio entre momentos de otimismo e de dúvida. Estabelecer objetivos de curto e médio prazo e monitorar seu avanço pode ajudar a manter o foco e reduzir incertezas.",
+                            "alto": "A sensação frequente de falta de esperança pode afetar sua motivação e visão de futuro. Busque apoio em redes profissionais, identifique conquistas passadas como evidência de progresso e adote estratégias de autocompaixão para lidar com fases mais lentas da carreira."
+                        }
+                    },
+                    {
+                        "id": "D3",
+                        "texto": "Fico triste quando percebo que meus projetos de pesquisa ou as turmas que leciono não evoluem como eu esperava.",
+                        "feedbacks": {
+                            "baixo": "Você tende a lidar bem com resultados diferentes do planejado, mantendo estabilidade emocional. Use essa resiliência para ajustar estratégias sem perder o engajamento e a motivação.",
+                            "medio": "Embora sinta impacto emocional moderado, consegue equilibrar expectativas e realidade. Praticar revisões periódicas de metas pode ajudar a identificar melhorias no processo e reduzir frustrações.",
+                            "alto": "A tristeza frequente diante de resultados aquém do esperado pode gerar desmotivação. Reforce o acompanhamento de indicadores de progresso, valorize avanços parciais e diversifique estratégias para alcançar objetivos de forma gradual."
+                        }
+                    },
+                    {
+                        "id": "D4",
+                        "texto": "Em alguns dias, penso em desistir de novas iniciativas (como projetos pessoais e profissionais) por achar que não darei conta.",
+                        "feedbacks": {
+                            "baixo": "Você mantém confiança e perseverança diante de novos desafios, mesmo quando exigem grande esforço. Continue equilibrando ousadia e planejamento para sustentar esse nível de motivação.",
+                            "medio": "Eventualmente, sente insegurança quanto à capacidade de assumir novas demandas, mas não deixa isso limitar seu envolvimento. Criar planos detalhados de execução pode reduzir dúvidas iniciais e aumentar a confiança.",
+                            "alto": "A sensação recorrente de não dar conta pode levar à desistência precoce de oportunidades importantes. Trabalhe o fracionamento de metas, busque apoio colaborativo e celebre pequenas vitórias para manter a motivação ao longo do percurso."
+                        }
+                    },
+                    {
+                        "id": "D5",
+                        "texto": "Sinto dificuldade para me motivar, mesmo quando as tarefas são importantes para meus objetivos.",
+                        "feedbacks": {
+                            "baixo": "Você mantém a motivação mesmo diante de tarefas desafiadoras ou menos atrativas, o que fortalece a consistência no alcance de objetivos. Continue usando estratégias de foco e significado para sustentar esse ritmo.",
+                            "medio": "Sua motivação varia conforme o contexto ou momento, mas geralmente retorna ao perceber a importância da tarefa. Criar gatilhos motivacionais, como recompensas ou conexões diretas com seus valores, pode ajudar a manter o engajamento.",
+                            "alto": "A dificuldade frequente em se motivar, mesmo para atividades essenciais, pode comprometer prazos e metas. Experimente estabelecer rotinas fixas, dividir tarefas em partes menores e buscar apoio externo para impulsionar o início das ações."
+                        }
+                    },
+                    {
+                        "id": "D6",
+                        "texto": "Quando percebo sinais de desânimo, busco estratégias ativas para retomar a motivação, como redefinir metas ou pedir apoio.",
+                        "feedbacks": {
+                            "baixo": "A ausência de ações para reagir ao desânimo pode prolongar períodos de baixa motivação e impactar o desempenho. Vale desenvolver um repertório de estratégias práticas, como conversar com colegas, revisar metas e conquistar pequenas vitórias para gerar impulso.",
+                            "medio": "Você adota estratégias para recuperar a motivação de forma eventual, mas ainda pode torná-las mais consistentes. Transformar essas ações em hábito pode reduzir o tempo de recuperação e prevenir quedas de desempenho mais prolongadas.",
+                            "alto": "Sua postura proativa diante do desânimo ajuda a manter a motivação e o progresso nos objetivos. Continue aplicando e aprimorando suas estratégias, adaptando-as a cada contexto para sustentar resultados mesmo em momentos de maior desafio."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Baixo (Docentes)",
+                        "definicao": "A faceta Depressão (Desânimo) avalia o grau de desmotivação e desesperança que afeta as atividades pessoais e docentes. Em nível baixo, você geralmente mantém um humor estável mesmo em períodos de alta demanda, embora seja importante monitorar sinais sutis de cansaço ou apatia que possam comprometer a qualidade do trabalho a longo prazo.",
+                        "caracteristicas": [
+                            "Estabilidade Emocional.",
+                            "Resiliência na Rotina.",
+                            "Subtileza na Expressão de Desânimo."
+                        ],
+                        "vantagens": [
+                            "Clareza e Consistência.",
+                            "Baixo Risco de Desistência.",
+                            "Ambiente de Trabalho Calmo."
+                        ],
+                        "dificuldades": [
+                            "Negligência de Sinais Sutis.",
+                            "Risco de Acomodação.",
+                            "Possível Falta de Proatividade."
+                        ],
+                        "estrategias": [
+                            "Manutenção de hábitos saudáveis.",
+                            "Monitoramento de humor.",
+                            "Feedback e suporte mútuo.",
+                            "Estímulos para inovação."
+                        ],
+                        "conclusao": "Embora um baixo nível de desânimo proporcione estabilidade e consistência, é essencial monitorar sinais sutis de cansaço ou apatia. Ao manter hábitos saudáveis e estimular inovação, você garante evolução contínua sem complacência."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Médio (Docentes)",
+                        "definicao": "A faceta Depressão (Desânimo) refere-se à tendência de sentir desmotivação e desesperança, afetando a regularidade e a qualidade das atividades. Em nível médio, o docente vivencia períodos pontuais de desânimo ou incerteza, mas mantém a capacidade de retomar o engajamento na maioria das situações.",
+                        "caracteristicas": [
+                            "Oscilação de Motivação.",
+                            "Sensibilidade a Resultados.",
+                            "Preocupação com a Carreira."
+                        ],
+                        "vantagens": [
+                            "Capacidade de Retomada.",
+                            "Autocrítica Moderada.",
+                            "Equilíbrio Emocional Relativo."
+                        ],
+                        "dificuldades": [
+                            "Queda Temporária de Produtividade.",
+                            "Risco de Procrastinação.",
+                            "Impacto Emocional Pontual."
+                        ],
+                        "estrategias": [
+                            "Manter metas de curto prazo.",
+                            "Registrar conquistas semanais.",
+                            "Planejar momentos de recuperação.",
+                            "Buscar apoio em situações críticas."
+                        ],
+                        "conclusao": "Docentes com níveis médios de desânimo equilibram fases de menor motivação com engajamento produtivo. Monitoramento e pequenas metas ajudam a reduzir impactos negativos e preservar qualidade no ensino e nos projetos."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Alto (Docentes)",
+                        "definicao": "A faceta Depressão (Desânimo) diz respeito à tendência de sentir desmotivação e desesperança, impactando a regularidade e a qualidade das atividades. Em nível alto, você frequentemente se sente desanimado quanto ao futuro da carreira, o que pode levar à desistência de projetos e iniciativas.",
+                        "caracteristicas": [
+                            "Preocupação com o Futuro.",
+                            "Reação Emocional Negativa.",
+                            "Tendência a Desistir."
+                        ],
+                        "vantagens": [
+                            "Autocrítica para Melhoria.",
+                            "Identificação de Necessidades de Apoio."
+                        ],
+                        "dificuldades": [
+                            "Risco de Desistência e Abandono.",
+                            "Esgotamento e Sobrecarga.",
+                            "Necessidade de Suporte Contínuo."
+                        ],
+                        "estrategias": [
+                            "Acompanhamento psicológico.",
+                            "Diário de pequenas vitórias.",
+                            "Inserir atividades físicas e lazer.",
+                            "Apoio e compartilhamento com colegas."
+                        ],
+                        "conclusao": "Para docentes com alto nível de desânimo, reconhecer e agir sobre os sinais é essencial para evitar abandono de projetos. Apoio profissional, registro de conquistas e bem-estar podem transformar a desesperança em resiliência e progresso acadêmico."
+                    }
+                }
+            },
+            "Autoconsciencia": {
+                "descricao": "Tendência a sentir vergonha ao expor dificuldades ou inseguranças, o que pode prejudicar a busca de auxílio ou inovações.",
+                "perguntas": [
+                    {
+                        "id": "AC1",
+                        "texto": "Fico envergonhado(a) ao cometer falhas na frente de colegas ou discentes.",
+                        "feedbacks": {
+                            "baixo": "A baixa sensação de vergonha diante de falhas pode indicar autoconfiança e resiliência. Essa postura facilita o aprendizado com os erros e transmite segurança para colegas e discentes. Apenas cuide para não parecer indiferente ao impacto das falhas.",
+                            "medio": "Você sente certo desconforto diante de erros, mas de forma moderada, o que favorece tanto a autocrítica quanto a manutenção da calma. Aproveite para usar esses momentos como oportunidades de aprendizado conjunto com os discentes.",
+                            "alto": "A vergonha intensa pode prejudicar a autoconfiança e dificultar a recuperação após falhas. Praticar a autocompaixão, reconhecer que erros fazem parte do processo e adotar uma postura construtiva pode reduzir o impacto emocional e manter a credibilidade."
+                        }
+                    },
+                    {
+                        "id": "AC2",
+                        "texto": "Sinto-me desconfortável em receber feedbacks críticos sobre meus planos de ensino ou projetos de pesquisa, pois temo julgamentos.",
+                        "feedbacks": {
+                            "baixo": "A abertura para críticas demonstra segurança profissional e disposição para aprimoramento. Essa postura fortalece relações de confiança e favorece o crescimento acadêmico e institucional.",
+                            "medio": "Você lida com feedbacks de forma equilibrada, aceitando críticas quando construtivas, mas mantendo certa cautela. Avalie se é possível aumentar a receptividade para aproveitar ao máximo as oportunidades de melhoria.",
+                            "alto": "O desconforto intenso com críticas pode levar à evitação de retornos importantes, limitando ajustes e inovações. Desenvolver habilidades de regulação emocional e lembrar que feedbacks não definem seu valor pessoal pode ajudar a reduzir o temor e potencializar o aprendizado."
+                        }
+                    },
+                    {
+                        "id": "AC3",
+                        "texto": "Evito propor ideias em reuniões departamentais para não parecer despreparado(a) ou inexperiente.",
+                        "feedbacks": {
+                            "baixo": "A disposição para expor ideias indica autoconfiança e engajamento, favorecendo a troca de perspectivas no ambiente acadêmico. Essa postura amplia seu papel ativo nas decisões e fortalece sua presença profissional.",
+                            "medio": "Você participa das discussões de forma seletiva, ponderando antes de propor algo. Isso ajuda a manter a segurança, mas também pode limitar oportunidades de contribuição. Considere apresentar ideias já estruturadas para aumentar a confiança.",
+                            "alto": "O receio de parecer despreparado(a) pode reduzir sua visibilidade e influência nas decisões coletivas. Treinar apresentações curtas, anotar pontos-chave e buscar apoio de colegas de confiança pode ajudar a expressar suas ideias com mais segurança."
+                        }
+                    },
+                    {
+                        "id": "AC4",
+                        "texto": "Muitas vezes, deixo de compartilhar problemas de sala de aula com outros docentes, com receio de ser visto(a) como incompetente.",
+                        "feedbacks": {
+                            "baixo": "A abertura para compartilhar desafios demonstra maturidade profissional e disposição para buscar soluções coletivas. Essa postura fortalece redes de apoio e estimula o aprendizado mútuo entre colegas.",
+                            "medio": "Você compartilha dificuldades de forma moderada, escolhendo cuidadosamente com quem falar. Essa prudência protege sua imagem, mas pode restringir trocas produtivas. Identificar colegas de confiança pode ampliar as possibilidades de colaboração.",
+                            "alto": "O receio de julgamento pode gerar isolamento e sobrecarga emocional. Lembre-se de que compartilhar problemas também é uma oportunidade de receber apoio e soluções criativas. Buscar grupos de troca ou mentorias pode ajudar a reduzir essa barreira."
+                        }
+                    },
+                    {
+                        "id": "AC5",
+                        "texto": "Evito buscar apoio em situações de dificuldade por receio de parecer fraco(a) ou incapaz.",
+                        "feedbacks": {
+                            "baixo": "A disposição para pedir ajuda demonstra autoconhecimento e maturidade profissional. Essa atitude fortalece parcerias e permite que soluções sejam construídas de forma mais rápida e eficaz.",
+                            "medio": "Você busca apoio em alguns momentos, mas mantém certo cuidado para não se expor demais. Essa postura equilibrada preserva a autonomia, mas pode limitar o acesso a recursos e perspectivas que enriqueceriam sua prática.",
+                            "alto": "O receio de parecer fraco(a) pode levar à sobrecarga e dificultar a resolução de problemas complexos. Reconhecer que pedir ajuda é um sinal de inteligência relacional e não de fragilidade pode ampliar seu bem-estar e eficácia no trabalho."
+                        }
+                    },
+                    {
+                        "id": "AC6",
+                        "texto": "[R] Quando percebo vergonha ou insegurança, consigo reconhecer o sentimento e, mesmo assim, tomar atitudes construtivas para melhor lidar com a situação.",
+                        "feedbacks": {
+                            "baixo": "A dificuldade de agir diante de vergonha ou insegurança pode prolongar problemas e limitar oportunidades. Trabalhar a autocompaixão e se comprometer com respostas graduais pode ajudar a superar esses bloqueios.",
+                            "medio": "Você consegue agir construtivamente em alguns casos, mas ainda sente impacto significativo da vergonha ou insegurança em outras situações. Fortalecer técnicas de enfrentamento e praticar exposição gradual pode ampliar essa capacidade.",
+                            "alto": "Sua habilidade de reconhecer emoções e agir de forma construtiva demonstra inteligência emocional e resiliência. Manter essa prática fortalece a autoconfiança e reduz os efeitos negativos de situações desafiadoras."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Baixo (Docentes)",
+                        "definicao": "A faceta Autoconsciência (Vergonha) refere-se à capacidade de sentir vergonha ao expor dificuldades ou inseguranças. Em nível baixo, os docentes demonstram desinibição ao compartilhar suas opiniões, liderar debates e participar ativamente de reuniões, mas podem correr o risco de não perceber a necessidade de ajustar a postura para contextos mais formais.",
+                        "caracteristicas": [
+                            "Desinibição.",
+                            "Baixa Sensibilidade à Vergonha.",
+                            "Expressividade em Feedbacks."
+                        ],
+                        "vantagens": [
+                            "Participação Ativa e Visibilidade.",
+                            "Recepção de Feedbacks.",
+                            "Fortalecimento de Redes de Apoio."
+                        ],
+                        "dificuldades": [
+                            "Risco de Excesso de Informalidade.",
+                            "Possível Invasão de Espaço.",
+                            "Falta de Autocontrole."
+                        ],
+                        "estrategias": [
+                            "Observação e ajuste da linguagem.",
+                            "Feedback de colegas.",
+                            "Participação equilibrada.",
+                            "Estabelecer limites contextuais."
+                        ],
+                        "conclusao": "Em nível baixo de autoconsciência, a desinibição favorece a participação ativa e a colaboração, mas exige atenção para ajustar formalidade e evitar excessos. Com feedback e equilíbrio, essa postura pode maximizar o impacto positivo no ambiente acadêmico."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Médio (Docentes)",
+                        "definicao": "A faceta Autoconsciência (Vergonha) está relacionada à tendência de sentir vergonha ou desconforto ao expor dificuldades e inseguranças. Em nível médio, o docente apresenta certa cautela ao se expor em contextos profissionais, especialmente quando há possibilidade de julgamento, mas consegue participar de debates, receber feedbacks e propor ideias em situações em que se sente mais seguro.",
+                        "caracteristicas": [
+                            "Cautela Moderada na Exposição.",
+                            "Aceitação Seletiva de Feedback.",
+                            "Participação Contextual."
+                        ],
+                        "vantagens": [
+                            "Equilíbrio Entre Reserva e Participação.",
+                            "Reflexão Antes da Exposição.",
+                            "Boa Relação com Diferentes Perfis."
+                        ],
+                        "dificuldades": [
+                            "Oportunidades Não Aproveitadas.",
+                            "Dependência de Ambientes Seguros.",
+                            "Autocrítica Excessiva em Situações de Erro."
+                        ],
+                        "estrategias": [
+                            "Expandir gradualmente a exposição.",
+                            "Diversificar fontes de feedback.",
+                            "Treinar apresentações e propostas.",
+                            "Reforçar conquistas pessoais."
+                        ],
+                        "conclusao": "Docentes com níveis médios de autoconsciência equilibram participação e cautela, preservando a imagem profissional. Ao ampliar gradualmente a exposição e reforçar a autoconfiança, é possível transformar essa reserva natural em um recurso estratégico."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Alto (Docentes)",
+                        "definicao": "A faceta Autoconsciência (Vergonha) avalia a tendência a sentir vergonha ao expor dificuldades, inseguranças e falhas, o que pode prejudicar a busca por auxílio e inovações. Em nível alto, os docentes demonstram intensa preocupação com a imagem profissional, o que pode limitar sua participação em debates, a liderança de projetos e a troca aberta de feedbacks.",
+                        "caracteristicas": [
+                            "Sensibilidade à Crítica.",
+                            "Receio de Exposição.",
+                            "Reticência em Compartilhar Dificuldades."
+                        ],
+                        "vantagens": [
+                            "Cuidado com a Imagem Profissional.",
+                            "Reflexão Crítica."
+                        ],
+                        "dificuldades": [
+                            "Dificuldade em Liderar e Inovar.",
+                            "Perda de Oportunidades de Crescimento."
+                        ],
+                        "estrategias": [
+                            "Ensaios e simulações.",
+                            "Participação gradual em fóruns.",
+                            "Feedback construtivo.",
+                            "Desenvolvimento da autoconfiança."
+                        ],
+                        "conclusao": "Com alto nível de autoconsciência, a cautela em expor dificuldades pode limitar inovação e crescimento. Ao praticar apresentações em ambientes seguros e buscar feedback construtivo, é possível equilibrar preocupação com imagem e desenvolvimento profissional."
+                    }
+                }
+            },
+            "Impulsividade": {
+                "descricao": "Tendência a ceder a distrações, abandonando projetos pessoais ou metas acadêmicas em favor de atividades mais imediatas ou prazerosas.",
+                "perguntas": [
+                    {
+                        "id": "I1",
+                        "texto": "Abandono meu plano de estudos ou de elaboração de aula para fazer algo mais agradável, mesmo sabendo que vou me arrepender depois.",
+                        "feedbacks": {
+                            "baixo": "Você mantém o foco nas tarefas, mesmo diante de distrações atraentes. Essa disciplina contribui para produtividade e cumprimento de metas. Continue equilibrando trabalho e lazer para evitar sobrecarga.",
+                            "medio": "Você consegue manter o plano na maioria das vezes, mas ocasionalmente cede a atividades mais prazerosas. Usar técnicas de priorização e pausas programadas pode reduzir a chance de arrependimento posterior.",
+                            "alto": "A tendência a abandonar tarefas importantes por alternativas mais agradáveis pode comprometer prazos e qualidade do trabalho. Criar ambientes livres de distrações e estabelecer recompensas após concluir etapas pode ajudar a manter a consistência."
+                        }
+                    },
+                    {
+                        "id": "I2",
+                        "texto": "Se estou cansado(a) da rotina, paro de preparar minhas aulas na hora, sem pensar nas consequências para a semana letiva.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra resiliência e consegue manter a preparação das aulas mesmo diante do cansaço. Isso favorece a continuidade do planejamento e reduz acúmulos de tarefas. Continue cuidando do descanso para preservar essa constância.",
+                            "medio": "Você equilibra momentos de pausa com a necessidade de seguir o planejamento. Reavaliar a carga de trabalho e inserir pausas estratégicas pode ajudar a reduzir interrupções que afetem a sua semana.",
+                            "alto": "Interromper a preparação de aulas devido ao cansaço, sem considerar o impacto, pode gerar sobrecarga e prejudicar a qualidade das atividades. Estratégias como dividir o trabalho em blocos menores ou alternar tarefas mais leves e mais exigentes podem ajudar a manter a produtividade mesmo em dias de fadiga."
+                        }
+                    },
+                    {
+                        "id": "I3",
+                        "texto": "Tendo a gastar muito tempo em redes sociais, mesmo sabendo que isso pode me prejudicar.",
+                        "feedbacks": {
+                            "baixo": "Você mantém um bom controle do uso das redes sociais, evitando que interfiram nas atividades prioritárias. Essa disciplina favorece o foco e produtividade; mantenha hábitos que sustentem esse equilíbrio.",
+                            "medio": "Seu uso de redes sociais é moderado, mas pode, em alguns momentos, competir com tarefas importantes. Definir horários específicos para acessar essas plataformas pode ajudar a manter o foco e evitar distrações prolongadas.",
+                            "alto": "O uso excessivo de redes sociais, mesmo consciente do impacto negativo, pode comprometer a execução de tarefas e gerar atrasos. Experimente limitar o tempo de uso com aplicativos de controle ou substituir parte desse tempo por atividades de descanso mais restauradoras."
+                        }
+                    },
+                    {
+                        "id": "I4",
+                        "texto": "Faço pausas muito maiores do que o estipulado na minha rotina de trabalho, mesmo quando estou atrasado(a).",
+                        "feedbacks": {
+                            "baixo": "Você mantém disciplina nas pausas, mesmo em situações de atraso, preservando a continuidade do trabalho. Continue equilibrando intervalos com produtividade para evitar sobrecarga física e mental.",
+                            "medio": "Você faz pausas de forma equilibrada, mas em alguns momentos elas podem se estender além do previsto. Ajustar o tempo de descanso ao nível de atraso pode ajudar a evitar acúmulo de demandas.",
+                            "alto": "Pausas excessivas, especialmente quando há atrasos, podem comprometer prazos e aumentar o estresse. Considere definir alarmes ou usar técnicas como o Pomodoro para manter o tempo de pausa controlado."
+                        }
+                    },
+                    {
+                        "id": "I5",
+                        "texto": "Muitas vezes, começo novas atividades antes de concluir as que já estão em andamento, comprometendo prazos e resultados.",
+                        "feedbacks": {
+                            "baixo": "Você mantém foco até concluir o que iniciou, o que favorece a qualidade e o cumprimento de prazos. Continue priorizando tarefas até o fim antes de assumir novos compromissos.",
+                            "medio": "Você normalmente conclui o que começa, mas em alguns momentos pode se dispersar com novas demandas. Ajustar prioridades e usar listas de tarefas pode ajudar a manter a ordem.",
+                            "alto": "Iniciar novas tarefas antes de finalizar as atuais pode fragmentar sua atenção e comprometer resultados. Considere aplicar estratégias como priorização semanal e divisão do trabalho em etapas para garantir que as entregas sejam concluídas no tempo previsto."
+                        }
+                    },
+                    {
+                        "id": "I6",
+                        "texto": "[R] Quando percebo que estou cedendo a distrações, consigo redirecionar minha atenção para a atividade principal e retomar o foco.",
+                        "feedbacks": {
+                            "baixo": "A dificuldade em retomar o foco após distrações pode prejudicar seu rendimento e prolongar prazos. Experimente técnicas como o uso de blocos de tempo ou o método Pomodoro para manter a atenção.",
+                            "medio": "Você consegue, em algumas situações, recuperar o foco após se distrair, mas isso ainda não é consistente. Criar gatilhos de retomada, como revisar a última frase escrita ou o último item executado, pode fortalecer essa habilidade.",
+                            "alto": "Sua capacidade de perceber a distração e redirecionar a atenção é um recurso valioso para manter a produtividade. Continue aplicando esse controle, e considere registrá-lo como parte do seu planejamento para manter a constância."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Impulsividade – Nível Baixo (Docentes)",
+                        "definicao": "A faceta Impulsividade indica a capacidade de resistir a distrações e seguir rigorosamente o planejamento, mantendo a estabilidade nas atividades docentes.",
+                        "caracteristicas": [
+                            "Aderência rigorosa ao planejamento.",
+                            "Controle rígido das atividades.",
+                            "Uso controlado das redes sociais.",
+                            "Pausas estruturadas."
+                        ],
+                        "vantagens": [
+                            "Estabilidade e consistência.",
+                            "Organização e eficiência.",
+                            "Menor distração."
+                        ],
+                        "dificuldades": [
+                            "Rigidez exagerada.",
+                            "Falta de flexibilidade."
+                        ],
+                        "estrategias": [
+                            "Permitir pequenas mudanças.",
+                            "Revisão mensal do cronograma.",
+                            "Lista de possíveis inovações.",
+                            "Incorporação de flexibilidade planejada."
+                        ],
+                        "conclusao": "Um baixo nível de impulsividade garante estabilidade e uma rotina bem estruturada, mas pode reduzir a flexibilidade. Com pequenas adaptações, é possível equilibrar disciplina e inovação."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Impulsividade – Nível Médio (Docentes)",
+                        "definicao": "A faceta Impulsividade descreve a tendência a ceder a distrações e alterar planejamentos em favor de atividades mais imediatas ou prazerosas. Em nível médio, o docente apresenta momentos ocasionais de desvio do planejamento, mas mantém, na maior parte do tempo, a capacidade de retornar às tarefas e cumprir prazos.",
+                        "caracteristicas": [
+                            "Alternância entre foco e desvio.",
+                            "Uso moderado das redes sociais.",
+                            "Pausas maiores ocasionalmente."
+                        ],
+                        "vantagens": [
+                            "Flexibilidade controlada.",
+                            "Aproveitamento de oportunidades.",
+                            "Equilíbrio entre disciplina e adaptação."
+                        ],
+                        "dificuldades": [
+                            "Risco de acúmulo de tarefas.",
+                            "Perda temporária de ritmo.",
+                            "Procrastinação seletiva."
+                        ],
+                        "estrategias": [
+                            "Definir limites para pausas.",
+                            "Usar recompensas programadas.",
+                            "Planejar dias de flexibilidade.",
+                            "Aplicar revisões curtas do cronograma."
+                        ],
+                        "conclusao": "Docentes com níveis médios de impulsividade equilibram disciplina e flexibilidade. Com limites claros e recompensas, é possível manter produtividade sem perder adaptabilidade."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Impulsividade – Nível Alto (Docentes)",
+                        "definicao": "A faceta Impulsividade descreve a tendência de ceder a distrações e abandonar planejamentos em favor de atividades mais imediatas ou prazerosas. Em nível alto, os docentes podem interromper o desenvolvimento de aulas ou projetos para realizar atividades atrativas, mesmo sabendo que essa decisão pode comprometer a continuidade e a qualidade do ensino.",
+                        "caracteristicas": [
+                            "Interrupção de planejamentos.",
+                            "Respostas impulsivas à rotina.",
+                            "Distração com redes sociais.",
+                            "Excesso de pausas."
+                        ],
+                        "vantagens": [
+                            "Flexibilidade e resolução rápida.",
+                            "Adaptabilidade."
+                        ],
+                        "dificuldades": [
+                            "Quebra de consistência.",
+                            "Risco de atrasos."
+                        ],
+                        "estrategias": [
+                            "Uso de checklists.",
+                            "Aplicação da técnica 'Se... Então...'.",
+                            "Planejamento de recompensas pós-tarefa.",
+                            "Monitoramento constante do cronograma."
+                        ],
+                        "conclusao": "Um alto nível de impulsividade pode prejudicar consistência e prazos, mas pode ser transformado em recurso de inovação ao aplicar técnicas de controle e planejamento estratégico."
+                    }
+                }
+            }
+        }
+    }
+}

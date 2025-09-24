@@ -1,7 +1,7 @@
 import type { FormDefinition } from "../lib/types";
 
-export const extroversaoV1: FormDefinition = {
-  id: "extroversao-v1",
+export const extroversao: FormDefinition = {
+  id: "extroversao",
   title: "Extroversão",
   storageVersion: 1,
 
