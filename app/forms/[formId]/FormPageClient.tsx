@@ -1,6 +1,7 @@
+// app/forms/[formId]/FormPageClient.tsx
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import type { FormDefinition } from "../lib/types";
 import { FormProvider } from "react-hook-form";
 import { useFormEngine } from "../hook/useFormEngine";
@@ -42,8 +43,6 @@ export default function FormPageClient({
     storageKey,
   } = engine;
 
-  const [downloading, setDownloading] = useState(false);
-
   const SCALE = useMemo(() => generateScale(RED, GREEN, 5), []);
   const colorForOption = (n: number) => SCALE[n - 1] ?? "#ddd";
 
@@ -58,49 +57,6 @@ export default function FormPageClient({
   const progress = Math.round((filled / total) * 100);
 
   const cat = def.categories[catIndex];
-
-// dentro do FormPageClient
-const handleSubmit = methods.handleSubmit(async (data) => {
-  try {
-    setDownloading(true);
-    setStatus?.("saving");
-
-    const payload = {
-      formId,
-      answers: data, // { [questionId]: number }
-    };
-
-    const res = await fetch("/api/pdf/report", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
-
-    if (!res.ok) {
-      throw new Error("Falha ao gerar PDF");
-    }
-
-    // recebe o PDF como blob
-    const blob = await res.blob();
-    const url = window.URL.createObjectURL(blob);
-
-    // força download
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `${formId}-report.pdf`;
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-
-    window.URL.revokeObjectURL(url);
-    setStatus?.("saved");
-  } catch (err) {
-    console.error(err);
-    setStatus?.("error");
-  } finally {
-    setDownloading(false);
-  }
-});
 
   return (
     <FormProvider {...methods}>
@@ -128,8 +84,8 @@ const handleSubmit = methods.handleSubmit(async (data) => {
             onSelect={setCatIndex}
           />
 
-          {/* submit do form dispara a geração do PDF */}
-          <form onSubmit={handleSubmit} className="space-y-4">
+          {/* Conteúdo do formulário (sem submit/gerar PDF) */}
+          <div className="space-y-4">
             {cat.questions.map((q, i) => (
               <QuestionItem
                 key={q.id}
@@ -147,7 +103,7 @@ const handleSubmit = methods.handleSubmit(async (data) => {
             <PagerActions
               page={catIndex}
               numPages={def.categories.length}
-              status={downloading ? "saving" : status}
+              status={status}
               goPrev={goPrev}
               goNext={goNext}
               onClear={onClear}
@@ -157,25 +113,13 @@ const handleSubmit = methods.handleSubmit(async (data) => {
                 storageKey,
               }}
             />
+          </div>
 
-            {/* Botão para enviar e gerar o PDF (genérico para qualquer formulário) */}
-            <div className="w-full">
-              <button
-                type="submit"
-                disabled={downloading}
-                className={`px-4 py-3 rounded w-full text-white text-sm transition ${downloading
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-emerald-600 hover:bg-emerald-700"
-                  }`}
-              >
-                {downloading ? "Gerando PDF..." : "Gerar PDF do formulário"}
-              </button>
-
-              <p className="text-xs text-gray-500 mt-2">
-                Você pode salvar o rascunho e continuar depois.
-              </p>
-            </div>
-          </form>
+          {/* Informação auxiliar */}
+          <p className="text-xs text-gray-500 mt-4">
+            Suas respostas são salvas como rascunho neste navegador. A geração do PDF
+            acontece somente na etapa final de envio (página de resumo).
+          </p>
         </div>
       </section>
     </FormProvider>

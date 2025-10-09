@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@hcaptcha/react-hcaptcha": "^1.12.1",
     "@hookform/resolvers": "^5.2.1",
     "@prisma/client": "^6.16.1",
     "@react-pdf/renderer": "^4.3.0",

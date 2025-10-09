@@ -3,6 +3,7 @@
 
 import React from "react";
 import Link from "next/link";
+import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { getAllForms } from "./lib/registry";
 
 /** ---- Types ------------------------------------------------------------- */
@@ -123,6 +124,26 @@ function triggerDownload(filename: string, blob: Blob) {
 export default function FormsIndexPage() {
   const forms = React.useMemo<FormMeta[]>(() => getAllForms(), []);
   const [submitting, setSubmitting] = React.useState(false);
+  const captchaRef = React.useRef<any>(null);
+  const [captchaToken, setCaptchaToken] = React.useState<string | null>(null);
+
+  const handleCaptchaVerify = React.useCallback((token: string) => {
+    setCaptchaToken(token);
+  }, []);
+
+  const handleCaptchaExpire = React.useCallback(() => {
+    setCaptchaToken(null);
+  }, []);
+
+  // helper simples para aguardar o token aparecer após execute()
+  async function waitForToken(ms: number = 1200) {
+    const start = Date.now();
+    while (!captchaToken && Date.now() - start < ms) {
+      // eslint-disable-next-line no-await-in-loop
+      await new Promise((r) => setTimeout(r, 40));
+    }
+    return captchaToken;
+  }
 
   const handleValidateAndSend = React.useCallback(async () => {
     if (typeof window === "undefined") return;
@@ -150,18 +171,13 @@ export default function FormsIndexPage() {
       }>;
     } = { forms: [] };
 
-    const allKeys = Array.from({ length: ls.length }, (_, i) => ls.key(i)).filter(
-      Boolean
-    );
+    const allKeys = Array.from({ length: ls.length }, (_, i) => ls.key(i)).filter(Boolean);
     console.debug("[forms] localStorage keys:", allKeys);
 
     for (const f of forms) {
       const key = findStorageKeyForForm(f.id, ls);
       const raw = key ? ls.getItem(key) : null;
-      const data = (safeParse<Record<string, any>>(raw) ?? {}) as Record<
-        string,
-        any
-      >;
+      const data = (safeParse<Record<string, any>>(raw) ?? {}) as Record<string, any>;
 
       const responded = countNonEmptyAnswers(data);
       const expected =
@@ -220,8 +236,25 @@ export default function FormsIndexPage() {
       return;
     }
 
+    // ---- hCaptcha: garanta token fresco antes de enviar -----------------
+    try {
+      // se não houver token atual, dispare o invisível
+      if (!captchaToken && captchaRef.current?.execute) {
+        await captchaRef.current.execute();
+      }
+    } catch {
+      alert("Não foi possível iniciar a verificação do hCaptcha. Tente novamente.");
+      return;
+    }
+
+    const token = await waitForToken(1500);
+    if (!token) {
+      alert("Verificação hCaptcha não concluída. Tente novamente.");
+      return;
+    }
+
     // ---- Envio ao backend e download do PDF -----------------------------
-    const ENDPOINT_URL = "/api/pdf/report"; // <<<<<< AJUSTE AQUI
+    const ENDPOINT_URL = "/api/pdf/report"; // <<<<<< AJUSTE AQUI SE PRECISAR
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 60_000); // 60s
 
@@ -234,7 +267,11 @@ export default function FormsIndexPage() {
           "Content-Type": "application/json",
           Accept: "application/pdf,application/json",
         },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          ...payload,
+          hcaptchaToken: token,       // 👈 envia o token para o server
+          captchaProvider: "hcaptcha"
+        }),
         signal: controller.signal,
         credentials: "same-origin",
       });
@@ -285,11 +322,24 @@ export default function FormsIndexPage() {
     } finally {
       clearTimeout(timeout);
       setSubmitting(false);
+      // Reseta o widget/token para o próximo envio
+      try {
+        captchaRef.current?.resetCaptcha?.();
+      } catch {}
+      setCaptchaToken(null);
     }
-  }, [forms, submitting]);
+  }, [forms, submitting, captchaToken]);
 
   return (
     <main className="mx-auto max-w-7xl p-8">
+      <HCaptcha
+        ref={captchaRef}
+        sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY || ""}
+        size="normal"
+        onVerify={handleCaptchaVerify}
+        onExpire={handleCaptchaExpire}
+      />
+
       <header className="mb-10">
         <h1 className="text-3xl font-bold">Selecione um formulário</h1>
         <p className="mt-2 text-base text-gray-600">
@@ -297,7 +347,7 @@ export default function FormsIndexPage() {
           {forms.length !== 1 ? "s" : ""}
         </p>
 
-        {/* Botão de validar/enviar (simulado -> agora envia e baixa PDF) */}
+        {/* Botão de validar/enviar (agora com hCaptcha + envio/baixa PDF) */}
         <div className="mt-6">
           <button
             type="button"

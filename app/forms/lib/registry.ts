@@ -8,10 +8,10 @@ import { conscienciosidadeV1 } from "../defs/conscienciosidade";
 
 const REGISTRY: Record<string, FormDefinition> = {
   "neuroticismo": neuroticismo,
-  /*"extroversao": extroversao,
-  "abertura-experiencia-v1": aberturaExperienciaV1,
+  "extroversao": extroversao,
+  /*"abertura-experiencia-v1": aberturaExperienciaV1,
   "amabilidade-v1": amabilidadeV1,
-  "conscienciosidade-v1": conscienciosidadeV1,  */
+  "conscienciosidade-v1": conscienciosidadeV1, */
 };
 
 export function getFormDefinition(formId: string): FormDefinition | null {
