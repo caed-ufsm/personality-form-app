@@ -66,7 +66,7 @@ export default function FormPageClient({
             {def.title}
           </h1>
           <p className="text-sm text-gray-600 mb-2">
-            Categoria {catIndex + 1} de {def.categories.length} —{" "}
+            Fator {catIndex + 1} de {def.categories.length} —{" "}
             <strong>{cat.title}</strong>
           </p>
 
@@ -93,7 +93,6 @@ export default function FormPageClient({
                 label={`${i + 1}. ${q.label}`}
                 control={methods.control}
                 errorMessage={(methods.formState.errors as any)?.[q.id]?.message}
-                colorForOption={colorForOption}
                 scale={q.scale ?? 5}
                 minLabel={q.minLabel ?? "Discordo totalmente"}
                 maxLabel={q.maxLabel ?? "Concordo totalmente"}
