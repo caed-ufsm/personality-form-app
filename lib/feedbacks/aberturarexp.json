@@ -1,0 +1,564 @@
+{
+    "Abertura à Experiência": {
+        "descricao": "O fator da personalidade Abertura à Experiência relaciona-se à imaginação, à curiosidade intelectual, à apreciação estética, à receptividade a ideias novas e à flexibilidade ao lidar com diferentes métodos ou abordagens de ensino, pesquisa ou extensão.",
+        "facetas": {
+            "Fantasia": {
+                "descricao": "Tendência a usar a imaginação para visualizar possibilidades futuras ou criar analogias úteis em sala de aula ou pesquisa.",
+                "perguntas": [
+                    {
+                        "id": "F1",
+                        "texto": "Costumo imaginar cenários futuros de sucesso, como ex-alunos(as) se destacando em suas carreiras ou aplicando meus ensinamentos.",
+                        "feedbacks": {
+                            "baixo": "Você tende a focar mais nas tarefas imediatas do que em projeções de longo prazo. Embora o foco no presente seja importante, reservar momentos para imaginar o impacto futuro do seu trabalho pode trazer motivação e propósito adicionais.",
+                            "medio": "Você imagina cenários de sucesso ocasionalmente, mas não faz disso um hábito. Incorporar mais reflexões positivas sobre o futuro pode ajudar a manter o entusiasmo e reforçar o sentido de propósito.",
+                            "alto": "Visualizar o sucesso futuro de ex-alunos(as) e do seu próprio trabalho fortalece seu engajamento e resiliência. Continue cultivando essa prática, pois ela ajuda a manter a motivação e a conexão com o impacto de longo prazo da sua atuação."
+                        }
+                    },
+                    {
+                        "id": "F2",
+                        "texto": "Crio histórias ou exemplos para tornar os conteúdos mais interessantes e facilitar a assimilação pelos(as) discentes.",
+                        "feedbacks": {
+                            "baixo": "Você tende a apresentar os conteúdos de forma mais direta e objetiva, o que pode ser eficiente em alguns contextos. No entanto, explorar histórias ou exemplos pode aumentar o interesse e a compreensão dos(as) discentes, especialmente em temas mais abstratos.",
+                            "medio": "Você utiliza exemplos ou narrativas de forma pontual, equilibrando clareza e dinamismo. Avalie incluir essa prática com mais frequência para potencializar o engajamento e a retenção de conteúdo.",
+                            "alto": "O uso frequente de histórias e exemplos enriquece suas aulas, tornando-as mais atrativas e facilitando a compreensão. Continue integrando essa estratégia, adaptando-a aos diferentes perfis e necessidades dos(as) discentes."
+                        }
+                    },
+                    {
+                        "id": "F3",
+                        "texto": "Ao planejar projetos de extensão ou pesquisa, imagino impactos positivos na comunidade ou avanços na área.",
+                        "feedbacks": {
+                            "baixo": "Seu foco tende a se concentrar mais na execução prática do projeto do que em suas projeções futuras. Embora a objetividade seja útil, visualizar impactos positivos pode ajudar a direcionar esforços, motivar a equipe e fortalecer o propósito das ações.",
+                            "medio": "Você equilibra a atenção entre as etapas operacionais e as possíveis contribuições do projeto. Pode ser interessante dedicar momentos específicos para refletir sobre os resultados esperados e como eles se conectam às demandas da comunidade ou da área acadêmica.",
+                            "alto": "Sua visão orientada a impactos positivos amplia a relevância e o alcance dos projetos, além de inspirar colaboradores e parceiros. Continue cultivando essa perspectiva, associando-a a estratégias concretas de mensuração e acompanhamento de resultados."
+                        }
+                    },
+                    {
+                        "id": "F4",
+                        "texto": "Uso minha imaginação para visualizar melhorias no currículo ou na estrutura do curso, idealizando mudanças.",
+                        "feedbacks": {
+                            "baixo": "Você tende a se manter mais próximo do formato e das práticas já consolidadas no curso. Embora a estabilidade seja importante, dedicar algum tempo para imaginar melhorias pode trazer soluções inovadoras e fortalecer a qualidade acadêmica.",
+                            "medio": "Você equilibra a manutenção das práticas atuais com a abertura para mudanças, considerando ajustes quando necessário. Pode ser útil criar espaços regulares de reflexão para identificar oportunidades de aprimoramento curricular ou estrutural.",
+                            "alto": "Sua capacidade de idealizar melhorias demonstra visão estratégica e disposição para inovar. Ao associar essas ideias a análises de viabilidade e ao diálogo com a equipe, suas propostas podem gerar mudanças significativas e sustentáveis."
+                        }
+                    },
+                    {
+                        "id": "F5",
+                        "texto": "Consigo transformar ideias abstratas em exemplos concretos para facilitar a compreensão de conceitos complexos.",
+                        "feedbacks": {
+                            "baixo": "Você pode ter dificuldade em tornar conceitos complexos mais acessíveis, o que pode impactar o engajamento e a compreensão dos(as) discentes. Investir em estratégias como analogias, metáforas e exemplos do cotidiano pode tornar o ensino mais claro e envolvente.",
+                            "medio": "Você consegue, em alguns momentos, traduzir conceitos abstratos para exemplos concretos, mas isso pode não ocorrer de forma consistente. Aperfeiçoar essa habilidade por meio de feedback dos estudantes ou troca de experiências com colegas pode ampliar o impacto do seu ensino.",
+                            "alto": "Você demonstra excelente capacidade de tornar ideias complexas mais claras e aplicáveis. Essa competência favorece a aprendizagem ativa e fortalece o vínculo com os(as) discentes, tornando o conteúdo mais acessível e significativo."
+                        }
+                    },
+                    {
+                        "id": "F6",
+                        "texto": "[R] Tenho dificuldade em criar imagens mentais ou exemplos criativos para ilustrar o conteúdo que ensino ou pesquiso.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra boa capacidade criativa para ilustrar conteúdos com exemplos e imagens mentais. Essa habilidade contribui para que os(as) discentes compreendam melhor conceitos abstratos e fortalece seu papel como facilitador(a) do aprendizado.",
+                            "medio": "Sua criatividade na construção de exemplos é moderada e pode variar conforme o tema ou contexto. Ao planejar aulas ou apresentações, buscar referências visuais e analogias previamente pode ajudar a tornar essa habilidade mais consistente.",
+                            "alto": "Você pode ter dificuldades recorrentes em criar exemplos e imagens mentais para explicar conceitos, o que pode tornar o conteúdo menos atrativo ou acessível. Treinar com recursos como mapas mentais, analogias e estudos de caso pode enriquecer suas explicações."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Fantasia (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Fantasia refere-se à capacidade de criar cenários mentais que enriquecem o processo de ensino por meio de imaginação e criatividade. Em nível baixo, os docentes tendem a utilizar menos essa habilidade, preferindo métodos mais concretos e diretos, o que pode resultar em uma abordagem mais tradicional e menos inspiradora.",
+                        "caracteristicas": [
+                            "Pouco Uso da Imaginação: Tem dificuldade em criar cenários futuros ou associar metas de longo prazo com a rotina de ensino.",
+                            "Preferência por Métodos Concretos: Dá prioridade a técnicas tradicionais, como a leitura e a resolução de exercícios, sem incorporar muitos recursos visuais ou narrativas criativas.",
+                            "Baixa Motivação por Visualizações: Não utiliza a imaginação para se motivar ou para estimular os alunos, o que pode tornar as aulas mais mecânicas e menos dinâmicas."
+                        ],
+                        "vantagens": [
+                            "Objetividade e Clareza.",
+                            "Estabilidade na Rotina.",
+                            "Menor Risco de Dispersão."
+                        ],
+                        "dificuldades": [
+                            "Engajamento Emocional Limitado.",
+                            "Monotonia no Ensino.",
+                            "Dificuldade para Inovar."
+                        ],
+                        "estrategias": [
+                            "Utilizar Recursos Visuais Prontos.",
+                            "Definir Metas Concretas.",
+                            "Promover 'Sprints' de Planejamento.",
+                            "Experiências Guiadas de Visualização."
+                        ],
+                        "conclusao": "Embora um baixo nível de fantasia permita uma abordagem mais objetiva e estruturada, ele pode limitar o engajamento emocional e a capacidade de inovar no ensino. Ao integrar recursos visuais prontos, definir metas claras e promover sessões de planejamento criativo, os docentes podem enriquecer sua prática pedagógica sem comprometer a estabilidade de uma rotina bem definida."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Fantasia (Nível Médio) – Docentes",
+                        "definicao": "A faceta Fantasia diz respeito à capacidade de usar a imaginação para criar cenários futuros, desenvolver analogias e elaborar narrativas que apoiem o ensino, a pesquisa e a extensão. Em nível médio, o docente utiliza a imaginação de forma equilibrada, combinando momentos de criatividade com métodos mais tradicionais. Essa postura permite gerar engajamento e inovação sem perder de vista a objetividade e a viabilidade das propostas.",
+                        "caracteristicas": [
+                            "Uso Seletivo da Imaginação.",
+                            "Visualização de Metas Relevantes.",
+                            "Equilíbrio entre Criatividade e Praticidade."
+                        ],
+                        "vantagens": [
+                            "Aulas Atraentes e Estruturadas.",
+                            "Planejamento Realista.",
+                            "Estímulo Moderado à Inovação."
+                        ],
+                        "dificuldades": [
+                            "Oportunidades Criativas Não Exploradas.",
+                            "Oscilação no Uso de Recursos Criativos.",
+                            "Menor Impacto Inspiracional em Alguns Contextos."
+                        ],
+                        "estrategias": [
+                            "Definir Espaços Fixos para Criatividade.",
+                            "Registrar Ideias para Futuro Aproveitamento.",
+                            "Combinar Recursos Visuais e Narrativas.",
+                            "Buscar Feedback sobre Inovações."
+                        ],
+                        "conclusao": "Docentes com níveis médios de fantasia conseguem equilibrar a imaginação e a objetividade, aplicando criatividade de forma estratégica para enriquecer o ensino e a pesquisa. Ao planejar momentos fixos para inovação, registrar ideias e buscar feedback, é possível ampliar o impacto positivo dessa habilidade, mantendo a coerência e a eficácia na prática acadêmica."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Fantasia (Nível Alto) – Docentes",
+                        "definicao": "A faceta Fantasia diz respeito à tendência de usar a imaginação para visualizar possibilidades futuras, criar analogias e desenvolver narrativas que enriquecem o processo de ensino e pesquisa. Docentes com nível alto de fantasia empregam essa capacidade para formular aulas inovadoras, projetar impactos positivos em projetos de extensão ou pesquisa e idealizar melhorias no currículo, contribuindo para um ambiente de aprendizado dinâmico.",
+                        "caracteristicas": [
+                            "Motivação por Objetivos Futuros.",
+                            "Criação de Narrativas.",
+                            "Planejamento Inspirador.",
+                            "Inovação no Currículo."
+                        ],
+                        "vantagens": [
+                            "Aulas Inovadoras e Engajadoras.",
+                            "Propostas Transformadoras.",
+                            "Estímulo à Inovação."
+                        ],
+                        "dificuldades": [
+                            "Risco de Dispersão.",
+                            "Procrastinação.",
+                            "Desalinhamento com Projetos Pedagógicos."
+                        ],
+                        "estrategias": [
+                            "Reservar Intervalos para Criatividade.",
+                            "Uso de Visualização de Metas.",
+                            "Redirecionar Ideias Amplas.",
+                            "Integração de Feedback."
+                        ],
+                        "conclusao": "Um alto nível de fantasia é um trunfo para os docentes que desejam inovar e inspirar seus alunos, permitindo a criação de aulas mais envolventes e projetos de pesquisa transformadores. Contudo, é essencial equilibrar a imaginação com o foco e a execução prática, adotando estratégias que direcionem a criatividade para resultados concretos e alinhados ao projeto pedagógico."
+                    }
+                }
+            },
+            "Sentimentos": {
+                "descricao": "Tendência a reconhecer e gerenciar emoções sem permitir que elas prejudiquem o exercício docente.",
+                "perguntas": [
+                    {
+                        "id": "S1",
+                        "texto": "Presto atenção às minhas reações emocionais ao lidar com turmas mais desafiadoras ou dificuldades institucionais.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não observar com frequência suas próprias reações emocionais diante de situações desafiadoras, o que pode dificultar a identificação de gatilhos e o desenvolvimento de estratégias de autorregulação. Registrar acontecimentos e sentimentos em um diário breve pode ser um bom início para ampliar essa percepção.",
+                            "medio": "Você demonstra atenção moderada às suas reações emocionais, conseguindo perceber sinais importantes em alguns contextos, mas não de forma consistente. Práticas regulares de reflexão ou breves pausas durante o trabalho podem ajudar a ampliar essa consciência.",
+                            "alto": "Você mantém uma boa percepção das próprias reações emocionais, o que favorece a escolha de respostas mais equilibradas e construtivas. Esse cuidado fortalece o manejo de turmas desafiadoras e a capacidade de lidar com pressões institucionais de forma saudável."
+                        }
+                    },
+                    {
+                        "id": "S2",
+                        "texto": "Quando algum tema do meu componente curricular me afeta emocionalmente, procuro gerenciar essas emoções para que isso não prejudique a qualidade do meu ensino.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não gerenciar de forma ativa o impacto emocional que determinados temas podem gerar, o que pode comprometer a clareza e a qualidade do ensino. Aprimorar estratégias de autorregulação, como pausas reflexivas ou exercícios de respiração, pode ajudar a manter o foco pedagógico.",
+                            "medio": "Você consegue, em parte, lidar com as emoções geradas por conteúdos sensíveis, mas nem sempre isso ocorre de forma consistente. Estabelecer rotinas de preparação emocional antes das aulas pode tornar esse manejo mais seguro e previsível.",
+                            "alto": "Você demonstra habilidade para gerenciar emoções mesmo diante de temas sensíveis, preservando a qualidade e o equilíbrio no ensino. Esse cuidado fortalece a postura profissional e a confiança dos estudantes no processo de aprendizagem."
+                        }
+                    },
+                    {
+                        "id": "S3",
+                        "texto": "Sou sensível a críticas sobre minhas práticas didáticas, e isso impacta meu ânimo.",
+                        "feedbacks": {
+                            "baixo": "Você tende a lidar bem com críticas, mantendo seu ânimo e foco nas atividades. Essa postura favorece o crescimento profissional, especialmente quando as críticas são construtivas e usadas como oportunidade de aprimoramento.",
+                            "medio": "As críticas impactam seu ânimo ocasionalmente, mas você consegue manter o equilíbrio na maioria das situações. Criar um espaço de reflexão para diferenciar críticas construtivas de comentários não produtivos pode ajudá-lo(a) a preservar a motivação.",
+                            "alto": "A sensibilidade elevada a críticas pode abalar seu ânimo e afetar a confiança profissional. Desenvolver estratégias de reestruturação cognitiva e focar nos aspectos positivos do feedback pode reduzir o impacto emocional e transformar críticas em ferramentas de melhoria."
+                        }
+                    },
+                    {
+                        "id": "S4",
+                        "texto": "Costumo refletir sobre como minhas emoções podem ajudar ou atrapalhar na condução das atividades profissionais.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não considerar o papel das emoções na execução das atividades. Isso pode levar a decisões automáticas, menos conscientes, e reduzir o potencial de ajustar a postura profissional conforme a situação. Desenvolver esse hábito pode ampliar sua eficácia.",
+                            "medio": "Você reflete sobre o impacto das emoções em alguns momentos, mas ainda não faz disso uma prática constante. Incorporar pausas curtas para análise emocional antes de decisões importantes pode ajudar a fortalecer essa habilidade.",
+                            "alto": "Sua atenção frequente às próprias emoções demonstra autoconhecimento e abertura para ajustar comportamentos conforme a situação. Essa prática fortalece a inteligência emocional e favorece relações mais equilibradas no ambiente de trabalho."
+                        }
+                    },
+                    {
+                        "id": "S5",
+                        "texto": "Procuro desenvolver estratégias para que minhas emoções contribuam positivamente com o clima em sala de aula e com o relacionamento com os(as) discentes.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não direcionar esforços para utilizar suas emoções como recurso positivo no ambiente de ensino. Isso pode limitar o engajamento e a construção de um clima de confiança. Desenvolver estratégias intencionais pode fortalecer sua presença e influência na sala de aula.",
+                            "medio": "Você reconhece a importância de gerenciar as emoções para beneficiar o clima em sala, mas nem sempre transforma isso em ações consistentes. Experimentar técnicas como feedback construtivo, linguagem corporal positiva e controle de tom de voz pode ampliar seus resultados.",
+                            "alto": "Você demonstra intencionalidade em utilizar suas emoções como ferramenta para criar um ambiente de aprendizado saudável e colaborativo. Essa postura favorece vínculos de confiança e aumenta a motivação dos(as) discentes, fortalecendo o processo de ensino-aprendizagem."
+                        }
+                    },
+                    {
+                        "id": "S6",
+                        "texto": "[R] Frequentemente deixo que minhas emoções interfiram de forma negativa nas minhas decisões e na condução das atividades docentes.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra habilidade em manter o equilíbrio emocional, evitando que sentimentos momentâneos comprometam suas decisões ou o andamento das aulas. Continue fortalecendo essa competência com práticas de autorregulação e reflexão.",
+                            "medio": "Você reconhece que, em algumas situações, suas emoções podem interferir, mas mantém certo controle. Investir em estratégias de manejo emocional, como pausas conscientes ou reavaliação de perspectivas, pode reduzir ainda mais impactos negativos.",
+                            "alto": "Suas emoções frequentemente influenciam de forma prejudicial suas escolhas e a condução das atividades. Isso pode afetar a clareza nas decisões e o clima em sala de aula. Desenvolver recursos de autocontrole, como técnicas de respiração, meditação breve ou apoio de pares, pode ajudar a recuperar o equilíbrio antes de agir."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Sentimentos (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Sentimentos analisa a frequência com que os docentes reconhecem e gerenciam suas emoções no ambiente de trabalho. Em nível baixo, a estabilidade emocional é predominante, resultando em uma postura mais reservada, que pode, contudo, ocultar sinais sutis de estresse ou fadiga, prejudicando a capacidade de realizar ajustes preventivos.",
+                        "caracteristicas": [
+                            "Estabilidade Emocional.",
+                            "Resistência à Influência Emocional.",
+                            "Postura Pragmática."
+                        ],
+                        "vantagens": [
+                            "Clareza e Consistência.",
+                            "Ambiente de Trabalho Tranquilo."
+                        ],
+                        "dificuldades": [
+                            "Risco de Inércia.",
+                            "Falta de Incentivo à Inovação."
+                        ],
+                        "estrategias": [
+                            "Inserção de Pausas Planejadas.",
+                            "Fixar Metas Objetivas.",
+                            "Solicitar Feedback Externo.",
+                            "Monitoramento do Clima Discursivo."
+                        ],
+                        "conclusao": "Docentes com um nível baixo de sentimentos apresentam uma estabilidade emocional que contribui para a consistência e a clareza na execução das atividades. Contudo, essa mesma estabilidade pode ocultar sinais iniciais de estresse, impedindo intervenções preventivas. Ao adotar estratégias de pausas planejadas, metas objetivas e feedback contínuo, é possível manter um ambiente de trabalho saudável e motivador."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Sentimentos (Nível Médio) – Docentes",
+                        "definicao": "A faceta Sentimentos avalia a capacidade de reconhecer e gerenciar as próprias emoções para que não prejudiquem o exercício docente. Em nível médio, o docente demonstra uma consciência razoável de seus estados emocionais e busca regulá-los de forma funcional, mas pode enfrentar oscilações em contextos de alta pressão.",
+                        "caracteristicas": [
+                            "Atenção Moderada às Emoções.",
+                            "Gestão Funcional.",
+                            "Sensibilidade Seletiva a Feedbacks.",
+                            "Reflexão Ocasional."
+                        ],
+                        "vantagens": [
+                            "Equilíbrio Entre Sensibilidade e Estabilidade.",
+                            "Flexibilidade Emocional.",
+                            "Potencial para Crescimento."
+                        ],
+                        "dificuldades": [
+                            "Oscilações no Ânimo.",
+                            "Reatividade em Situações Sensíveis.",
+                            "Gestão Inconsistente."
+                        ],
+                        "estrategias": [
+                            "Aplicar Técnicas Breves de Regulação.",
+                            "Registrar e Analisar Gatilhos.",
+                            "Estabelecer Rotinas de Autocuidado.",
+                            "Buscar Feedback Construtivo."
+                        ],
+                        "conclusao": "Docentes com níveis médios de sentimentos equilibram a sensibilidade emocional com a estabilidade necessária para o ensino. Ao investir em práticas regulares de regulação emocional, autocuidado e análise de gatilhos, é possível tornar a gestão das emoções mais consistente, fortalecendo tanto o desempenho profissional quanto o bem-estar pessoal."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Sentimentos (Nível Alto) – Docentes",
+                        "definicao": "A faceta Sentimentos avalia a capacidade de reconhecer e gerenciar emoções sem que elas prejudiquem o exercício docente. Em nível alto, você demonstra uma sensibilidade aguda aos seus estados emocionais, percebendo variações como ansiedade ou entusiasmo em momentos críticos (por exemplo, semanas de provas, bancas ou reuniões de colegiado).",
+                        "caracteristicas": [
+                            "Percepção Emocional Intensa.",
+                            "Gestão Ativa das Emoções.",
+                            "Sensibilidade a Feedbacks.",
+                            "Reflexão Contínua."
+                        ],
+                        "vantagens": [
+                            "Maior Consciência Emocional.",
+                            "Engajamento e Energia."
+                        ],
+                        "dificuldades": [
+                            "Distração por Emoções Intensas.",
+                            "Vulnerabilidade ao Estresse."
+                        ],
+                        "estrategias": [
+                            "Registro de Emoções.",
+                            "Técnicas de Relaxamento.",
+                            "Busca de Apoio.",
+                            "Feedback Constante."
+                        ],
+                        "conclusao": "Para docentes com alto nível de sentimentos, a elevada sensibilidade pode ser um grande trunfo, possibilitando a autorregulação e a inovação. No entanto, é crucial equilibrar essa sensibilidade com técnicas de relaxamento e mecanismos de apoio que minimizem a distração e o estresse excessivo."
+                    }
+                }
+            },
+            "Ações Variadas": {
+                "descricao": "Tendência a experimentar novas estratégias e métodos, mostrando-se flexível e aberto(a) a adaptações.",
+                "perguntas": [
+                    {
+                        "id": "AV1",
+                        "texto": "Não hesito em testar metodologias ativas, jogos educativos ou diferentes ferramentas de avaliação.",
+                        "feedbacks": {
+                            "baixo": "Você tende a manter métodos já consolidados, o que pode garantir estabilidade, mas limitar a atualização e o engajamento dos(as) discentes. Considerar pequenas inserções de novas estratégias pode ampliar resultados sem comprometer sua segurança.",
+                            "medio": "Você se mostra aberto(a) a inovações quando necessário, mas sem abandonar práticas conhecidas. Avaliar periodicamente o impacto das mudanças pode ajudar a equilibrar tradição e renovação no ensino.",
+                            "alto": "Sua disposição para experimentar diferentes metodologias e ferramentas demonstra flexibilidade e foco na aprendizagem ativa. Manter registro dos resultados e feedbacks dos(as) discentes pode ajudar a refinar e potencializar essas práticas."
+                        }
+                    },
+                    {
+                        "id": "AV2",
+                        "texto": "Gosto de explorar linhas de investigação além do que já domino, para ampliar meus horizontes.",
+                        "feedbacks": {
+                            "baixo": "Você tende a concentrar-se nas áreas que já domina, o que preserva profundidade e segurança, mas pode limitar descobertas e conexões inovadoras. Incluir pequenas investigações fora da zona de conforto pode enriquecer sua atuação acadêmica.",
+                            "medio": "Você equilibra a exploração de novas áreas com a manutenção do foco no que já domina. Manter essa postura e registrar aprendizados ao se aventurar em novas linhas de investigação pode ampliar gradualmente seu repertório.",
+                            "alto": "Sua abertura para explorar novos campos de investigação demonstra curiosidade intelectual e disposição para inovação. Integrar conhecimentos de áreas distintas pode gerar pesquisas mais originais e ampliar seu impacto acadêmico."
+                        }
+                    },
+                    {
+                        "id": "AV3",
+                        "texto": "Sinto curiosidade em participar de formações pedagógicas, cursos de aperfeiçoamento ou eventos fora de minha área habitual.",
+                        "feedbacks": {
+                            "baixo": "Você tende a priorizar eventos e formações diretamente ligados à sua área, o que fortalece a especialização, mas pode restringir perspectivas e estratégias didáticas. Experimentar ocasionalmente temas fora do habitual pode trazer novas abordagens ao seu trabalho.",
+                            "medio": "Você mantém um equilíbrio entre participar de eventos dentro e fora da sua área. Ampliar levemente a frequência de formações interdisciplinares pode gerar ideias inovadoras para a prática docente e pesquisa.",
+                            "alto": "Sua curiosidade por formações diversas reflete abertura e desejo de crescimento contínuo. Essa postura favorece a troca de experiências, amplia redes de contato e fortalece a capacidade de inovar na atuação acadêmica."
+                        }
+                    },
+                    {
+                        "id": "AV4",
+                        "texto": "Estou disposto(a) a modificar minha rotina de trabalho se encontrar abordagens mais eficientes para dar conta das exigências docentes.",
+                        "feedbacks": {
+                            "baixo": "Você tende a manter métodos e rotinas já consolidados, o que garante estabilidade e previsibilidade. No entanto, essa postura pode limitar oportunidades de otimizar o tempo e aumentar a eficácia. Considerar ajustes graduais pode melhorar resultados sem comprometer a organização.",
+                            "medio": "Você demonstra abertura moderada para mudanças, adaptando a rotina quando percebe benefícios claros. Explorar novas ferramentas ou práticas de forma planejada pode ajudar a equilibrar eficiência e segurança nos métodos adotados.",
+                            "alto": "Sua disposição para ajustar a rotina em busca de mais eficiência é um ponto forte, pois favorece inovação e melhoria contínua. Manter atenção ao equilíbrio entre mudanças e estabilidade ajudará a garantir que as adaptações sejam sustentáveis a longo prazo."
+                        }
+                    },
+                    {
+                        "id": "AV5",
+                        "texto": "Busco inspiração em práticas de outras áreas para adaptar e enriquecer minhas estratégias de ensino e pesquisa.",
+                        "feedbacks": {
+                            "baixo": "Você tende a manter o foco apenas nas práticas tradicionais ou específicas da sua área, o que pode garantir profundidade, mas limitar a inovação. Explorar referências externas pode ampliar repertórios e gerar soluções criativas para desafios recorrentes.",
+                            "medio": "Você busca ideias de outras áreas ocasionalmente, adaptando-as quando parecem relevantes. Tornar essa prática mais sistemática pode abrir espaço para novas perspectivas e melhorias consistentes no ensino e na pesquisa.",
+                            "alto": "Sua abertura para aprender com diferentes áreas enriquece o trabalho docente e de pesquisa, estimulando criatividade e inovação. Continue aplicando filtros críticos para adaptar essas práticas de forma coerente com o contexto e objetivos institucionais."
+                        }
+                    },
+                    {
+                        "id": "AV6",
+                        "texto": "[R] Evito alterar métodos já consolidados, mesmo que novas práticas possam trazer melhorias.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra abertura para atualizar e adaptar métodos, o que favorece a evolução constante do seu trabalho. Continue avaliando criticamente as novas práticas para garantir que se alinhem aos objetivos e à realidade institucional.",
+                            "medio": "Você mantém métodos consolidados, mas aceita mudanças quando há razões muito claras para aplicá-las. Criar momentos regulares para revisar práticas pode facilitar a adoção de melhorias de forma mais ágil.",
+                            "alto": "Sua preferência por manter métodos fixos garante estabilidade e previsibilidade, mas pode limitar inovações que trariam ganhos. Testar pequenas mudanças controladas pode permitir ajustes sem comprometer a segurança do que já funciona."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Ações Variadas (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Ações Variadas analisa a disposição para experimentar novas abordagens no ensino, pesquisa e extensão. Em nível baixo, os docentes tendem a preferir métodos tradicionais e rotinas já consolidadas, valorizando a estabilidade e a previsibilidade, mas, ao mesmo tempo, podem perder oportunidades de inovação que poderiam enriquecer a prática pedagógica.",
+                        "caracteristicas": [
+                            "Prefere métodos e práticas de ensino tradicionais, mantendo uma rotina consolidada.",
+                            "Demonstra resistência a mudanças significativas, optando por estratégias que já estão comprovadas.",
+                            "Foca em manter a objetividade e a clareza no conteúdo, sem investir tempo excessivo em novas abordagens.",
+                            "Evita inovações que possam desestabilizar o planejamento já estabelecido, mesmo quando há potencial para aprimoramento."
+                        ],
+                        "vantagens": [
+                            "Estabilidade e Consistência.",
+                            "Clareza na Comunicação.",
+                            "Eficiência Operacional."
+                        ],
+                        "dificuldades": [
+                            "Risco de Estagnação.",
+                            "Inflexibilidade.",
+                            "Menor Inovação."
+                        ],
+                        "estrategias": [
+                            "Introdução Gradual de Novidades.",
+                            "Pesquisa de Boas Práticas.",
+                            "Análise Breve de Sugestões Institucionais.",
+                            "Planejamento Incremental."
+                        ],
+                        "conclusao": "Docentes com baixo nível de Ações Variadas se beneficiam da estabilidade e da clareza que os métodos tradicionais proporcionam, garantindo uma execução consistente das atividades. No entanto, a introdução de pequenas inovações pode estimular a criatividade e melhorar a experiência de ensino, sem perturbar a rotina consolidada."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Ações Variadas (Nível Médio) – Docentes",
+                        "definicao": "A faceta Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Em nível médio, o docente demonstra interesse em explorar abordagens diferentes, mas o faz de forma seletiva e planejada, equilibrando inovação e estabilidade.",
+                        "caracteristicas": [
+                            "Experimentação Moderada.",
+                            "Abertura a Capacitações.",
+                            "Adaptação Parcial da Rotina."
+                        ],
+                        "vantagens": [
+                            "Equilíbrio entre Inovação e Consistência.",
+                            "Atualização Contínua.",
+                            "Aproveitamento Seletivo de Recursos."
+                        ],
+                        "dificuldades": [
+                            "Possibilidade de Avanço Mais Lento.",
+                            "Risco de Limitar a Criatividade.",
+                            "Oscilação no Ritmo de Adaptação."
+                        ],
+                        "estrategias": [
+                            "Planejar Ciclos de Teste.",
+                            "Registrar Resultados.",
+                            "Mesclar Métodos Tradicionais e Inovadores.",
+                            "Ampliar Gradualmente as Experiências."
+                        ],
+                        "conclusao": "Docentes com níveis médios de Ações Variadas conseguem integrar novidades ao seu trabalho de forma estruturada e consistente. Ao planejar ciclos de experimentação, registrar resultados e mesclar métodos tradicionais com inovações, é possível ampliar o repertório pedagógico e manter o ensino atualizado, sem comprometer a estabilidade e a qualidade já alcançadas."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Ações Variadas (Nível Alto) – Docentes",
+                        "definicao": "A faceta Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Docentes com nível alto utilizam metodologias inovadoras, como técnicas ativas, jogos educativos e ferramentas de avaliação diferenciadas, para renovar suas práticas e estimular o aprendizado dos discentes.",
+                        "caracteristicas": [
+                            "Testa metodologias ativas, jogos educativos e diversas ferramentas de avaliação com frequência.",
+                            "Explora linhas de investigação que ampliam seus horizontes e enriquecem o conteúdo ministrado.",
+                            "Participa ativamente de formações pedagógicas, cursos de aperfeiçoamento e eventos fora da sua área habitual.",
+                            "Está disposto(a) a modificar sua rotina de trabalho para adotar abordagens mais eficientes e inovadoras."
+                        ],
+                        "vantagens": [
+                            "Inovação e Criatividade.",
+                            "Ampliação do Repertório Pedagógico.",
+                            "Adaptação às Mudanças."
+                        ],
+                        "dificuldades": [
+                            "Falta de Consistência.",
+                            "Risco de Dispersão."
+                        ],
+                        "estrategias": [
+                            "Cronograma de Experimentação.",
+                            "Registro Sistemático.",
+                            "Dosagem da Criatividade.",
+                            "Feedback Contínuo."
+                        ],
+                        "conclusao": "Docentes com alto nível de Ações Variadas têm a capacidade de transformar suas práticas pedagógicas através da inovação, tornando o ensino mais dinâmico e envolvente. No entanto, é crucial equilibrar a experimentação com a consistência, para que as inovações contribuam efetivamente para a qualidade do aprendizado."
+                    }
+                }
+            },
+            "Valores": {
+                "descricao": "Tendência a refletir criticamente sobre princípios e crenças, avaliando-os no contexto da universidade e da formação de cidadãos.",
+                "perguntas": [
+                    {
+                        "id": "V1",
+                        "texto": "Reflito sobre como minha docência pode impactar a transformação social, contribuindo para a comunidade.",
+                        "feedbacks": {
+                            "baixo": "Sua atenção está mais voltada para resultados imediatos da docência do que para impactos sociais mais amplos. Incluir reflexões sobre o papel social da educação pode ampliar o sentido e o alcance do seu trabalho.",
+                            "medio": "Você considera o impacto social em algumas situações, mas essa análise nem sempre é sistemática. Reservar momentos para pensar sobre o efeito das suas ações na comunidade pode fortalecer o propósito da prática docente.",
+                            "alto": "Você demonstra forte consciência sobre o papel transformador da docência e busca alinhar suas práticas ao benefício da comunidade. Continue conectando os conteúdos e projetos a ações concretas que gerem impacto social positivo."
+                        }
+                    },
+                    {
+                        "id": "V2",
+                        "texto": "Sou aberto(a) a rever minhas convicções pedagógicas quando encontro evidências ou debates acadêmicos que as desafiem.",
+                        "feedbacks": {
+                            "baixo": "Você tende a manter suas convicções mesmo diante de novas evidências, o que pode limitar a evolução das práticas pedagógicas. Buscar compreender diferentes perspectivas pode enriquecer seu repertório docente.",
+                            "medio": "Você considera rever suas convicções quando há argumentos sólidos, mas essa abertura ainda não é constante. Explorar debates acadêmicos de forma mais sistemática pode ampliar a flexibilidade nas suas abordagens pedagógicas.",
+                            "alto": "Você demonstra alta abertura para atualizar suas práticas com base em evidências e discussões acadêmicas. Essa postura favorece inovação e aprimoramento contínuo no ensino."
+                        }
+                    },
+                    {
+                        "id": "V3",
+                        "texto": "Procuro compreender diferentes visões e correntes teóricas para apresentar maior diversidade de perspectivas aos(às) discentes.",
+                        "feedbacks": {
+                            "baixo": "Sua abordagem tende a ser mais centrada em uma única linha de pensamento, o que pode limitar a amplitude de compreensão dos(as) discentes. Incluir visões distintas enriquece o aprendizado e estimula o pensamento crítico.",
+                            "medio": "Você apresenta diferentes visões em alguns momentos, mas ainda pode ampliar a diversidade de perspectivas. A incorporação de novas correntes teóricas pode aumentar o engajamento e a compreensão dos(as) discentes.",
+                            "alto": "Você busca ativamente compreender e apresentar uma ampla gama de perspectivas teóricas, promovendo um ambiente de aprendizagem plural e crítico. Essa postura favorece a formação de estudantes mais reflexivos e preparados para lidar com a diversidade intelectual."
+                        }
+                    },
+                    {
+                        "id": "V4",
+                        "texto": "Valorizo a busca de conhecimento como forma de crescimento profissional, pessoal e social no âmbito da UFSM.",
+                        "feedbacks": {
+                            "baixo": "Você pode estar priorizando demandas imediatas em detrimento do desenvolvimento contínuo. Reservar tempo para novas aprendizagens pode ampliar suas competências e fortalecer sua atuação na UFSM.",
+                            "medio": "Você reconhece o valor do conhecimento, mas pode aprofundar sua busca e aplicação prática. Estabelecer metas claras de atualização pode potencializar seu crescimento pessoal, profissional e social.",
+                            "alto": "Você demonstra forte apreço pela aprendizagem contínua, utilizando-a como ferramenta para evoluir no âmbito profissional, pessoal e social. Essa postura fortalece sua contribuição para a UFSM e inspira outros a seguir o mesmo caminho."
+                        }
+                    },
+                    {
+                        "id": "V5",
+                        "texto": "Busco alinhar minhas práticas docentes a princípios éticos que fortaleçam a cidadania e o pensamento crítico dos(as) estudantes.",
+                        "feedbacks": {
+                            "baixo": "Talvez suas práticas docentes ainda não estejam diretamente conectadas a princípios éticos ou à promoção da cidadania e do pensamento crítico. Incorporar essas dimensões pode ampliar o impacto formativo do seu trabalho.",
+                            "medio": "Você reconhece a importância da ética, cidadania e pensamento crítico no ensino, mas pode fortalecer a conexão entre esses valores e sua prática cotidiana. Pequenos ajustes na abordagem podem gerar grandes resultados.",
+                            "alto": "Você demonstra forte comprometimento em integrar princípios éticos às suas práticas docentes, promovendo a cidadania e estimulando o pensamento crítico. Essa postura contribui para a formação integral dos(as) estudantes e para o fortalecimento do papel social da universidade."
+                        }
+                    },
+                    {
+                        "id": "V6",
+                        "texto": "[R] Evito questionar meus próprios princípios ou métodos, mesmo quando surgem novas informações ou perspectivas.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra abertura para revisar seus princípios e métodos, o que favorece a atualização profissional e o alinhamento com novas evidências ou contextos. Essa postura fortalece sua capacidade de inovação.",
+                            "medio": "Você mantém um equilíbrio entre preservar seus princípios e considerar novas informações, mas pode ampliar o hábito de refletir criticamente sobre seus métodos. Isso pode enriquecer seu repertório e ampliar sua adaptabilidade.",
+                            "alto": "Sua resistência em questionar princípios e métodos pode limitar a atualização e a adaptação às demandas atuais do ensino e da pesquisa. Buscar momentos regulares de reflexão crítica e diálogo com outras perspectivas pode ampliar seu desenvolvimento profissional."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Valores (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Valores avalia a propensão para refletir sobre princípios e crenças no contexto da universidade. Em nível baixo, os docentes tendem a seguir rigorosamente os padrões e normas institucionais, mantendo uma postura mais tradicional e objetiva, com menor inclinação para questionamentos ou para a busca de perspectivas diversas que possam enriquecer o ensino.",
+                        "caracteristicas": [
+                            "Conformidade com Padrões Institucionais.",
+                            "Menor Reflexão Crítica.",
+                            "Objetividade e Praticidade."
+                        ],
+                        "vantagens": [
+                            "Eficiência e Consistência.",
+                            "Estabilidade no Ambiente Acadêmico.",
+                            "Foco no Conteúdo Essencial."
+                        ],
+                        "dificuldades": [
+                            "Limitação na Inovação.",
+                            "Redução da Diversidade de Perspectivas.",
+                            "Resistência à Mudança."
+                        ],
+                        "estrategias": [
+                            "Aceitar Pequenas Adaptações.",
+                            "Explorar Diversidade em Discussões.",
+                            "Dialogar com Colegas de Outras Áreas.",
+                            "Atualizar Procedimentos Quando Necessário."
+                        ],
+                        "conclusao": "Docentes com baixo nível de Valores mantêm uma postura de conformidade e objetividade que garante a regularidade e a eficiência das atividades acadêmicas. No entanto, essa abordagem pode limitar a inovação e a diversificação de perspectivas, fundamentais para o desenvolvimento de um ensino mais crítico e dinâmico."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Valores (Nível Médio) – Docentes",
+                        "definicao": "A faceta Valores avalia a tendência de refletir criticamente sobre princípios, crenças e convicções no contexto da universidade e da formação de cidadãos. Em nível médio, o docente demonstra abertura para revisar suas ideias e incorporar novas perspectivas, mas preserva parte significativa de suas convicções originais.",
+                        "caracteristicas": [
+                            "Reflexão Seletiva.",
+                            "Abertura Condicionada.",
+                            "Valorização de Perspectivas Diversas.",
+                            "Compromisso com o Crescimento."
+                        ],
+                        "vantagens": [
+                            "Equilíbrio entre Tradição e Renovação.",
+                            "Diálogo Construtivo.",
+                            "Atualização Gradual."
+                        ],
+                        "dificuldades": [
+                            "Possível Lentidão na Implementação de Mudanças.",
+                            "Risco de Manter Práticas Obsoletas.",
+                            "Limitação no Alcance da Diversidade Teórica."
+                        ],
+                        "estrategias": [
+                            "Definir Critérios de Revisão.",
+                            "Participar de Fóruns Interdisciplinares.",
+                            "Aplicar Mudanças de Forma Planejada.",
+                            "Equilibrar Consistência e Flexibilidade."
+                        ],
+                        "conclusao": "Docentes com níveis médios de Valores conciliam abertura para novas ideias com a preservação de práticas consolidadas, garantindo estabilidade e evolução contínua. Ao definir critérios para revisão de convicções e implementar mudanças de forma gradual, é possível enriquecer a prática pedagógica e fortalecer o pensamento crítico."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Valores (Nível Alto) – Docentes",
+                        "definicao": "A faceta Valores diz respeito à tendência de refletir criticamente sobre princípios, crenças e convicções, avaliando-os no contexto da universidade e na formação de cidadãos. Docentes com nível alto nessa faceta são profundamente engajados na transformação social, questionam suas convicções pedagógicas quando confrontados com novas evidências e buscam compreender diversas correntes teóricas para enriquecer o processo de ensino-aprendizagem.",
+                        "caracteristicas": [
+                            "Reflexão Crítica.",
+                            "Abertura à Revisão.",
+                            "Diversidade de Perspectivas.",
+                            "Busca de Conhecimento."
+                        ],
+                        "vantagens": [
+                            "Inovação e Melhoria.",
+                            "Contribuição Interdisciplinar.",
+                            "Desenvolvimento Pessoal e Profissional."
+                        ],
+                        "dificuldades": [
+                            "Conflitos com Exigências Formais.",
+                            "Possível Inquietação."
+                        ],
+                        "estrategias": [
+                            "Reconhecer Itens Inegociáveis.",
+                            "Contribuir com Senso Crítico.",
+                            "Equilíbrio entre Inovação e Legislação.",
+                            "Diálogo Interdisciplinar."
+                        ],
+                        "conclusao": "Docentes com alto nível de Valores trazem uma perspectiva crítica e inovadora para a prática docente, contribuindo para a transformação social e a evolução dos processos de ensino na UFSM. Contudo, é fundamental equilibrar a busca por mudanças com o respeito às normas institucionais, garantindo que a inovação ocorra de maneira sustentável e alinhada às exigências formais."
+                    }
+                }
+            }
+        }
+    }
+}

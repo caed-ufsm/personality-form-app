@@ -1,0 +1,564 @@
+{
+    "Amabilidade": {
+        "descricao": "O fator da personalidade Amabilidade descreve a tendência a ser cooperativo(a), empático(a) e cordial nas relações. No magistério superior, influencia a qualidade do relacionamento com discentes, a dinâmica de grupos de pesquisa e a interação com gestores(as) e técnicos(as). A seguir, avaliaremos cada uma das seis facetas ou características que compõem este fator.",
+        "facetas": {
+            "Confiança": {
+                "descricao": "Tendência a acreditar na boa-fé de colegas, gestão superior e discentes, favorecendo relacionamentos cooperativos na UFSM.",
+                "perguntas": [
+                    {
+                        "id": "C1",
+                        "texto": "Creio que a gestão (chefias, direções) normalmente age visando o melhor para a comunidade universitária.",
+                        "feedbacks": {
+                            "baixo": "Você tende a perceber a gestão com ceticismo, o que pode indicar experiências anteriores que geraram desconfiança. Manter um olhar crítico é válido, mas buscar compreender as motivações e limitações das decisões institucionais pode favorecer um diálogo mais construtivo.",
+                            "medio": "Você demonstra uma visão equilibrada, reconhecendo que a gestão pode agir de forma positiva, mas que nem sempre isso acontece. Essa postura favorece uma análise mais ponderada e adaptativa frente a diferentes contextos.",
+                            "alto": "Sua confiança na gestão pode facilitar a cooperação e o alinhamento institucional. No entanto, é importante também manter uma postura crítica para identificar e contribuir com melhorias sempre que necessário."
+                        }
+                    },
+                    {
+                        "id": "C2",
+                        "texto": "Tenho facilidade em confiar em colegas de departamento para desenvolver projetos conjuntos.",
+                        "feedbacks": {
+                            "baixo": "Você tende a ser cauteloso(a) ao confiar em colegas, o que pode proteger contra experiências negativas, mas também limitar oportunidades de colaboração. Buscar construir parcerias em etapas e com acordos claros pode aumentar a segurança e ampliar as possibilidades de trabalho conjunto.",
+                            "medio": "Você confia em colegas quando há bases sólidas para isso, mantendo um equilíbrio entre abertura e prudência. Essa postura permite que as colaborações ocorram de forma seletiva e com maior chance de êxito.",
+                            "alto": "Sua facilidade para confiar nos colegas favorece parcerias e projetos colaborativos, fortalecendo o trabalho em equipe. Apenas mantenha atenção para estabelecer limites e responsabilidades claras, evitando sobrecarga ou dependência excessiva."
+                        }
+                    },
+                    {
+                        "id": "C3",
+                        "texto": "Assumo que a maioria das pessoas age com integridade e interesse no bem coletivo.",
+                        "feedbacks": {
+                            "baixo": "Você tende a adotar uma postura mais desconfiada em relação às intenções das pessoas, o que pode ajudar a prevenir frustrações, mas também limitar conexões e colaborações produtivas. Buscar avaliar cada situação individualmente pode equilibrar proteção e abertura.",
+                            "medio": "Você mantém uma visão equilibrada: reconhece que muitas pessoas agem de forma íntegra, mas também sabe que nem sempre isso ocorre. Essa postura permite colaborar sem perder o senso crítico.",
+                            "alto": "Sua crença na integridade e no interesse coletivo das pessoas favorece relações de confiança e ambientes colaborativos. Apenas tenha atenção para não ignorar sinais que indiquem comportamentos pouco éticos ou prejudiciais."
+                        }
+                    },
+                    {
+                        "id": "C4",
+                        "texto": "Confio que os processos e avaliações institucionais são justos, ainda que rigorosos.",
+                        "feedbacks": {
+                            "baixo": "Você tende a acreditar que os processos e avaliações institucionais podem não ser plenamente justos, o que pode gerar cautela e vigilância diante de regras e procedimentos. Essa postura pode ajudá-lo(a) a identificar falhas e buscar melhorias, mas também pode aumentar a sensação de insegurança no ambiente de trabalho.",
+                            "medio": "Você adota uma postura equilibrada, reconhecendo a importância das avaliações institucionais, mas mantendo senso crítico sobre sua justiça. Isso permite colaborar com o sistema ao mesmo tempo em que observa oportunidades de aperfeiçoamento.",
+                            "alto": "Sua confiança na justiça dos processos e avaliações institucionais favorece engajamento e tranquilidade em cumprir exigências, mesmo quando estas são rigorosas. Apenas mantenha atenção para não deixar de questionar eventuais inconsistências ou injustiças quando necessário."
+                        }
+                    },
+                    {
+                        "id": "C5",
+                        "texto": "Acredito que a colaboração mútua entre docentes e gestão fortalece o desenvolvimento da universidade.",
+                        "feedbacks": {
+                            "baixo": "Você tende a perceber pouca efetividade na colaboração entre docentes e gestão, o que pode levá-lo(a) a manter expectativas reduzidas em relação a parcerias institucionais. Embora essa visão possa protegê-lo(a) de frustrações, também pode limitar oportunidades de diálogo e construção conjunta.",
+                            "medio": "Você reconhece que a colaboração mútua entre docentes e gestão pode fortalecer a universidade, mas mantém cautela quanto à sua efetividade prática. Essa postura permite manter abertura para parcerias, sem deixar de observar criticamente sua real contribuição.",
+                            "alto": "Você valoriza e acredita na força da colaboração entre docentes e gestão para o desenvolvimento institucional. Essa visão tende a favorecer relações mais construtivas, engajamento coletivo e participação ativa em iniciativas conjuntas."
+                        }
+                    },
+                    {
+                        "id": "C6",
+                        "texto": "[R] Prefiro manter distância nas relações profissionais, pois acredito que confiar excessivamente pode trazer prejuízos.",
+                        "feedbacks": {
+                            "baixo": "Você tende a adotar uma postura de proximidade e abertura nas relações profissionais, o que favorece a construção de redes de apoio e colaboração. Mantenha, no entanto, atenção a sinais que indiquem a necessidade de preservar limites saudáveis.",
+                            "medio": "Você busca um equilíbrio entre manter certa distância e criar vínculos no trabalho. Essa postura pode ajudar a preservar a confiança sem perder a capacidade de colaboração, desde que seja acompanhada de uma avaliação cuidadosa das situações.",
+                            "alto": "Você prefere manter reservas nas relações profissionais, priorizando a cautela para evitar possíveis prejuízos. Embora essa estratégia possa proteger de conflitos ou frustrações, é importante avaliar se ela não reduz oportunidades de troca e cooperação produtiva."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Confiança (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Confiança, no contexto do fator Amabilidade, envolve a disposição de acreditar na boa-fé de colegas, gestores e discentes. Em nível baixo, os docentes tendem a adotar uma postura mais cautelosa e desconfiante, o que pode dificultar a formação de parcerias e a troca de informações, impactando a colaboração e o desenvolvimento de projetos conjuntos na UFSM.",
+                        "caracteristicas": [
+                            "Postura Cautelosa.",
+                            "Preferência pela Autonomia.",
+                            "Desconfiança Seletiva."
+                        ],
+                        "vantagens": [
+                            "Senso Crítico Afiado.",
+                            "Autonomia e Controle.",
+                            "Prevenção de Desvios."
+                        ],
+                        "dificuldades": [
+                            "Isolamento Colaborativo.",
+                            "Limitação na Troca de Informações."
+                        ],
+                        "estrategias": [
+                            "Iniciar Colaborações Pontuais.",
+                            "Uso de Fontes Oficiais.",
+                            "Reconhecer Benefícios da Colaboração.",
+                            "Feedback Construtivo."
+                        ],
+                        "conclusao": "Docentes com baixo nível de confiança tendem a adotar uma postura cautelosa que, embora proteja contra erros e desvios, pode limitar a colaboração e a inovação. Ao implementar estratégias que incentivem parcerias pontuais, o uso de fontes oficiais e o feedback construtivo, é possível ampliar a interação e o compartilhamento de conhecimentos sem sacrificar o senso crítico."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Confiança (Nível Médio) – Docentes",
+                        "definicao": "A faceta Confiança refere-se à tendência de acreditar na boa-fé de colegas, gestores e discentes, favorecendo a cooperação e a construção de parcerias. Em nível médio, o docente adota uma postura equilibrada: demonstra abertura para confiar, especialmente em contextos já validados por experiências positivas, mas mantém certa cautela, verificando informações e estabelecendo critérios antes de se engajar plenamente em colaborações.",
+                        "caracteristicas": [
+                            "Abertura Moderada à Cooperação.",
+                            "Confiança Seletiva.",
+                            "Equilíbrio entre Autonomia e Colaboração.",
+                            "Verificação Básica de Informações."
+                        ],
+                        "vantagens": [
+                            "Redes de Colaboração Confiáveis.",
+                            "Postura Prudente.",
+                            "Estabilidade nas Relações."
+                        ],
+                        "dificuldades": [
+                            "Adoção Parcial de Oportunidades.",
+                            "Ritmo Moderado para Novas Parcerias.",
+                            "Possível Subaproveitamento de Ideias Inovadoras."
+                        ],
+                        "estrategias": [
+                            "Ampliar Gradualmente a Rede de Contatos.",
+                            "Estabelecer Acordos Claros.",
+                            "Manter Fontes Diversificadas.",
+                            "Participar de Fóruns Colaborativos."
+                        ],
+                        "conclusao": "Docentes com nível médio de confiança mantêm um equilíbrio saudável entre abertura para colaboração e cautela para proteger a qualidade e a autonomia do trabalho. Ao adotar estratégias que ampliem gradualmente a rede de contatos e estabeleçam acordos claros, é possível fortalecer parcerias produtivas e contribuir para um ambiente acadêmico mais integrado e eficiente na UFSM."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Confiança (Nível Alto) – Docentes",
+                        "definicao": "A faceta Confiança diz respeito à tendência de acreditar na boa-fé e na integridade dos demais—sejam colegas, gestores ou discentes—promovendo relações colaborativas e um ambiente de trabalho positivo na UFSM. Docentes com nível alto de confiança demonstram facilidade em formar parcerias, compartilhar materiais e atuar de forma cooperativa.",
+                        "caracteristicas": [
+                            "Crença na Integridade.",
+                            "Facilidade de Colaboração.",
+                            "Percepção de Boa-fé."
+                        ],
+                        "vantagens": [
+                            "Formação de Redes Sólidas.",
+                            "Compartilhamento de Recursos.",
+                            "Ambiente Colaborativo."
+                        ],
+                        "dificuldades": [
+                            "Risco de Ingenuidade.",
+                            "Dependência Exagerada."
+                        ],
+                        "estrategias": [
+                            "Verificação de Conteúdos.",
+                            "Definição de Metas Individuais.",
+                            "Parcerias com Limites.",
+                            "Feedback Múltiplo."
+                        ],
+                        "conclusao": "Manter um alto nível de confiança no ambiente acadêmico promove parcerias sólidas e um clima colaborativo essencial para o desenvolvimento e a inovação no ensino. Contudo, é importante equilibrar essa confiança com uma verificação crítica e a definição de metas pessoais."
+                    }
+                }
+            },
+            "Franqueza": {
+                "descricao": "Tendência a expressar dificuldades e dúvidas com clareza, buscando sempre aprimorar as práticas profissionais.",
+                "perguntas": [
+                    {
+                        "id": "FQ1",
+                        "texto": "Prefiro ser honesto(a) com meus pares e estudantes sobre os desafios e limitações de cada disciplina.",
+                        "feedbacks": {
+                            "baixo": "Você tende a evitar expor abertamente as dificuldades e limitações da disciplina, possivelmente para preservar a imagem profissional ou evitar inseguranças nos estudantes. Embora a cautela seja válida, considerar maior transparência pode fortalecer a confiança e o engajamento.",
+                            "medio": "Você mantém um equilíbrio entre a honestidade e a preservação da imagem profissional. Essa postura pode ser eficaz para informar e motivar, desde que haja clareza suficiente para que pares e estudantes compreendam o contexto real da disciplina.",
+                            "alto": "Você valoriza a transparência e acredita que ser honesto sobre os desafios e limitações fortalece a confiança mútua e a colaboração. Essa abordagem pode inspirar realismo e responsabilidade nos estudantes, além de favorecer soluções coletivas entre pares."
+                        }
+                    },
+                    {
+                        "id": "FQ2",
+                        "texto": "Não finjo ter domínio total de um tema quando ainda estou em processo de aprendizado.",
+                        "feedbacks": {
+                            "baixo": "Você tende a transmitir segurança mesmo em áreas que ainda está aprendendo, possivelmente para preservar credibilidade. Embora essa postura possa evitar julgamentos imediatos, assumir abertamente que está em processo de aprendizado pode fortalecer a confiança e abrir espaço para colaborações.",
+                            "medio": "Você alterna entre admitir e omitir quando ainda está aprendendo algo. Essa postura intermediária permite flexibilidade, mas pode se beneficiar de maior clareza em situações em que a transparência favorece a troca de conhecimento.",
+                            "alto": "Você valoriza a autenticidade e reconhece que admitir que está aprendendo demonstra humildade e abertura para o crescimento. Essa postura favorece a confiança, incentiva o diálogo e estimula um ambiente acadêmico mais colaborativo."
+                        }
+                    },
+                    {
+                        "id": "FQ3",
+                        "texto": "Gosto de admitir quando cometo erros didáticos ou de planejamento, pois acredito que a transparência reforça a confiança.",
+                        "feedbacks": {
+                            "baixo": "Você tende a evitar admitir erros, possivelmente para preservar sua imagem profissional ou evitar críticas. Embora essa postura possa proteger no curto prazo, reconhecer falhas pode fortalecer a credibilidade e criar um ambiente de aprendizado mais saudável.",
+                            "medio": "Você admite erros em algumas situações, mas em outras prefere manter reserva. Essa postura equilibrada pode ser útil, mas explorar mais a transparência pode ampliar a confiança e o respeito dos envolvidos.",
+                            "alto": "Você vê valor na transparência e entende que admitir falhas é um sinal de maturidade e profissionalismo. Essa atitude fortalece relações, estimula a confiança mútua e cria um espaço mais aberto para ajustes e melhorias contínuas."
+                        }
+                    },
+                    {
+                        "id": "FQ4",
+                        "texto": "Considero que, ser sincero(a) quanto às dificuldades em implementar certa metodologia ou projeto ajuda todos a evoluir.",
+                        "feedbacks": {
+                            "baixo": "Você tende a evitar expor dificuldades, possivelmente para preservar a própria imagem ou evitar julgamentos. Embora essa postura possa reduzir desconfortos momentâneos, ela também limita oportunidades de colaboração e de troca de soluções práticas.",
+                            "medio": "Você reconhece que a sinceridade pode ser útil, mas nem sempre a pratica. Em alguns contextos, prefere manter reserva. Explorar mais momentos de transparência pode gerar maior aprendizado coletivo e eficiência na execução de projetos.",
+                            "alto": "Você valoriza a sinceridade como forma de fortalecer o trabalho conjunto e o aprendizado entre pares. Ao compartilhar dificuldades, contribui para a construção de soluções colaborativas e para a evolução de todos os envolvidos no projeto ou metodologia."
+                        }
+                    },
+                    {
+                        "id": "FQ5",
+                        "texto": "Sinto-me confortável para compartilhar incertezas ou pedir sugestões quando enfrento um desafio profissional.",
+                        "feedbacks": {
+                            "baixo": "Você tende a lidar sozinho(a) com desafios, evitando expor incertezas. Essa postura pode proteger sua autonomia, mas também restringe o acesso a diferentes perspectivas e soluções mais eficazes.",
+                            "medio": "Você compartilha incertezas ou busca sugestões apenas em situações específicas. Ampliar esses momentos de abertura pode aumentar a troca de ideias e gerar soluções mais criativas para desafios complexos.",
+                            "alto": "Você demonstra segurança em compartilhar dúvidas e solicitar sugestões, reconhecendo que a colaboração enriquece as soluções. Essa atitude fortalece vínculos profissionais e amplia a qualidade das respostas aos desafios."
+                        }
+                    },
+                    {
+                        "id": "FQ6",
+                        "texto": "[R] Evito falar sobre minhas dificuldades no trabalho para não correr o risco de parecer despreparado(a).",
+                        "feedbacks": {
+                            "baixo": "Você demonstra abertura para compartilhar dificuldades, reconhecendo que isso não diminui sua competência. Essa postura favorece o apoio mútuo e o desenvolvimento de soluções colaborativas no ambiente profissional.",
+                            "medio": "Você equilibra momentos de reserva com situações em que se abre para falar sobre dificuldades. Avaliar o contexto e buscar apoio de forma estratégica pode potencializar tanto sua imagem profissional quanto a eficácia das soluções.",
+                            "alto": "Você evita expor dificuldades, possivelmente por receio de julgamentos. Embora proteja sua imagem no curto prazo, essa postura pode limitar o acesso a apoio e impedir a construção de soluções mais abrangentes."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Franqueza (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Franqueza envolve a disposição para comunicar dificuldades e dúvidas com clareza, contribuindo para o aprimoramento das práticas docentes. Em nível baixo, os docentes tendem a evitar expor suas limitações e erros, o que pode comprometer a busca de auxílio e a troca de informações que são essenciais para a melhoria contínua no ambiente acadêmico.",
+                        "caracteristicas": [
+                            "Reticência na Expressão.",
+                            "Omissão de Problemas.",
+                            "Postura Reservada."
+                        ],
+                        "vantagens": [
+                            "Preservação da Imagem Profissional.",
+                            "Menor Risco de Conflitos."
+                        ],
+                        "dificuldades": [
+                            "Acúmulo de Dúvidas e Erros.",
+                            "Oportunidades Perdidas de Aprimoramento.",
+                            "Isolamento na Prática Docente."
+                        ],
+                        "estrategias": [
+                            "Exposição Gradual de Dificuldades.",
+                            "Buscar Feedback Direcionado.",
+                            "Reconhecer a Importância do Compartilhamento.",
+                            "Estabelecer Metas de Participação."
+                        ],
+                        "conclusao": "Docentes com baixo nível de franqueza podem enfrentar desafios relacionados à falta de transparência, o que pode prejudicar tanto o desenvolvimento individual quanto o coletivo. Ao adotar estratégias que promovam a exposição gradual de dificuldades e o feedback construtivo, é possível transformar essa postura reservada em uma oportunidade de aprimoramento."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Franqueza (Nível Médio) – Docentes",
+                        "definicao": "A faceta Franqueza, no contexto do fator Amabilidade, refere-se à disposição para expressar dificuldades, dúvidas e limitações de forma clara, visando o aprimoramento das práticas docentes. Em nível médio, o docente apresenta um equilíbrio entre transparência e cautela: está disposto(a) a admitir desafios quando percebe que isso trará benefícios concretos, mas prefere manter certos aspectos reservados em situações mais sensíveis ou formais.",
+                        "caracteristicas": [
+                            "Transparência Seletiva.",
+                            "Reconhecimento Parcial de Limitações.",
+                            "Autoproteção Estratégica.",
+                            "Busca por Equilíbrio."
+                        ],
+                        "vantagens": [
+                            "Manutenção da Confiança.",
+                            "Ambiente Colaborativo Moderado.",
+                            "Preservação de Relações."
+                        ],
+                        "dificuldades": [
+                            "Possível Perda de Oportunidades de Aprimoramento.",
+                            "Inconsistência na Comunicação.",
+                            "Limitação da Aprendizagem Coletiva."
+                        ],
+                        "estrategias": [
+                            "Definir Critérios para a Transparência.",
+                            "Praticar Feedback Bidirecional.",
+                            "Utilizar Momentos Privados para Exposição.",
+                            "Reforçar a Credibilidade ao Admitir Erros."
+                        ],
+                        "conclusao": "Docentes com nível médio de franqueza equilibram a honestidade com a cautela, adaptando sua comunicação ao contexto e ao público. Ao adotar estratégias que favoreçam a exposição responsável de dificuldades, é possível ampliar a troca de conhecimentos, fortalecer parcerias e manter a credibilidade profissional."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Franqueza (Nível Alto) – Docentes",
+                        "definicao": "A faceta Franqueza refere-se à tendência de expressar dificuldades e dúvidas com clareza, promovendo uma comunicação honesta que visa aprimorar as práticas pedagógicas. Docentes com nível alto de franqueza não hesitam em expor os desafios e limitações de suas disciplinas, reconhecendo a importância da transparência para o desenvolvimento pessoal e coletivo.",
+                        "caracteristicas": [
+                            "Transparência na Comunicação.",
+                            "Reconhecimento das Próprias Limitações.",
+                            "Admissão de Erros.",
+                            "Contribuição para a Evolução Coletiva."
+                        ],
+                        "vantagens": [
+                            "Feedback Honesto e Construtivo.",
+                            "Ambiente de Aprendizagem Transparente.",
+                            "Desenvolvimento Profissional."
+                        ],
+                        "dificuldades": [
+                            "Possíveis Conflitos Interpessoais.",
+                            "Exposição de Vulnerabilidades."
+                        ],
+                        "estrategias": [
+                            "Cultivar um Tom Construtivo.",
+                            "Ajustar a Linguagem Conforme o Contexto.",
+                            "Praticar a Comunicação em Ambientes Menores.",
+                            "Buscar Feedback Externo."
+                        ],
+                        "conclusao": "Manter um alto nível de franqueza é essencial para o aprimoramento contínuo da prática docente e para o fortalecimento de uma cultura de feedback construtivo. Contudo, é fundamental equilibrar a honestidade com a diplomacia, adaptando a comunicação ao contexto para evitar conflitos desnecessários."
+                    }
+                }
+            },
+            "Complacência": {
+                "descricao": "Tendência a evitar conflitos, buscando harmonia e soluções pacíficas nos grupos de trabalho, conselhos e colegiados.",
+                "perguntas": [
+                    {
+                        "id": "CP1",
+                        "texto": "Procuro contornar conflitos desnecessários, cedendo em certos pontos para manter um bom clima nas minhas relações pessoais e profissionais.",
+                        "feedbacks": {
+                            "baixo": "Você tende a manter suas posições mesmo em situações de tensão, o que pode demonstrar firmeza, mas também aumentar o risco de conflitos prolongados. Considere avaliar quando ceder pode ser mais benéfico para preservar relações importantes.",
+                            "medio": "Você equilibra a defesa do seu ponto de vista com momentos de flexibilidade para evitar conflitos. Essa postura pode ser eficaz, mas vale refletir sobre como manter esse equilíbrio diante de pressões mais intensas.",
+                            "alto": "Você demonstra flexibilidade e capacidade de ceder em prol da harmonia nas relações. Essa habilidade fortalece vínculos e colaborações, mas é importante cuidar para que isso não leve à anulação de necessidades ou opiniões importantes."
+                        }
+                    },
+                    {
+                        "id": "CP2",
+                        "texto": "Muitas vezes, aceito as decisões do colegiado mesmo que não sejam minhas preferidas, para evitar desavenças prolongadas.",
+                        "feedbacks": {
+                            "baixo": "Você tende a defender seu ponto de vista até o fim, mesmo quando isso pode prolongar discussões ou tensões. Essa firmeza pode ser positiva para garantir representatividade de ideias, mas pode gerar desgastes se não houver flexibilidade estratégica.",
+                            "medio": "Você busca um equilíbrio entre defender suas opiniões e aceitar decisões coletivas, dependendo da situação. Essa postura permite preservar o relacionamento com o grupo, mas pode exigir atenção para não evitar conflitos construtivos que possam trazer melhorias.",
+                            "alto": "Você valoriza a harmonia e tende a priorizar a coesão do grupo em detrimento das suas preferências pessoais. Essa capacidade de ceder pode fortalecer o clima organizacional, mas é importante avaliar se, em alguns casos, manter sua posição poderia trazer benefícios ao coletivo."
+                        }
+                    },
+                    {
+                        "id": "CP3",
+                        "texto": "Evito confrontos diretos em reuniões, pois acredito que o diálogo sereno produz melhores resultados.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não evitar confrontos e pode enfrentar situações de maneira mais direta, mesmo em contextos formais. Essa postura pode agilizar a resolução de problemas, mas também pode gerar resistências se não for acompanhada de uma comunicação cuidadosa.",
+                            "medio": "Você mantém uma postura intermediária, evitando confrontos apenas quando considera que podem prejudicar a produtividade ou o clima do grupo. Essa flexibilidade ajuda a adaptar a abordagem conforme o contexto.",
+                            "alto": "Você valoriza o diálogo calmo e a construção de consenso, evitando confrontos diretos sempre que possível. Essa abordagem pode favorecer um ambiente mais harmonioso, mas é importante estar atento para não deixar de expor pontos importantes por receio de gerar tensão."
+                        }
+                    },
+                    {
+                        "id": "CP4",
+                        "texto": "Mantenho a calma e busco soluções conciliadoras quando surge alguma divergência sobre a distribuição de disciplinas.",
+                        "feedbacks": {
+                            "baixo": "Você tende a não manter a calma ou não buscar conciliação diante de divergências sobre a distribuição de disciplinas. Essa postura pode levar a decisões mais rápidas, mas também pode aumentar tensões e dificultar acordos.",
+                            "medio": "Você apresenta equilíbrio moderado entre manter a calma e defender seus interesses. Dependendo do contexto e das pessoas envolvidas, pode optar por uma solução conciliadora ou por uma postura mais assertiva.",
+                            "alto": "Você mantém a serenidade e adota uma postura conciliadora diante de divergências, priorizando o entendimento mútuo e a construção de acordos justos. Essa abordagem favorece a cooperação, mas é importante garantir que suas necessidades e limites também sejam respeitados."
+                        }
+                    },
+                    {
+                        "id": "CP5",
+                        "texto": "Dou preferência a encontrar consensos rápidos, mesmo que isso exija abrir mão de parte das minhas propostas.",
+                        "feedbacks": {
+                            "baixo": "Você tende a valorizar a defesa das suas propostas até o fim, mesmo que isso prolongue as discussões. Essa postura pode fortalecer sua posição, mas também pode dificultar a construção de consensos rápidos.",
+                            "medio": "Você busca um equilíbrio entre defender suas propostas e aceitar ajustes para alcançar consenso. A decisão de ceder ou insistir varia conforme a importância do tema e o contexto da negociação.",
+                            "alto": "Você prioriza soluções rápidas e consensuais, mesmo que isso implique abrir mão de parte das suas propostas. Essa postura contribui para a agilidade nas decisões e para um ambiente harmonioso, mas exige atenção para não comprometer a qualidade ou relevância das ideias originais."
+                        }
+                    },
+                    {
+                        "id": "CP6",
+                        "texto": "[R] Tenho dificuldade em ceder em discussões, mesmo quando isso poderia encurtar conflitos e facilitar o andamento das decisões.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra flexibilidade para ceder em discussões quando percebe que isso pode agilizar decisões e reduzir conflitos. Essa habilidade favorece o andamento dos trabalhos e contribui para um clima colaborativo.",
+                            "medio": "Você busca equilíbrio entre defender seu ponto de vista e ceder para facilitar o andamento das decisões. Sua postura varia conforme o assunto e o impacto que a decisão pode ter nos resultados.",
+                            "alto": "Você tende a manter firmeza nas suas posições, mesmo quando ceder poderia reduzir tensões e acelerar processos decisórios. Essa postura preserva seus princípios e interesses, mas pode prolongar conflitos e dificultar o consenso."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Complacência (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Complacência, ou Cooperação, avalia a tendência de evitar conflitos e buscar harmonia nas relações interpessoais. Docentes com baixo nível de complacência tendem a manter uma postura mais firme e competitiva, defendendo suas opiniões com rigor, o que pode gerar atritos em reuniões e interações, mas também pode assegurar que suas ideias sejam claramente expressas.",
+                        "caracteristicas": [
+                            "Postura Firme e Competitiva.",
+                            "Menor Tendência a Ceder.",
+                            "Expressão Direta."
+                        ],
+                        "vantagens": [
+                            "Defesa das Próprias Ideias.",
+                            "Clareza e Transparência.",
+                            "Autonomia e Independência."
+                        ],
+                        "dificuldades": [
+                            "Risco de Conflitos.",
+                            "Percepção de Intransigência.",
+                            "Isolamento."
+                        ],
+                        "estrategias": [
+                            "Praticar Escuta Ativa.",
+                            "Ajustar a Linguagem.",
+                            "Equilibrar Firmeza com Flexibilidade.",
+                            "Solicitar Feedback de Colegas."
+                        ],
+                        "conclusao": "Docentes com baixo nível de complacência defendem suas ideias com firmeza, o que pode assegurar a clareza e a inovação no ambiente acadêmico. Contudo, é fundamental equilibrar essa postura com uma comunicação mais aberta e empática para evitar conflitos desnecessários e promover a colaboração."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Complacência (Nível Médio) – Docentes",
+                        "definicao": "A faceta Complacência, também conhecida como Cooperação, diz respeito à tendência de evitar conflitos e buscar harmonia nas relações interpessoais. Em nível médio, o docente apresenta uma postura equilibrada: valoriza a boa convivência, mas não deixa de defender seus pontos de vista quando julga necessário. Essa postura combina flexibilidade com assertividade, permitindo que se mantenha a paz no ambiente acadêmico sem abrir mão de princípios e objetivos importantes.",
+                        "caracteristicas": [
+                            "Equilíbrio entre Harmonia e Firmeza.",
+                            "Flexibilidade Condicional.",
+                            "Comunicação Moderada.",
+                            "Busca por Soluções Colaborativas."
+                        ],
+                        "vantagens": [
+                            "Relações Interpessoais Saudáveis.",
+                            "Tomada de Decisão Equilibrada.",
+                            "Capacidade de Negociação."
+                        ],
+                        "dificuldades": [
+                            "Possível Ambiguidade de Postura.",
+                            "Risco de Concessões Excessivas em Temas Relevantes.",
+                            "Desgaste por Manutenção do Equilíbrio."
+                        ],
+                        "estrategias": [
+                            "Definir Limites Claros.",
+                            "Aprimorar Técnicas de Negociação.",
+                            "Comunicar-se com Transparência.",
+                            "Revisar Regularmente as Concessões Feitas."
+                        ],
+                        "conclusao": "Docentes com nível médio de complacência conseguem equilibrar a manutenção de um ambiente harmonioso com a defesa assertiva de ideias e interesses. Esse equilíbrio favorece a colaboração e o respeito mútuo, sem abrir mão da qualidade e dos princípios que orientam a prática acadêmica."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Complacência (Nível Alto) – Docentes",
+                        "definicao": "A faceta Complacência, também conhecida como Cooperação, descreve a tendência a evitar conflitos e a buscar harmonia nas relações interpessoais. No contexto do magistério superior, docentes com alto nível de complacência priorizam a manutenção de um ambiente pacífico, contornando conflitos e cedendo em certas questões para preservar um bom clima entre discentes, colegas, gestores e demais colaboradores.",
+                        "caracteristicas": [
+                            "Busca por Harmonia.",
+                            "Flexibilidade Relacional.",
+                            "Diálogo Sereno.",
+                            "Solução Conciliadora."
+                        ],
+                        "vantagens": [
+                            "Ambiente de Trabalho Harmonioso.",
+                            "Facilitação de Parcerias.",
+                            "Redução de Conflitos."
+                        ],
+                        "dificuldades": [
+                            "Submissão Excessiva.",
+                            "Risco de Comprometimento Pessoal."
+                        ],
+                        "estrategias": [
+                            "Avaliar Concessões.",
+                            "Praticar Assertividade Construtiva.",
+                            "Estabelecer Acordos de Convivência.",
+                            "Buscar Feedback Constante."
+                        ],
+                        "conclusao": "Para docentes com alto nível de complacência, a tendência de evitar conflitos cria um ambiente de trabalho harmonioso e colaborativo. Contudo, é crucial equilibrar essa postura com assertividade para não comprometer a defesa de ideias e a qualidade dos projetos."
+                    }
+                }
+            },
+            "Sensibilidade": {
+                "descricao": "Tendência a lidar com colegas, discentes e servidores com empatia e preocupação genuína, facilitando relacionamentos.",
+                "perguntas": [
+                    {
+                        "id": "S1",
+                        "texto": "Sinto empatia por estudantes que enfrentam problemas de aprendizagem ou dificuldades pessoais.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra baixa tendência a se sensibilizar diante das dificuldades acadêmicas ou pessoais dos estudantes. Essa postura pode indicar foco maior nas questões técnicas e objetivas do ensino, mas pode reduzir a percepção dos discentes sobre acolhimento e apoio.",
+                            "medio": "Você apresenta um nível moderado de empatia, reconhecendo os desafios que alguns estudantes enfrentam, mas nem sempre envolvendo-se diretamente para compreender ou apoiar cada caso.",
+                            "alto": "Você demonstra elevada sensibilidade e compreensão diante das dificuldades acadêmicas e pessoais dos estudantes, o que favorece a criação de um ambiente de confiança, acolhimento e apoio mútuo no processo de aprendizagem."
+                        }
+                    },
+                    {
+                        "id": "S2",
+                        "texto": "Preocupo-me com o estado emocional de colegas que estão sobrecarregados com muitas disciplinas ou projetos.",
+                        "feedbacks": {
+                            "baixo": "Você demonstra baixa preocupação com o bem-estar emocional de colegas sobrecarregados. Essa postura pode indicar foco prioritário em suas próprias demandas, mas pode reduzir oportunidades de fortalecer vínculos e promover um ambiente de trabalho mais solidário.",
+                            "medio": "Você reconhece que o estado emocional dos colegas é relevante, mas nem sempre se envolve ativamente ou demonstra preocupação contínua quando eles estão sobrecarregados.",
+                            "alto": "Você demonstra elevada atenção e cuidado com o bem-estar emocional dos colegas, especialmente quando percebem sobrecarga de disciplinas ou projetos. Essa atitude fortalece o espírito de cooperação e contribui para um clima institucional mais saudável."
+                        }
+                    },
+                    {
+                        "id": "S3",
+                        "texto": "Demonstro compreensão diante de limitações estruturais ou pessoais dos(as) discentes, tentando encontrar alternativas.",
+                        "feedbacks": {
+                            "baixo": "Você tende a apresentar baixa compreensão frente às limitações estruturais ou pessoais dos(as) discentes, priorizando mais o cumprimento das regras e prazos do que a busca por alternativas. Essa postura pode reduzir a proximidade e a confiança entre você e seus alunos.",
+                            "medio": "Você reconhece que os(as) discentes podem enfrentar dificuldades estruturais ou pessoais, mas nem sempre consegue ou opta por adaptar estratégias para lidar com essas situações.",
+                            "alto": "Você demonstra sensibilidade e abertura para compreender as dificuldades dos(as) discentes, buscando alternativas viáveis para que possam cumprir as demandas acadêmicas. Essa postura contribui para um ambiente de aprendizagem mais inclusivo e colaborativo."
+                        }
+                    },
+                    {
+                        "id": "S4",
+                        "texto": "Sinto compaixão por quem não tem acesso aos mesmos recursos de ensino ou pesquisa que eu possuo.",
+                        "feedbacks": {
+                            "baixo": "Você tende a apresentar pouca ou nenhuma compaixão diante das desigualdades de acesso a recursos de ensino ou pesquisa. Isso pode levar a uma postura mais distante em relação a colegas ou discentes que enfrentam essas limitações.",
+                            "medio": "Você reconhece que existem desigualdades no acesso a recursos, mas nem sempre sente ou expressa compaixão de forma consistente diante dessas situações.",
+                            "alto": "Você demonstra empatia e compaixão por aqueles que não dispõem dos mesmos recursos que você, reconhecendo o impacto dessa desigualdade no desempenho acadêmico ou profissional. Essa postura pode favorecer ações de colaboração e compartilhamento de oportunidades."
+                        }
+                    },
+                    {
+                        "id": "S5",
+                        "texto": "Procuro oferecer apoio prático e emocional quando percebo que alguém está passando por um momento de fragilidade.",
+                        "feedbacks": {
+                            "baixo": "Você raramente se envolve para oferecer suporte prático ou emocional a pessoas em momentos de fragilidade. Essa postura pode transmitir distanciamento e dificultar a criação de vínculos de confiança.",
+                            "medio": "Você reconhece a importância de apoiar alguém em situações de fragilidade, mas tende a oferecer esse suporte apenas em circunstâncias específicas ou quando solicitado.",
+                            "alto": "Você demonstra disposição para prestar apoio prático e emocional sempre que percebe que alguém está enfrentando um momento difícil, fortalecendo o ambiente de acolhimento e cooperação."
+                        }
+                    },
+                    {
+                        "id": "S6",
+                        "texto": "[R] Tenho dificuldade em perceber quando alguém ao meu redor está emocionalmente abalado ou precisando de ajuda.",
+                        "feedbacks": {
+                            "baixo": "Você tem boa percepção das necessidades emocionais das pessoas ao seu redor, identificando sinais de fragilidade e podendo agir para oferecer suporte no momento certo.",
+                            "medio": "Você às vezes percebe quando alguém está emocionalmente abalado ou precisando de ajuda, mas pode deixar passar sinais sutis ou situações que exigem maior atenção.",
+                            "alto": "Você apresenta dificuldade para identificar sinais de que alguém está passando por um momento emocional delicado, o que pode limitar sua capacidade de oferecer apoio no momento adequado."
+                        }
+                    }
+                ],
+                "feedbackConsolidado": {
+                    "baixo": {
+                        "titulo": "FEEDBACK – Sensibilidade (Nível Baixo) – Docentes",
+                        "definicao": "A faceta Sensibilidade (Compaixão) refere-se à capacidade de reconhecer e responder às necessidades emocionais de colegas e discentes. Em nível baixo, os docentes tendem a manter um foco maior na condução do curso e na transmissão do conteúdo, sem se envolver profundamente com os aspectos emocionais das interações, o que pode levar à negligência de sinais de crise ou dificuldade entre os alunos.",
+                        "caracteristicas": [
+                            "Foco na Condução do Curso.",
+                            "Menor Envolvimento Emocional.",
+                            "Abordagem Pragmática."
+                        ],
+                        "vantagens": [
+                            "Estabilidade e Foco.",
+                            "Eficiência Operacional.",
+                            "Redução de Distrações."
+                        ],
+                        "dificuldades": [
+                            "Risco de Ignorar Sinais de Crise.",
+                            "Falta de Apoio Emocional.",
+                            "Perda de Oportunidades de Intervenção."
+                        ],
+                        "estrategias": [
+                            "Observação Atenta.",
+                            "Postura Acolhedora Pontual.",
+                            "Feedback Externo.",
+                            "Combinar Clareza e Cordialidade."
+                        ],
+                        "conclusao": "Docentes com baixo nível de sensibilidade conseguem manter foco e eficiência, mas podem negligenciar sinais importantes de dificuldades emocionais. Adotar estratégias de observação e apoio pontual ajuda a equilibrar objetividade e empatia, promovendo um ambiente mais acolhedor."
+                    },
+                    "medio": {
+                        "titulo": "FEEDBACK – Sensibilidade (Nível Médio) – Docentes",
+                        "definicao": "A faceta Sensibilidade (Compaixão) está relacionada à capacidade de reconhecer e responder às necessidades emocionais de colegas, discentes e demais membros da comunidade acadêmica. Em nível médio, o docente demonstra empatia e atenção às dificuldades dos outros, mas mantém limites claros para preservar o foco nas responsabilidades acadêmicas e evitar sobrecarga.",
+                        "caracteristicas": [
+                            "Empatia Moderada.",
+                            "Atenção ao Clima Emocional.",
+                            "Flexibilidade no Apoio.",
+                            "Comunicação Acolhedora e Objetiva."
+                        ],
+                        "vantagens": [
+                            "Relações Positivas e Respeitosas.",
+                            "Intervenção Pontual e Eficaz.",
+                            "Equilíbrio entre Afeto e Produtividade."
+                        ],
+                        "dificuldades": [
+                            "Risco de Dúvida sobre Disponibilidade.",
+                            "Possibilidade de Negligenciar Sinais Sutis.",
+                            "Desgaste na Tentativa de Equilibrar."
+                        ],
+                        "estrategias": [
+                            "Definir Critérios de Intervenção.",
+                            "Praticar Escuta Ativa com Limites.",
+                            "Utilizar Recursos Institucionais.",
+                            "Revisar Percepções e Posturas."
+                        ],
+                        "conclusao": "Docentes com nível médio de sensibilidade equilibram empatia e objetividade, oferecendo suporte proporcional sem comprometer suas responsabilidades. Essa postura favorece um ambiente de ensino acolhedor e produtivo."
+                    },
+                    "alto": {
+                        "titulo": "FEEDBACK – Sensibilidade (Nível Alto) – Docentes",
+                        "definicao": "A faceta Sensibilidade (Compaixão) diz respeito à capacidade de lidar com colegas, discentes e demais membros da comunidade acadêmica com empatia e preocupação genuína, criando vínculos e facilitando relacionamentos. Docentes com nível alto de sensibilidade são altamente perceptivos às dificuldades dos alunos e colegas, o que pode enriquecer o ambiente de ensino, embora haja o risco de sobrecarga emocional se não gerenciado adequadamente.",
+                        "caracteristicas": [
+                            "Empatia Acentuada.",
+                            "Preocupação com o Bem-Estar dos Colegas.",
+                            "Compreensão das Limitações.",
+                            "Solidariedade."
+                        ],
+                        "vantagens": [
+                            "Fortalecimento dos Vínculos.",
+                            "Intervenção Proativa.",
+                            "Ambiente Positivo."
+                        ],
+                        "dificuldades": [
+                            "Risco de Sobrecarga Emocional.",
+                            "Dificuldade de Delimitar Limites."
+                        ],
+                        "estrategias": [
+                            "Delimitar Tempo e Energia.",
+                            "Praticar Autorreflexão.",
+                            "Utilizar Empatia de Forma Estratégica.",
+                            "Estabelecer Limites Claros."
+                        ],
+                        "conclusao": "Docentes com alto nível de sensibilidade criam ambientes de ensino acolhedores e colaborativos. Contudo, é essencial equilibrar empatia com autocuidado e limites claros para preservar o bem-estar e a eficácia docente."
+                    }
+                }
+            }
+        }
+    }
+}

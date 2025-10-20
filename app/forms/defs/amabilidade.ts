@@ -148,7 +148,7 @@ export const amabilidadeV1: FormDefinition = {
     // 4.4 Complacência
     {
       key: "complacencia",
-      title: "4.4. Complacência",
+      title: "4.3. Complacência",
       questions: [
         {
           id: "a13",
@@ -211,7 +211,7 @@ export const amabilidadeV1: FormDefinition = {
     // 4.6 Sensibilidade
     {
       key: "sensibilidade",
-      title: "4.6. Sensibilidade",
+      title: "4.4. Sensibilidade",
       questions: [
         {
           id: "a19",

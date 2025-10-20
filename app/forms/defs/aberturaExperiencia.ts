@@ -71,7 +71,7 @@ export const aberturaExperienciaV1: FormDefinition = {
 
     {
       key: "sentimentos",
-      title: "3.3. Sentimentos",
+      title: "3.2. Sentimentos",
       questions: [
         {
           id: "a7",
@@ -121,7 +121,7 @@ export const aberturaExperienciaV1: FormDefinition = {
 
     {
       key: "acoes_variadas",
-      title: "3.4. Ações Variadas",
+      title: "3.3. Ações Variadas",
       questions: [
         {
           id: "a13",
@@ -171,7 +171,7 @@ export const aberturaExperienciaV1: FormDefinition = {
 
     {
       key: "valores",
-      title: "3.6. Valores",
+      title: "3.4. Valores",
       questions: [
         {
           id: "a19",

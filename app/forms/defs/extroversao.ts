@@ -85,7 +85,7 @@ export const extroversao: FormDefinition = {
     // 2.3 Assertividade
     {
       key: "assertividade",
-      title: "2.3. Assertividade",
+      title: "2.2. Assertividade",
       questions: [
         {
           id: "e7",
@@ -148,7 +148,7 @@ export const extroversao: FormDefinition = {
     // 2.6 Emoções Positivas
     {
       key: "emocoes_positivas",
-      title: "2.6. Emoções Positivas",
+      title: "2.3. Emoções Positivas",
       questions: [
         {
           id: "e13",
