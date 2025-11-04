@@ -1,6 +1,4 @@
 // app/api/pdf/report/route.ts
-export const runtime = "nodejs";
-
 import { NextRequest, NextResponse } from "next/server";
 import { buildPdfReport, OneForm } from "./pdf-builder";
 
