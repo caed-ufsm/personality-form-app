@@ -6,7 +6,7 @@ export const conscienciosidadeV1: FormDefinition = {
   storageVersion: 1,
 
   // --- metadados para UI ---
-  subtitle: "Responsabilidade, organização, disciplina e persistência",
+  subtitle: "Autoeficácia, ordem, autodisciplina e ponderação",
   description:
     "Avalia responsabilidade, organização, disciplina e persistência no contexto docente da UFSM.",
   iconEmoji: "📋",

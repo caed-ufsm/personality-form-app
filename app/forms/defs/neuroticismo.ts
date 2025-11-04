@@ -6,7 +6,7 @@ export const neuroticismo: FormDefinition = {
   storageVersion: 1,
 
   // --- metadados para UI ---
-  subtitle: "Avaliação de facetas do Neuroticismo",
+  subtitle: "Ansiedade, hostilidade, depressão, autoconsciência e impusividade",
   description:
     "Avalie como você vivencia emoções e reações (ansiedade, irritação, desânimo, vergonha e impulsividade) no contexto da carreira docente.",
   iconEmoji: "🧠",

@@ -20,37 +20,38 @@ export default function QuestionItem({
   control,
   errorMessage,
   scale = 5,
-  options = ["A", "B", "C", "D", "E"],
-  minLabel = "Discordo Totalmente",
-  maxLabel = "Concordo Totalmente",
+  options = ["1", "2", "3", "4", "5"],
+  minLabel = "Discordo totalmente",
+  maxLabel = "Concordo totalmente",
 }: Props) {
-  // Paleta da imagem (vermelho -> verde)
   const colors = [
-    "#ef4444", // vermelho
-    "#f97316", // laranja
-    "#eab308", // amarelo
-    "#22c55e", // verde claro
-    "#16a34a", // verde forte
+    "#005C8B", //azul UFSM
+    "#005C8B", //azul UFSM
+    "#005C8B", //azul UFSM
+    "#005C8B", //azul UFSM
+    "#005C8B", //azul UFSM
+  ];
+
+  const optionLabels = [
+    "Discordo totalmente",
+    "Discordo",
+    "Neutro",
+    "Concordo",
+    "Concordo totalmente",
   ];
 
   return (
     <fieldset
       id={id}
-      className="rounded-lg p-6 sm:p-8 border border-gray-200 bg-white shadow-sm max-w-5xl mx-auto"
+      className="rounded-lg p-4 sm:p-6 border border-gray-200 bg-white shadow-sm max-w-3xl mx-auto"
       aria-labelledby={`${id}-label`}
     >
-      {/* Texto da pergunta dentro do box */}
+      {/* Pergunta */}
       <div
         id={`${id}-label`}
-        className="text-base sm:text-lg font-medium text-gray-800 mb-6 leading-relaxed break-words"
+        className="text-sm sm:text-base font-bold text-gray-800 mb-4 leading-relaxed break-words"
       >
         {label}
-      </div>
-
-      {/* Labels do topo */}
-      <div className="flex justify-between text-sm text-gray-600 mb-3">
-        <span className="font-bold">{minLabel}</span>
-        <span className="font-bold">{maxLabel}</span>
       </div>
 
       {/* Opções */}
@@ -61,10 +62,10 @@ export default function QuestionItem({
           const selected = Number(field.value ?? 0);
 
           return (
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
+            <div className="flex justify-center flex-wrap sm:flex-nowrap gap-1 sm:gap-3 w-full">
               {Array.from({ length: scale }, (_, i) => {
-                const opt = options[i]; // A, B, C, D, E
-                const value = i + 1; // 1–5 (valor salvo no formulário)
+                const opt = options[i];
+                const value = i + 1;
                 const isSelected = selected === value;
                 const inputId = `${id}-${opt}`;
                 const color = colors[i] || "#ccc";
@@ -73,7 +74,7 @@ export default function QuestionItem({
                   <label
                     key={inputId}
                     htmlFor={inputId}
-                    className={`border-2 rounded-md w-12 sm:w-16 h-12 sm:h-16 flex items-center justify-center text-base sm:text-lg font-semibold cursor-pointer transition-all
+                    className={`border-2 rounded-md flex flex-col items-center justify-center cursor-pointer transition-all text-center select-none
                       ${
                         isSelected
                           ? "text-white shadow-md scale-105"
@@ -82,6 +83,8 @@ export default function QuestionItem({
                     style={{
                       borderColor: color,
                       backgroundColor: isSelected ? color : "transparent",
+                      width: "clamp(60px, 15vw, 100px)", // 🔹 maior no desktop
+                      height: "clamp(60px, 15vw, 100px)",
                     }}
                   >
                     <input
@@ -90,9 +93,12 @@ export default function QuestionItem({
                       className="sr-only"
                       value={value}
                       checked={isSelected}
-                      onChange={() => field.onChange(value)} // 🔹 salva número (1–5)
+                      onChange={() => field.onChange(value)}
                     />
-                    {opt}
+                    <span className="text-base font-bold">{value}</span>
+                    <span className="text-[10px] sm:text-[11px] mt-1 leading-tight px-1 font-bold">
+                      {optionLabels[i]}
+                    </span>
                   </label>
                 );
               })}

@@ -6,7 +6,7 @@ export const extroversao: FormDefinition = {
   storageVersion: 1,
 
   // --- metadados para UI ---
-  subtitle: "Sociabilidade, acolhimento, assertividade e emoções positivas",
+  subtitle: "Acolhimento, assertividade e emoções positivas",
   description:
     "Avalie como você se relaciona socialmente, expressa opiniões e mantém emoções positivas no contexto da UFSM.",
   iconEmoji: "🎤",

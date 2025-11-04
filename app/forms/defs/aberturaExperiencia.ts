@@ -6,7 +6,7 @@ export const aberturaExperienciaV1: FormDefinition = {
   storageVersion: 1,
 
   // --- metadados ---
-  subtitle: "Imaginação, sentimentos, flexibilidade e valores",
+  subtitle: "Fantasia, sentimentos, ações variadas e valores",
   description:
     "Avalie sua criatividade, curiosidade intelectual e receptividade a novas ideias no contexto da UFSM.",
   iconEmoji: "🌌",

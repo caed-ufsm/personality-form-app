@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { useRouter } from "next/navigation";
 import type { FieldValues, UseFormGetValues } from "react-hook-form";
 
 type Status = null | "idle" | "saving" | "saved" | "error";
@@ -17,6 +18,7 @@ export type PagerActionsProps<TValues extends FieldValues = FieldValues> = {
     setStatus: React.Dispatch<React.SetStateAction<Status>>;
     storageKey?: string;
   };
+  nextFormId?: string | null;
 };
 
 export default function PagerActions<TValues extends FieldValues = FieldValues>({
@@ -27,12 +29,23 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
   goNext,
   onClear,
   controlApi,
+  nextFormId,
 }: PagerActionsProps<TValues>) {
   const { getValues, setStatus, storageKey } = controlApi;
+  const router = useRouter();
+
+  const isLastPage = page >= numPages - 1;
+
+  const handleNext = () => {
+    if (isLastPage && nextFormId) {
+      router.push(`/forms/${nextFormId}`);
+    } else if (!isLastPage) {
+      goNext();
+    }
+  };
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-1">
-      {/* Navegação principal */}
       <div className="flex gap-2 w-full sm:w-auto">
         <button
           type="button"
@@ -50,20 +63,25 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
 
         <button
           type="button"
-          onClick={goNext}
-          disabled={page >= numPages - 1}
-          className={`px-3 py-2 rounded text-white w-full sm:w-auto text-sm
+          onClick={handleNext}
+          disabled={isLastPage && !nextFormId}
+          className={`px-3 py-2 rounded text-white w-full sm:w-auto text-sm transition
             ${
-              page >= numPages - 1
-                ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+              isLastPage
+                ? nextFormId
+                  ? "bg-green-600 hover:bg-green-700"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 : "bg-[#005C8B] hover:bg-[#00476b]"
             }`}
         >
-          Próxima categoria
+          {isLastPage
+            ? nextFormId
+              ? "Próximo formulário →"
+              : "Fim do formulário"
+            : "Próxima categoria"}
         </button>
       </div>
 
-      {/* Ações secundárias */}
       <div className="flex items-center gap-3 w-full sm:w-auto">
         <button
           type="button"
@@ -92,7 +110,11 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
         </button>
 
         <div className="text-xs text-gray-600 ml-2">
-          {status === "saving" ? "Salvando..." : status === "saved" ? "Salvo" : ""}
+          {status === "saving"
+            ? "Salvando..."
+            : status === "saved"
+            ? "Salvo"
+            : ""}
         </div>
       </div>
     </div>
