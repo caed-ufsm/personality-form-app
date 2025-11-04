@@ -1,5 +1,5 @@
 // app/api/forms/[formId]/route.ts
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { z } from "zod";
 import { getFormDefinition } from "../../../forms/lib/registry";
 import { schemaFromConfig } from "../../../forms/lib/schemaFromConfig";
@@ -14,7 +14,6 @@ function normalizePayload(
   allIds: string[],
   categoryKeys: string[]
 ): { ok: true; data: AnswersById } | { ok: false; reason: string } {
-  // 1) { categories: { catKey: { qId: number } } }
   if (body && typeof body === "object" && body.categories && typeof body.categories === "object") {
     const categories = body.categories as CategoriesPayload;
     const out: AnswersById = {};
@@ -33,7 +32,6 @@ function normalizePayload(
     return { ok: true, data: out };
   }
 
-  // 2) { [questionId]: number }
   if (body && typeof body === "object" && Object.keys(body).some((k) => allIds.includes(k))) {
     const out: AnswersById = {};
     for (const id of allIds) {
@@ -42,7 +40,6 @@ function normalizePayload(
     return { ok: true, data: out };
   }
 
-  // 3) { answers: number[] } na ordem dos ids
   if (body && Array.isArray(body.answers)) {
     const arr = body.answers as unknown[];
     if (arr.length !== allIds.length) {
@@ -53,7 +50,6 @@ function normalizePayload(
     return { ok: true, data: out };
   }
 
-  // 4) { q1: 3, q2: 4, ... } (mapeia na ordem de allIds)
   const qKeys = Object.keys(body ?? {}).filter((k) => /^q\d+$/i.test(k));
   if (qKeys.length > 0) {
     const ordered = qKeys
@@ -95,13 +91,10 @@ function categoryAverages(def: FormDefinition, byCategory: Record<string, Answer
   return avgs;
 }
 
-// Handler
-export async function POST(
-  req: Request,
-  { params }: { params: { formId: string } }
-) {
+// ✅ Handler atualizado para Next.js 15
+export async function POST(req: NextRequest, context: { params: Promise<{ formId: string }> }) {
   try {
-    const { formId } = params;
+    const { formId } = await context.params;
     const def = getFormDefinition(formId);
     if (!def) {
       return NextResponse.json({ ok: false, message: `Formulário não encontrado: ${formId}` }, { status: 404 });
@@ -110,7 +103,6 @@ export async function POST(
     const { strict, allIds } = schemaFromConfig(def);
     const body = await req.json().catch(() => ({}));
 
-    // Normaliza
     const normalized = normalizePayload(body, allIds, def.categories.map((c) => c.key));
     if (!normalized.ok) {
       return NextResponse.json(
@@ -119,7 +111,6 @@ export async function POST(
       );
     }
 
-    // Valida (strict)
     const parsed = strict.safeParse(normalized.data);
     if (!parsed.success) {
       const flat = parsed.error.flatten();
@@ -129,15 +120,10 @@ export async function POST(
       );
     }
 
-    // TS não infere o tipo dos valores do schema dinâmico: faça o cast explícito
     const answersById: AnswersById = parsed.data as AnswersById;
 
-    // Agrupa e calcula estatísticas
     const byCategory = groupByCategory(def, answersById);
     const averages = categoryAverages(def, byCategory);
-
-    // TODO: salvar em DB se quiser
-    // await saveToDB({ formId, answersById, byCategory, averages, submittedAt: new Date().toISOString() });
 
     return NextResponse.json(
       {
