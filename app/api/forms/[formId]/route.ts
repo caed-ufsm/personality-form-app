@@ -80,13 +80,14 @@ function categoryAverages(def: FormDefinition, byCategory: Record<string, Answer
   return avgs;
 }
 
-/* ---------------------- Handler ---------------------- */
+/* ---------------------- Handler compatível com todas versões ---------------------- */
 export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ formId: string }> } // 👈 note o Promise
-) {
-
-  const { formId } = await context.params; // 👈 await obrigatório
+  context: { params: any } // compatível com Promise e objeto direto
+): Promise<NextResponse> {
+  // pega formId tanto se for síncrono quanto se vier como Promise
+  const params = await Promise.resolve(context.params);
+  const formId = params?.formId;
 
   try {
     const def = getFormDefinition(formId);
