@@ -91,10 +91,13 @@ function categoryAverages(def: FormDefinition, byCategory: Record<string, Answer
   return avgs;
 }
 
-// ✅ Handler atualizado para Next.js 15
+
+
 export async function POST(req: NextRequest, context: { params: Promise<{ formId: string }> }) {
   try {
+    // ✅ Novo formato (precisa do await)
     const { formId } = await context.params;
+
     const def = getFormDefinition(formId);
     if (!def) {
       return NextResponse.json({ ok: false, message: `Formulário não encontrado: ${formId}` }, { status: 404 });
@@ -120,8 +123,7 @@ export async function POST(req: NextRequest, context: { params: Promise<{ formId
       );
     }
 
-    const answersById: AnswersById = parsed.data as AnswersById;
-
+    const answersById = parsed.data as Record<string, number>;
     const byCategory = groupByCategory(def, answersById);
     const averages = categoryAverages(def, byCategory);
 
@@ -130,11 +132,7 @@ export async function POST(req: NextRequest, context: { params: Promise<{ formId
         ok: true,
         formId,
         message: "Formulário recebido",
-        data: {
-          byId: answersById,
-          byCategory,
-          categoryAverages: averages,
-        },
+        data: { byId: answersById, byCategory, categoryAverages: averages },
       },
       { status: 200 }
     );
