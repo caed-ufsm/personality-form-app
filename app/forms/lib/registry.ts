@@ -9,7 +9,7 @@ import { conscienciosidadeV1 } from "../defs/conscienciosidade";
 const REGISTRY: Record<string, FormDefinition> = {
   "neuroticismo": neuroticismo,
   "extroversao": extroversao,
-  "abertura-experiencia": aberturaExperienciaV1,
+  "aberturaexperiencia": aberturaExperienciaV1,
   "amabilidade": amabilidadeV1,
   "conscienciosidade": conscienciosidadeV1,
 };

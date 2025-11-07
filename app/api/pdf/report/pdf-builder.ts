@@ -32,7 +32,7 @@ export type OneForm = { id: string; answers: Record<string, number | string> };
 type FormKey =
   | "extroversao"
   | "neuroticismo"
-  | "aberturarexp"
+  | "aberturarexperiencia"
   | "amabilidade"
   | "conscienciosidade";
 
@@ -40,7 +40,11 @@ type FormKey =
 const FEEDBACKS: Record<FormKey, FeedbackForm> = {
   extroversao: (rawExtroversao as any).Extroversao,
   neuroticismo: (rawNeuroticismo as any).Neuroticismo,
-  aberturarexp: (rawAbertura as any)["Abertura à Experiência"],
+  aberturarexperiencia:
+    (rawAbertura as any).AberturaExperiencia ??
+    (rawAbertura as any)["AberturaExperiência"] ??
+    (rawAbertura as any).default?.AberturaExperiencia ??
+    (rawAbertura as any).default?.["AberturaExperiência"],
   amabilidade: (rawAmabilidade as any).Amabilidade,
   conscienciosidade: (rawConscienciosidade as any).Conscienciosidade,
 };
@@ -49,26 +53,27 @@ const FEEDBACKS: Record<FormKey, FeedbackForm> = {
 const REVERSE_TAG = /^\s*\[R\]\s*/i;
 
 function resolveFormKey(formId: string): FormKey | undefined {
-  const f = formId.trim().toLowerCase();
+  const f = formId
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[-_]/g, "")
+    .replace(/v\d+$/, "");
+
   if (f.includes("neuro")) return "neuroticismo";
   if (f.includes("extrover")) return "extroversao";
-  if (f.includes("abert")) return "aberturarexp";
   if (f.includes("amabil")) return "amabilidade";
   if (f.includes("consci")) return "conscienciosidade";
-  const valid: FormKey[] = [
-    "extroversao",
-    "neuroticismo",
-    "aberturarexp",
-    "amabilidade",
-    "conscienciosidade",
-  ];
-  if (valid.includes(f as FormKey)) return f as FormKey;
+  if (f.includes("abertura") || f.includes("aberturarexp") || f.includes("experien"))
+    return "aberturarexperiencia";
+
   return undefined;
 }
 
+/** --- ID resolvers --- */
 type IdResolver = (jsonId: string) => string | null;
 
-/** --- Resolutores por fator --- */
 const neuroticismoResolver: IdResolver = (id) => {
   const m = /^([A-Z]+)(\d+)$/i.exec(id);
   if (!m) return null;
@@ -99,7 +104,7 @@ const aberturaResolver: IdResolver = (id) => {
   const offs: Record<string, number> = { F: 0, S: 6, AV: 12, V: 18 };
   const off = offs[prefix];
   if (off === undefined || !num) return null;
-  return `o${off + num}`;
+  return `a${off + num}`; // usa "a" para bater com o storage
 };
 
 const amabilidadeResolver: IdResolver = (id) => {
@@ -124,15 +129,15 @@ const conscienciosidadeResolver: IdResolver = (id) => {
   return `c${off + num}`;
 };
 
-/** --- Map de resolvers --- */
 const ID_RESOLVERS: Record<FormKey, IdResolver> = {
   neuroticismo: neuroticismoResolver,
   extroversao: extroversaoResolver,
-  aberturarexp: aberturaResolver,
+  aberturarexperiencia: aberturaResolver,
   amabilidade: amabilidadeResolver,
   conscienciosidade: conscienciosidadeResolver,
 };
 
+/** ---------------- Helpers ---------------- */
 function toNumber(v: any): number | undefined {
   if (typeof v === "number" && Number.isFinite(v)) return v;
   if (typeof v === "string" && v.trim() !== "" && !isNaN(Number(v)))
@@ -167,28 +172,29 @@ function getAnswerFor(
   return undefined;
 }
 
-const stripReverseTag = (s: string) => String(s || "").replace(REVERSE_TAG, "");
-const reverseLikert1to5 = (v: number) => 6 - v;
-
+/** ---------------- Cálculo ---------------- */
 function calcularMediaFaceta(
   formKey: FormKey,
   perguntas: PerguntaFeedback[],
   answers: Record<string, any>
 ): number | null {
   const vals: number[] = [];
-  for (const p of perguntas) {
-    const raw = getAnswerFor(formKey, p, answers);
+  for (let i = 0; i < perguntas.length; i++) {
+    const raw = getAnswerFor(formKey, perguntas[i], answers);
     if (typeof raw !== "number") continue;
-    vals.push(REVERSE_TAG.test(p.texto) ? reverseLikert1to5(raw) : raw);
+    let v = raw;
+    if (i === perguntas.length - 1) v = 6 - raw;
+    vals.push(v);
   }
   if (!vals.length) return null;
-  return vals.reduce((a, b) => a + b, 0) / vals.length;
+  return Number((vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(2));
 }
+
 function nivelPorMedia(media: number | null): FeedbackLevel {
   if (media == null) return "medio";
-  if (media <= 2) return "baixo";
-  if (media >= 4) return "alto";
-  return "medio";
+  if (media >= 1 && media <= 2.99) return "baixo";
+  if (media >= 3 && media <= 3.99) return "medio";
+  return "alto";
 }
 
 /** ---------------- Layout helpers ---------------- */
@@ -292,9 +298,6 @@ function bulletList(ctx: LayoutCtx, items: string[], size = 11, bulletColor = rg
 export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }): Promise<Uint8Array> {
   const PRIMARY = rgb(0.08, 0.28, 0.58);
   const ACCENT = rgb(0.15, 0.62, 0.45);
-  const LIGHT = rgb(0.85, 0.85, 0.85);
-  const GRID = rgb(0.85, 0.85, 0.85);
-  const TEXT = rgb(0.15, 0.15, 0.15);
   const TEXT_MUTED = rgb(0.35, 0.35, 0.35);
 
   const pdfDoc = await PDFDocument.create();
@@ -307,7 +310,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
   ctx.y = ctx.height - ctx.margin - 40;
   heading(ctx, opts?.title ?? "Relatório consolidado", 22, PRIMARY);
-  paragraph(ctx, "Este relatório apresenta o nível consolidado por faceta e o detalhamento das respostas por afirmação. Escala: 1 (Discordo totalmente) — 5 (Concordo totalmente).", 12, TEXT_MUTED);
+  paragraph(ctx, "Este relatório apresenta o nível consolidado por faceta e o feedback geral do participante.", 12, TEXT_MUTED);
 
   const openContentPage = () => { const p = pdfDoc.addPage(); setPage(ctx, p); };
   openContentPage();
@@ -328,54 +331,68 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
     const fb = FEEDBACKS[formKey];
 
-    const chartRows = Object.entries(fb.facetas).map(([nome, faceta]) => ({
-      label: nome,
-      avg: calcularMediaFaceta(formKey, faceta.perguntas, answers),
-    }));
-    // desenha o gráfico
-    // drawSummaryChart(ctx, chartRows, { PRIMARY, ACCENT, GRID, TEXT });
-
-    const resumo: string[] = [];
-    for (const [nome, faceta] of Object.entries(fb.facetas)) {
-      const avg = calcularMediaFaceta(formKey, faceta.perguntas, answers);
-      const nivel = nivelPorMedia(avg);
-      const map: Record<FeedbackLevel, string> = { baixo: "Baixo", medio: "Médio", alto: "Alto" };
-      resumo.push(`${nome}: ${map[nivel]}${avg != null ? ` (média: ${avg.toFixed(2)})` : ""}`);
-    }
-    bulletList(ctx, resumo, 12, PRIMARY);
-
+    // --- FACETAS ---
     for (const [facetaNome, facetaData] of Object.entries(fb.facetas)) {
       const titleSize = 16,
         lhTitle = lineHeight(titleSize),
         titleTopY = ctx.y - lhTitle + 3;
-      ctx.page.drawRectangle({ x: ctx.margin - 8, y: titleTopY - 2, width: 6, height: lhTitle - 2, color: ACCENT });
+
+      ctx.page.drawRectangle({
+        x: ctx.margin - 8,
+        y: titleTopY - 2,
+        width: 6,
+        height: lhTitle - 2,
+        color: ACCENT,
+      });
+
       const avg = calcularMediaFaceta(formKey, facetaData.perguntas, answers);
+      const nivel = nivelPorMedia(avg);
+      const map: Record<FeedbackLevel, string> = {
+        baixo: "Baixo",
+        medio: "Médio",
+        alto: "Alto",
+      };
+
       subheading(ctx, `Faceta: ${facetaNome}`, titleSize, PRIMARY);
       paragraph(ctx, facetaData.descricao, 12, TEXT_MUTED);
 
-      const consolidado = facetaData.feedbackConsolidado[nivelPorMedia(avg)];
+      paragraph(
+        ctx,
+        `Nível obtido: ${map[nivel]}${avg != null ? ` (média: ${avg.toFixed(2)})` : ""}`,
+        12,
+        rgb(0.12, 0.12, 0.12),
+        true
+      );
+
+      const consolidado = facetaData.feedbackConsolidado[nivel];
       if (consolidado) {
         subheading(ctx, consolidado.titulo, 13, rgb(0, 0, 0));
         paragraph(ctx, consolidado.definicao, 11);
+        if (consolidado.caracteristicas?.length) {
+          subheading(ctx, "Características", 12, PRIMARY);
+          bulletList(ctx, consolidado.caracteristicas, 11);
+        }
+        if (consolidado.vantagens?.length) {
+          subheading(ctx, "Vantagens", 12, PRIMARY);
+          bulletList(ctx, consolidado.vantagens, 11);
+        }
+        if (consolidado.dificuldades?.length) {
+          subheading(ctx, "Dificuldades", 12, PRIMARY);
+          bulletList(ctx, consolidado.dificuldades, 11);
+        }
+        if (consolidado.estrategias?.length) {
+          subheading(ctx, "Estratégias de Desenvolvimento", 12, PRIMARY);
+          bulletList(ctx, consolidado.estrategias, 11);
+        }
+        if (consolidado.conclusao) {
+          paragraph(ctx, consolidado.conclusao, 11);
+        }
       }
 
-      subheading(ctx, "Respostas desta faceta", 13, rgb(0, 0, 0));
-      for (const pergunta of facetaData.perguntas) {
-        const resposta = getAnswerFor(formKey, pergunta, answers);
-        if (typeof resposta !== "number") continue;
-        const faixa: FeedbackLevel = resposta <= 2 ? "baixo" : resposta >= 4 ? "alto" : "medio";
-        const fbPerg = pergunta.feedbacks[faixa];
-        paragraph(ctx, stripReverseTag(pergunta.texto), 11, rgb(0, 0, 0), true);
-        paragraph(ctx, `Resposta: ${String(resposta)} (faixa: ${faixa})`, 11, rgb(0.12, 0.12, 0.12));
-        paragraph(ctx, `Feedback...: ${fbPerg}`, 11);  
-        ctx.y -= 6;  
-      }  
-      ctx.y -= 8;  
-    }  
-  }  
+      ctx.y -= 8;
+    }
+  }
 
-  const pdfBytes = await pdfDoc.save();  
-  const out = new Uint8Array(pdfBytes.length);  
-  out.set(pdfBytes);  
-  return out;  
-}  
+  const pdfBytes = await pdfDoc.save();
+  return new Uint8Array(pdfBytes);
+}

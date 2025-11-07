@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useState, useEffect, useRef } from "react";
+import { useWatch } from "react-hook-form";
 import Link from "next/link";
 import { createPortal } from "react-dom";
 import type { FormDefinition } from "../lib/types";
@@ -102,63 +103,103 @@ export default function FormPageClient({
   const progress = Math.round((filled / total) * 100);
   const cat = def.categories[catIndex];
 
-  // 🔹 Efeito reativo: detecta mudanças nas respostas e mostra feedback
+
+
   useEffect(() => {
-    const subscription = methods.watch((values) => {
-      const facetQuestions = cat.questions
-        .map((q) => Number(values[q.id]))
-        .filter((v) => !isNaN(v));
+    if (!cat || !def?.title) return;
 
-      if (facetQuestions.length === cat.questions.length) {
-        const media =
-          facetQuestions.reduce((acc: number, v: number) => acc + v, 0) /
-          facetQuestions.length;
+    // 🔹 Timer de debounce para evitar chamadas duplicadas
+    let debounceTimer: NodeJS.Timeout | null = null;
 
-        let nivel: "baixo" | "medio" | "alto" =
-          media <= 2 ? "baixo" : media === 3 ? "medio" : "alto";
+    const subscription = methods.watch((values: Record<string, any>) => {
+      if (debounceTimer) clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        // 🔹 Captura as respostas numéricas válidas
+        const facetQuestions = cat.questions.map((q, i) => {
+          let v = Number(values[q.id]);
+          if (isNaN(v) || v <= 0) return null;
 
-        const fator = def.title.trim();
-        const faceta = cat.title
-          .trim()
-          .replace(/^[\d.]+\s*/, "") // remove prefixos tipo 1.1
-          .replace(/\(.*?\)/g, "") // remove parênteses
-          .trim();
+          // 🔹 Se for a ÚLTIMA questão da faceta, inverte a escala (1↔5, 2↔4)
+          if (i === cat.questions.length - 1) {
+            v = 6 - v;
+          }
 
-        console.log("🧠 Fator:", fator);
-        console.log("📘 Faceta:", faceta);
-        console.log("📊 Média:", media.toFixed(2), "| Nível:", nivel);
+          return v;
+        }).filter((v) => v !== null);
 
-        let data = feedbackDataMap[fator];
-        if (!data) {
-          console.warn("❌ Nenhum JSON encontrado para fator:", fator);
-          return;
-        }
+        // 🔹 Só calcula se todas foram respondidas
+        if (facetQuestions.length === cat.questions.length) {
+          const soma = facetQuestions.reduce((acc, v) => acc + (v ?? 0), 0);
+          const media = Number((soma / facetQuestions.length).toFixed(2));
 
-        const normalizar = (s: string) =>
-          s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+          // 🔹 Define o nível com base na média
+          let nivel: "baixo" | "medio" | "alto";
+          if (media >= 1 && media <= 2.99) {
+            nivel = "baixo";
+          } else if (media >= 3 && media <= 3.99) {
+            nivel = "medio";
+          } else {
+            nivel = "alto";
+          }
 
-        const fatorKey = Object.keys(data).find(
-          (k) => normalizar(k) === normalizar(fator)
-        );
-        if (fatorKey) data = data[fatorKey];
+          const fator = def.title.trim();
+          const faceta = cat.title
+            .trim()
+            .replace(/^[\d.]+\s*/, "")
+            .replace(/\(.*?\)/g, "")
+            .trim();
 
-        if (!data.facetas) {
-          console.warn("⚠️ Estrutura inesperada no JSON:", fator, data);
-          return;
-        }
+          let data = feedbackDataMap[fator];
+          if (!data) {
+            console.warn("❌ Nenhum JSON encontrado para fator:", fator);
+            return;
+          }
 
-        const facetaKey = Object.keys(data.facetas).find(
-          (k) => normalizar(k) === normalizar(faceta)
-        );
+          const normalizar = (s: string) =>
+            s
+              .normalize("NFD")
+              .replace(/[\u0300-\u036f]/g, "")
+              .toLowerCase();
 
-        if (!facetaKey) {
-          console.warn("⚠️ Faceta não encontrada no JSON:", faceta);
-          return;
-        }
+          const fatorKey = Object.keys(data).find(
+            (k) => normalizar(k) === normalizar(fator)
+          );
+          if (fatorKey) data = data[fatorKey];
 
-        const feedback = data.facetas[facetaKey]?.feedbackConsolidado?.[nivel];
-        if (feedback) {
-          console.log("✅ Feedback encontrado:", feedback.titulo);
+          if (!data.facetas) {
+            console.warn("⚠️ Estrutura inesperada no JSON:", fator, data);
+            return;
+          }
+
+          const facetaKey = Object.keys(data.facetas).find(
+            (k) => normalizar(k) === normalizar(faceta)
+          );
+          if (!facetaKey) {
+            console.warn("⚠️ Faceta não encontrada no JSON:", faceta);
+            return;
+          }
+
+          // 🔹 Corrige a busca de feedback (ignora maiúsculas/minúsculas e acentos)
+          const fb = data.facetas[facetaKey]?.feedbackConsolidado || {};
+          const fbKey = Object.keys(fb).find(
+            (k) => normalizar(k) === normalizar(nivel)
+          );
+          const feedback = fbKey ? fb[fbKey] : null;
+
+          if (!feedback) {
+            console.warn("⚠️ Feedback não encontrado para nível:", nivel);
+            return;
+          }
+
+          // 🔹 Evita reabrir o mesmo modal repetidamente
+          if (
+            feedbackContent?.faceta === facetaKey &&
+            feedbackContent?.nivel === nivel &&
+            modalOpen
+          ) {
+            return;
+          }
+
           if (timerRef.current) clearTimeout(timerRef.current);
           timerRef.current = setTimeout(() => {
             setFeedbackContent({
@@ -168,18 +209,20 @@ export default function FormPageClient({
               faceta: facetaKey,
             });
             setModalOpen(true);
-          }, 400);
+          }, 200);
+        } else {
+          setModalOpen(false);
         }
-      } else {
-        setModalOpen(false);
-      }
+      }, 120);
     });
 
     return () => {
       subscription.unsubscribe();
+      if (debounceTimer) clearTimeout(debounceTimer);
       if (timerRef.current) clearTimeout(timerRef.current);
     };
-  }, [cat, catIndex, def.title, methods]);
+  }, [cat, def.title]);
+
 
   return (
     <FormProvider {...methods}>
