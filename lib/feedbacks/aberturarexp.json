@@ -62,7 +62,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Fantasia (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Fantasia (Nível Baixo)",
                         "definicao": "A faceta Fantasia refere-se à capacidade de criar cenários mentais que enriquecem o processo de ensino por meio de imaginação e criatividade. Em nível baixo, os docentes tendem a utilizar menos essa habilidade, preferindo métodos mais concretos e diretos, o que pode resultar em uma abordagem mais tradicional e menos inspiradora.",
                         "caracteristicas": [
                             "Pouco Uso da Imaginação: Tem dificuldade em criar cenários futuros ou associar metas de longo prazo com a rotina de ensino.",
@@ -88,7 +88,7 @@
                         "conclusao": "Embora um baixo nível de fantasia permita uma abordagem mais objetiva e estruturada, ele pode limitar o engajamento emocional e a capacidade de inovar no ensino. Ao integrar recursos visuais prontos, definir metas claras e promover sessões de planejamento criativo, os docentes podem enriquecer sua prática pedagógica sem comprometer a estabilidade de uma rotina bem definida."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Fantasia (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Fantasia (Nível Médio)",
                         "definicao": "A faceta Fantasia diz respeito à capacidade de usar a imaginação para criar cenários futuros, desenvolver analogias e elaborar narrativas que apoiem o ensino, a pesquisa e a extensão. Em nível médio, o docente utiliza a imaginação de forma equilibrada, combinando momentos de criatividade com métodos mais tradicionais. Essa postura permite gerar engajamento e inovação sem perder de vista a objetividade e a viabilidade das propostas.",
                         "caracteristicas": [
                             "Uso Seletivo da Imaginação.",
@@ -114,7 +114,7 @@
                         "conclusao": "Docentes com níveis médios de fantasia conseguem equilibrar a imaginação e a objetividade, aplicando criatividade de forma estratégica para enriquecer o ensino e a pesquisa. Ao planejar momentos fixos para inovação, registrar ideias e buscar feedback, é possível ampliar o impacto positivo dessa habilidade, mantendo a coerência e a eficácia na prática acadêmica."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Fantasia (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Fantasia (Nível Alto)",
                         "definicao": "A faceta Fantasia diz respeito à tendência de usar a imaginação para visualizar possibilidades futuras, criar analogias e desenvolver narrativas que enriquecem o processo de ensino e pesquisa. Docentes com nível alto de fantasia empregam essa capacidade para formular aulas inovadoras, projetar impactos positivos em projetos de extensão ou pesquisa e idealizar melhorias no currículo, contribuindo para um ambiente de aprendizado dinâmico.",
                         "caracteristicas": [
                             "Motivação por Objetivos Futuros.",
@@ -202,7 +202,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Sentimentos (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Sentimentos (Nível Baixo)",
                         "definicao": "A faceta Sentimentos analisa a frequência com que os docentes reconhecem e gerenciam suas emoções no ambiente de trabalho. Em nível baixo, a estabilidade emocional é predominante, resultando em uma postura mais reservada, que pode, contudo, ocultar sinais sutis de estresse ou fadiga, prejudicando a capacidade de realizar ajustes preventivos.",
                         "caracteristicas": [
                             "Estabilidade Emocional.",
@@ -226,7 +226,7 @@
                         "conclusao": "Docentes com um nível baixo de sentimentos apresentam uma estabilidade emocional que contribui para a consistência e a clareza na execução das atividades. Contudo, essa mesma estabilidade pode ocultar sinais iniciais de estresse, impedindo intervenções preventivas. Ao adotar estratégias de pausas planejadas, metas objetivas e feedback contínuo, é possível manter um ambiente de trabalho saudável e motivador."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Sentimentos (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Sentimentos (Nível Médio)",
                         "definicao": "A faceta Sentimentos avalia a capacidade de reconhecer e gerenciar as próprias emoções para que não prejudiquem o exercício docente. Em nível médio, o docente demonstra uma consciência razoável de seus estados emocionais e busca regulá-los de forma funcional, mas pode enfrentar oscilações em contextos de alta pressão.",
                         "caracteristicas": [
                             "Atenção Moderada às Emoções.",
@@ -253,7 +253,7 @@
                         "conclusao": "Docentes com níveis médios de sentimentos equilibram a sensibilidade emocional com a estabilidade necessária para o ensino. Ao investir em práticas regulares de regulação emocional, autocuidado e análise de gatilhos, é possível tornar a gestão das emoções mais consistente, fortalecendo tanto o desempenho profissional quanto o bem-estar pessoal."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Sentimentos (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Sentimentos (Nível Alto)",
                         "definicao": "A faceta Sentimentos avalia a capacidade de reconhecer e gerenciar emoções sem que elas prejudiquem o exercício docente. Em nível alto, você demonstra uma sensibilidade aguda aos seus estados emocionais, percebendo variações como ansiedade ou entusiasmo em momentos críticos (por exemplo, semanas de provas, bancas ou reuniões de colegiado).",
                         "caracteristicas": [
                             "Percepção Emocional Intensa.",
@@ -339,7 +339,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Ações Variadas (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Ações Variadas (Nível Baixo)",
                         "definicao": "A faceta Ações Variadas analisa a disposição para experimentar novas abordagens no ensino, pesquisa e extensão. Em nível baixo, os docentes tendem a preferir métodos tradicionais e rotinas já consolidadas, valorizando a estabilidade e a previsibilidade, mas, ao mesmo tempo, podem perder oportunidades de inovação que poderiam enriquecer a prática pedagógica.",
                         "caracteristicas": [
                             "Prefere métodos e práticas de ensino tradicionais, mantendo uma rotina consolidada.",
@@ -366,7 +366,7 @@
                         "conclusao": "Docentes com baixo nível de Ações Variadas se beneficiam da estabilidade e da clareza que os métodos tradicionais proporcionam, garantindo uma execução consistente das atividades. No entanto, a introdução de pequenas inovações pode estimular a criatividade e melhorar a experiência de ensino, sem perturbar a rotina consolidada."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Ações Variadas (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Ações Variadas (Nível Médio)",
                         "definicao": "A faceta Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Em nível médio, o docente demonstra interesse em explorar abordagens diferentes, mas o faz de forma seletiva e planejada, equilibrando inovação e estabilidade.",
                         "caracteristicas": [
                             "Experimentação Moderada.",
@@ -392,7 +392,7 @@
                         "conclusao": "Docentes com níveis médios de Ações Variadas conseguem integrar novidades ao seu trabalho de forma estruturada e consistente. Ao planejar ciclos de experimentação, registrar resultados e mesclar métodos tradicionais com inovações, é possível ampliar o repertório pedagógico e manter o ensino atualizado, sem comprometer a estabilidade e a qualidade já alcançadas."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Ações Variadas (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Ações Variadas (Nível Alto)",
                         "definicao": "A faceta Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Docentes com nível alto utilizam metodologias inovadoras, como técnicas ativas, jogos educativos e ferramentas de avaliação diferenciadas, para renovar suas práticas e estimular o aprendizado dos discentes.",
                         "caracteristicas": [
                             "Testa metodologias ativas, jogos educativos e diversas ferramentas de avaliação com frequência.",
@@ -479,7 +479,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Valores (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Valores (Nível Baixo)",
                         "definicao": "A faceta Valores avalia a propensão para refletir sobre princípios e crenças no contexto da universidade. Em nível baixo, os docentes tendem a seguir rigorosamente os padrões e normas institucionais, mantendo uma postura mais tradicional e objetiva, com menor inclinação para questionamentos ou para a busca de perspectivas diversas que possam enriquecer o ensino.",
                         "caracteristicas": [
                             "Conformidade com Padrões Institucionais.",
@@ -505,7 +505,7 @@
                         "conclusao": "Docentes com baixo nível de Valores mantêm uma postura de conformidade e objetividade que garante a regularidade e a eficiência das atividades acadêmicas. No entanto, essa abordagem pode limitar a inovação e a diversificação de perspectivas, fundamentais para o desenvolvimento de um ensino mais crítico e dinâmico."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Valores (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Valores (Nível Médio)",
                         "definicao": "A faceta Valores avalia a tendência de refletir criticamente sobre princípios, crenças e convicções no contexto da universidade e da formação de cidadãos. Em nível médio, o docente demonstra abertura para revisar suas ideias e incorporar novas perspectivas, mas preserva parte significativa de suas convicções originais.",
                         "caracteristicas": [
                             "Reflexão Seletiva.",
@@ -532,7 +532,7 @@
                         "conclusao": "Docentes com níveis médios de Valores conciliam abertura para novas ideias com a preservação de práticas consolidadas, garantindo estabilidade e evolução contínua. Ao definir critérios para revisão de convicções e implementar mudanças de forma gradual, é possível enriquecer a prática pedagógica e fortalecer o pensamento crítico."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Valores (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Valores (Nível Alto)",
                         "definicao": "A faceta Valores diz respeito à tendência de refletir criticamente sobre princípios, crenças e convicções, avaliando-os no contexto da universidade e na formação de cidadãos. Docentes com nível alto nessa faceta são profundamente engajados na transformação social, questionam suas convicções pedagógicas quando confrontados com novas evidências e buscam compreender diversas correntes teóricas para enriquecer o processo de ensino-aprendizagem.",
                         "caracteristicas": [
                             "Reflexão Crítica.",

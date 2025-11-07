@@ -62,7 +62,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Acolhimento – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Acolhimento – Nível Baixo",
                         "definicao": "A faceta Acolhimento está relacionada à capacidade de interagir de forma empática e cooperativa com discentes, colegas e gestores. Em nível baixo, os docentes tendem a manter uma abordagem mais formal e restrita, limitando as interações ao âmbito estritamente acadêmico.",
                         "caracteristicas": [
                             "Interação formal e restrita.",
@@ -87,7 +87,7 @@
                         "conclusao": "Docentes com baixo nível de acolhimento mantêm eficiência, mas podem limitar cooperação e inovação. Estratégias pontuais de abertura ajudam a equilibrar foco e colaboração."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Acolhimento – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Acolhimento – Nível Médio",
                         "definicao": "A faceta Acolhimento refere-se à tendência de interagir de forma amigável e empática, mas de maneira seletiva. Em nível médio, o docente oferece apoio quando percebe necessidade, preservando momentos de foco e produtividade.",
                         "caracteristicas": [
                             "Interações seletivas.",
@@ -113,7 +113,7 @@
                         "conclusao": "Docentes com nível médio de acolhimento equilibram colaboração e foco, mas podem expandir sua rede de apoio ao se engajar em mais interações estratégicas."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Acolhimento – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Acolhimento – Nível Alto",
                         "definicao": "A faceta Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores. Em nível alto, docentes demonstram grande disposição para apoiar e motivar estudantes e colegas, criando um ambiente de trabalho colaborativo.",
                         "caracteristicas": [
                             "Interação proativa.",
@@ -200,7 +200,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Assertividade – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Assertividade – Nível Baixo",
                         "definicao": "A faceta Assertividade diz respeito à capacidade de expressar opiniões, necessidades e dúvidas de forma clara e segura. Em nível baixo, o docente tende a hesitar em expor suas ideias ou desafios, o que pode resultar na perda de oportunidades e limitar o desenvolvimento.",
                         "caracteristicas": [
                             "Hesitação na expressão de opiniões.",
@@ -225,7 +225,7 @@
                         "conclusao": "Docentes com baixo nível de assertividade mantêm um ambiente harmonioso, mas podem perder espaço e oportunidades. Com preparação gradual e prática, é possível ganhar confiança e ampliar a participação em decisões acadêmicas."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Assertividade – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Assertividade – Nível Médio",
                         "definicao": "A faceta Assertividade descreve a capacidade de expressar opiniões e necessidades com clareza, bem como defender pontos de vista de forma construtiva. Em nível médio, o docente consegue expor ideias e assumir posições em diversas situações, mas dosa sua participação conforme o contexto.",
                         "caracteristicas": [
                             "Participação seletiva em debates.",
@@ -251,7 +251,7 @@
                         "conclusao": "Docentes com nível médio de assertividade equilibram firmeza e colaboração, mas podem fortalecer sua influência ao garantir participação mais consistente, especialmente em temas estratégicos."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Assertividade – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Assertividade – Nível Alto",
                         "definicao": "A faceta Assertividade reflete a capacidade de expressar opiniões e necessidades com clareza, pedindo ajuda e defendendo pontos de vista de forma eficaz. Em nível alto, o docente demonstra confiança para expor suas ideias, assumir liderança e contribuir ativamente para processos acadêmicos.",
                         "caracteristicas": [
                             "Expressão clara e confiante.",
@@ -337,7 +337,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Emoções Positivas – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Emoções Positivas – Nível Baixo",
                         "definicao": "A faceta Emoções Positivas mede a frequência com que você experimenta sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível baixo, há dificuldade em reconhecer conquistas e manter o ânimo, o que pode afetar o engajamento e a satisfação profissional.",
                         "caracteristicas": [
                             "Baixa frequência de sentimentos positivos.",
@@ -362,7 +362,7 @@
                         "conclusao": "Docentes com baixo nível de emoções positivas podem enfrentar desafios na motivação e na inspiração de seus alunos. Ao valorizar vitórias diárias e estimular feedbacks construtivos, é possível transformar a neutralidade em fonte de resiliência e engajamento."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Emoções Positivas – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Emoções Positivas – Nível Médio",
                         "definicao": "A faceta Emoções Positivas avalia a frequência com que o docente vivencia sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível médio, há motivação na maior parte do tempo, mas também oscilações em contextos de maior pressão.",
                         "caracteristicas": [
                             "Valorização moderada de conquistas.",
@@ -388,7 +388,7 @@
                         "conclusao": "Docentes com nível médio de emoções positivas mantêm equilíbrio e produtividade, mas podem reforçar a motivação e o impacto positivo ao celebrar avanços diários e ampliar a inspiração junto a alunos e colegas."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Emoções Positivas – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Emoções Positivas – Nível Alto",
                         "definicao": "A faceta Emoções Positivas avalia a capacidade de manter uma visão otimista e entusiasmada sobre o trabalho, reconhecendo conquistas e sentindo satisfação nas atividades diárias. Em nível alto, docentes demonstram grande motivação e resiliência diante dos desafios.",
                         "caracteristicas": [
                             "Entusiasmo no desenvolvimento acadêmico.",

@@ -310,7 +310,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
   ctx.y = ctx.height - ctx.margin - 40;
   heading(ctx, opts?.title ?? "Relatório consolidado", 22, PRIMARY);
-  paragraph(ctx, "Este relatório apresenta o nível consolidado por faceta e o feedback geral do participante.", 12, TEXT_MUTED);
+  paragraph(ctx, "Este relatório apresenta o nível consolidado por característica e o feedback geral do participante.", 12, TEXT_MUTED);
 
   const openContentPage = () => { const p = pdfDoc.addPage(); setPage(ctx, p); };
   openContentPage();
@@ -353,7 +353,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
         alto: "Alto",
       };
 
-      subheading(ctx, `Faceta: ${facetaNome}`, titleSize, PRIMARY);
+      subheading(ctx, `Característica: ${facetaNome}`, titleSize, PRIMARY);
       paragraph(ctx, facetaData.descricao, 12, TEXT_MUTED);
 
       paragraph(

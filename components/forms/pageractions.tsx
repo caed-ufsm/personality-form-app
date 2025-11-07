@@ -58,7 +58,7 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
                 : "bg-gray-300 hover:bg-gray-400 text-gray-800"
             }`}
         >
-          Categoria anterior
+          Característica anterior
         </button>
 
         <button
@@ -78,7 +78,7 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
             ? nextFormId
               ? "Próximo formulário →"
               : "Fim do formulário"
-            : "Próxima categoria"}
+            : "Próxima Característica"}
         </button>
       </div>
 

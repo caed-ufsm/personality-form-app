@@ -62,7 +62,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Ansiedade (Nível Baixo) para Docentes",
+                        "titulo": "FEEDBACK – Ansiedade (Nível Baixo)",
                         "definicao": "A faceta Ansiedade avalia a tendência a experimentar preocupações e tensões relacionadas aos prazos e demandas institucionais. Em nível baixo, os docentes apresentam uma postura mais tranquila e confiante, lidando com as obrigações acadêmicas sem pânico, embora isso possa levar à subestimação de prazos ou à crença de que tudo se resolverá naturalmente.",
                         "caracteristicas": [
                             "Tranquilidade Predominante: Geralmente mantém uma postura calma e serena em relação aos prazos e às demandas, mesmo em períodos intensos.",
@@ -88,7 +88,7 @@
                         "conclusao": "Docentes com baixos níveis de ansiedade desfrutam de estabilidade emocional e consistência no trabalho, mas precisam manter um senso de urgência adequado para não cair na complacência."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Ansiedade (Nível Médio) para Docentes",
+                        "titulo": "FEEDBACK – Ansiedade (Nível Médio)",
                         "definicao": "A faceta Ansiedade está relacionada à propensão a sentir preocupações e tensões frente a prazos, metas e demandas institucionais. Em nível médio, os docentes vivenciam momentos de apreensão, mas conseguem alternar entre períodos de tranquilidade e tensão.",
                         "caracteristicas": [
                             "Sensibilidade Moderada a Prazos.",
@@ -114,7 +114,7 @@
                         "conclusao": "Docentes com níveis médios de ansiedade mantêm equilíbrio, mas precisam se preparar para períodos de maior pressão para evitar desgaste."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Ansiedade (Nível Alto) para Docentes",
+                        "titulo": "FEEDBACK – Ansiedade (Nível Alto)",
                         "definicao": "A faceta Ansiedade está associada à tendência de se preocupar excessivamente com prazos, metas e demandas institucionais. Em nível alto, docentes experimentam sentimentos intensos de ansiedade e nervosismo que podem afetar o desempenho.",
                         "caracteristicas": [
                             "Preocupação Contínua.",
@@ -199,7 +199,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Baixo",
                         "definicao": "A faceta Hostilidade (Raiva) reflete a capacidade de responder com irritação aos imprevistos e obstáculos. Em nível baixo, os docentes apresentam uma postura mais tranquila e tolerante, mantendo a calma mesmo diante de desafios, embora isso possa resultar em uma abordagem que negligencia a resolução de problemas estruturais.",
                         "caracteristicas": [
                             "Postura Tranquila: Geralmente, não reage com raiva quando há interrupções ou demandas inesperadas.",
@@ -225,7 +225,7 @@
                         "conclusao": "Docentes com um baixo nível de hostilidade mantêm uma postura serena e colaborativa, o que contribui para um ambiente de trabalho harmonioso. Contudo, é importante não deixar que essa tranquilidade se transforme em passividade, pois problemas estruturais podem passar despercebidos."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Médio",
                         "definicao": "A faceta Hostilidade (Raiva) está associada à tendência de reagir com irritação e frustração diante de imprevistos e obstáculos. Em nível médio, os docentes apresentam reações de irritação em algumas situações específicas, especialmente quando percebem prejuízo ao cronograma ou desvalorização de seu trabalho, mas conseguem retomar o controle emocional de forma relativamente rápida.",
                         "caracteristicas": [
                             "Reatividade Controlada: Irritação diante de interrupções, mas sem prolongar a emoção.",
@@ -251,7 +251,7 @@
                         "conclusao": "Docentes com níveis médios de hostilidade equilibram a firmeza necessária para apontar problemas com a diplomacia que preserva relações profissionais."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Hostilidade (Raiva) – Nível Alto",
                         "definicao": "A faceta Hostilidade (Raiva) está associada à tendência de reagir com irritação e frustração diante de imprevistos e obstáculos. Em nível alto, docentes podem experimentar reações intensas ao enfrentar interrupções inesperadas, sobrecarga de reuniões ou problemas administrativos.",
                         "caracteristicas": [
                             "Reatividade Emocional Elevada.",
@@ -337,7 +337,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Baixo",
                         "definicao": "A faceta Depressão (Desânimo) avalia o grau de desmotivação e desesperança que afeta as atividades pessoais e docentes. Em nível baixo, você geralmente mantém um humor estável mesmo em períodos de alta demanda, embora seja importante monitorar sinais sutis de cansaço ou apatia que possam comprometer a qualidade do trabalho a longo prazo.",
                         "caracteristicas": [
                             "Estabilidade Emocional.",
@@ -363,7 +363,7 @@
                         "conclusao": "Embora um baixo nível de desânimo proporcione estabilidade e consistência, é essencial monitorar sinais sutis de cansaço ou apatia. Ao manter hábitos saudáveis e estimular inovação, você garante evolução contínua sem complacência."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Médio",
                         "definicao": "A faceta Depressão (Desânimo) refere-se à tendência de sentir desmotivação e desesperança, afetando a regularidade e a qualidade das atividades. Em nível médio, o docente vivencia períodos pontuais de desânimo ou incerteza, mas mantém a capacidade de retomar o engajamento na maioria das situações.",
                         "caracteristicas": [
                             "Oscilação de Motivação.",
@@ -389,7 +389,7 @@
                         "conclusao": "Docentes com níveis médios de desânimo equilibram fases de menor motivação com engajamento produtivo. Monitoramento e pequenas metas ajudam a reduzir impactos negativos e preservar qualidade no ensino e nos projetos."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Alto",
                         "definicao": "A faceta Depressão (Desânimo) diz respeito à tendência de sentir desmotivação e desesperança, impactando a regularidade e a qualidade das atividades. Em nível alto, você frequentemente se sente desanimado quanto ao futuro da carreira, o que pode levar à desistência de projetos e iniciativas.",
                         "caracteristicas": [
                             "Preocupação com o Futuro.",
@@ -475,7 +475,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Baixo",
                         "definicao": "A faceta Autoconsciência (Vergonha) refere-se à capacidade de sentir vergonha ao expor dificuldades ou inseguranças. Em nível baixo, os docentes demonstram desinibição ao compartilhar suas opiniões, liderar debates e participar ativamente de reuniões, mas podem correr o risco de não perceber a necessidade de ajustar a postura para contextos mais formais.",
                         "caracteristicas": [
                             "Desinibição.",
@@ -501,7 +501,7 @@
                         "conclusao": "Em nível baixo de autoconsciência, a desinibição favorece a participação ativa e a colaboração, mas exige atenção para ajustar formalidade e evitar excessos. Com feedback e equilíbrio, essa postura pode maximizar o impacto positivo no ambiente acadêmico."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Médio",
                         "definicao": "A faceta Autoconsciência (Vergonha) está relacionada à tendência de sentir vergonha ou desconforto ao expor dificuldades e inseguranças. Em nível médio, o docente apresenta certa cautela ao se expor em contextos profissionais, especialmente quando há possibilidade de julgamento, mas consegue participar de debates, receber feedbacks e propor ideias em situações em que se sente mais seguro.",
                         "caracteristicas": [
                             "Cautela Moderada na Exposição.",
@@ -527,7 +527,7 @@
                         "conclusao": "Docentes com níveis médios de autoconsciência equilibram participação e cautela, preservando a imagem profissional. Ao ampliar gradualmente a exposição e reforçar a autoconfiança, é possível transformar essa reserva natural em um recurso estratégico."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Autoconsciência (Vergonha) – Nível Alto",
                         "definicao": "A faceta Autoconsciência (Vergonha) avalia a tendência a sentir vergonha ao expor dificuldades, inseguranças e falhas, o que pode prejudicar a busca por auxílio e inovações. Em nível alto, os docentes demonstram intensa preocupação com a imagem profissional, o que pode limitar sua participação em debates, a liderança de projetos e a troca aberta de feedbacks.",
                         "caracteristicas": [
                             "Sensibilidade à Crítica.",
@@ -612,7 +612,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Impulsividade – Nível Baixo (Docentes)",
+                        "titulo": "FEEDBACK – Impulsividade – Nível Baixo",
                         "definicao": "A faceta Impulsividade indica a capacidade de resistir a distrações e seguir rigorosamente o planejamento, mantendo a estabilidade nas atividades docentes.",
                         "caracteristicas": [
                             "Aderência rigorosa ao planejamento.",
@@ -638,7 +638,7 @@
                         "conclusao": "Um baixo nível de impulsividade garante estabilidade e uma rotina bem estruturada, mas pode reduzir a flexibilidade. Com pequenas adaptações, é possível equilibrar disciplina e inovação."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Impulsividade – Nível Médio (Docentes)",
+                        "titulo": "FEEDBACK – Impulsividade – Nível Médio",
                         "definicao": "A faceta Impulsividade descreve a tendência a ceder a distrações e alterar planejamentos em favor de atividades mais imediatas ou prazerosas. Em nível médio, o docente apresenta momentos ocasionais de desvio do planejamento, mas mantém, na maior parte do tempo, a capacidade de retornar às tarefas e cumprir prazos.",
                         "caracteristicas": [
                             "Alternância entre foco e desvio.",
@@ -664,7 +664,7 @@
                         "conclusao": "Docentes com níveis médios de impulsividade equilibram disciplina e flexibilidade. Com limites claros e recompensas, é possível manter produtividade sem perder adaptabilidade."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Impulsividade – Nível Alto (Docentes)",
+                        "titulo": "FEEDBACK – Impulsividade – Nível Alto",
                         "definicao": "A faceta Impulsividade descreve a tendência de ceder a distrações e abandonar planejamentos em favor de atividades mais imediatas ou prazerosas. Em nível alto, os docentes podem interromper o desenvolvimento de aulas ou projetos para realizar atividades atrativas, mesmo sabendo que essa decisão pode comprometer a continuidade e a qualidade do ensino.",
                         "caracteristicas": [
                             "Interrupção de planejamentos.",

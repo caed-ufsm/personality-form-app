@@ -62,7 +62,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Confiança (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Confiança (Nível Baixo)",
                         "definicao": "A faceta Confiança, no contexto do fator Amabilidade, envolve a disposição de acreditar na boa-fé de colegas, gestores e discentes. Em nível baixo, os docentes tendem a adotar uma postura mais cautelosa e desconfiante, o que pode dificultar a formação de parcerias e a troca de informações, impactando a colaboração e o desenvolvimento de projetos conjuntos na UFSM.",
                         "caracteristicas": [
                             "Postura Cautelosa.",
@@ -87,7 +87,7 @@
                         "conclusao": "Docentes com baixo nível de confiança tendem a adotar uma postura cautelosa que, embora proteja contra erros e desvios, pode limitar a colaboração e a inovação. Ao implementar estratégias que incentivem parcerias pontuais, o uso de fontes oficiais e o feedback construtivo, é possível ampliar a interação e o compartilhamento de conhecimentos sem sacrificar o senso crítico."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Confiança (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Confiança (Nível Médio)",
                         "definicao": "A faceta Confiança refere-se à tendência de acreditar na boa-fé de colegas, gestores e discentes, favorecendo a cooperação e a construção de parcerias. Em nível médio, o docente adota uma postura equilibrada: demonstra abertura para confiar, especialmente em contextos já validados por experiências positivas, mas mantém certa cautela, verificando informações e estabelecendo critérios antes de se engajar plenamente em colaborações.",
                         "caracteristicas": [
                             "Abertura Moderada à Cooperação.",
@@ -114,7 +114,7 @@
                         "conclusao": "Docentes com nível médio de confiança mantêm um equilíbrio saudável entre abertura para colaboração e cautela para proteger a qualidade e a autonomia do trabalho. Ao adotar estratégias que ampliem gradualmente a rede de contatos e estabeleçam acordos claros, é possível fortalecer parcerias produtivas e contribuir para um ambiente acadêmico mais integrado e eficiente na UFSM."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Confiança (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Confiança (Nível Alto)",
                         "definicao": "A faceta Confiança diz respeito à tendência de acreditar na boa-fé e na integridade dos demais—sejam colegas, gestores ou discentes—promovendo relações colaborativas e um ambiente de trabalho positivo na UFSM. Docentes com nível alto de confiança demonstram facilidade em formar parcerias, compartilhar materiais e atuar de forma cooperativa.",
                         "caracteristicas": [
                             "Crença na Integridade.",
@@ -200,7 +200,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Franqueza (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Franqueza (Nível Baixo)",
                         "definicao": "A faceta Franqueza envolve a disposição para comunicar dificuldades e dúvidas com clareza, contribuindo para o aprimoramento das práticas docentes. Em nível baixo, os docentes tendem a evitar expor suas limitações e erros, o que pode comprometer a busca de auxílio e a troca de informações que são essenciais para a melhoria contínua no ambiente acadêmico.",
                         "caracteristicas": [
                             "Reticência na Expressão.",
@@ -225,7 +225,7 @@
                         "conclusao": "Docentes com baixo nível de franqueza podem enfrentar desafios relacionados à falta de transparência, o que pode prejudicar tanto o desenvolvimento individual quanto o coletivo. Ao adotar estratégias que promovam a exposição gradual de dificuldades e o feedback construtivo, é possível transformar essa postura reservada em uma oportunidade de aprimoramento."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Franqueza (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Franqueza (Nível Médio)",
                         "definicao": "A faceta Franqueza, no contexto do fator Amabilidade, refere-se à disposição para expressar dificuldades, dúvidas e limitações de forma clara, visando o aprimoramento das práticas docentes. Em nível médio, o docente apresenta um equilíbrio entre transparência e cautela: está disposto(a) a admitir desafios quando percebe que isso trará benefícios concretos, mas prefere manter certos aspectos reservados em situações mais sensíveis ou formais.",
                         "caracteristicas": [
                             "Transparência Seletiva.",
@@ -252,7 +252,7 @@
                         "conclusao": "Docentes com nível médio de franqueza equilibram a honestidade com a cautela, adaptando sua comunicação ao contexto e ao público. Ao adotar estratégias que favoreçam a exposição responsável de dificuldades, é possível ampliar a troca de conhecimentos, fortalecer parcerias e manter a credibilidade profissional."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Franqueza (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Franqueza (Nível Alto)",
                         "definicao": "A faceta Franqueza refere-se à tendência de expressar dificuldades e dúvidas com clareza, promovendo uma comunicação honesta que visa aprimorar as práticas pedagógicas. Docentes com nível alto de franqueza não hesitam em expor os desafios e limitações de suas disciplinas, reconhecendo a importância da transparência para o desenvolvimento pessoal e coletivo.",
                         "caracteristicas": [
                             "Transparência na Comunicação.",
@@ -339,7 +339,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Complacência (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Complacência (Nível Baixo)",
                         "definicao": "A faceta Complacência, ou Cooperação, avalia a tendência de evitar conflitos e buscar harmonia nas relações interpessoais. Docentes com baixo nível de complacência tendem a manter uma postura mais firme e competitiva, defendendo suas opiniões com rigor, o que pode gerar atritos em reuniões e interações, mas também pode assegurar que suas ideias sejam claramente expressas.",
                         "caracteristicas": [
                             "Postura Firme e Competitiva.",
@@ -365,7 +365,7 @@
                         "conclusao": "Docentes com baixo nível de complacência defendem suas ideias com firmeza, o que pode assegurar a clareza e a inovação no ambiente acadêmico. Contudo, é fundamental equilibrar essa postura com uma comunicação mais aberta e empática para evitar conflitos desnecessários e promover a colaboração."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Complacência (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Complacência (Nível Médio)",
                         "definicao": "A faceta Complacência, também conhecida como Cooperação, diz respeito à tendência de evitar conflitos e buscar harmonia nas relações interpessoais. Em nível médio, o docente apresenta uma postura equilibrada: valoriza a boa convivência, mas não deixa de defender seus pontos de vista quando julga necessário. Essa postura combina flexibilidade com assertividade, permitindo que se mantenha a paz no ambiente acadêmico sem abrir mão de princípios e objetivos importantes.",
                         "caracteristicas": [
                             "Equilíbrio entre Harmonia e Firmeza.",
@@ -392,7 +392,7 @@
                         "conclusao": "Docentes com nível médio de complacência conseguem equilibrar a manutenção de um ambiente harmonioso com a defesa assertiva de ideias e interesses. Esse equilíbrio favorece a colaboração e o respeito mútuo, sem abrir mão da qualidade e dos princípios que orientam a prática acadêmica."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Complacência (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Complacência (Nível Alto)",
                         "definicao": "A faceta Complacência, também conhecida como Cooperação, descreve a tendência a evitar conflitos e a buscar harmonia nas relações interpessoais. No contexto do magistério superior, docentes com alto nível de complacência priorizam a manutenção de um ambiente pacífico, contornando conflitos e cedendo em certas questões para preservar um bom clima entre discentes, colegas, gestores e demais colaboradores.",
                         "caracteristicas": [
                             "Busca por Harmonia.",
@@ -479,7 +479,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Sensibilidade (Nível Baixo) – Docentes",
+                        "titulo": "FEEDBACK – Sensibilidade (Nível Baixo)",
                         "definicao": "A faceta Sensibilidade (Compaixão) refere-se à capacidade de reconhecer e responder às necessidades emocionais de colegas e discentes. Em nível baixo, os docentes tendem a manter um foco maior na condução do curso e na transmissão do conteúdo, sem se envolver profundamente com os aspectos emocionais das interações, o que pode levar à negligência de sinais de crise ou dificuldade entre os alunos.",
                         "caracteristicas": [
                             "Foco na Condução do Curso.",
@@ -505,7 +505,7 @@
                         "conclusao": "Docentes com baixo nível de sensibilidade conseguem manter foco e eficiência, mas podem negligenciar sinais importantes de dificuldades emocionais. Adotar estratégias de observação e apoio pontual ajuda a equilibrar objetividade e empatia, promovendo um ambiente mais acolhedor."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Sensibilidade (Nível Médio) – Docentes",
+                        "titulo": "FEEDBACK – Sensibilidade (Nível Médio)",
                         "definicao": "A faceta Sensibilidade (Compaixão) está relacionada à capacidade de reconhecer e responder às necessidades emocionais de colegas, discentes e demais membros da comunidade acadêmica. Em nível médio, o docente demonstra empatia e atenção às dificuldades dos outros, mas mantém limites claros para preservar o foco nas responsabilidades acadêmicas e evitar sobrecarga.",
                         "caracteristicas": [
                             "Empatia Moderada.",
@@ -532,7 +532,7 @@
                         "conclusao": "Docentes com nível médio de sensibilidade equilibram empatia e objetividade, oferecendo suporte proporcional sem comprometer suas responsabilidades. Essa postura favorece um ambiente de ensino acolhedor e produtivo."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Sensibilidade (Nível Alto) – Docentes",
+                        "titulo": "FEEDBACK – Sensibilidade (Nível Alto)",
                         "definicao": "A faceta Sensibilidade (Compaixão) diz respeito à capacidade de lidar com colegas, discentes e demais membros da comunidade acadêmica com empatia e preocupação genuína, criando vínculos e facilitando relacionamentos. Docentes com nível alto de sensibilidade são altamente perceptivos às dificuldades dos alunos e colegas, o que pode enriquecer o ambiente de ensino, embora haja o risco de sobrecarga emocional se não gerenciado adequadamente.",
                         "caracteristicas": [
                             "Empatia Acentuada.",

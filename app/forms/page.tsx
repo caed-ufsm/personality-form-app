@@ -199,13 +199,13 @@ export default function FormsIndexPage() {
             Ao responder todos os formulários, você poderá gerar um{" "}
             <strong>PDF completo e personalizado</strong> com os resultados consolidados.
             Esse relatório apresentará seus principais{" "}
-            <strong>pontos de vantagem potenciais</strong>,{" "}
-            <strong>características estratégicas</strong> e{" "}
-            <strong>oportunidades de desenvolvimento</strong>, com base nas suas respostas.
+            <strong>características</strong>,{" "}
+            <strong>vantagens potenciais</strong>,{" "}
+            <strong>dificuldades potenciais</strong> e <strong>estratégias</strong> com base nas suas respostas.
           </p>
           <p className="text-gray-700 leading-relaxed mt-3">
             Portanto, responda com atenção e sinceridade — suas respostas servirão de base
-            para a criação de um diagnóstico detalhado e de um material de apoio valioso
+            para a criação de um panorama detalhado e de um material de apoio valioso
             para o seu crescimento pessoal e profissional.
           </p>
         </div>
