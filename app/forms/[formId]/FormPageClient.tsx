@@ -27,8 +27,9 @@ const feedbackDataMap: Record<string, any> = {
   Extroversão: extroversaoData,
   Conscienciosidade: conscienciaData,
   Amabilidade: amabilidadeData,
-  "Abertura à Experiência": aberturaData,
+  AberturaExperiencia: aberturaData,
 };
+
 
 // 🔹 Ordem dos formulários — personalize aqui
 const FORM_ORDER = [

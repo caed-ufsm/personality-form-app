@@ -2,7 +2,6 @@
 
 import React from "react";
 import Link from "next/link";
-import HCaptcha from "@hcaptcha/react-hcaptcha";
 import { getAllForms } from "./lib/registry";
 
 /** ---- Types ------------------------------------------------------------- */
@@ -85,7 +84,6 @@ function countNonEmptyAnswers(obj: Record<string, any>): number {
 export default function FormsIndexPage() {
   const forms = React.useMemo<FormMeta[]>(() => getAllForms(), []);
   const [allComplete, setAllComplete] = React.useState(false);
-  const [hcaptchaToken, setHcaptchaToken] = React.useState<string | null>(null);
   const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
@@ -108,10 +106,6 @@ export default function FormsIndexPage() {
   const handleSend = async () => {
     if (!allComplete) {
       alert("⚠️ Você precisa responder todos os formulários antes de enviar.");
-      return;
-    }
-    if (!hcaptchaToken) {
-      alert("⚠️ Valide o hCaptcha antes de continuar.");
       return;
     }
 
@@ -155,7 +149,6 @@ export default function FormsIndexPage() {
             id,
             answers,
           })),
-          hcaptchaToken,
           requestId: crypto.randomUUID(),
         }),
       });
@@ -197,16 +190,18 @@ export default function FormsIndexPage() {
           </h2>
           <p className="text-gray-700 leading-relaxed">
             Ao responder todos os formulários, você poderá gerar um{" "}
-            <strong>PDF completo e personalizado</strong> com os resultados consolidados.
-            Esse relatório apresentará seus principais{" "}
+            <strong>PDF completo e personalizado</strong> com os resultados
+            consolidados. Esse relatório apresentará seus principais{" "}
             <strong>características</strong>,{" "}
             <strong>vantagens potenciais</strong>,{" "}
-            <strong>dificuldades potenciais</strong> e <strong>estratégias</strong> com base nas suas respostas.
+            <strong>dificuldades potenciais</strong> e{" "}
+            <strong>estratégias</strong> com base nas suas respostas.
           </p>
           <p className="text-gray-700 leading-relaxed mt-3">
-            Portanto, responda com atenção e sinceridade — suas respostas servirão de base
-            para a criação de um panorama detalhado e de um material de apoio valioso
-            para o seu crescimento pessoal e profissional.
+            Portanto, responda com atenção e sinceridade — suas respostas
+            servirão de base para a criação de um panorama detalhado e de um
+            material de apoio valioso para o seu crescimento pessoal e
+            profissional.
           </p>
         </div>
       </header>
@@ -225,8 +220,11 @@ export default function FormsIndexPage() {
               const data = safeParse<Record<string, any>>(raw) ?? {};
               const responded = countNonEmptyAnswers(data);
               const expected =
-                typeof f.totalQuestions === "number" ? f.totalQuestions : undefined;
-              isComplete = expected != null ? responded >= expected : responded > 0;
+                typeof f.totalQuestions === "number"
+                  ? f.totalQuestions
+                  : undefined;
+              isComplete =
+                expected != null ? responded >= expected : responded > 0;
             }
 
             return (
@@ -253,22 +251,11 @@ export default function FormsIndexPage() {
                 </div>
 
                 {f.description && (
-                  <p className="mt-4 text-base text-gray-700">{f.description}</p>
+                  <p className="mt-4 text-base text-gray-700">
+                    {f.description}
+                  </p>
                 )}
 
-                {f.tags && f.tags.length > 0 && (
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {f.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="rounded-full border px-3 py-1 text-sm text-gray-700"
-                        style={{ borderColor: f.themeColor ?? "#e5e7eb" }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                )}
 
                 <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-gray-600">
                   {typeof f.estimatedMinutes === "number" && (
@@ -315,21 +302,18 @@ export default function FormsIndexPage() {
           </p>
 
           <div className="flex flex-col items-center gap-4">
-            <HCaptcha
-              sitekey={process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY!}
-              onVerify={(token) => setHcaptchaToken(token)}
-            />
-
             <button
               onClick={handleSend}
-              disabled={!allComplete || !hcaptchaToken || isLoading}
+              disabled={!allComplete || isLoading}
               className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${
-                allComplete && hcaptchaToken && !isLoading
+                allComplete && !isLoading
                   ? "bg-[#0353a3] hover:bg-blue-800"
                   : "bg-gray-400 cursor-not-allowed"
               }`}
             >
-              {isLoading ? "⏳ Enviando e gerando PDF..." : "📤 Enviar e gerar PDF completo"}
+              {isLoading
+                ? "⏳ Enviando e gerando PDF..."
+                : "📤 Enviar e gerar PDF completo"}
             </button>
 
             {!allComplete && (
