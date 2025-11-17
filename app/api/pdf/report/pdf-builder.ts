@@ -306,11 +306,41 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   const ctx = newLayout(pdfDoc, fontRegular, fontBold);
 
   ctx.page.drawRectangle({ x: 0, y: ctx.height - 40, width: ctx.width, height: 40, color: PRIMARY });
-  ctx.page.drawText("Relatório do Formulário", { x: ctx.margin, y: ctx.height - 30, size: 12, color: rgb(1,1,1), font: fontBold });
+  ctx.page.drawText("Relatório Completo Personalizado", { x: ctx.margin, y: ctx.height - 30, size: 12, color: rgb(1, 1, 1), font: fontBold });
 
   ctx.y = ctx.height - ctx.margin - 40;
-  heading(ctx, opts?.title ?? "Relatório consolidado", 22, PRIMARY);
-  paragraph(ctx, "Este relatório apresenta o nível consolidado por característica e o feedback geral do participante.", 12, TEXT_MUTED);
+  // Título principal (AZUL)
+  heading(ctx, "Programa de Autoconhecimento Docente", 22, rgb(0.0, 0.25, 0.55));
+
+  // Parágrafo principal com negrito
+  paragraph(
+    ctx,
+    "O Programa de Autoconhecimento é um processo estruturado que busca apoiar docentes da UFSM no desenvolvimento pessoal e profissional. Utilizando recursos de avaliação psicológica e psicoeducação, ele busca promover o equilíbrio entre a vida pessoal e a docência.",
+    12,
+    rgb(0, 0, 0)
+  );
+
+  // Alerta (VERMELHO)
+  paragraph(
+    ctx,
+    "Atenção: Este programa não substitui psicoterapia. Ele é um recurso de autodesenvolvimento e reflexão, não um tratamento clínico.",
+    12,
+    rgb(0.7, 0, 0), // vermelho
+    true // negrito
+  );
+
+  // Subtítulo (AZUL)
+  subheading(ctx, "Objetivos do Programa", 18, rgb(0.0, 0.25, 0.55));
+
+  // Bullet list com os objetivos
+  bulletList(ctx, [
+    "Explorar características pessoais, valores e motivações.",
+    "Promover equilíbrio entre vida profissional e pessoal.",
+    "Fomentar a saúde mental e o bem-estar docente.",
+    "Desenvolver habilidades de comunicação e relações interpessoais.",
+    "Aprimorar o gerenciamento do estresse acadêmico.",
+    "Fortalecer o crescimento e preparo para desafios futuros.",
+  ], 12);
 
   const openContentPage = () => { const p = pdfDoc.addPage(); setPage(ctx, p); };
   openContentPage();
@@ -322,7 +352,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
     if (i > 0) openContentPage();
 
-    heading(ctx, `Formulário: ${label}`, 22, PRIMARY);
+    heading(ctx, `Faceta: ${label}`, 22, PRIMARY);
 
     if (!formKey) {
       paragraph(ctx, "Feedback não encontrado para este formulário.", 12, TEXT_MUTED);
@@ -355,6 +385,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
       subheading(ctx, `Característica: ${facetaNome}`, titleSize, PRIMARY);
       paragraph(ctx, facetaData.descricao, 12, TEXT_MUTED);
+      ctx.y -= 20; // pula ~2 linhas
 
       paragraph(
         ctx,
@@ -364,10 +395,13 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
         true
       );
 
+      ctx.y -= 20; // pula ~2 linhas
+
       const consolidado = facetaData.feedbackConsolidado[nivel];
       if (consolidado) {
         subheading(ctx, consolidado.titulo, 13, rgb(0, 0, 0));
         paragraph(ctx, consolidado.definicao, 11);
+        ctx.y -= 20; // pula ~2 linhas
 
         if (consolidado.caracteristicas?.length) {
           subheading(ctx, "Características", 12, PRIMARY);
@@ -404,4 +438,3 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   const pdfBytes = await pdfDoc.save();
   return new Uint8Array(pdfBytes);
 }
- 
