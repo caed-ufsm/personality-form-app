@@ -123,10 +123,15 @@ export default function FormsIndexPage() {
 
     try {
       const ls = window.localStorage;
+
+      // Garante que a sessão existe
       const sessionId =
         localStorage.getItem("sessionId") || crypto.randomUUID();
       localStorage.setItem("sessionId", sessionId);
 
+      /** --------------------------------------------------------
+       * 1. Montar resultados do localStorage (objeto)
+       * -------------------------------------------------------- */
       const results: Record<string, any> = {};
 
       for (const f of forms) {
@@ -135,6 +140,9 @@ export default function FormsIndexPage() {
         results[f.id] = safeParse(raw) ?? {};
       }
 
+      /** --------------------------------------------------------
+       * 2. Enviar para o banco (API: /api/forms/save)
+       * -------------------------------------------------------- */
       const saveRes = await fetch("/api/forms/save", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -143,17 +151,38 @@ export default function FormsIndexPage() {
 
       if (!saveRes.ok) throw new Error("Falha ao salvar no banco.");
 
+      /** --------------------------------------------------------
+       * 3. Transformar results → array {id, answers}
+       *    Formato exigido pela rota /api/pdf/report
+       * -------------------------------------------------------- */
+      const pdfPayload = {
+        forms: Object.entries(results).map(([id, answers]) => ({
+          id,
+          answers,
+        })),
+      };
+
+      /** --------------------------------------------------------
+       * 4. Gerar PDF (API: /api/pdf/report)
+       * -------------------------------------------------------- */
       const pdfRes = await fetch("/api/pdf/report", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Idempotency-Key": crypto.randomUUID(),
         },
-        body: JSON.stringify({ forms: results }),
+        body: JSON.stringify(pdfPayload),
       });
 
-      if (!pdfRes.ok) throw new Error("Erro ao gerar PDF.");
+      if (!pdfRes.ok) {
+        const err = await pdfRes.json().catch(() => ({}));
+        console.error("PDF ERROR:", err);
+        throw new Error("Erro ao gerar PDF.");
+      }
 
+      /** --------------------------------------------------------
+       * 5. Baixar o PDF
+       * -------------------------------------------------------- */
       const blob = await pdfRes.blob();
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
@@ -162,13 +191,14 @@ export default function FormsIndexPage() {
       a.click();
       URL.revokeObjectURL(url);
 
-      alert("✅ PDF gerado!");
+      alert("✅ PDF gerado com sucesso!");
     } catch (e: any) {
       alert("Erro: " + e.message);
     } finally {
       setIsLoading(false);
     }
   };
+
 
   /** ---------------- SAFE RENDER ---------------- */
   if (!mounted) {
@@ -277,9 +307,8 @@ export default function FormsIndexPage() {
 
                     {!isComplete ? (
                       <svg
-                        className={`w-6 h-6 text-gray-700 transition-transform ${
-                          open[f.id] ? "rotate-180" : ""
-                        }`}
+                        className={`w-6 h-6 text-gray-700 transition-transform ${open[f.id] ? "rotate-180" : ""
+                          }`}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -396,11 +425,10 @@ export default function FormsIndexPage() {
             <button
               onClick={handleSend}
               disabled={!allComplete || isLoading}
-              className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${
-                allComplete && !isLoading
+              className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${allComplete && !isLoading
                   ? "bg-[#0353a3] hover:bg-blue-800"
                   : "bg-gray-400 cursor-not-allowed"
-              }`}
+                }`}
             >
               {isLoading
                 ? "⏳ Enviando e gerando PDF..."
