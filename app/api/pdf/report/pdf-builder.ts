@@ -368,31 +368,40 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
       if (consolidado) {
         subheading(ctx, consolidado.titulo, 13, rgb(0, 0, 0));
         paragraph(ctx, consolidado.definicao, 11);
+
         if (consolidado.caracteristicas?.length) {
           subheading(ctx, "Características", 12, PRIMARY);
           bulletList(ctx, consolidado.caracteristicas, 11);
         }
+
         if (consolidado.vantagens?.length) {
           subheading(ctx, "Vantagens", 12, PRIMARY);
           bulletList(ctx, consolidado.vantagens, 11);
         }
+
         if (consolidado.dificuldades?.length) {
           subheading(ctx, "Dificuldades", 12, PRIMARY);
           bulletList(ctx, consolidado.dificuldades, 11);
         }
+
         if (consolidado.estrategias?.length) {
           subheading(ctx, "Estratégias de Desenvolvimento", 12, PRIMARY);
           bulletList(ctx, consolidado.estrategias, 11);
         }
+
         if (consolidado.conclusao) {
           paragraph(ctx, consolidado.conclusao, 11);
         }
       }
 
       ctx.y -= 8;
+
+      // ⭐ AQUI: QUEBRA DE PÁGINA APÓS FECHAR UMA FACETA
+      newPage(ctx);
     }
   }
 
   const pdfBytes = await pdfDoc.save();
   return new Uint8Array(pdfBytes);
 }
+ 

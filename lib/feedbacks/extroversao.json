@@ -62,81 +62,81 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Acolhimento – Nível Baixo",
-                        "definicao": "A faceta Acolhimento está relacionada à capacidade de interagir de forma empática e cooperativa com discentes, colegas e gestores. Em nível baixo, os docentes tendem a manter uma abordagem mais formal e restrita, limitando as interações ao âmbito estritamente acadêmico.",
+                        "titulo": "FEEDBACK – Acolhimento (Nível Baixo)",
+                        "definicao": "A faceta Acolhimento está relacionada à capacidade de interagir de forma empática e cooperativa com discentes, colegas e gestores. Em nível baixo, os docentes tendem a manter uma abordagem mais formal e restrita, limitando as interações ao âmbito estritamente acadêmico, o que pode resultar em uma menor troca de informações e oportunidades de colaboração.",
                         "caracteristicas": [
-                            "Interação formal e restrita.",
-                            "Compartilhamento pontual de informações.",
-                            "Foco exclusivo no essencial acadêmico."
+                            "Interação Formal: Prefere manter contatos limitados e focados apenas nos assuntos acadêmicos, evitando envolvimentos emocionais ou interações prolongadas.",
+                            "Comunicação Restrita: Compartilha informações de forma pontual, sem buscar ativamente ajudar ou motivar discentes e colegas, mantendo um distanciamento das trocas colaborativas.",
+                            "Foco no Essencial: Prioriza a execução das tarefas e obrigações institucionais, sem se aprofundar nas relações interpessoais que podem enriquecer a prática docente."
                         ],
                         "vantagens": [
-                            "Foco e eficiência.",
-                            "Organização do trabalho."
+                            "Foco e Eficiência: A abordagem mais formal permite uma maior concentração nas atividades essenciais, evitando distrações que possam comprometer o desempenho.",
+                            "Organização do Trabalho: Ao manter o foco estritamente nos assuntos acadêmicos, o docente pode otimizar o tempo dedicado à preparação e execução das aulas, garantindo o cumprimento das metas institucionais."
                         ],
                         "dificuldades": [
-                            "Perda de oportunidades de cooperação.",
-                            "Percepção de distanciamento.",
-                            "Redução da inovação."
+                            "Perda de Oportunidades de Cooperação: A limitação das interações pode reduzir as chances de formar redes de apoio e de trocar conhecimentos que contribuam para o aprimoramento das práticas docentes.",
+                            "Percepção de Distanciamento: Estudantes e colegas podem interpretar a postura reservada como falta de interesse ou apoio, o que pode afetar negativamente o ambiente de trabalho e a colaboração.",
+                            "Redução da Inovação: A ausência de uma troca ativa de ideias pode limitar o surgimento de propostas inovadoras e melhorias nos processos de ensino."
                         ],
                         "estrategias": [
-                            "Buscar ajuda e oferecer suporte pontual.",
-                            "Participar de debates direcionados.",
-                            "Cultivar grupos de afinidade.",
-                            "Aproveitar momentos estratégicos para compartilhar."
+                            "Buscar Ajuda Pontual: Utilize canais de comunicação como e-mails ou chats acadêmicos para oferecer suporte e compartilhar informações, mesmo que de forma breve e pontual, evitando a necessidade de interações longas.",
+                            "Participar de Debates Direcionados: Convide esporadicamente colegas ou estudantes para participar de debates focados em temas específicos, garantindo uma troca de conhecimento sem comprometer o foco individual.",
+                            "Cultivar Grupos de Afinidade: Forme ou participe de grupos de afinidade, como colegas de pesquisa, para trocar ideias e experiências, enriquecendo a prática docente sem se expor a interações amplas.",
+                            "Aproveitar Momentos Estratégicos: Reserve momentos específicos para compartilhar insights e materiais, de forma a manter o fluxo de informações e o networking, sem prejudicar a rotina de trabalho."
                         ],
-                        "conclusao": "Docentes com baixo nível de acolhimento mantêm eficiência, mas podem limitar cooperação e inovação. Estratégias pontuais de abertura ajudam a equilibrar foco e colaboração."
+                        "conclusao": "Docentes com um baixo nível de acolhimento mantêm um foco intenso nas atividades essenciais, o que pode favorecer a eficiência no cumprimento de obrigações acadêmicas. No entanto, essa abordagem mais formal pode limitar as oportunidades de cooperação e de enriquecimento por meio da troca de conhecimentos. Ao adotar estratégias que promovam interações pontuais e a formação de grupos de afinidade, é possível equilibrar a objetividade com a colaboração, criando um ambiente de trabalho mais integrado e produtivo, sem comprometer a qualidade do ensino e da gestão."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Acolhimento – Nível Médio",
-                        "definicao": "A faceta Acolhimento refere-se à tendência de interagir de forma amigável e empática, mas de maneira seletiva. Em nível médio, o docente oferece apoio quando percebe necessidade, preservando momentos de foco e produtividade.",
+                        "titulo": "FEEDBACK – Acolhimento (Nível Médio)",
+                        "definicao": "A faceta Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores, promovendo trocas de conhecimento e colaboração. Em nível médio, o docente mantém uma postura equilibrada: participa de interações e oferece apoio quando necessário, mas também preserva momentos de foco e produtividade. Essa abordagem possibilita criar vínculos e colaborar, sem que isso comprometa de forma significativa a execução das responsabilidades acadêmicas.",
                         "caracteristicas": [
-                            "Interações seletivas.",
-                            "Compartilhamento moderado de recursos.",
-                            "Apoio contextual."
+                            "Interações Seletivas: Participa de conversas e trocas de informações, priorizando momentos e contextos que considera relevantes para o trabalho ou para o desenvolvimento de projetos.",
+                            "Compartilhamento Moderado de Recursos: Oferece materiais e dicas quando percebe utilidade direta para o interlocutor, mas evita um compartilhamento excessivo que possa dispersar seu tempo e energia.",
+                            "Apoio Contextual: Mostra disponibilidade para ajudar colegas e discentes, especialmente quando identificada uma necessidade clara, mas sem se envolver continuamente em demandas de apoio."
                         ],
                         "vantagens": [
-                            "Equilíbrio entre apoio e produtividade.",
-                            "Relacionamentos positivos.",
-                            "Gestão eficiente do tempo."
+                            "Equilíbrio Entre Apoio e Produtividade: Mantém abertura para contribuir com a comunidade acadêmica, sem perder de vista as próprias metas e prazos.",
+                            "Relacionamentos Positivos: Estabelece vínculos colaborativos de forma seletiva, garantindo interações construtivas que fortalecem o ambiente de trabalho.",
+                            "Gestão Eficiente do Tempo: Consegue apoiar colegas e discentes sem comprometer a execução das atividades essenciais."
                         ],
                         "dificuldades": [
-                            "Perda de oportunidades espontâneas.",
-                            "Possível percepção de distanciamento.",
-                            "Rede de contatos limitada."
+                            "Perda de Oportunidades Espontâneas: A seletividade nas interações pode reduzir o contato com ideias ou colaborações que surjam de conversas mais informais.",
+                            "Possível Percepção de Distanciamento: Em contextos de alta demanda de apoio, a moderação na participação pode ser interpretada como falta de interesse.",
+                            "Limitação na Ampliação da Rede de Contatos: Ao focar apenas em interações pontuais, pode perder chances de expandir conexões que favoreçam a inovação e a cooperação."
                         ],
                         "estrategias": [
-                            "Definir pautas para interações.",
-                            "Aproveitar momentos-chave.",
-                            "Manter canais de comunicação abertos.",
-                            "Ampliar gradualmente a rede de apoio."
+                            "Definir Pautas para Interações: Estabeleça objetivos claros para reuniões e conversas, evitando que o acolhimento se transforme em dispersão de tempo.",
+                            "Aproveitar Momentos-Chave: Participe ativamente de eventos, colegiados e encontros que concentrem várias oportunidades de troca em pouco tempo.",
+                            "Manter Canais de Comunicação Abertos: Disponibilize formas rápidas de contato, como e-mail institucional ou grupos de trabalho, para facilitar a troca de informações sem sobrecarga presencial.",
+                            "Ampliar Gradualmente a Rede de Apoio: Aumente a participação em projetos coletivos de forma planejada, equilibrando envolvimento e foco pessoal."
                         ],
-                        "conclusao": "Docentes com nível médio de acolhimento equilibram colaboração e foco, mas podem expandir sua rede de apoio ao se engajar em mais interações estratégicas."
+                        "conclusao": "Docentes com níveis médios de acolhimento conseguem equilibrar colaboração e foco, oferecendo apoio e trocando informações sem comprometer a produtividade. Ao aproveitar momentos estratégicos para ampliar a rede de contatos e manter canais de comunicação eficientes, é possível fortalecer as relações profissionais e contribuir para um ambiente acadêmico positivo, preservando ao mesmo tempo o desempenho individual."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Acolhimento – Nível Alto",
-                        "definicao": "A faceta Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores. Em nível alto, docentes demonstram grande disposição para apoiar e motivar estudantes e colegas, criando um ambiente de trabalho colaborativo.",
+                        "titulo": "FEEDBACK – Acolhimento (Nível Alto)",
+                        "definicao": "A faceta Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores, promovendo trocas de conhecimento e colaboração. Docentes com alto nível de acolhimento demonstram grande disposição para apoiar e motivar estudantes e colegas, criando um ambiente de trabalho colaborativo e inspirador.",
                         "caracteristicas": [
-                            "Interação proativa.",
-                            "Compartilhamento de recursos.",
-                            "Acolhimento empático.",
-                            "Abertura na comunicação."
+                            "Interação Proativa: Gosta de apoiar e motivar estudantes, colegas e outros membros da comunidade acadêmica, oferecendo orientações e soluções para dificuldades pessoais e profissionais.",
+                            "Compartilhamento de Recursos: Sente satisfação em compartilhar materiais didáticos, referências bibliográficas e dicas de avaliação, enriquecendo o ambiente de aprendizagem.",
+                            "Acolhimento Empático: Busca ser acolhedor(a) com discentes que enfrentam problemas, direcionando-os a soluções ou serviços de apoio institucionais.",
+                            "Abertura na Comunicação: Prefere ajudar quem tem dúvidas em vez de manter informações restritas, incentivando o fluxo de conhecimento."
                         ],
                         "vantagens": [
-                            "Fortalecimento das relações.",
-                            "Ambiente motivador.",
-                            "Facilidade de networking."
+                            "Fortalecimento das Relações: Cria laços colaborativos que incentivam a troca de ideias e promovem um clima de apoio mútuo, beneficiando tanto o ensino quanto a pesquisa.",
+                            "Ambiente Motivador: Um alto nível de acolhimento motiva os estudantes e colegas, contribuindo para um ambiente de trabalho positivo e produtivo.",
+                            "Facilidade de Networking: Facilita a construção de redes de colaboração e o compartilhamento de experiências que enriquecem a prática docente."
                         ],
                         "dificuldades": [
-                            "Risco de distração.",
-                            "Desequilíbrio de prioridades."
+                            "Risco de Distração: O excesso de interações informais pode dispersar a atenção e prejudicar a concentração durante o horário de trabalho.",
+                            "Desequilíbrio de Prioridades: O envolvimento excessivo em atividades de apoio pode comprometer a dedicação às responsabilidades docentes e administrativas."
                         ],
                         "estrategias": [
-                            "Estabelecer horários específicos para apoio.",
-                            "Focar em pautas claras em reuniões.",
-                            "Canalizar energia positiva de forma estratégica.",
-                            "Monitorar o impacto das interações."
+                            "Estabelecer Horários Específicos: Defina períodos claros para atendimento e interação com discentes e colegas, garantindo que as conversas paralelas não comprometam o tempo destinado às atividades essenciais.",
+                            "Focar em Pautas Claras: Durante reuniões e debates, mantenha a cordialidade, mas oriente as discussções para que sejam objetivas e alinhadas aos objetivos institucionais.",
+                            "Usar Energia Positiva de Forma Estratégica: Canalize o entusiasmo para incentivar a participação dos discentes e a colaboração entre colegas, sempre mantendo o controle do tempo dedicado ao conteúdo e às atividades acadêmicas.",
+                            "Monitorar o Impacto das Interações: Avalie periodicamente se as atividades de apoio estão contribuindo positivamente para o desempenho geral ou se estão causando sobrecarga."
                         ],
-                        "conclusao": "Um alto nível de acolhimento fortalece vínculos e colaborações, mas exige gestão do tempo e limites claros para que não comprometa a produtividade docente."
+                        "conclusao": "Um alto nível de acolhimento entre docentes fortalece as relações interpessoais e fomenta um ambiente colaborativo, essencial para o desenvolvimento e a inovação na UFSM. No entanto, é crucial estabelecer limites e gerenciar o tempo dedicado às interações para não comprometer a produtividade e o foco nas responsabilidades docentes. Ao adotar estratégias que equilibrem apoio e eficiência, você maximiza os benefícios da empatia sem sacrificar os resultados acadêmicos."
                     }
                 }
             },
@@ -200,80 +200,80 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Assertividade – Nível Baixo",
-                        "definicao": "A faceta Assertividade diz respeito à capacidade de expressar opiniões, necessidades e dúvidas de forma clara e segura. Em nível baixo, o docente tende a hesitar em expor suas ideias ou desafios, o que pode resultar na perda de oportunidades e limitar o desenvolvimento.",
+                        "titulo": "FEEDBACK – Assertividade (Nível Baixo)",
+                        "definicao": "A faceta Assertividade diz respeito à capacidade de expressar opiniões, necessidades e dúvidas de forma clara e segura. Em nível baixo, você tende a hesitar em expor suas ideias ou desafios, o que pode resultar na perda de oportunidades para demonstrar competência e receber feedback construtivo, prejudicando o desenvolvimento pessoal e a inovação no ambiente acadêmico.",
                         "caracteristicas": [
-                            "Hesitação na expressão de opiniões.",
-                            "Pouca iniciativa de liderança.",
-                            "Reserva na comunicação pública."
+                            "Hesitação na Expressão: Tem dificuldade em expor suas opiniões em conselhos, colegiados ou reuniões, preferindo permanecer em silêncio mesmo diante de questões importantes.",
+                            "Pouca Iniciativa de Liderança: Evita assumir a liderança em projetos coletivos, deixando de contribuir ativamente para a discussão e a melhoria dos processos.",
+                            "Reserva na Comunicação: Prefere não expressar publicamente dúvidas ou dificuldades, o que pode limitar o esclarecimento e o aprendizado coletivo."
                         ],
                         "vantagens": [
-                            "Ambiente de trabalho calmo.",
-                            "Menor probabilidade de conflitos diretos."
+                            "Ambiente de Trabalho Calmo: A postura mais reservada pode contribuir para um clima de trabalho tranquilo, com menos conflitos diretos.",
+                            "Menor Probabilidade de Conflitos: A hesitação em expressar opiniões pode evitar confrontos e manter relações interpessoais harmoniosas, especialmente em contextos altamente formais."
                         ],
                         "dificuldades": [
-                            "Perda de oportunidades de crescimento.",
-                            "Inibição de inovação.",
-                            "Dificuldade em demonstrar competência."
+                            "Perda de Oportunidades de Crescimento: A falta de assertividade pode impedir que você se destaque em reuniões e debates, limitando o acesso a feedbacks que poderiam impulsionar o desenvolvimento profissional.",
+                            "Inibição de Inovação: Não compartilhar ideias e sugestões pode comprometer a melhoria contínua dos processos docentes e administrativos.",
+                            "Dificuldade em Demonstrar Competência: A relutância em se posicionar pode fazer com que sua capacidade e expertise não sejam reconhecidas, afetando a reputação profissional."
                         ],
                         "estrategias": [
-                            "Preparar-se previamente para reuniões.",
-                            "Começar a se posicionar em fóruns eletrônicos.",
-                            "Estabelecer metas simples de participação.",
-                            "Buscar feedback e apoio de colegas de confiança."
+                            "Preparação Prévia para Reuniões: Liste antecipadamente pontos de dúvida e sugestões para participar ativamente das discussões, mesmo que inicialmente de forma discreta.",
+                            "Início em Fóruns Eletrônicos: Comece a expressar suas opiniões em ambientes virtuais, como e-mails ou fóruns online (Moodle, por exemplo), para ganhar confiança antes de falar em público.",
+                            "Estabelecer Metas de Participação: Defina objetivos claros para cada encontro, como fazer pelo menos uma pergunta ou sugestão relevante, estimulando a prática da assertividade.",
+                            "Buscar Feedback e Apoio: Peça a colegas de confiança que lhe ofereçam feedback sobre sua participação, ajudando a ajustar sua comunicação e aumentar a autoconfiança."
                         ],
-                        "conclusao": "Docentes com baixo nível de assertividade mantêm um ambiente harmonioso, mas podem perder espaço e oportunidades. Com preparação gradual e prática, é possível ganhar confiança e ampliar a participação em decisões acadêmicas."
+                        "conclusao": "Um nível baixo de assertividade pode limitar a expressão das suas ideias e a capacidade de liderar iniciativas, prejudicando tanto o seu desenvolvimento profissional quanto a inovação no ambiente acadêmico. Ao adotar estratégias que estimulem a participação gradual e a preparação prévia, você poderá superar a hesitação e aproveitar as oportunidades de mostrar competência. Equilibrar a reserva com a iniciativa é essencial para aprimorar a comunicação e contribuir de maneira efetiva para a melhoria dos processos na universidade."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Assertividade – Nível Médio",
-                        "definicao": "A faceta Assertividade descreve a capacidade de expressar opiniões e necessidades com clareza, bem como defender pontos de vista de forma construtiva. Em nível médio, o docente consegue expor ideias e assumir posições em diversas situações, mas dosa sua participação conforme o contexto.",
+                        "titulo": "FEEDBACK – Assertividade (Nível Médio)",
+                        "definicao": "A faceta Assertividade descreve a capacidade de expressar opiniões e necessidades com clareza, bem como defender pontos de vista de forma construtiva. Em nível médio, o docente consegue expor ideias e assumir posições em diversas situações, mas tende a dosar a participação conforme o contexto e a receptividade do grupo. Essa postura equilibrada favorece a colaboração e a manutenção de relações respeitosas, embora possa, ocasionalmente, levar à perda de oportunidades de influência.",
                         "caracteristicas": [
-                            "Participação seletiva em debates.",
-                            "Liderança contextual.",
-                            "Expressão com moderação."
+                            "Participação Seletiva: Expõe opiniões e sugestões de forma mais ativa em temas com os quais se sente seguro ou tem experiência, mas pode se conter em discussões muito polêmicas ou pouco familiares.",
+                            "Liderança Contextual: Assume a liderança em projetos ou grupos de trabalho quando percebe necessidade, mas não busca constantemente o papel de coordenador.",
+                            "Expressão com Moderação: Defende seus pontos de vista de forma clara, mas geralmente opta por um tom conciliador, evitando confrontos diretos."
                         ],
                         "vantagens": [
-                            "Equilíbrio entre firmeza e flexibilidade.",
-                            "Boa aceitação entre colegas.",
-                            "Capacidade de adaptar o discurso."
+                            "Equilíbrio Entre Firmeza e Flexibilidade: Consegue posicionar-se sem adotar uma postura excessivamente rígida, favorecendo o diálogo e a construção coletiva de soluções.",
+                            "Boa Aceitação entre Colegas: A moderação no posicionamento contribui para manter um ambiente de trabalho colaborativo e respeitoso.",
+                            "Capacidade de Adaptar o Discurso: Ajusta a forma de se expressar conforme o público e o contexto, aumentando a efetividade da comunicação."
                         ],
                         "dificuldades": [
-                            "Possível perda de espaço em decisões.",
-                            "Sub-representação de ideias relevantes.",
-                            "Dependência de ambientes favoráveis."
+                            "Possível Perda de Espaço em Decisões: Ao evitar posicionamentos em determinados momentos, pode deixar de influenciar decisões importantes.",
+                            "Risco de Sub-representação das Ideias: A participação seletiva pode fazer com que contribuições relevantes fiquem de fora das discussões.",
+                            "Dependência de Ambiente Favorável: Pode se sentir menos à vontade para se posicionar em contextos mais competitivos ou com pouca abertura ao diálogo."
                         ],
                         "estrategias": [
-                            "Preparar pontos-chave antes das reuniões.",
-                            "Praticar a exposição gradual em debates.",
-                            "Solicitar espaço formal para fala.",
-                            "Equilibrar escuta e posicionamento ativo."
+                            "Preparar Pontos-Chave: Antes de reuniões, liste argumentos claros e objetivos para apresentar, mesmo que de forma breve, garantindo a participação.",
+                            "Praticar a Exposição Gradual: Aumente progressivamente o número de intervenções em debates, especialmente em assuntos estratégicos para sua área de atuação.",
+                            "Solicitar Espaço para Falar: Em contextos com muitos participantes, use recursos como pedir a palavra ou solicitar rodadas de opinião para garantir sua contribuição.",
+                            "Equilibrar Escuta e Fala: Continue ouvindo ativamente os colegas, mas assegure que suas ideias sejam registradas e consideradas nas decisões."
                         ],
-                        "conclusao": "Docentes com nível médio de assertividade equilibram firmeza e colaboração, mas podem fortalecer sua influência ao garantir participação mais consistente, especialmente em temas estratégicos."
+                        "conclusao": "Docentes com níveis médios de assertividade conseguem equilibrar a expressão de ideias com a manutenção de um ambiente harmonioso. Ao investir em estratégias que garantam participação consistente, mesmo em temas mais complexos, é possível ampliar a influência e fortalecer a credibilidade, mantendo o respeito e a colaboração no ambiente acadêmico."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Assertividade – Nível Alto",
-                        "definicao": "A faceta Assertividade reflete a capacidade de expressar opiniões e necessidades com clareza, pedindo ajuda e defendendo pontos de vista de forma eficaz. Em nível alto, o docente demonstra confiança para expor suas ideias, assumir liderança e contribuir ativamente para processos acadêmicos.",
+                        "titulo": "FEEDBACK – Assertividade (Nível Alto)",
+                        "definicao": "A faceta Assertividade reflete a capacidade de expressar opiniões e necessidades com clareza, pedindo ajuda e defendendo pontos de vista de forma eficaz. Em nível alto, você demonstra confiança para expor suas ideias em conselhos, colegiados e reuniões do departamento, assumindo liderança em projetos coletivos e contribuindo ativamente para o aprimoramento dos processos acadêmicos.",
                         "caracteristicas": [
-                            "Expressão clara e confiante.",
-                            "Liderança proativa.",
-                            "Comunicação eficaz."
+                            "Expressão Clara e Confiante: Não tem medo de expor suas opiniões e compartilhar suas ideias, mesmo que sejam divergentes da maioria.",
+                            "Liderança Proativa: Assume a liderança em projetos coletivos quando identifica a ausência de iniciativa, incentivando a participação e o debate.",
+                            "Comunicação Eficaz: Tem facilidade em apresentar propostas e resultados em eventos ou reuniões, contribuindo para decisões fundamentadas e melhoria dos processos."
                         ],
                         "vantagens": [
-                            "Facilidade de condução de projetos.",
-                            "Estímulo à inovação.",
-                            "Reconhecimento e credibilidade."
+                            "Facilidade de Condução de Projetos: Sua assertividade permite conduzir turmas, pesquisas coletivas e orientações, fortalecendo a prática docente.",
+                            "Impulsionamento da Inovação: A postura proativa estimula a implementação de novas ideias e soluções, enriquecendo a qualidade do ensino e da gestão acadêmica.",
+                            "Reconhecimento e Credibilidade: A clareza na comunicação e a capacidade de liderar tornam sua atuação visível e inspiradora, aumentando a confiança de colegas e gestores."
                         ],
                         "dificuldades": [
-                            "Risco de autoritarismo.",
-                            "Possível resistência a feedbacks contrários."
+                            "Risco de Autoritarismo: O excesso de assertividade pode ser interpretado como inflexibilidade ou autoritarismo, causando atritos com colegas e chefias.",
+                            "Possível Resistência a Feedbacks Contrários: Uma postura demasiadamente firme pode dificultar a recepção de críticas construtivas, limitando o aperfeiçoamento contínuo."
                         ],
                         "estrategias": [
-                            "Revezar a liderança em projetos.",
-                            "Praticar comunicação empática.",
-                            "Moderar o tom em discussões polêmicas.",
-                            "Buscar feedback contínuo de colegas e gestores."
+                            "Revezar a Liderança: Promova a participação de colegas em grupos de trabalho, compartilhando responsabilidades e incentivando a colaboração.",
+                            "Praticar Comunicação Empática: Ao expressar suas opiniões, valorize as contribuições dos outros antes de apresentar críticas, adotando um tom construtivo e equilibrado.",
+                            "Moderar o Tom: Em discussões sobre temas polêmicos, ajuste a sua abordagem para equilibrar a firmeza com o respeito, evitando gerar atritos desnecessários.",
+                            "Buscar Feedback Contínuo: Solicite avaliações regulares de colegas e superiores para calibrar sua postura, garantindo que sua assertividade seja percebida de forma positiva."
                         ],
-                        "conclusao": "Docentes com alto nível de assertividade lideram e inovam no ambiente acadêmico, mas precisam equilibrar firmeza com empatia para evitar percepções de autoritarismo e manter relações institucionais saudáveis."
+                        "conclusao": "Um alto nível de assertividade é fundamental para a liderança e a inovação no ambiente docente. Ao expressar suas ideias com clareza e segurança, você contribui para a melhoria dos processos e o fortalecimento das relações institucionais. Contudo, é importante equilibrar essa postura com empatia e abertura ao feedback, de modo a evitar que a assertividade se converta em autoritarismo. Com as estratégias adequadas, você pode maximizar os benefícios da assertividade, impulsionando o desenvolvimento e a colaboração dentro da universidade."
                     }
                 }
             },
@@ -337,81 +337,81 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Emoções Positivas – Nível Baixo",
-                        "definicao": "A faceta Emoções Positivas mede a frequência com que você experimenta sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível baixo, há dificuldade em reconhecer conquistas e manter o ânimo, o que pode afetar o engajamento e a satisfação profissional.",
+                        "titulo": "FEEDBACK – Emoções Positivas (Nível Baixo)",
+                        "definicao": "A faceta Emoções Positivas mede a frequência com que você experimenta sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível baixo, os docentes podem ter dificuldade em reconhecer pequenas conquistas e manter o ânimo, o que pode tornar a rotina de ensino mais monótona e menos motivadora, afetando o engajamento dos alunos e a própria satisfação profissional.",
                         "caracteristicas": [
-                            "Baixa frequência de sentimentos positivos.",
-                            "Postura emocional mais neutra ou sóbria.",
-                            "Impacto negativo na motivação."
+                            "Baixa Frequência de Sentimentos Positivos: Dificuldade em perceber e celebrar pequenos progressos, focando mais nos desafios e obstáculos.",
+                            "Postura Emocional Neutra: Mantém uma atitude mais sóbria e reservada, com menos demonstrações de entusiasmo nas atividades diárias.",
+                            "Impacto na Motivação: A falta de reconhecimento dos próprios sucessos pode levar a um desânimo gradual, afetando a inovação e o dinamismo em sala de aula."
                         ],
                         "vantagens": [
-                            "Realismo e planejamento cauteloso.",
-                            "Estabilidade emocional."
+                            "Realismo e Planejamento Cauteloso: Uma postura mais neutra pode levar a um planejamento mais cuidadoso, evitando o excesso de otimismo que pode mascarar problemas.",
+                            "Estabilidade Emocional: A abordagem sóbria pode proporcionar uma estabilidade que previne oscilações emocionais intensas, mantendo o foco mesmo em períodos de desafio."
                         ],
                         "dificuldades": [
-                            "Dificuldade em manter motivação.",
-                            "Risco de desânimo prolongado.",
-                            "Pouca influência motivacional sobre colegas e discentes."
+                            "Dificuldade em Manter a Motivação: A baixa vivência de emoções positivas pode resultar em uma rotina de ensino menos inspirada, diminuindo o engajamento dos alunos e o interesse em inovar.",
+                            "Risco de Desânimo Prolongado: A falta de celebração de pequenas vitórias pode levar a uma percepção negativa do trabalho, impactando a produtividade e a satisfação profissional.",
+                            "Pouca Influência Motivacional: Pode haver dificuldade em inspirar colegas e discentes, limitando o potencial de colaboração e o desenvolvimento de um ambiente de ensino dinâmico."
                         ],
                         "estrategias": [
-                            "Valorizar conscientemente pequenas conquistas.",
-                            "Usar recompensas simbólicas.",
-                            "Inserir estímulos positivos no ambiente.",
-                            "Buscar feedback externo regularmente."
+                            "Valorização Consciente de Pequenas Conquistas: Anote diariamente pequenos avanços, como a resolução de desafios em sala ou feedbacks positivos de alunos, para reforçar a sensação de progresso e sucesso.",
+                            "Uso de Recompensas Simbólicas: Após cumprir metas ou concluir tarefas importantes, conceda pequenas recompensas, como assistir a um episódio de uma série ou desfrutar de um lanche favorito, para estimular o engajamento.",
+                            "Inserção de Estímulos Positivos no Ambiente: Incorpore elementos motivacionais, como músicas inspiradoras ou mensagens de encorajamento, no local de trabalho para criar um ambiente mais estimulante.",
+                            "Busca de Feedback Externo: Busque regularmente o apoio e o reconhecimento de colegas e superiores para contrabalançar a visão neutra ou negativa, fortalecendo a percepção do seu valor e das suas conquistas."
                         ],
-                        "conclusao": "Docentes com baixo nível de emoções positivas podem enfrentar desafios na motivação e na inspiração de seus alunos. Ao valorizar vitórias diárias e estimular feedbacks construtivos, é possível transformar a neutralidade em fonte de resiliência e engajamento."
+                        "conclusao": "Docentes com um nível baixo de emoções positivas podem enfrentar desafios na manutenção do entusiasmo e na inspiração de seus alunos, o que pode afetar tanto a inovação quanto a motivação no ambiente de ensino. Ao implementar estratégias que valorizem pequenas vitórias, incluam estímulos positivos e incentivem o feedback construtivo, é possível transformar essa postura neutra em uma fonte de motivação e resiliência. Esse equilíbrio contribuirá para um ambiente de trabalho mais dinâmico e para a melhoria contínua das práticas docentes na UFSM."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Emoções Positivas – Nível Médio",
-                        "definicao": "A faceta Emoções Positivas avalia a frequência com que o docente vivencia sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível médio, há motivação na maior parte do tempo, mas também oscilações em contextos de maior pressão.",
+                        "titulo": "FEEDBACK – Emoções Positivas (Nível Médio)",
+                        "definicao": "A faceta Emoções Positivas avalia a frequência com que o docente vivencia sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível médio, o docente consegue reconhecer e valorizar conquistas relevantes e manter a motivação na maior parte do tempo, embora possa apresentar oscilações de ânimo em períodos de maior pressão. Essa postura equilibrada permite manter o foco e a resiliência, mas pode reduzir o impulso para celebrar pequenos avanços ou estimular constantemente a inovação.",
                         "caracteristicas": [
-                            "Valorização moderada de conquistas.",
-                            "Otimismo condicional.",
-                            "Alegria no trabalho, com expressão variável."
+                            "Valorização Moderada de Conquistas: Reconhece vitórias importantes, como bons resultados em projetos ou avaliações positivas, mas pode deixar passar despercebidos pequenos avanços do dia a dia.",
+                            "Otimismo Condicional: Mantém uma atitude positiva na maior parte das situações, mas tende a sentir queda de motivação diante de desafios prolongados ou de resultados abaixo do esperado.",
+                            "Alegria no Trabalho: Sente satisfação em contribuir para a formação de discentes e no desenvolvimento de atividades acadêmicas, ainda que nem sempre expresse esse entusiasmo de forma visível."
                         ],
                         "vantagens": [
-                            "Equilíbrio emocional.",
-                            "Resiliência funcional.",
-                            "Influência positiva moderada."
+                            "Equilíbrio Emocional: Consegue manter uma postura positiva sem ignorar as dificuldades, o que favorece decisões mais realistas e bem fundamentadas.",
+                            "Resiliência Funcional: Recupera a motivação após momentos de baixa, preservando a continuidade do trabalho e o cumprimento de responsabilidades.",
+                            "Influência Positiva Moderada: Transmite ânimo aos colegas e alunos em diversas situações, estimulando um ambiente de trabalho produtivo e harmonioso."
                         ],
                         "dificuldades": [
-                            "Celebração insuficiente de avanços menores.",
-                            "Oscilação em contextos de alta pressão.",
-                            "Menor estímulo à inovação contínua."
+                            "Celebração Insuficiente de Avanços Menores: Ao focar em conquistas maiores, pode deixar de reforçar progressos diários que poderiam aumentar a motivação e o engajamento da equipe.",
+                            "Oscilação em Contextos de Alta Pressão: Em períodos de sobrecarga, a postura positiva pode ceder espaço a um comportamento mais neutro ou reservado.",
+                            "Risco de Menor Estímulo à Inovação: A moderação no entusiasmo pode resultar em menor incentivo para buscar constantemente novas ideias e práticas."
                         ],
                         "estrategias": [
-                            "Incorporar reconhecimento diário de avanços.",
-                            "Compartilhar conquistas com a equipe.",
-                            "Reforçar motivação em períodos de pressão.",
-                            "Equilibrar otimismo e planejamento realista."
+                            "Incorporar Reconhecimento Diário: Reserve alguns minutos para registrar e reconhecer avanços, mesmo que pequenos, reforçando a sensação de progresso contínuo.",
+                            "Compartilhar Conquistas com a Equipe: Divida vitórias e resultados positivos com colegas e discentes, fortalecendo o espírito de colaboração e motivação coletiva.",
+                            "Reforçar a Motivação em Períodos de Pressão: Utilize recursos como pausas ativas, mensagens motivacionais ou reuniões de alinhamento para manter o ânimo da equipe.",
+                            "Equilibrar Otimismo e Planejamento: Continue mantendo uma visão positiva, mas combine-a com revisões realistas de metas para evitar frustrações e manter expectativas ajustadas."
                         ],
-                        "conclusao": "Docentes com nível médio de emoções positivas mantêm equilíbrio e produtividade, mas podem reforçar a motivação e o impacto positivo ao celebrar avanços diários e ampliar a inspiração junto a alunos e colegas."
+                        "conclusao": "Docentes com níveis médios de emoções positivas conseguem manter um ambiente equilibrado e produtivo, valorizando conquistas e recuperando a motivação após momentos de baixa. Ao adotar práticas que reforcem o reconhecimento diário e promovam o compartilhamento de resultados, é possível potencializar o impacto positivo no ambiente acadêmico, inspirando colegas e alunos de forma consistente."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Emoções Positivas – Nível Alto",
-                        "definicao": "A faceta Emoções Positivas avalia a capacidade de manter uma visão otimista e entusiasmada sobre o trabalho, reconhecendo conquistas e sentindo satisfação nas atividades diárias. Em nível alto, docentes demonstram grande motivação e resiliência diante dos desafios.",
+                        "titulo": "FEEDBACK – Emoções Positivas (Nível Alto)",
+                        "definicao": "A faceta Emoções Positivas avalia a capacidade de manter uma visão otimista e entusiasmada sobre o trabalho na UFSM, reconhecendo as próprias conquistas e sentindo satisfação nas atividades diárias. Docentes com nível alto de emoções positivas demonstram grande motivação ao ver o desenvolvimento dos discentes, celebram pequenas vitórias e mantêm uma atitude positiva mesmo diante de desafios pessoais e profissionais.",
                         "caracteristicas": [
-                            "Entusiasmo no desenvolvimento acadêmico.",
-                            "Valorização de conquistas.",
-                            "Resiliência emocional diante de desafios.",
-                            "Compromisso com a formação discente."
+                            "Entusiasmo no Desenvolvimento Acadêmico: Sente grande satisfação ao observar o progresso e o desenvolvimento dos alunos nas disciplinas ministradas.",
+                            "Valorização de Conquistas: Celebra pequenas vitórias, como a aceitação de artigos, o engajamento de turmas ou o sucesso em projetos, o que impulsiona a inovação e a busca por melhorias.",
+                            "Resiliência Emocional: Mantém uma postura otimista e positiva, mesmo quando enfrenta desafios complexos no âmbito pessoal ou profissional.",
+                            "Compromisso com a Formação: Sente alegria e motivação ao contribuir para a formação de futuros profissionais e pesquisadores, vendo isso como uma fonte de realização."
                         ],
                         "vantagens": [
-                            "Ambiente inspirador.",
-                            "Motivação contagiante.",
-                            "Resiliência diante de desafios."
+                            "Ambiente Inspirador: Um clima positivo em sala de aula e nos projetos de extensão e pesquisa estimula o engajamento dos alunos, favorecendo a aprendizagem e a colaboração.",
+                            "Motivação Contagiante: O entusiasmo do docente pode inspirar colegas e discentes, fortalecendo a cultura de inovação e a busca por excelência no ensino.",
+                            "Resiliência Diante de Desafios: A capacidade de manter uma atitude otimista contribui para superar adversidades, mantendo o foco e a persistência mesmo em períodos de alta demanda."
                         ],
                         "dificuldades": [
-                            "Risco de subestimar problemas reais.",
-                            "Possível dificuldade em receber feedback crítico."
+                            "Subestimação de Problemas Reais: O otimismo excessivo pode levar à negligência de problemas estruturais, como falta de recursos ou reclamações dos alunos, que podem impactar a qualidade do ensino se não forem corrigidos a tempo.",
+                            "Risco de Ignorar Feedback Crítico: A autoconfiança elevada pode, por vezes, mascarar a necessidade de ajustes, tornando difícil identificar e abordar pontos de melhoria."
                         ],
                         "estrategias": [
-                            "Registrar conquistas em um diário de vitórias.",
-                            "Combinar otimismo com avaliações realistas.",
-                            "Manter práticas de autocuidado.",
-                            "Compartilhar positividade sem perder abertura a críticas."
+                            "Registro de Conquistas e Pontos de Checagem: Mantenha um “Diário das Pequenas Vitórias” onde sejam registradas conquistas, como boas avaliações de discentes, publicações aceitas e feedbacks positivos. Faça também pontos de checagem para avaliar se as metas estão alinhadas à realidade, sem que o otimismo se sobreponha às necessidades de melhoria.",
+                            "Equilíbrio Entre Otimismo e Realismo: Combine o entusiasmo natural com um planejamento realista. Busque feedback objetivo de colegas e gestores para ter uma visão balanceada do desempenho e identificar áreas que necessitam de ajustes.",
+                            "Rotina de Autocuidado: Inclua práticas regulares de relaxamento, como meditação e exercícios físicos, para prevenir o acúmulo de estresse e garantir que a energia positiva se mantenha de forma sustentável.",
+                            "Compartilhar Positividade de Forma Construtiva: Incentive a troca de experiências com colegas, mas mantenha a disposição para ouvir críticas construtivas que possam contribuir para o aprimoramento das práticas docentes."
                         ],
-                        "conclusao": "Docentes com alto nível de emoções positivas criam um ambiente inspirador e contagiante, mas devem equilibrar otimismo com realismo para não ignorar problemas estruturais. O registro de conquistas e o feedback contínuo fortalecem esse equilíbrio."
+                        "conclusao": "Docentes com um alto nível de emoções positivas criam um ambiente inspirador que motiva alunos e colegas. Entretanto, é fundamental equilibrar esse otimismo com uma análise realista dos desafios, para que problemas estruturais não sejam ignorados. Ao adotar estratégias que envolvem registro de conquistas, feedback regular e práticas de autocuidado, você assegura que sua energia positiva se traduza em resultados sólidos e um ambiente de ensino cada vez mais colaborativo e eficaz."
                     }
                 }
             }
