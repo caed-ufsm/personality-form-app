@@ -7,11 +7,11 @@ import { amabilidadeV1 } from "../defs/amabilidade";
 import { conscienciosidadeV1 } from "../defs/conscienciosidade";
 
 const REGISTRY: Record<string, FormDefinition> = {
-  "neuroticismo": neuroticismo,
-  "extroversao": extroversao,
-  "aberturaexperiencia": aberturaExperienciaV1,
-  "amabilidade": amabilidadeV1,
-  "conscienciosidade": conscienciosidadeV1,
+  neuroticismo,
+  extroversao,
+  aberturaexperiencia: aberturaExperienciaV1,
+  amabilidade: amabilidadeV1,
+  conscienciosidade: conscienciosidadeV1,
 };
 
 export function getFormDefinition(formId: string): FormDefinition | null {
@@ -19,5 +19,7 @@ export function getFormDefinition(formId: string): FormDefinition | null {
 }
 
 export function getAllForms(): FormDefinition[] {
-  return Object.values(REGISTRY);
+  return Object.values(REGISTRY).sort((a, b) => 
+    a.id.localeCompare(b.id)
+  );
 }

@@ -21,7 +21,9 @@ export type PagerActionsProps<TValues extends FieldValues = FieldValues> = {
   nextFormId?: string | null;
 };
 
-export default function PagerActions<TValues extends FieldValues = FieldValues>({
+export default function PagerActions<
+  TValues extends FieldValues = FieldValues
+>({
   page,
   numPages,
   status,
@@ -36,17 +38,33 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
 
   const isLastPage = page >= numPages - 1;
 
+  // 🔹 Sanitiza o próximo form, removendo "null", "undefined", "", "   "
+  const safeNextFormId =
+    nextFormId &&
+    nextFormId !== "null" &&
+    nextFormId !== "undefined" &&
+    nextFormId.trim() !== ""
+      ? nextFormId
+      : null;
+
   const handleNext = () => {
-    if (isLastPage && nextFormId) {
-      router.push(`/forms/${nextFormId}`);
-    } else if (!isLastPage) {
-      goNext();
+    if (isLastPage) {
+      if (safeNextFormId) {
+        router.push(`/forms/${safeNextFormId}`);
+      } else {
+        // Último formulário → volta à lista
+        router.push(`/forms`);
+      }
+      return;
     }
+
+    goNext();
   };
 
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-3 mt-1">
       <div className="flex gap-2 w-full sm:w-auto">
+        {/* Botão voltar */}
         <button
           type="button"
           onClick={goPrev}
@@ -61,21 +79,22 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
           Característica anterior
         </button>
 
+        {/* Botão avançar */}
         <button
           type="button"
           onClick={handleNext}
-          disabled={isLastPage && !nextFormId}
+          disabled={isLastPage && !safeNextFormId}
           className={`px-3 py-2 rounded text-white w-full sm:w-auto text-sm transition
             ${
               isLastPage
-                ? nextFormId
+                ? safeNextFormId
                   ? "bg-green-600 hover:bg-green-700"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 : "bg-[#005C8B] hover:bg-[#00476b]"
             }`}
         >
           {isLastPage
-            ? nextFormId
+            ? safeNextFormId
               ? "Próximo formulário →"
               : "Fim do formulário"
             : "Próxima Característica"}
@@ -83,6 +102,7 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
       </div>
 
       <div className="flex items-center gap-3 w-full sm:w-auto">
+        {/* Botão salvar rascunho */}
         <button
           type="button"
           onClick={() => {
@@ -101,6 +121,7 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
           Salvar rascunho
         </button>
 
+        {/* Botão limpar tudo */}
         <button
           type="button"
           onClick={onClear}
@@ -109,6 +130,7 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
           Limpar tudo
         </button>
 
+        {/* Status */}
         <div className="text-xs text-gray-600 ml-2">
           {status === "saving"
             ? "Salvando..."

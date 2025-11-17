@@ -37,18 +37,22 @@ const FORM_ORDER = [
   "extroversao",
   "amabilidade",
   "conscienciosidade",
-  "abertura-experiencia",
+  "aberturaexperiencia",
 ];
 
 // 🔹 Função auxiliar: encontra o próximo formulário
-function getNextFormId(currentId: string) {
+function getNextFormId(currentId: string): string | null {
   const idx = FORM_ORDER.indexOf(currentId);
-  if (idx >= 0 && idx < FORM_ORDER.length - 1) {
+
+  if (idx !== -1 && idx < FORM_ORDER.length - 1) {
     return FORM_ORDER[idx + 1];
   }
-  // se for o último, volta para lista geral
-  return "/forms";
+
+  return null; // sempre null (valor), nunca "null"
 }
+
+
+
 
 export default function FormPageClient({
   formId,
@@ -304,15 +308,22 @@ export default function FormPageClient({
               }}
             />
 
-            {/* 🔹 Botão de próximo formulário */}
+            {/* 🔹 Botão de próximo formulário → NÃO usar Link com ID nulo */}
             {catIndex === def.categories.length - 1 && (
               <div className="mt-8 flex justify-end">
-                <Link
-                  href={`/forms/${getNextFormId(formId)}`}
+                <button
+                  onClick={() => {
+                    const nextId = getNextFormId(formId);
+                    if (nextId) {
+                      window.location.href = `/forms/${nextId}`;
+                    } else {
+                      window.location.href = `/forms`; // fim do último
+                    }
+                  }}
                   className="bg-[#0353a3] hover:bg-blue-800 text-white px-6 py-3 rounded-lg text-base font-medium transition"
                 >
                   Próximo formulário →
-                </Link>
+                </button>
               </div>
             )}
           </div>

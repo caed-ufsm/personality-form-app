@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 type NavItem = { label: string; href: string };
@@ -33,16 +33,20 @@ export default function Header({
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  useMemo(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-[#004c97] text-white ${className}`}
+      className={`sticky top-0 z-50 bg-[#004c97] text-white shadow-md ${className}`}
     >
       <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
-        {/* altura maior: h-28 */}
-        <nav className="flex h-28 items-center justify-between" aria-label="Principal">
-          {/* Brand + Logo */}
+
+        {/* HEADER MAIS ALTA (ESTILO HERO INSTITUCIONAL) */}
+        <nav className="flex h-[132px] items-center justify-between" aria-label="Principal">
+          
+          {/* Brand */}
           <div className="flex items-center gap-4">
             {brand.logoSrc && (
               <Image
@@ -53,9 +57,17 @@ export default function Header({
                 className="h-14 w-14 object-contain"
               />
             )}
+
+            {/* TÍTULO RESPONSIVO AJUSTADO */}
             <Link
               href={brand.href ?? '/'}
-              className="text-3xl font-bold tracking-tight hover:text-gray-200"
+              className="
+                text-xl        /* mobile */
+                sm:text-2xl    /* tablets */
+                md:text-3xl    /* desktop */
+                font-bold tracking-tight leading-tight 
+                hover:text-white/80 transition
+              "
             >
               {brand.name}
             </Link>
@@ -63,7 +75,7 @@ export default function Header({
 
           {/* Desktop nav */}
           <div className="hidden md:flex md:items-center md:gap-10">
-            <ul className="flex items-center gap-6">
+            <ul className="flex items-center gap-2">
               {items.map(({ label, href }) => {
                 const active = isActivePath(pathname ?? '/', href);
                 return (
@@ -71,8 +83,8 @@ export default function Header({
                     <Link
                       href={href}
                       aria-current={active ? 'page' : undefined}
-                      className={`rounded px-5 py-3 text-lg font-medium transition-colors ${
-                        active ? 'bg-white/20' : 'hover:bg-white/10'
+                      className={`rounded-lg px-4 py-3 text-lg font-medium transition ${
+                        active ? 'bg-white/25' : 'hover:bg-white/15'
                       }`}
                     >
                       {label}
@@ -85,7 +97,7 @@ export default function Header({
             {cta && (
               <Link
                 href={cta.href}
-                className="ml-6 inline-flex items-center rounded-lg bg-white px-5 py-3 text-lg font-semibold text-[#004c97] shadow-sm hover:bg-gray-100"
+                className="ml-4 inline-flex items-center rounded-lg bg-white px-5 py-3 text-lg font-semibold text-[#004c97] shadow hover:bg-gray-100 transition"
               >
                 {cta.label}
               </Link>
@@ -99,7 +111,7 @@ export default function Header({
               onClick={() => setOpen((v) => !v)}
               aria-controls="mobile-menu"
               aria-expanded={open}
-              className="inline-flex items-center justify-center rounded-md p-3 text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              className="inline-flex items-center justify-center rounded-md p-3 text-white hover:bg-white/10 transition"
             >
               <span className="sr-only">Abrir menu</span>
               {open ? (
@@ -126,8 +138,13 @@ export default function Header({
         </nav>
       </div>
 
-      {/* Mobile nav: só os links */}
-      <div id="mobile-menu" className={`md:hidden ${open ? 'block' : 'hidden'}`}>
+      {/* Mobile nav */}
+      <div
+        id="mobile-menu"
+        className={`md:hidden transition-all duration-300 ${
+          open ? 'max-h-[300px] opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
+        }`}
+      >
         <div className="space-y-2 px-6 pb-6 pt-4">
           {items.map(({ label, href }) => {
             const active = isActivePath(pathname ?? '/', href);
@@ -137,8 +154,8 @@ export default function Header({
                 href={href}
                 aria-current={active ? 'page' : undefined}
                 onClick={() => setOpen(false)}
-                className={`block rounded px-4 py-3 text-lg font-medium text-white transition-colors ${
-                  active ? 'bg-white/20' : 'hover:bg-white/10'
+                className={`block rounded-lg px-4 py-3 text-lg font-medium text-white transition ${
+                  active ? 'bg-white/25' : 'hover:bg-white/15'
                 }`}
               >
                 {label}
@@ -150,7 +167,7 @@ export default function Header({
             <Link
               href={cta.href}
               onClick={() => setOpen(false)}
-              className="mt-4 block rounded-lg bg-white px-5 py-3 text-lg font-semibold text-[#004c97] text-center hover:bg-gray-100"
+              className="mt-3 block rounded-lg bg-white px-5 py-3 text-lg font-semibold text-[#004c97] text-center shadow hover:bg-gray-100 transition"
             >
               {cta.label}
             </Link>

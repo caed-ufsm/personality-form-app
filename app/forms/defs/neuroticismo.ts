@@ -12,7 +12,7 @@ export const neuroticismo: FormDefinition = {
   iconEmoji: "🧠",
   themeColor: "#ef4444", // tailwind red-500
   tags: ["Personalidade", "Bem-estar", "Docência"],
-  estimatedMinutes: 8,
+  estimatedMinutes: 12,
   totalQuestions: 30,
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",
