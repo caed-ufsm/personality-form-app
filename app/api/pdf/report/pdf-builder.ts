@@ -315,7 +315,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   // Parágrafo principal com negrito
   paragraph(
     ctx,
-    "O Programa de Autoconhecimento é um processo estruturado que busca apoiar docentes da UFSM no desenvolvimento pessoal e profissional. Utilizando recursos de avaliação psicológica e psicoeducação, ele busca promover o equilíbrio entre a vida pessoal e a docência.",
+    "O Programa de Autoconhecimento é um processo estruturado que busca apoiar docentes da UFSM no desenvolvimento pessoal e profissional.",
     12,
     rgb(0, 0, 0)
   );
@@ -323,7 +323,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   // Alerta (VERMELHO)
   paragraph(
     ctx,
-    "Atenção: Este programa não substitui psicoterapia. Ele é um recurso de autodesenvolvimento e reflexão, não um tratamento clínico.",
+    "Atenção: Este programa não substitui psicoterapia. Ele é apenas um recurso de autodesenvolvimento e reflexão.",
     12,
     rgb(0.7, 0, 0), // vermelho
     true // negrito

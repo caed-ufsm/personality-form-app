@@ -40,26 +40,22 @@ const RSSIcon = () => (
 export default function Footer({
   orgTitle = "COORDENADORIA DE AÇÕES EDUCACIONAIS — CAED",
   leftBlock = {
-    title: "CAMPUS SEDE",
+    title: "COORDENADORIA DE AÇÕES EDUCACIONAIS - CAED",
     lines: [
       { label: "Av. Roraima nº 1000" },
+      { label: "Prédio 67" },
       { label: "Cidade Universitária" },
       { label: "Bairro Camobi" },
       { label: "Santa Maria - RS" },
       { label: "CEP: 97105-900" },
-      { label: "+55 (55) 3220-8000" },
     ],
   },
   centerBlock = {
-    title: "COORDENADORIA DE AÇÕES EDUCACIONAIS - CAED",
+    title: "Contato e Informações",
     lines: [
-      { label: "Prédio 67" },
-      { label: "Secretaria: (55) 3220 9622; caed@ufsm.br", href: "mailto:caed@ufsm.br" },
-      { label: "Acessibilidade: (55) 3220 8730; caed.acessibilidade@ufsm.br", href: "mailto:caed.acessibilidade@ufsm.br" },
-      { label: "Ações Afirmativas: (55) 3220 8729; caed.acoesafirmativas@ufsm.br", href: "mailto:caed.acoesafirmativas@ufsm.br" },
-      { label: "Apoio à Aprendizagem: caed.aprendizagem@ufsm.br", href: "mailto:caed.aprendizagem@ufsm.br" },
-      { label: "Educação-Saúde: (55) 3220 8728; caedsaude@ufsm.br", href: "mailto:caedsaude@ufsm.br" },
-      { label: "Horário de atendimento: 08h às 22h" },
+      { label: "Telefone: +55 (55) 3220-9622" },
+      { label: "Email: equipeedusaudecaed@ufsm.br" },
+
     ],
   },
   socials = [
@@ -74,44 +70,9 @@ export default function Footer({
 }: FooterProps) {
   return (
     <footer className={`mt-16 bg-[#004c97] text-white ${className}`}>
-      {/* back-to-top */}
-      {showBackToTop && (
-        <div className="mx-auto max-w-7xl px-6 py-3 sm:px-8 lg:px-10">
-          <div className="flex justify-end">
-            <a href="#" className="inline-flex items-center gap-2 text-sm text-white/90 hover:text-white" aria-label="Voltar ao topo">
-              <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 5l7 7H5l7-7zm0 14V9" fill="currentColor" />
-              </svg>
-              Voltar para o topo
-            </a>
-          </div>
-        </div>
-      )}
-
-      {/* linha sutil */}
-      <div className="h-px w-full bg-white/20" />
 
       {/* conteúdo */}
       <div className="mx-auto max-w-7xl px-6 py-10 sm:px-8 lg:px-10">
-        {/* redes sociais */}
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold tracking-wide">REDES SOCIAIS:</h3>
-          <div className="mt-3 flex flex-wrap gap-3">
-            {socials.map((s) => (
-              <Link
-                key={s.label}
-                href={s.href}
-                target={s.href.startsWith("http") ? "_blank" : undefined}
-                rel={s.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                className="inline-flex items-center justify-center rounded-md bg-white/10 px-2 py-2 ring-1 ring-white/20 transition hover:bg-white/20"
-                aria-label={s.label}
-                title={s.label}
-              >
-                <span className="text-white">{s.icon ?? <span className="text-xs">{s.label}</span>}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
 
         <div className="my-6 h-px w-full bg-white/20" />
 
@@ -156,6 +117,7 @@ export default function Footer({
           © {new Date().getFullYear()} UFSM • CAEd — Todos os direitos reservados.
         </div>
       </div>
+      
     </footer>
   );
 }

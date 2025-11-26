@@ -12,7 +12,7 @@ export const conscienciosidadeV1: FormDefinition = {
   iconEmoji: "📋",
   themeColor: "#a855f7", // tailwind blue-500
   tags: ["Personalidade", "Docência", "Gestão Acadêmica"],
-  estimatedMinutes: 8,
+  estimatedMinutes: 4,
   totalQuestions: 24, // ajustar depois conforme todas as facetas incluídas
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",
@@ -63,7 +63,7 @@ export const conscienciosidadeV1: FormDefinition = {
           id: "c6",
           type: "likert",
           label:
-            "[R] Sinto que não tenho recursos suficientes para lidar com imprevistos que afetam minhas aulas ou projetos.",
+            "Sinto que não tenho recursos suficientes para lidar com imprevistos que afetam minhas aulas ou projetos.",
           required: true,
           reverse: true,
         },
@@ -114,7 +114,7 @@ export const conscienciosidadeV1: FormDefinition = {
           id: "c12",
           type: "likert",
           label:
-            "[R] Frequentemente deixo documentos e tarefas acumularem a ponto de dificultar o andamento das minhas atividades.",
+            "Frequentemente deixo documentos e tarefas acumularem a ponto de dificultar o andamento das minhas atividades.",
           required: true,
           reverse: true,
         },
@@ -165,7 +165,7 @@ export const conscienciosidadeV1: FormDefinition = {
           id: "c18",
           type: "likert",
           label:
-            "[R] Frequentemente interrompo atividades importantes para atender a tarefas menos prioritárias, perdendo o foco no que é essencial.",
+            "Frequentemente interrompo atividades importantes para atender a tarefas menos prioritárias, perdendo o foco no que é essencial.",
           required: true,
           reverse: true,
         },
@@ -175,7 +175,7 @@ export const conscienciosidadeV1: FormDefinition = {
     // 5.4 Ponderação (Cautela)
     {
       key: "ponderacao",
-      title: "5.4. Ponderação (Cautela)",
+      title: "5.4. Ponderação",
       questions: [
         {
           id: "c19",
@@ -216,7 +216,7 @@ export const conscienciosidadeV1: FormDefinition = {
           id: "c24",
           type: "likert",
           label:
-            "[R] Frequentemente aceito tarefas ou mudanças importantes sem avaliar de forma aprofundada suas implicações.",
+            "Frequentemente aceito tarefas ou mudanças importantes sem avaliar de forma aprofundada suas implicações.",
           required: true,
           reverse: true,
         },

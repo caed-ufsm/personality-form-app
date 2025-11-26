@@ -12,7 +12,7 @@ export const extroversao: FormDefinition = {
   iconEmoji: "🎤",
   themeColor: "#f59e0b", // tailwind amber-500
   tags: ["Personalidade", "Bem-estar", "Docência"],
-  estimatedMinutes: 6,
+  estimatedMinutes: 3,
   totalQuestions: 18,
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",

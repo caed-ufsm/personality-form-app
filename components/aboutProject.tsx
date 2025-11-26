@@ -19,14 +19,13 @@ export default function AboutProject({ className = '' }: AboutProjectProps) {
 
         <p className="mt-6 max-w-3xl text-base sm:text-lg md:text-xl leading-relaxed text-gray-700 mx-auto sm:mx-0">
           O <strong className="text-[#004c97]">Programa de Autoconhecimento</strong> é um processo estruturado que busca apoiar
-          docentes da UFSM no desenvolvimento pessoal e profissional. Utilizando recursos de avaliação psicológica
-          e psicoeducação, ele promove equilíbrio entre vida pessoal e docência.
+          docentes da UFSM no desenvolvimento pessoal e profissional.
         </p>
 
         <div className="mt-6 bg-red-50 border-l-4 border-red-700 p-4 max-w-3xl mx-auto sm:mx-0 rounded-md">
           <p className="text-red-700 text-sm sm:text-base leading-relaxed">
             <strong>Atenção:</strong> Este programa <u>não substitui psicoterapia</u>.
-            Ele é um recurso de autodesenvolvimento e reflexão, não um tratamento clínico.
+            Ele é apenas um recurso de autodesenvolvimento e reflexão.
           </p>
         </div>
       </header>
@@ -62,7 +61,7 @@ export default function AboutProject({ className = '' }: AboutProjectProps) {
           {
             title: 'Confidencialidade',
             desc:
-              'Nenhum dado de identificação pessoal ou funcional é solicitado. Todas as respostas são anônimas e tratadas de forma ética e segura, garantindo que não seja possível identificar individualmente os participantes.',
+              'Para utilização desta ferramenta, nenhum dado de identificação pessoal ou funcional (como e-mail, CPF, número de matrícula, centro de ensino ou área do conhecimento) será solicitado. Todas as respostas são anônimas e tratadas de forma ética e segura, garantindo que não seja possível identificar individualmente os participantes, mesmo em caso de acesso indevido às informações.',
           },
         ].map((c, i, arr) => (
           <article

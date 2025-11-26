@@ -277,7 +277,7 @@
                     }
                 }
             },
-            "Depressao": {
+            "Desanimo": { 
                 "descricao": "Tendência a sentir desmotivação e desesperança, comprometendo a regularidade e a qualidade das atividades pessoais e docentes.",
                 "perguntas": [
                     {
@@ -337,7 +337,7 @@
                 ],
                 "feedbackConsolidado": {
                     "baixo": {
-                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Baixo",
+                        "titulo": "FEEDBACK – Desânimo – Nível Baixo",
                         "definicao": "A faceta Depressão (Desânimo) avalia o grau de desmotivação e desesperança que afeta as atividades pessoais e docentes. Em nível baixo, você geralmente mantém um humor estável mesmo em períodos de alta demanda, embora seja importante monitorar sinais sutis de cansaço ou apatia que possam comprometer a qualidade do trabalho a longo prazo.",
                         "caracteristicas": [
                             "Estabilidade Emocional: Geralmente demonstra uma atitude serena e estável, mesmo quando enfrenta prazos ou desafios institucionais.",
@@ -363,7 +363,7 @@
                         "conclusao": "Embora um baixo nível de desânimo proporcione estabilidade e consistência, é essencial monitorar sinais sutis de cansaço ou apatia. Ao manter hábitos saudáveis, buscar feedback e incentivar inovação, garante-se evolução contínua sem complacência, preservando a qualidade do ensino e dos processos acadêmicos."
                     },
                     "medio": {
-                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Médio",
+                        "titulo": "FEEDBACK – Desânimo – Nível Médio",
                         "definicao": "A faceta Depressão (Desânimo) refere-se à tendência de sentir desmotivação e desesperança, afetando a regularidade e a qualidade das atividades pessoais e docentes. Em nível médio, o docente vivencia períodos pontuais de desânimo ou incerteza sobre o futuro da carreira, mas mantém a capacidade de retomar o engajamento na maioria das situações.",
                         "caracteristicas": [
                             "Oscilação de Motivação: Alterna entre engajamento e momentos de menor disposição.",
@@ -389,7 +389,7 @@
                         "conclusao": "Docentes com níveis médios de desânimo equilibram fases de baixa motivação com momentos de engajamento produtivo. Ao monitorar emoções, registrar conquistas e planejar pausas, conseguem reduzir impactos negativos e preservar a evolução de projetos e a qualidade do ensino."
                     },
                     "alto": {
-                        "titulo": "FEEDBACK – Depressão (Desânimo) – Nível Alto",
+                        "titulo": "FEEDBACK – Desânimo – Nível Alto",
                         "definicao": "A faceta Depressão (Desânimo) diz respeito à tendência de sentir desmotivação e desesperança, impactando a regularidade e a qualidade das atividades. Em nível alto, você frequentemente se sente desanimado quanto ao futuro da carreira, o que pode levar à desistência de projetos e iniciativas importantes.",
                         "caracteristicas": [
                             "Preocupação com o Futuro: Sente incerteza e pessimismo sobre carreira, avaliações e estabilidade.",

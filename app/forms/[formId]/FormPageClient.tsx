@@ -1,8 +1,6 @@
 "use client";
 
 import React, { useMemo, useState, useEffect, useRef } from "react";
-import { useWatch } from "react-hook-form";
-import Link from "next/link";
 import { createPortal } from "react-dom";
 import type { FormDefinition } from "../lib/types";
 import { FormProvider } from "react-hook-form";
@@ -21,15 +19,33 @@ import conscienciaData from "../../../lib/feedbacks/conscienciosidade.json";
 import amabilidadeData from "../../../lib/feedbacks/amabilidade.json";
 import aberturaData from "../../../lib/feedbacks/aberturarexp.json";
 
-// 🔹 Mapeia os fatores para seus respectivos arquivos JSON
-const feedbackDataMap: Record<string, any> = {
-  Neuroticismo: neuroticismoData,
-  Extroversão: extroversaoData,
-  Conscienciosidade: conscienciaData,
-  Amabilidade: amabilidadeData,
-  AberturaExperiencia: aberturaData,
+// ✅ Debug mode (Client Component precisa ser NEXT_PUBLIC_*)
+const DEBUG =
+  process.env.NODE_ENV === "development" &&
+  process.env.NEXT_PUBLIC_DEBUG_MODE === "true";
+
+const debugLog = (...args: any[]) => {
+  if (!DEBUG) return;
+  console.log("%c[DEBUG FEEDBACK]", "color:#0ea5e9;font-weight:bold", ...args);
 };
 
+// ✅ pega o JSON pelo formId (estável)
+const feedbackByFormId: Record<string, any> = {
+  neuroticismo: neuroticismoData,
+  extroversao: extroversaoData,
+  conscienciosidade: conscienciaData,
+  amabilidade: amabilidadeData,
+  aberturaexperiencia: aberturaData,
+};
+
+// ✅ chave interna quando o JSON vem embrulhado {Chave: {facetas...}}
+const factorKeyByFormId: Record<string, string> = {
+  neuroticismo: "Neuroticismo",
+  extroversao: "Extroversão",
+  conscienciosidade: "Conscienciosidade",
+  amabilidade: "Amabilidade",
+  aberturaexperiencia: "AberturaExperiencia",
+};
 
 // 🔹 Ordem dos formulários — personalize aqui
 const FORM_ORDER = [
@@ -50,9 +66,6 @@ function getNextFormId(currentId: string): string | null {
 
   return null; // sempre null (valor), nunca "null"
 }
-
-
-
 
 export default function FormPageClient({
   formId,
@@ -108,8 +121,6 @@ export default function FormPageClient({
   const progress = Math.round((filled / total) * 100);
   const cat = def.categories[catIndex];
 
-
-
   useEffect(() => {
     if (!cat || !def?.title) return;
 
@@ -120,17 +131,17 @@ export default function FormPageClient({
       if (debounceTimer) clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
         // 🔹 Captura as respostas numéricas válidas
-        const facetQuestions = cat.questions.map((q, i) => {
-          let v = Number(values[q.id]);
-          if (isNaN(v) || v <= 0) return null;
+        const facetQuestions = cat.questions
+          .map((q) => {
+            let v = Number(values[q.id]);
+            if (isNaN(v) || v <= 0) return null;
 
-          // 🔹 Se for a ÚLTIMA questão da faceta, inverte a escala (1↔5, 2↔4)
-          if (i === cat.questions.length - 1) {
-            v = 6 - v;
-          }
+            // ✅ reverse certinho (usa q.reverse)
+            if ((q as any).reverse) v = 6 - v;
 
-          return v;
-        }).filter((v) => v !== null);
+            return v;
+          })
+          .filter((v) => v !== null);
 
         // 🔹 Só calcula se todas foram respondidas
         if (facetQuestions.length === cat.questions.length) {
@@ -154,38 +165,109 @@ export default function FormPageClient({
             .replace(/\(.*?\)/g, "")
             .trim();
 
-          let data = feedbackDataMap[fator];
+          // ✅ tenta pegar pelo formId (mais confiável)
+          let data = feedbackByFormId[formId];
+
+          debugLog("fator(def.title):", fator);
+          debugLog("formId:", formId);
+          debugLog("cat.title (raw):", cat.title);
+          debugLog("faceta (normalizada p/ busca):", faceta);
+
+          // debug do nível inicial
+          debugLog(
+            "data inicial (origem):",
+            feedbackByFormId[formId]
+              ? "feedbackByFormId[formId]"
+              : "feedbackDataMap[fator]",
+            "tipo:",
+            typeof data,
+            "keys:",
+            data && typeof data === "object" ? Object.keys(data) : null
+          );
+
+          // ajuda a visualizar o formato
+          if (data && typeof data === "object") {
+            debugLog("tem data.facetas?", Boolean((data as any).facetas));
+            const ks = Object.keys(data as any);
+            if (ks.length === 1) {
+              const k0 = ks[0];
+              debugLog(
+                "única chave:",
+                k0,
+                "tem facetas dentro dela?",
+                Boolean((data as any)[k0]?.facetas)
+              );
+              debugLog(
+                "keys dentro da única chave:",
+                (data as any)[k0] ? Object.keys((data as any)[k0]) : null
+              );
+            }
+          }
+
           if (!data) {
-            console.warn("❌ Nenhum JSON encontrado para fator:", fator);
+            console.warn(
+              "❌ Nenhum JSON encontrado para fator:",
+              fator,
+              "| formId:",
+              formId
+            );
             return;
           }
 
           const normalizar = (s: string) =>
-            s
-              .normalize("NFD")
-              .replace(/[\u0300-\u036f]/g, "")
-              .toLowerCase();
+            s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
+          // 1) entra pela chave interna conhecida do formId
+          const knownKey = factorKeyByFormId[formId];
+          if (knownKey && (data as any)[knownKey]) {
+            debugLog("knownKey aplicado:", knownKey);
+            data = (data as any)[knownKey];
+          }
+
+          // 2) fallback antigo (se algum título bater com chave do JSON)
           const fatorKey = Object.keys(data).find(
             (k) => normalizar(k) === normalizar(fator)
           );
-          if (fatorKey) data = data[fatorKey];
+          debugLog("fatorKey encontrado:", fatorKey ?? null);
+          if (fatorKey) data = (data as any)[fatorKey];
 
-          if (!data.facetas) {
+          debugLog(
+            "data depois (knownKey/fatorKey) keys:",
+            data && typeof data === "object" ? Object.keys(data) : null,
+            "| tem facetas?",
+            Boolean((data as any)?.facetas)
+          );
+
+          // 3) fallback genérico: se ainda estiver embrulhado em 1 chave
+          if (data && !(data as any).facetas) {
+            const ks = Object.keys(data as any);
+            if (ks.length === 1 && (data as any)[ks[0]]?.facetas) {
+              debugLog("unwrap genérico aplicado. Entrando em:", ks[0]);
+              data = (data as any)[ks[0]];
+            }
+          }
+
+          if (!(data as any)?.facetas) {
             console.warn("⚠️ Estrutura inesperada no JSON:", fator, data);
             return;
           }
 
-          const facetaKey = Object.keys(data.facetas).find(
+          const facetaKey = Object.keys((data as any).facetas).find(
             (k) => normalizar(k) === normalizar(faceta)
           );
+
+          debugLog("facetaKey encontrado:", facetaKey ?? null);
+          if ((data as any)?.facetas) {
+            debugLog("facetas disponíveis:", Object.keys((data as any).facetas));
+          }
+
           if (!facetaKey) {
             console.warn("⚠️ Faceta não encontrada no JSON:", faceta);
             return;
           }
 
           // 🔹 Corrige a busca de feedback (ignora maiúsculas/minúsculas e acentos)
-          const fb = data.facetas[facetaKey]?.feedbackConsolidado || {};
+          const fb = (data as any).facetas[facetaKey]?.feedbackConsolidado || {};
           const fbKey = Object.keys(fb).find(
             (k) => normalizar(k) === normalizar(nivel)
           );
@@ -228,23 +310,20 @@ export default function FormPageClient({
     };
   }, [cat, def.title]);
 
-
   return (
     <FormProvider {...methods}>
       <section className="py-8 px-4 sm:px-6 lg:py-12 bg-white">
         <div className="max-w-3xl mx-auto">
-
           {/* 🔹 Sessão explicativa sobre a escala Likert */}
           <div className="mb-8 p-6 border border-blue-200 bg-blue-50 rounded-2xl shadow-sm">
             <h2 className="text-xl font-semibold text-blue-900 mb-3">
               Como responder às perguntas
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
-              As afirmações a seguir utilizam uma <strong>escala de 1 a 5</strong>, conhecida
-              como <strong>escala de Likert</strong>. Ela mede o quanto você{" "}
-              <strong>concorda ou discorda</strong> de cada frase apresentada.
-              Não existem respostas certas ou erradas — escolha aquela que melhor
-              representa sua percepção pessoal.
+              As afirmações a seguir utilizam uma <strong>escala de 1 a 5</strong>.
+              Ela mede o quanto você <strong>concorda ou discorda</strong> de cada
+              frase apresentada. Não existem respostas certas ou erradas — escolha
+              aquela que melhor representa sua percepção pessoal.
             </p>
 
             {/* Exemplo visual da escala Likert */}
@@ -254,8 +333,6 @@ export default function FormPageClient({
               </p>
             </div>
           </div>
-
-
 
           <h1 className="text-2xl font-bold mb-1" style={{ color: UFSM_BLUE }}>
             {def.title}
@@ -329,8 +406,8 @@ export default function FormPageClient({
           </div>
 
           <p className="text-xs text-gray-500 mt-4">
-            Suas respostas são salvas como rascunho neste navegador. A geração
-            do PDF acontece somente na etapa final de envio (página de resumo).
+            Suas respostas são salvas como rascunho neste navegador. A geração do
+            PDF acontece somente na etapa final de envio (página de resumo).
           </p>
         </div>
       </section>
@@ -349,7 +426,7 @@ export default function FormPageClient({
                 {feedbackContent.titulo}
               </h2>
               <p className="text-sm text-gray-600 mb-4 italic">
-                ({feedbackContent.faceta}) — Nível:{" "}
+                {/*  ({feedbackContent.faceta}) — */} Nível:{" "}
                 <span className="font-semibold text-blue-600 uppercase">
                   {feedbackContent.nivel}
                 </span>{" "}

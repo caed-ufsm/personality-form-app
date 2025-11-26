@@ -212,6 +212,7 @@ export default function FormsIndexPage() {
   /** ------------------ RENDER ------------------ */
   return (
     <div className="mx-auto max-w-7xl p-8">
+
       {/* HEADER --------------------------------------------------------- */}
       <header className="mb-10">
         <h1 className="text-3xl font-bold">Selecione um formulário</h1>
@@ -221,7 +222,7 @@ export default function FormsIndexPage() {
           {forms.length !== 1 ? "s" : ""}.
         </p>
 
-        {/* MOBILE DROPDOWN — seu original, intacto */}
+        {/* MOBILE DROPDOWN */}
         <div className="mt-8 rounded-2xl bg-blue-50 p-6 border border-blue-200 shadow-sm">
           <button
             className="md:hidden w-full text-left flex justify-between items-center text-xl font-semibold text-blue-900 mb-3"
@@ -248,24 +249,28 @@ export default function FormsIndexPage() {
           {/* CONTENT */}
           <div
             className={`
-              overflow-hidden transition-all duration-300
-              ${showInfo
+        overflow-hidden transition-all duration-300
+        ${showInfo
                 ? "max-h-[600px] opacity-100"
                 : "max-h-0 opacity-0 md:max-h-none md:opacity-100"}
-            `}
+      `}
           >
             <p className="text-gray-700 leading-relaxed">
               Ao responder todos os formulários, você poderá gerar um{" "}
               <strong>PDF completo e personalizado</strong> com os resultados consolidados.
+              Esse relatório apresentará suas principais características, vantagens potenciais,
+              dificuldades potenciais e estratégias com base nas suas respostas.
             </p>
 
             <p className="text-gray-700 leading-relaxed mt-3">
-              Portanto, responda com atenção e sinceridade — suas respostas servirão como base
-              para um material de apoio completo.
+              Portanto, responda com atenção e sinceridade — suas respostas servirão de base
+              para a criação de um panorama detalhado e de um material de apoio valioso
+              para o seu crescimento pessoal e profissional.
             </p>
           </div>
         </div>
       </header>
+
 
       {/* LISTA DE FORMULÁRIOS ------------------------------------------------- */}
       {forms.length === 0 ? (
@@ -414,11 +419,7 @@ export default function FormsIndexPage() {
 
           <p className="text-gray-700 mb-6 leading-relaxed">
             Após concluir todos os formulários, suas respostas serão enviadas
-            de forma anônima e segura para gerar um{" "}
-            <strong>relatório consolidado</strong> com{" "}
-            <strong>análises automáticas</strong>,{" "}
-            <strong>pontos de vantagem</strong> e{" "}
-            <strong>estratégias personalizadas</strong>.
+            de forma anônima e segura para gerar um <strong>relatório personalizado</strong>
           </p>
 
           <div className="flex flex-col items-center gap-4">
@@ -426,8 +427,8 @@ export default function FormsIndexPage() {
               onClick={handleSend}
               disabled={!allComplete || isLoading}
               className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${allComplete && !isLoading
-                  ? "bg-[#0353a3] hover:bg-blue-800"
-                  : "bg-gray-400 cursor-not-allowed"
+                ? "bg-[#0353a3] hover:bg-blue-800"
+                : "bg-gray-400 cursor-not-allowed"
                 }`}
             >
               {isLoading

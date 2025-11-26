@@ -6,13 +6,13 @@ export const neuroticismo: FormDefinition = {
   storageVersion: 1,
 
   // --- metadados para UI ---
-  subtitle: "Ansiedade, hostilidade, depressão, autoconsciência e impusividade",
+  subtitle: "Ansiedade, hostilidade, desânimo, autoconsciência e impusividade",
   description:
     "Avalie como você vivencia emoções e reações (ansiedade, irritação, desânimo, vergonha e impulsividade) no contexto da carreira docente.",
   iconEmoji: "🧠",
   themeColor: "#ef4444", // tailwind red-500
   tags: ["Personalidade", "Bem-estar", "Docência"],
-  estimatedMinutes: 12,
+  estimatedMinutes: 5,
   totalQuestions: 30,
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",
@@ -73,7 +73,7 @@ export const neuroticismo: FormDefinition = {
           id: "n6",
           type: "likert",
           label:
-            "[R] Quando percebo sinais físicos de ansiedade (como insônia, tensão muscular ou aceleração dos batimentos), busco estratégias para retomar o equilíbrio emocional.",
+            "Quando percebo sinais físicos de ansiedade (como insônia, tensão muscular ou aceleração dos batimentos), busco estratégias para retomar o equilíbrio emocional.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
@@ -83,7 +83,7 @@ export const neuroticismo: FormDefinition = {
     },
     {
       key: "hostility",
-      title: "1.2. Hostilidade (Raiva)",
+      title: "1.2. Hostilidade",
       questions: [
         {
           id: "n7",
@@ -116,7 +116,7 @@ export const neuroticismo: FormDefinition = {
           id: "n10",
           type: "likert",
           label:
-            "Incomoda-me profundamente quando meu trabalho (de extensão ou pesquisa) é subestimado ou minimizado por outros.",
+            "Incomoda-me profundamente quando meu trabalho é subestimado ou minimizado por outros.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
@@ -134,7 +134,7 @@ export const neuroticismo: FormDefinition = {
           id: "n12",
           type: "likert",
           label:
-            "[R] Quando percebo que estou prestes a reagir com irritação, consigo parar e evitar uma resposta impulsiva.",
+            "Quando percebo que estou prestes a reagir com irritação, consigo parar e evitar uma resposta impulsiva.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
@@ -144,7 +144,7 @@ export const neuroticismo: FormDefinition = {
     },
     {
       key: "depression",
-      title: "1.3. Depressão (Desânimo)",
+      title: "1.3. Desânimo",
       questions: [
         {
           id: "n13",
@@ -195,7 +195,7 @@ export const neuroticismo: FormDefinition = {
           id: "n18",
           type: "likert",
           label:
-            "[R] Quando percebo sinais de desânimo, busco estratégias ativas para retomar a motivação, como redefinir metas ou pedir apoio.",
+            "Quando percebo sinais de desânimo, busco estratégias ativas para retomar a motivação, como redefinir metas ou pedir apoio.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
@@ -205,7 +205,7 @@ export const neuroticismo: FormDefinition = {
     },
     {
       key: "self_consciousness",
-      title: "1.4. Autoconsciência (Vergonha)",
+      title: "1.4. Autoconsciência",
       questions: [
         {
           id: "n19",
@@ -256,7 +256,7 @@ export const neuroticismo: FormDefinition = {
           id: "n24",
           type: "likert",
           label:
-            "[R] Quando percebo vergonha ou insegurança, consigo reconhecer o sentimento e, mesmo assim, tomar atitudes construtivas para melhor lidar com a situação.",
+            "Quando percebo vergonha ou insegurança, consigo reconhecer o sentimento e, mesmo assim, tomar atitudes construtivas para melhor lidar com a situação.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
@@ -317,7 +317,7 @@ export const neuroticismo: FormDefinition = {
           id: "n30",
           type: "likert",
           label:
-            "[R] Quando percebo que estou cedendo a distrações, consigo redirecionar minha atenção para a atividade principal e retomar o foco.",
+            "Quando percebo que estou cedendo a distrações, consigo redirecionar minha atenção para a atividade principal e retomar o foco.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",

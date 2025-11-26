@@ -15,21 +15,12 @@ export function useFormEngine(def: FormDefinition) {
 
   const storageKey = `${def.id}:v${def.storageVersion ?? 1}`;
 
-  const defaultValues: FormValues = useMemo(() => {
-    if (typeof window === "undefined") return {} as FormValues;
-    try {
-      const raw = localStorage.getItem(storageKey);
-      return raw ? (JSON.parse(raw) as FormValues) : ({} as FormValues);
-    } catch {
-      return {} as FormValues;
-    }
-  }, [storageKey]);
-
+  // ✅ 1) Sempre inicia igual no SSR e no primeiro render do client
   const methods = useForm<FormValues>({
     resolver: zodResolver(edit),
     mode: "onTouched",
     reValidateMode: "onChange",
-    defaultValues,
+    defaultValues: {} as FormValues,
   });
 
   const { watch, getValues, setError, reset, handleSubmit, control, formState } = methods;
@@ -38,7 +29,19 @@ export function useFormEngine(def: FormDefinition) {
   const [catIndex, setCatIndex] = useState(0);
   const [status, setStatus] = useState<null | "idle" | "saving" | "saved" | "error">("idle");
 
-  // autosave simples (qualquer mudança) — agora com useEffect e cleanup correto
+  // ✅ 2) Depois que montar, puxa do localStorage e aplica com reset()
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      if (!raw) return;
+      const parsed = JSON.parse(raw) as FormValues;
+      reset(parsed); // aplica os valores sem quebrar hidratação
+    } catch {
+      // ignora
+    }
+  }, [storageKey, reset]);
+
+  // autosave simples (qualquer mudança)
   useEffect(() => {
     let timeoutId: number | undefined;
 
@@ -123,7 +126,7 @@ export function useFormEngine(def: FormDefinition) {
     [def.id, strict, storageKey]
   );
 
-    return {
+  return {
     def,
     methods: { ...methods, handleSubmit, control, formState },
     catIndex,
@@ -135,5 +138,5 @@ export function useFormEngine(def: FormDefinition) {
     onClear,
     onSubmit,
     storageKey,
-    };
+  };
 }
