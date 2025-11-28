@@ -28,11 +28,10 @@ type Faceta = {
   feedbackConsolidado: Record<FeedbackLevel, FeedbackConsolidado>;
 };
 type FeedbackForm = {
-  titulo?: string;     // <-- adiciona
-  descricao?: string;  // <-- (opcional) se teu JSON também tem
+  titulo?: string;
+  descricao?: string;
   facetas: Record<string, Faceta>;
 };
-
 
 export type OneForm = { id: string; answers: Record<string, number | string> };
 type FormKey =
@@ -146,8 +145,7 @@ const ID_RESOLVERS: Record<FormKey, IdResolver> = {
 /** ---------------- Helpers ---------------- */
 function toNumber(v: any): number | undefined {
   if (typeof v === "number" && Number.isFinite(v)) return v;
-  if (typeof v === "string" && v.trim() !== "" && !isNaN(Number(v)))
-    return Number(v);
+  if (typeof v === "string" && v.trim() !== "" && !isNaN(Number(v))) return Number(v);
   return undefined;
 }
 
@@ -165,9 +163,7 @@ function getAnswerFor(
     const v = toNumber(answers[mapped]);
     if (v !== undefined) return v;
   }
-  const lower = new Map<string, string>(
-    Object.keys(answers).map((k) => [k.toLowerCase(), k])
-  );
+  const lower = new Map<string, string>(Object.keys(answers).map((k) => [k.toLowerCase(), k]));
   for (const k of [pergunta.id, mapped].filter(Boolean) as string[]) {
     const real = lower.get(k.toLowerCase());
     if (real) {
@@ -203,41 +199,96 @@ function nivelPorMedia(media: number | null): FeedbackLevel {
   return "alto";
 }
 
-/** ---------------- Layout helpers ---------------- */
+/** ---------------- Layout helpers (NOVO) ---------------- */
+const makeTheme = () => {
+  const PRIMARY = rgb(0.08, 0.28, 0.58);
+  const ACCENT = PRIMARY;
+  const TEXT = rgb(0.09, 0.09, 0.10);
+  const MUTED = rgb(0.40, 0.40, 0.45);
+  const DIVIDER = rgb(0.87, 0.88, 0.90);
+  const BG = rgb(0.98, 0.98, 0.99);
+  const CARD_BG = rgb(1, 1, 1);
+  const DANGER = rgb(0.72, 0.12, 0.12);
+
+  const LEVEL = {
+    baixo: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.00) },
+    medio: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.00) },
+    alto: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.00) },
+  } as const;
+
+  return { PRIMARY, ACCENT, TEXT, MUTED, DIVIDER, BG, CARD_BG, DANGER, LEVEL };
+};
+
+type Theme = ReturnType<typeof makeTheme>;
+
 type LayoutCtx = {
   pdfDoc: PDFDocument;
   page: any;
+  pageIndex: number;
   width: number;
   height: number;
+  margin: number;
+  headerH: number;
+  footerH: number;
   x: number;
   y: number;
-  margin: number;
   fontRegular: any;
   fontBold: any;
+  theme: Theme;
+  headerTitle: string;
+  coverIndex: number; // página da capa
 };
 
-function newLayout(pdfDoc: PDFDocument, fontRegular: any, fontBold: any): LayoutCtx {
-  const page = pdfDoc.addPage();
-  const { width, height } = page.getSize();
-  const margin = 56;
-  return { pdfDoc, page, width, height, x: margin, y: height - margin, margin, fontRegular, fontBold };
-}
-function setPage(ctx: LayoutCtx, page: any) {
+const lineHeight = (s: number) => s * 1.35;
+
+function setPage(ctx: LayoutCtx, page: any, pageIndex: number) {
   ctx.page = page;
+  ctx.pageIndex = pageIndex;
   const { width, height } = page.getSize();
   ctx.width = width;
   ctx.height = height;
   ctx.x = ctx.margin;
-  ctx.y = ctx.height - ctx.margin;
+  ctx.y = ctx.height - ctx.margin - ctx.headerH;
 }
-function newPage(ctx: LayoutCtx) {
-  const p = ctx.pdfDoc.addPage();
-  setPage(ctx, p);
+
+function newLayout(pdfDoc: PDFDocument, fontRegular: any, fontBold: any, headerTitle: string): LayoutCtx {
+  const theme = makeTheme();
+  const margin = 56;
+  const headerH = 44;
+  const footerH = 28;
+
+  const page = pdfDoc.addPage();
+  const pageIndex = pdfDoc.getPages().length - 1;
+
+  const ctx: LayoutCtx = {
+    pdfDoc,
+    page,
+    pageIndex,
+    width: page.getSize().width,
+    height: page.getSize().height,
+    margin,
+    headerH,
+    footerH,
+    x: margin,
+    y: page.getSize().height - margin - headerH,
+    fontRegular,
+    fontBold,
+    theme,
+    headerTitle,
+    coverIndex: pageIndex,
+  };
+
+  return ctx;
 }
-const lineHeight = (s: number) => s * 1.35;
+
+function safeBottom(ctx: LayoutCtx) {
+  return ctx.margin + ctx.footerH;
+}
+
 function ensure(ctx: LayoutCtx, needed: number) {
-  if (ctx.y - needed < ctx.margin) newPage(ctx);
+  if (ctx.y - needed < safeBottom(ctx)) openContentPage(ctx);
 }
+
 function wrapText(text: string, font: any, size: number, maxWidth: number) {
   const words = String(text || "").split(/\s+/);
   const lines: string[] = [];
@@ -252,244 +303,574 @@ function wrapText(text: string, font: any, size: number, maxWidth: number) {
   if (line) lines.push(line);
   return lines;
 }
-function paragraph(ctx: LayoutCtx, text: string, size = 11, color = rgb(0, 0, 0), bold = false) {
+
+function drawHeader(ctx: LayoutCtx) {
+  const { PRIMARY, BG } = ctx.theme;
+
+  // fundo
+  ctx.page.drawRectangle({ x: 0, y: 0, width: ctx.width, height: ctx.height, color: BG });
+
+  // topo
+  ctx.page.drawRectangle({
+    x: 0,
+    y: ctx.height - ctx.headerH,
+    width: ctx.width,
+    height: ctx.headerH,
+    color: PRIMARY,
+  });
+
+  ctx.page.drawText(ctx.headerTitle, {
+    x: ctx.margin,
+    y: ctx.height - ctx.headerH + 14,
+    size: 12,
+    font: ctx.fontBold,
+    color: rgb(1, 1, 1),
+  });
+}
+
+function drawFooter(ctx: LayoutCtx, pageNumber: number, totalPages: number) {
+  const y = ctx.margin - 14;
+  ctx.page.drawLine({
+    start: { x: ctx.margin, y: y + 10 },
+    end: { x: ctx.width - ctx.margin, y: y + 10 },
+    thickness: 1,
+    color: ctx.theme.DIVIDER,
+  });
+
+  const label = `${pageNumber} / ${totalPages}`;
+  ctx.page.drawText(label, {
+    x: ctx.width - ctx.margin - ctx.fontRegular.widthOfTextAtSize(label, 10),
+    y,
+    size: 10,
+    font: ctx.fontRegular,
+    color: ctx.theme.MUTED,
+  });
+}
+
+function openContentPage(ctx: LayoutCtx) {
+  const p = ctx.pdfDoc.addPage();
+  const idx = ctx.pdfDoc.getPages().length - 1;
+  setPage(ctx, p, idx);
+  drawHeader(ctx);
+}
+
+function divider(ctx: LayoutCtx, gapTop = 10, gapBottom = 14) {
+  ensure(ctx, gapTop + gapBottom + 2);
+  ctx.y -= gapTop;
+  ctx.page.drawLine({
+    start: { x: ctx.margin, y: ctx.y },
+    end: { x: ctx.width - ctx.margin, y: ctx.y },
+    thickness: 1,
+    color: ctx.theme.DIVIDER,
+  });
+  ctx.y -= gapBottom;
+}
+
+function paragraph(ctx: LayoutCtx, text: string, size = 11, color = makeTheme().TEXT, bold = false) {
   const font = bold ? ctx.fontBold : ctx.fontRegular;
   const maxW = ctx.width - ctx.margin * 2;
   const lh = lineHeight(size);
   const lines = wrapText(text, font, size, maxW);
-  ensure(ctx, lh * lines.length);
+  ensure(ctx, lh * lines.length + 6);
   for (const ln of lines) {
-    ctx.page.drawText(ln, { x: ctx.x, y: ctx.y - lh + 3, size, font, color });
+    ctx.page.drawText(ln, { x: ctx.margin, y: ctx.y - lh + 3, size, font, color });
     ctx.y -= lh;
   }
-  ctx.y -= size * 0.25;
+  ctx.y -= 6;
 }
-function heading(ctx: LayoutCtx, text: string, size = 20, color = rgb(0.08, 0.28, 0.58)) {
+
+function heading(ctx: LayoutCtx, text: string, size = 22, color?: any) {
   const lh = lineHeight(size);
-  ensure(ctx, lh + 8);
-  ctx.page.drawText(text, { x: ctx.x, y: ctx.y - lh + 3, size, font: ctx.fontBold, color });
-  ctx.y -= lh;
-  ctx.page.drawLine({
-    start: { x: ctx.x, y: ctx.y - 6 },
-    end: { x: ctx.width - ctx.margin, y: ctx.y - 6 },
-    thickness: 2,
-    color,
+  ensure(ctx, lh + 14);
+  ctx.page.drawText(text, {
+    x: ctx.margin,
+    y: ctx.y - lh + 3,
+    size,
+    font: ctx.fontBold,
+    color: color ?? ctx.theme.TEXT,
   });
-  ctx.y -= 14;
-}
-function subheading(ctx: LayoutCtx, text: string, size = 14, color = rgb(0.08, 0.08, 0.08)) {
-  const lh = lineHeight(size);
-  ensure(ctx, lh);
-  ctx.page.drawText(text, { x: ctx.x, y: ctx.y - lh + 3, size, font: ctx.fontBold, color });
   ctx.y -= lh;
+  ctx.y -= 6;
 }
-function bulletList(ctx: LayoutCtx, items: string[], size = 11, bulletColor = rgb(0.08, 0.28, 0.58)) {
-  const maxW = ctx.width - ctx.margin * 2 - 16;
+
+function subheading(ctx: LayoutCtx, text: string, size = 14, color?: any) {
+  const lh = lineHeight(size);
+  ensure(ctx, lh + 6);
+  ctx.page.drawText(text, {
+    x: ctx.margin,
+    y: ctx.y - lh + 3,
+    size,
+    font: ctx.fontBold,
+    color: color ?? ctx.theme.TEXT,
+  });
+  ctx.y -= lh;
+  ctx.y -= 4;
+}
+
+function bulletList(ctx: LayoutCtx, items: string[], size = 11) {
+  const maxW = ctx.width - ctx.margin * 2 - 18;
   const lh = lineHeight(size);
   for (const item of items) {
     const lines = wrapText(item, ctx.fontRegular, size, maxW);
-    ensure(ctx, lh * lines.length);
-    ctx.page.drawCircle({ x: ctx.x + 2, y: ctx.y - lh / 2 + 3, size: 1.5, color: bulletColor });
-    ctx.page.drawText(lines[0], { x: ctx.x + 16, y: ctx.y - lh + 3, size, font: ctx.fontRegular });
+    ensure(ctx, lh * lines.length + 6);
+
+    ctx.page.drawCircle({
+      x: ctx.margin + 4,
+      y: ctx.y - lh / 2 + 3,
+      size: 1.6,
+      color: ctx.theme.ACCENT,
+    });
+
+    ctx.page.drawText(lines[0], {
+      x: ctx.margin + 18,
+      y: ctx.y - lh + 3,
+      size,
+      font: ctx.fontRegular,
+      color: ctx.theme.TEXT,
+    });
     ctx.y -= lh;
+
     for (const extra of lines.slice(1)) {
-      ctx.page.drawText(extra, { x: ctx.x + 16, y: ctx.y - lh + 3, size, font: ctx.fontRegular });
+      ctx.page.drawText(extra, {
+        x: ctx.margin + 18,
+        y: ctx.y - lh + 3,
+        size,
+        font: ctx.fontRegular,
+        color: ctx.theme.TEXT,
+      });
       ctx.y -= lh;
     }
+
+    ctx.y -= 2;
   }
-  ctx.y -= size * 0.25;
+  ctx.y -= 6;
 }
 
-/** ---------------- Builder ---------------- */
-export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }): Promise<Uint8Array> {
-  const PRIMARY = rgb(0.08, 0.28, 0.58);
-  const ACCENT = rgb(0.15, 0.62, 0.45);
-  const TEXT_MUTED = rgb(0.35, 0.35, 0.35);
+function callout(ctx: LayoutCtx, title: string, text: string, variant: "info" | "danger" = "info") {
+  const pad = 12;
+  const titleSize = 12;
+  const textSize = 11;
 
+  const fg = variant === "danger" ? ctx.theme.DANGER : ctx.theme.PRIMARY;
+  const bg = variant === "danger" ? rgb(1.0, 0.94, 0.94) : rgb(0.93, 0.96, 1.0);
+
+  const contentW = ctx.width - ctx.margin * 2;
+
+  const titleLines = wrapText(title, ctx.fontBold, titleSize, contentW - pad * 2);
+  const textLines = wrapText(text, ctx.fontRegular, textSize, contentW - pad * 2);
+
+  const h =
+    pad +
+    titleLines.length * lineHeight(titleSize) +
+    4 +
+    textLines.length * lineHeight(textSize) +
+    pad;
+
+  ensure(ctx, h + 10);
+
+  const top = ctx.y;
+  const y = top - h;
+
+  ctx.page.drawRectangle({
+    x: ctx.margin,
+    y,
+    width: contentW,
+    height: h,
+    color: bg,
+    borderColor: rgb(0.86, 0.88, 0.92),
+    borderWidth: 1,
+  });
+
+  ctx.page.drawRectangle({
+    x: ctx.margin,
+    y,
+    width: 5,
+    height: h,
+    color: fg,
+  });
+
+  let yy = top - pad;
+
+  const lhT = lineHeight(titleSize);
+  for (const ln of titleLines) {
+    ctx.page.drawText(ln, {
+      x: ctx.margin + pad + 6,
+      y: yy - lhT + 3,
+      size: titleSize,
+      font: ctx.fontBold,
+      color: ctx.theme.TEXT,
+    });
+    yy -= lhT;
+  }
+
+  yy -= 2;
+
+  const lhP = lineHeight(textSize);
+  for (const ln of textLines) {
+    ctx.page.drawText(ln, {
+      x: ctx.margin + pad + 6,
+      y: yy - lhP + 3,
+      size: textSize,
+      font: ctx.fontRegular,
+      color: ctx.theme.TEXT,
+    });
+    yy -= lhP;
+  }
+
+  ctx.y = y - 12;
+}
+
+function pill(ctx: LayoutCtx, x: number, y: number, label: string, fg: any, bg: any) {
+  const size = 10;
+  const padX = 8;
+  const padY = 5;
+  const textW = ctx.fontBold.widthOfTextAtSize(label, size);
+  const w = textW + padX * 2;
+  const h = size + padY * 2;
+
+  ctx.page.drawRectangle({
+    x,
+    y,
+    width: w,
+    height: h,
+    color: bg,
+    borderColor: rgb(0.86, 0.88, 0.92),
+    borderWidth: 1,
+  });
+
+  ctx.page.drawText(label, {
+    x: x + padX,
+    y: y + padY,
+    size,
+    font: ctx.fontBold,
+    color: fg,
+  });
+
+  return { w, h };
+}
+
+function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg: any }, desc: string) {
+  const pad = 14;
+  const w = ctx.width - ctx.margin * 2;
+
+  // altura (estimativa simples e boa)
+  const innerW = w - pad * 2;
+  const titleSize = 14;
+  const descSize = 11;
+
+  const titleH = lineHeight(titleSize);
+  const descLines = wrapText(desc, ctx.fontRegular, descSize, innerW).slice(0, 6);
+  const descH = descLines.length * lineHeight(descSize);
+  const h = Math.max(120, pad + titleH + 12 + descH + pad);
+
+  ensure(ctx, h + 16);
+
+  const top = ctx.y;
+  const y = top - h;
+
+  ctx.page.drawRectangle({
+    x: ctx.margin,
+    y,
+    width: w,
+    height: h,
+    color: ctx.theme.CARD_BG,
+    borderColor: rgb(0.86, 0.88, 0.92),
+    borderWidth: 1,
+  });
+
+  // detalhe
+  ctx.page.drawRectangle({
+    x: ctx.margin,
+    y: y + h - 4,
+    width: w,
+    height: 4,
+    color: ctx.theme.ACCENT,
+  });
+
+  // título
+  ctx.page.drawText(title, {
+    x: ctx.margin + pad,
+    y: top - pad - titleH + 3,
+    size: titleSize,
+    font: ctx.fontBold,
+    color: ctx.theme.TEXT,
+  });
+
+  // badge (direita)
+  const badgeY = top - pad - 18;
+  const badgeX = ctx.margin + w - pad - 170; // espaço bom
+  pill(ctx, badgeX, badgeY, badge.text, badge.fg, badge.bg);
+
+  // descrição
+  let yy = top - pad - 30;
+  const lh = lineHeight(descSize);
+  for (const ln of descLines) {
+    ctx.page.drawText(ln, {
+      x: ctx.margin + pad,
+      y: yy - lh + 3,
+      size: descSize,
+      font: ctx.fontRegular,
+      color: ctx.theme.MUTED,
+    });
+    yy -= lh;
+  }
+
+  // move fluxo
+  ctx.y = y - 12;
+}
+
+/** ---------------- Builder (NOVO, mas “como o teu”: mesma assinatura e fluxo) ---------------- */
+export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create();
   const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
-  const ctx = newLayout(pdfDoc, fontRegular, fontBold);
 
-  ctx.page.drawRectangle({ x: 0, y: ctx.height - 40, width: ctx.width, height: 40, color: PRIMARY });
-  ctx.page.drawText("Relatório Completo Personalizado", { x: ctx.margin, y: ctx.height - 30, size: 12, color: rgb(1, 1, 1), font: fontBold });
+  const HEADER_TITLE = opts?.title?.trim() || "Relatório Completo Personalizado";
+  const ctx = newLayout(pdfDoc, fontRegular, fontBold, HEADER_TITLE);
 
-  ctx.y = ctx.height - ctx.margin - 40;
-  // Título principal (AZUL)
-  heading(ctx, "Programa de Autoconhecimento Docente", 22, rgb(0.0, 0.25, 0.55));
+  /** ---------------- CAPA ---------------- */
+  {
+    const page = ctx.page;
+    const { PRIMARY, BG } = ctx.theme;
 
-  // Parágrafo principal com negrito
-  paragraph(
-    ctx,
-    "O Programa de Autoconhecimento é um processo estruturado que busca apoiar docentes da UFSM no desenvolvimento pessoal e profissional.",
-    12,
-    rgb(0, 0, 0)
-  );
+    const { width, height } = page.getSize();
 
-  // Alerta (VERMELHO)
-  paragraph(
-    ctx,
-    "Atenção: Este programa não substitui psicoterapia. Ele é apenas um recurso de autodesenvolvimento e reflexão.",
-    12,
-    rgb(0.7, 0, 0), // vermelho
-    true // negrito
-  );
+    // fundo
+    page.drawRectangle({ x: 0, y: 0, width, height, color: BG });
 
-  // Subtítulo (AZUL)
-  subheading(ctx, "Objetivos do Programa", 18, rgb(0.0, 0.25, 0.55));
+    // faixa grande
+    page.drawRectangle({ x: 0, y: height - 170, width, height: 170, color: PRIMARY });
 
-  // Bullet list com os objetivos
-  bulletList(ctx, [
-    "Explorar características pessoais, valores e motivações.",
-    "Promover equilíbrio entre vida profissional e pessoal.",
-    "Fomentar a saúde mental e o bem-estar docente.",
-    "Desenvolver habilidades de comunicação e relações interpessoais.",
-    "Aprimorar o gerenciamento do estresse acadêmico.",
-    "Fortalecer o crescimento e preparo para desafios futuros.",
-  ], 12);
+    page.drawText("Programa de Autoconhecimento Docente", {
+      x: ctx.margin,
+      y: height - 96,
+      size: 24,
+      font: fontBold,
+      color: rgb(1, 1, 1),
+    });
 
-  const openContentPage = () => { const p = pdfDoc.addPage(); setPage(ctx, p); };
-  openContentPage();
+    page.drawText("Relatório personalizado • UFSM", {
+      x: ctx.margin,
+      y: height - 126,
+      size: 12,
+      font: fontRegular,
+      color: rgb(1, 1, 1),
+    });
+
+    // texto na capa (sem header/rodapé)
+    ctx.y = height - ctx.margin - 190;
+
+    callout(
+      ctx,
+      "Importante",
+      "Este relatório é um recurso de autodesenvolvimento e reflexão. Ele não substitui psicoterapia ou avaliação clínica.",
+      "danger"
+    );
+
+    paragraph(
+      ctx,
+      "O Programa de Autoconhecimento é um processo estruturado que busca apoiar docentes da UFSM no desenvolvimento pessoal e profissional.",
+      12,
+      ctx.theme.TEXT
+    );
+
+    subheading(ctx, "Objetivos do Programa", 15, ctx.theme.PRIMARY);
+    bulletList(
+      ctx,
+      [
+        "Explorar características pessoais, valores e motivações.",
+        "Promover equilíbrio entre vida profissional e pessoal.",
+        "Fomentar a saúde mental e o bem-estar docente.",
+        "Desenvolver habilidades de comunicação e relações interpessoais.",
+        "Aprimorar o gerenciamento do estresse acadêmico.",
+        "Fortalecer o crescimento e preparo para desafios futuros.",
+      ],
+      12
+    );
+  }
+
+  /** ---------------- SUMÁRIO (placeholder e preenchido no final) ---------------- */
+  const tocPage = pdfDoc.addPage();
+  setPage(ctx, tocPage, pdfDoc.getPages().length - 1);
+  drawHeader(ctx);
+
+  heading(ctx, "Sumário", 22, ctx.theme.TEXT);
+  paragraph(ctx, "Visão geral das seções do relatório.", 11, ctx.theme.MUTED);
+  divider(ctx);
+
+  const tocStartY = ctx.y;
+  const tocEntries: { label: string; page: number }[] = [];
+
+  /** ---------------- CONTEÚDO ---------------- */
+  openContentPage(ctx);
 
   for (let i = 0; i < forms.length; i++) {
     const { id: formIdRaw, answers } = forms[i];
     const formKey = resolveFormKey(formIdRaw);
 
-    if (i > 0) openContentPage();
+    // cada fator começa numa página nova (estilo “seção”)
+    if (i > 0) openContentPage(ctx);
 
     if (!formKey) {
-      const fallbackLabel = String(formIdRaw);
-      heading(ctx, `Fator: ${fallbackLabel}`, 22, PRIMARY);
-      paragraph(ctx, "Feedback não encontrado para este formulário.", 12, TEXT_MUTED);
+      heading(ctx, `Fator: ${String(formIdRaw)}`, 22, ctx.theme.PRIMARY);
+      paragraph(ctx, "Feedback não encontrado para este formulário.", 12, ctx.theme.MUTED);
       continue;
     }
 
-    const fb = FEEDBACKS[formKey]; // <-- agora nunca é undefined
+    const fb = FEEDBACKS[formKey];
+    const label = fb.titulo?.trim() || formKey.charAt(0).toUpperCase() + formKey.slice(1);
 
-    const label =
-      fb.titulo?.trim() ||
-      formKey.charAt(0).toUpperCase() + formKey.slice(1);
+    // registra no sumário (página para o usuário é 1-based)
+    tocEntries.push({ label: `Fator: ${label}`, page: ctx.pageIndex + 1 });
 
-    heading(ctx, `Fator: ${label}`, 26, PRIMARY);
+    heading(ctx, `Fator: ${label}`, 24, ctx.theme.PRIMARY);
+    if (fb.descricao) paragraph(ctx, fb.descricao, 11, ctx.theme.MUTED);
+    divider(ctx);
 
-
-    // --- FACETAS ---
+    // --- FACETAS (cards + conteúdo abaixo) ---
     for (const [facetaNome, facetaData] of Object.entries(fb.facetas)) {
       const facetaTitulo = (facetaData as any).titulo ?? facetaNome;
-
-      const subSize = 19;
-      const lh = lineHeight(subSize);
-      const topY = ctx.y - lh + 3; // mesmo padrão do título do fator
-
-      ctx.page.drawRectangle({
-        x: ctx.margin - 8,      // ajuste fino (igual o do fator)
-        y: topY - 2,            // alinhado ao texto
-        width: 5,
-        height: lh - 1,
-        color: ACCENT,
-      });
-
-      subheading(ctx, `Característica: ${facetaTitulo}`, subSize, PRIMARY);
-
-      paragraph(ctx, (facetaData as any).descricao, 12, TEXT_MUTED);
-      ctx.y -= 20;
+      const desc = String((facetaData as any).descricao ?? "");
 
       const avg = calcularMediaFaceta(formKey, (facetaData as any).perguntas, answers);
       const nivel = nivelPorMedia(avg);
 
-      const map: Record<FeedbackLevel, string> = {
-        baixo: "Baixo",
-        medio: "Médio",
-        alto: "Alto",
-      };
+      const map: Record<FeedbackLevel, string> = { baixo: "Baixo", medio: "Médio", alto: "Alto" };
 
-      paragraph(
-        ctx,
-        `Nível obtido: ${map[nivel]}${avg != null ? ` (média: ${avg.toFixed(2)})` : ""}`,
-        12,
-        rgb(0.12, 0.12, 0.12),
-        true
-      );
+      const lvl = ctx.theme.LEVEL[nivel];
+      const badgeText = `Nível: ${map[nivel]}${avg != null ? ` • Média: ${avg.toFixed(2)}` : ""}`;
 
-      ctx.y -= 20;
+      card(ctx, `Característica: ${String(facetaTitulo)}`, { text: badgeText, fg: lvl.fg, bg: lvl.bg }, desc);
 
-      const consolidado = facetaData.feedbackConsolidado[nivel];
+      const consolidado = (facetaData as any).feedbackConsolidado?.[nivel];
       if (consolidado) {
-        subheading(ctx, consolidado.titulo, 13, rgb(0, 0, 0));
-        paragraph(ctx, consolidado.definicao, 11);
-        ctx.y -= 20; // pula ~2 linhas
+        // título pequeno do consolidado
+        subheading(ctx, String(consolidado.titulo), 12, ctx.theme.TEXT);
+        paragraph(ctx, String(consolidado.definicao ?? ""), 11, ctx.theme.TEXT);
+
+        const section = (t: string) => {
+          ensure(ctx, 24);
+          ctx.page.drawText(t, {
+            x: ctx.margin,
+            y: ctx.y - lineHeight(12) + 3,
+            size: 12,
+            font: ctx.fontBold,
+            color: ctx.theme.PRIMARY,
+          });
+          ctx.y -= lineHeight(12);
+          ctx.y -= 2;
+        };
 
         if (consolidado.caracteristicas?.length) {
-          subheading(ctx, "Características", 12, PRIMARY);
+          section("Características");
           bulletList(ctx, consolidado.caracteristicas, 11);
         }
-
         if (consolidado.vantagens?.length) {
-          subheading(ctx, "Vantagens", 12, PRIMARY);
+          section("Vantagens");
           bulletList(ctx, consolidado.vantagens, 11);
         }
-
         if (consolidado.dificuldades?.length) {
-          subheading(ctx, "Dificuldades", 12, PRIMARY);
+          section("Dificuldades");
           bulletList(ctx, consolidado.dificuldades, 11);
         }
-
         if (consolidado.estrategias?.length) {
-          subheading(ctx, "Estratégias de Desenvolvimento", 12, PRIMARY);
+          section("Estratégias de Desenvolvimento");
           bulletList(ctx, consolidado.estrategias, 11);
         }
+        if (consolidado.conclusao) paragraph(ctx, String(consolidado.conclusao), 11, ctx.theme.TEXT);
 
-        if (consolidado.conclusao) {
-          paragraph(ctx, consolidado.conclusao, 11);
-        }
+        divider(ctx);
+      } else {
+        // só dá um respiro entre facetas
+        ctx.y -= 6;
       }
-
-      ctx.y -= 8;
-
     }
   }
 
-  // Última página (encerramento)
-  const lastPage = pdfDoc.addPage();
-  setPage(ctx, lastPage);
+  /** ---------------- ENCERRAMENTO ---------------- */
+  openContentPage(ctx);
+  heading(ctx, "Encerramento do Relatório", 22, ctx.theme.PRIMARY);
 
-  // Cabeçalho azul no topo
-  ctx.page.drawRectangle({
-    x: 0,
-    y: ctx.height - 40,
-    width: ctx.width,
-    height: 40,
-    color: PRIMARY,
-  });
-  ctx.page.drawText("Relatório Completo Personalizado", {
-    x: ctx.margin,
-    y: ctx.height - 30,
-    size: 12,
-    color: rgb(1, 1, 1),
-    font: fontBold,
-  });
-
-  ctx.y = ctx.height - ctx.margin - 40;
-
-  heading(ctx, "Encerramento do Relatório", 22, rgb(0.0, 0.25, 0.55));
-  paragraph(
+  callout(
     ctx,
-    "Esperamos que este relatório tenha proporcionado insights valiosos sobre seu perfil psicológico e contribuído para o seu desenvolvimento pessoal e profissional.",
-    12
+    "Mensagem final",
+    "Esperamos que este relatório tenha proporcionado insights valiosos sobre seu perfil e contribuído para o seu desenvolvimento pessoal e profissional.",
+    "info"
   );
+
   paragraph(
     ctx,
     "Lembre-se: autoconhecimento é uma jornada contínua. Use estas informações como ponto de partida para reflexões, melhorias e fortalecimento de suas habilidades pessoais e profissionais.",
-    12
+    12,
+    ctx.theme.TEXT
   );
+
   paragraph(
     ctx,
-    "Agradecemos por participar do Programa de Autoconhecimento Docentes.",
+    "Agradecemos por participar do Programa de Autoconhecimento Docente.",
     12,
-    rgb(0, 0, 0),
+    ctx.theme.TEXT,
     true
   );
 
+  /** ---------------- PREENCHER SUMÁRIO ---------------- */
+  setPage(ctx, tocPage, 1);
+  drawHeader(ctx);
+  heading(ctx, "Sumário", 22, ctx.theme.TEXT);
+  paragraph(ctx, "Visão geral das seções do relatório.", 11, ctx.theme.MUTED);
+  divider(ctx);
+
+  ctx.y = tocStartY;
+
+  const rowH = 16;
+  for (const it of tocEntries) {
+    ensure(ctx, rowH);
+    const left = it.label;
+    const right = String(it.page);
+
+    ctx.page.drawText(left, {
+      x: ctx.margin,
+      y: ctx.y - lineHeight(11) + 3,
+      size: 11,
+      font: ctx.fontRegular,
+      color: ctx.theme.TEXT,
+    });
+
+    // pontilhado
+    const dots = "........................................................................";
+    ctx.page.drawText(dots, {
+      x: ctx.margin + 250,
+      y: ctx.y - lineHeight(11) + 3,
+      size: 10,
+      font: ctx.fontRegular,
+      color: ctx.theme.DIVIDER,
+    });
+
+    ctx.page.drawText(right, {
+      x: ctx.width - ctx.margin - ctx.fontBold.widthOfTextAtSize(right, 11),
+      y: ctx.y - lineHeight(11) + 3,
+      size: 11,
+      font: ctx.fontBold,
+      color: ctx.theme.MUTED,
+    });
+
+    ctx.y -= rowH;
+  }
+
+  /** ---------------- PAGINAÇÃO (rodapé em todas, exceto capa) ---------------- */
+  const pages = pdfDoc.getPages();
+  const total = pages.length;
+
+  for (let i = 0; i < total; i++) {
+    // pula capa (página 0) — se quiser numerar também, remove esse if
+    if (i === ctx.coverIndex) continue;
+
+    const p = pages[i];
+    // desenha só o rodapé (não redesenha header pra não “pintar por cima” do conteúdo)
+    const tmp = { ...ctx };
+    setPage(tmp, p, i);
+    drawFooter(tmp, i + 1, total);
+  }
 
   const pdfBytes = await pdfDoc.save();
   return new Uint8Array(pdfBytes);
