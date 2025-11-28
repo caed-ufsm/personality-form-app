@@ -43,6 +43,16 @@ export const amabilidadeV1: FormDefinition = {
           maxLabel: "Concordo Totalmente",
         },
         {
+          id: "a6",
+          type: "likert",
+          label:
+            "Prefiro manter distância nas relações profissionais, pois acredito que confiar excessivamente pode trazer prejuízos.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
+        {
           id: "a3",
           type: "likert",
           label:
@@ -69,16 +79,6 @@ export const amabilidadeV1: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
         },
-        {
-          id: "a6",
-          type: "likert",
-          label:
-            "Prefiro manter distância nas relações profissionais, pois acredito que confiar excessivamente pode trazer prejuízos.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
-        },
       ],
     },
 
@@ -87,6 +87,16 @@ export const amabilidadeV1: FormDefinition = {
       key: "franqueza",
       title: "4.2. Franqueza",
       questions: [
+        {
+          id: "a12",
+          type: "likert",
+          label:
+            "Evito falar sobre minhas dificuldades no trabalho para não correr o risco de parecer despreparado(a).",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
         {
           id: "a7",
           type: "likert",
@@ -132,16 +142,7 @@ export const amabilidadeV1: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
         },
-        {
-          id: "a12",
-          type: "likert",
-          label:
-            "Evito falar sobre minhas dificuldades no trabalho para não correr o risco de parecer despreparado(a).",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
-        },
+
       ],
     },
 
@@ -178,6 +179,16 @@ export const amabilidadeV1: FormDefinition = {
           maxLabel: "Concordo Totalmente",
         },
         {
+          id: "a18",
+          type: "likert",
+          label:
+            "Tenho dificuldade em ceder em discussões, mesmo quando isso poderia encurtar conflitos e facilitar o andamento das decisões.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
+        {
           id: "a16",
           type: "likert",
           label:
@@ -194,16 +205,6 @@ export const amabilidadeV1: FormDefinition = {
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
-        },
-        {
-          id: "a18",
-          type: "likert",
-          label:
-            "Tenho dificuldade em ceder em discussões, mesmo quando isso poderia encurtar conflitos e facilitar o andamento das decisões.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
         },
       ],
     },
@@ -250,15 +251,6 @@ export const amabilidadeV1: FormDefinition = {
           maxLabel: "Concordo Totalmente",
         },
         {
-          id: "a23",
-          type: "likert",
-          label:
-            "Procuro oferecer apoio prático e emocional quando percebo que alguém está passando por um momento de fragilidade.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-        },
-        {
           id: "a24",
           type: "likert",
           label:
@@ -267,6 +259,15 @@ export const amabilidadeV1: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
           reverse: true,
+        },
+        {
+          id: "a23",
+          type: "likert",
+          label:
+            "Procuro oferecer apoio prático e emocional quando percebo que alguém está passando por um momento de fragilidade.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
         },
       ],
     },

@@ -24,6 +24,14 @@ export const aberturaExperienciaV1: FormDefinition = {
       title: "3.1. Fantasia",
       questions: [
         {
+          id: "a6",
+          type: "likert",
+          label:
+            "Tenho dificuldade em criar imagens mentais ou exemplos criativos para ilustrar o conteúdo que ensino ou pesquiso.",
+          required: true,
+          reverse: true,
+        },
+        {
           id: "a1",
           type: "likert",
           label:
@@ -58,14 +66,6 @@ export const aberturaExperienciaV1: FormDefinition = {
             "Consigo transformar ideias abstratas em exemplos concretos para facilitar a compreensão de conceitos complexos.",
           required: true,
         },
-        {
-          id: "a6",
-          type: "likert",
-          label:
-            "Tenho dificuldade em criar imagens mentais ou exemplos criativos para ilustrar o conteúdo que ensino ou pesquiso.",
-          required: true,
-          reverse: true,
-        },
       ],
     },
 
@@ -95,6 +95,14 @@ export const aberturaExperienciaV1: FormDefinition = {
           required: true,
         },
         {
+          id: "a12",
+          type: "likert",
+          label:
+            "Frequentemente deixo que minhas emoções interfiram de forma negativa nas minhas decisões e na condução das atividades docentes.",
+          required: true,
+          reverse: true,
+        },
+        {
           id: "a10",
           type: "likert",
           label:
@@ -107,14 +115,6 @@ export const aberturaExperienciaV1: FormDefinition = {
           label:
             "Procuro desenvolver estratégias para que minhas emoções contribuam positivamente com o clima em sala de aula e com o relacionamento com os(as) discentes.",
           required: true,
-        },
-        {
-          id: "a12",
-          type: "likert",
-          label:
-            "Frequentemente deixo que minhas emoções interfiram de forma negativa nas minhas decisões e na condução das atividades docentes.",
-          required: true,
-          reverse: true,
         },
       ],
     },
@@ -129,6 +129,14 @@ export const aberturaExperienciaV1: FormDefinition = {
           label:
             "Não hesito em testar metodologias ativas, jogos educativos ou diferentes ferramentas de avaliação.",
           required: true,
+        },
+        {
+          id: "a18",
+          type: "likert",
+          label:
+            "Evito alterar métodos já consolidados, mesmo que novas práticas possam trazer melhorias.",
+          required: true,
+          reverse: true,
         },
         {
           id: "a14",
@@ -157,14 +165,6 @@ export const aberturaExperienciaV1: FormDefinition = {
           label:
             "Busco inspiração em práticas de outras áreas para adaptar e enriquecer minhas estratégias de ensino e pesquisa.",
           required: true,
-        },
-        {
-          id: "a18",
-          type: "likert",
-          label:
-            "Evito alterar métodos já consolidados, mesmo que novas práticas possam trazer melhorias.",
-          required: true,
-          reverse: true,
         },
       ],
     },
@@ -202,19 +202,19 @@ export const aberturaExperienciaV1: FormDefinition = {
           required: true,
         },
         {
-          id: "a23",
-          type: "likert",
-          label:
-            "Busco alinhar minhas práticas docentes a princípios éticos que fortaleçam a cidadania e o pensamento crítico dos(as) estudantes.",
-          required: true,
-        },
-        {
           id: "a24",
           type: "likert",
           label:
             "Evito questionar meus próprios princípios ou métodos, mesmo quando surgem novas informações ou perspectivas.",
           required: true,
           reverse: true,
+        },
+        {
+          id: "a23",
+          type: "likert",
+          label:
+            "Busco alinhar minhas práticas docentes a princípios éticos que fortaleçam a cidadania e o pensamento crítico dos(as) estudantes.",
+          required: true,
         },
       ],
     },

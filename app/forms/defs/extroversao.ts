@@ -43,6 +43,16 @@ export const extroversao: FormDefinition = {
           maxLabel: "Concordo Totalmente",
         },
         {
+          id: "e6",
+          type: "likert",
+          label:
+            "Ao perceber que alguém está isolado ou com dificuldades, tomo a iniciativa de oferecer apoio ou abrir espaço para diálogo.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
+        {
           id: "e3",
           type: "likert",
           label:
@@ -69,16 +79,6 @@ export const extroversao: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
         },
-        {
-          id: "e6",
-          type: "likert",
-          label:
-            "Ao perceber que alguém está isolado ou com dificuldades, tomo a iniciativa de oferecer apoio ou abrir espaço para diálogo.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
-        },
       ],
     },
 
@@ -87,6 +87,16 @@ export const extroversao: FormDefinition = {
       key: "assertividade",
       title: "2.2. Assertividade",
       questions: [
+        {
+          id: "e12",
+          type: "likert",
+          label:
+            "Consigo manter a firmeza ao me posicionar, mesmo em situações de pressão ou quando enfrento resistência.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
         {
           id: "e7",
           type: "likert",
@@ -131,16 +141,6 @@ export const extroversao: FormDefinition = {
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
-        },
-        {
-          id: "e12",
-          type: "likert",
-          label:
-            "Consigo manter a firmeza ao me posicionar, mesmo em situações de pressão ou quando enfrento resistência.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
         },
       ],
     },
@@ -187,15 +187,6 @@ export const extroversao: FormDefinition = {
           maxLabel: "Concordo Totalmente",
         },
         {
-          id: "e17",
-          type: "likert",
-          label:
-            "Reconhecer o impacto positivo do meu trabalho na UFSM me inspira a manter o entusiasmo e a dedicação nas atividades diárias.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-        },
-        {
           id: "e18",
           type: "likert",
           label:
@@ -204,6 +195,15 @@ export const extroversao: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
           reverse: true,
+        },
+        {
+          id: "e17",
+          type: "likert",
+          label:
+            "Reconhecer o impacto positivo do meu trabalho na UFSM me inspira a manter o entusiasmo e a dedicação nas atividades diárias.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
         },
       ],
     },

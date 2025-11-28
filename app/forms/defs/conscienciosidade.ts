@@ -53,19 +53,19 @@ export const conscienciosidadeV1: FormDefinition = {
           required: true,
         },
         {
-          id: "c5",
-          type: "likert",
-          label:
-            "Persisto em encontrar soluções criativas e eficazes para dificuldades que surgem no exercício da docência ou na gestão de projetos.",
-          required: true,
-        },
-        {
           id: "c6",
           type: "likert",
           label:
             "Sinto que não tenho recursos suficientes para lidar com imprevistos que afetam minhas aulas ou projetos.",
           required: true,
           reverse: true,
+        },
+        {
+          id: "c5",
+          type: "likert",
+          label:
+            "Persisto em encontrar soluções criativas e eficazes para dificuldades que surgem no exercício da docência ou na gestão de projetos.",
+          required: true,
         },
       ],
     },
@@ -81,6 +81,14 @@ export const conscienciosidadeV1: FormDefinition = {
           label:
             "Gosto de organizar meus arquivos digitais e físicos (planos de aula, artigos, projetos) de forma lógica e acessível.",
           required: true,
+        },
+        {
+          id: "c12",
+          type: "likert",
+          label:
+            "Frequentemente deixo documentos e tarefas acumularem a ponto de dificultar o andamento das minhas atividades.",
+          required: true,
+          reverse: true,
         },
         {
           id: "c8",
@@ -110,14 +118,6 @@ export const conscienciosidadeV1: FormDefinition = {
             "Tenho métodos claros para arquivar documentos e manter o controle sobre versões atualizadas de materiais de aula e pesquisa.",
           required: true,
         },
-        {
-          id: "c12",
-          type: "likert",
-          label:
-            "Frequentemente deixo documentos e tarefas acumularem a ponto de dificultar o andamento das minhas atividades.",
-          required: true,
-          reverse: true,
-        },
       ],
     },
 
@@ -141,6 +141,14 @@ export const conscienciosidadeV1: FormDefinition = {
           required: true,
         },
         {
+          id: "c18",
+          type: "likert",
+          label:
+            "Frequentemente interrompo atividades importantes para atender a tarefas menos prioritárias, perdendo o foco no que é essencial.",
+          required: true,
+          reverse: true,
+        },
+        {
           id: "c15",
           type: "likert",
           label:
@@ -160,14 +168,6 @@ export const conscienciosidadeV1: FormDefinition = {
           label:
             "Sou capaz de manter a produtividade mesmo em períodos prolongados de alta demanda acadêmica.",
           required: true,
-        },
-        {
-          id: "c18",
-          type: "likert",
-          label:
-            "Frequentemente interrompo atividades importantes para atender a tarefas menos prioritárias, perdendo o foco no que é essencial.",
-          required: true,
-          reverse: true,
         },
       ],
     },

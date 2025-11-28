@@ -377,32 +377,16 @@ export default function FormPageClient({
               status={status}
               goPrev={goPrev}
               goNext={goNext}
-              onClear={onClear}
+              currentFieldIds={cat.questions.map((q) => q.id)}
               controlApi={{
                 getValues: methods.getValues,
+                setValue: methods.setValue,
                 setStatus,
                 storageKey,
               }}
             />
 
-            {/* 🔹 Botão de próximo formulário → NÃO usar Link com ID nulo */}
-            {catIndex === def.categories.length - 1 && (
-              <div className="mt-8 flex justify-end">
-                <button
-                  onClick={() => {
-                    const nextId = getNextFormId(formId);
-                    if (nextId) {
-                      window.location.href = `/forms/${nextId}`;
-                    } else {
-                      window.location.href = `/forms`; // fim do último
-                    }
-                  }}
-                  className="bg-[#0353a3] hover:bg-blue-800 text-white px-6 py-3 rounded-lg text-base font-medium transition"
-                >
-                  Próximo formulário →
-                </button>
-              </div>
-            )}
+
           </div>
 
           <p className="text-xs text-gray-500 mt-4">

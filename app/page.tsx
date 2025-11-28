@@ -1,6 +1,4 @@
 import AboutProject from "@/components/aboutProject";
-import Header from "@/components/header";
-import Footer from "@/components/footer";
 
 export const metadata = {
   title: 'Sobre o CAEd — UFSM',

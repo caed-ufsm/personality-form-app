@@ -4,6 +4,33 @@ import React from "react";
 import Link from "next/link";
 import { getAllForms } from "./lib/registry";
 
+type FormListItem = { id: string; title: string };
+
+const FORM_ORDER = [
+  "neuroticismo",
+  "extroversao",
+  "aberturaexperiencia",
+  "amabilidade",
+  "conscienciosidade",
+];
+
+function sortFormsByOrder<T extends FormListItem>(forms: T[], order: string[]) {
+  const index = new Map(order.map((id, i) => [id, i]));
+
+  return [...forms].sort((a, b) => {
+    const ai = index.has(a.id)
+      ? (index.get(a.id) as number)
+      : Number.POSITIVE_INFINITY;
+    const bi = index.has(b.id)
+      ? (index.get(b.id) as number)
+      : Number.POSITIVE_INFINITY;
+
+    if (ai !== bi) return ai - bi;
+
+    return a.title.localeCompare(b.title, "pt-BR", { sensitivity: "base" });
+  });
+}
+
 export default function FormsIndexPage() {
   /** ---------------- CLIENT MOUNT ---------------- */
   const [mounted, setMounted] = React.useState(false);
@@ -17,12 +44,19 @@ export default function FormsIndexPage() {
     setForms(loaded);
   }, []);
 
+  /** ---------------- ORDERED LIST ---------------- */
+  const sortedForms = React.useMemo(() => {
+    return sortFormsByOrder(forms as FormListItem[], FORM_ORDER);
+  }, [forms]);
+
   /** ---------------- STATES ---------------- */
   const [allComplete, setAllComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
   const [showInfo, setShowInfo] = React.useState(false);
   const [open, setOpen] = React.useState<Record<string, boolean>>({});
-  const [completionMap, setCompletionMap] = React.useState<Record<string, boolean>>({});
+  const [completionMap, setCompletionMap] = React.useState<
+    Record<string, boolean>
+  >({});
 
   /** ---------------- UTILS ---------------- */
   type Nullable<T> = T | null | undefined;
@@ -91,26 +125,28 @@ export default function FormsIndexPage() {
 
   /** ---------------- CALCULATE COMPLETION ---------------- */
   React.useEffect(() => {
-    if (!mounted || forms.length === 0) return;
+    if (!mounted || sortedForms.length === 0) return;
 
     const ls = window.localStorage;
     const status: Record<string, boolean> = {};
 
-    forms.forEach((f) => {
+    sortedForms.forEach((f) => {
       const key = findStorageKeyForForm(f.id, ls);
       const raw = key ? ls.getItem(key) : null;
       const data = safeParse<Record<string, any>>(raw) ?? {};
 
       const responded = countNonEmptyAnswers(data);
       const expected =
-        typeof f.totalQuestions === "number" ? f.totalQuestions : undefined;
+        typeof (f as any).totalQuestions === "number"
+          ? (f as any).totalQuestions
+          : undefined;
 
       status[f.id] = expected ? responded >= expected : responded > 0;
     });
 
     setCompletionMap(status);
     setAllComplete(Object.values(status).every(Boolean));
-  }, [mounted, forms]);
+  }, [mounted, sortedForms]);
 
   /** ---------------- HANDLE SEND ---------------- */
   const handleSend = async () => {
@@ -125,8 +161,7 @@ export default function FormsIndexPage() {
       const ls = window.localStorage;
 
       // Garante que a sessão existe
-      const sessionId =
-        localStorage.getItem("sessionId") || crypto.randomUUID();
+      const sessionId = localStorage.getItem("sessionId") || crypto.randomUUID();
       localStorage.setItem("sessionId", sessionId);
 
       /** --------------------------------------------------------
@@ -134,7 +169,7 @@ export default function FormsIndexPage() {
        * -------------------------------------------------------- */
       const results: Record<string, any> = {};
 
-      for (const f of forms) {
+      for (const f of sortedForms) {
         const key = findStorageKeyForForm(f.id, ls);
         const raw = key ? ls.getItem(key) : null;
         results[f.id] = safeParse(raw) ?? {};
@@ -199,7 +234,6 @@ export default function FormsIndexPage() {
     }
   };
 
-
   /** ---------------- SAFE RENDER ---------------- */
   if (!mounted) {
     return (
@@ -212,14 +246,13 @@ export default function FormsIndexPage() {
   /** ------------------ RENDER ------------------ */
   return (
     <div className="mx-auto max-w-7xl p-8">
-
       {/* HEADER --------------------------------------------------------- */}
       <header className="mb-10">
         <h1 className="text-3xl font-bold">Selecione um formulário</h1>
 
         <p className="mt-2 text-base text-gray-600">
-          {forms.length} formulário{forms.length !== 1 ? "s" : ""} disponível
-          {forms.length !== 1 ? "s" : ""}.
+          {sortedForms.length} formulário{sortedForms.length !== 1 ? "s" : ""}{" "}
+          disponível{sortedForms.length !== 1 ? "s" : ""}.
         </p>
 
         {/* MOBILE DROPDOWN */}
@@ -228,16 +261,25 @@ export default function FormsIndexPage() {
             className="md:hidden w-full text-left flex justify-between items-center text-xl font-semibold text-blue-900 mb-3"
             onClick={() => setShowInfo((prev) => !prev)}
           >
-            <span>Complete todos os formulários para gerar seu relatório personalizado</span>
+            <span>
+              Complete todos os formulários para gerar seu relatório
+              personalizado
+            </span>
 
             <svg
-              className={`w-6 h-6 transition-transform ${showInfo ? "rotate-180" : ""}`}
+              className={`w-6 h-6 transition-transform ${
+                showInfo ? "rotate-180" : ""
+              }`}
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
               viewBox="0 0 24 24"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
@@ -249,35 +291,38 @@ export default function FormsIndexPage() {
           {/* CONTENT */}
           <div
             className={`
-        overflow-hidden transition-all duration-300
-        ${showInfo
-                ? "max-h-[600px] opacity-100"
-                : "max-h-0 opacity-0 md:max-h-none md:opacity-100"}
-      `}
+              overflow-hidden transition-all duration-300
+              ${
+                showInfo
+                  ? "max-h-[600px] opacity-100"
+                  : "max-h-0 opacity-0 md:max-h-none md:opacity-100"
+              }
+            `}
           >
             <p className="text-gray-700 leading-relaxed">
               Ao responder todos os formulários, você poderá gerar um{" "}
-              <strong>PDF completo e personalizado</strong> com os resultados consolidados.
-              Esse relatório apresentará suas principais características, vantagens potenciais,
-              dificuldades potenciais e estratégias com base nas suas respostas.
+              <strong>PDF completo e personalizado</strong> com os resultados
+              consolidados. Esse relatório apresentará suas principais
+              características, vantagens potenciais, dificuldades potenciais e
+              estratégias com base nas suas respostas.
             </p>
 
             <p className="text-gray-700 leading-relaxed mt-3">
-              Portanto, responda com atenção e sinceridade — suas respostas servirão de base
-              para a criação de um panorama detalhado e de um material de apoio valioso
-              para o seu crescimento pessoal e profissional.
+              Portanto, responda com atenção e sinceridade — suas respostas
+              servirão de base para a criação de um panorama detalhado e de um
+              material de apoio valioso para o seu crescimento pessoal e
+              profissional.
             </p>
           </div>
         </div>
       </header>
 
-
       {/* LISTA DE FORMULÁRIOS ------------------------------------------------- */}
-      {forms.length === 0 ? (
+      {sortedForms.length === 0 ? (
         <p className="text-lg text-gray-500">Nenhum formulário cadastrado.</p>
       ) : (
         <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-2">
-          {forms.map((f) => {
+          {sortedForms.map((f: any) => {
             const isComplete = completionMap[f.id] ?? false;
 
             return (
@@ -297,13 +342,17 @@ export default function FormsIndexPage() {
                     <div className="flex items-center gap-4">
                       <div
                         className="flex h-14 w-14 items-center justify-center rounded-2xl text-2xl"
-                        style={{ background: (f.themeColor ?? "#e5e7eb") + "22" }}
+                        style={{
+                          background: (f.themeColor ?? "#e5e7eb") + "22",
+                        }}
                       >
                         <span aria-hidden>{f.iconEmoji ?? "📝"}</span>
                       </div>
 
                       <div>
-                        <h2 className="text-xl font-semibold text-gray-800">{f.title}</h2>
+                        <h2 className="text-xl font-semibold text-gray-800">
+                          {f.title}
+                        </h2>
                         {f.subtitle && (
                           <p className="text-sm text-gray-600">{f.subtitle}</p>
                         )}
@@ -312,14 +361,19 @@ export default function FormsIndexPage() {
 
                     {!isComplete ? (
                       <svg
-                        className={`w-6 h-6 text-gray-700 transition-transform ${open[f.id] ? "rotate-180" : ""
-                          }`}
+                        className={`w-6 h-6 text-gray-700 transition-transform ${
+                          open[f.id] ? "rotate-180" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
                         viewBox="0 0 24 24"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19 9l-7 7-7-7"
+                        />
                       </svg>
                     ) : (
                       <span className="text-green-600 font-semibold text-sm ml-2">
@@ -331,7 +385,9 @@ export default function FormsIndexPage() {
                   {open[f.id] && (
                     <div className="mt-4">
                       {f.description && (
-                        <p className="text-base text-gray-700 mb-4">{f.description}</p>
+                        <p className="text-base text-gray-700 mb-4">
+                          {f.description}
+                        </p>
                       )}
 
                       {typeof f.estimatedMinutes === "number" && (
@@ -363,13 +419,17 @@ export default function FormsIndexPage() {
                   <div className="flex items-center gap-4">
                     <div
                       className="flex h-16 w-16 items-center justify-center rounded-2xl text-3xl"
-                      style={{ background: (f.themeColor ?? "#e5e7eb") + "22" }}
+                      style={{
+                        background: (f.themeColor ?? "#e5e7eb") + "22",
+                      }}
                     >
                       <span aria-hidden>{f.iconEmoji ?? "📝"}</span>
                     </div>
 
                     <div>
-                      <h2 className="text-xl font-semibold text-gray-800">{f.title}</h2>
+                      <h2 className="text-xl font-semibold text-gray-800">
+                        {f.title}
+                      </h2>
                       {f.subtitle && (
                         <p className="text-base text-gray-600">{f.subtitle}</p>
                       )}
@@ -418,18 +478,20 @@ export default function FormsIndexPage() {
           </h2>
 
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Após concluir todos os formulários, suas respostas serão enviadas
-            de forma anônima e segura para gerar um <strong>relatório personalizado</strong>
+            Após concluir todos os formulários, suas respostas serão enviadas de
+            forma anônima e segura para gerar um{" "}
+            <strong>relatório personalizado</strong>
           </p>
 
           <div className="flex flex-col items-center gap-4">
             <button
               onClick={handleSend}
               disabled={!allComplete || isLoading}
-              className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${allComplete && !isLoading
-                ? "bg-[#0353a3] hover:bg-blue-800"
-                : "bg-gray-400 cursor-not-allowed"
-                }`}
+              className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${
+                allComplete && !isLoading
+                  ? "bg-[#0353a3] hover:bg-blue-800"
+                  : "bg-gray-400 cursor-not-allowed"
+              }`}
             >
               {isLoading
                 ? "⏳ Enviando e gerando PDF..."

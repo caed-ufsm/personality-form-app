@@ -25,6 +25,16 @@ export const neuroticismo: FormDefinition = {
       title: "1.1. Ansiedade",
       questions: [
         {
+          id: "n6",
+          type: "likert",
+          label:
+            "Quando percebo sinais físicos de ansiedade (como insônia, tensão muscular ou aceleração dos batimentos), busco estratégias para retomar o equilíbrio emocional.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
+        {
           id: "n1",
           type: "likert",
           label:
@@ -69,16 +79,6 @@ export const neuroticismo: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
         },
-        {
-          id: "n6",
-          type: "likert",
-          label:
-            "Quando percebo sinais físicos de ansiedade (como insônia, tensão muscular ou aceleração dos batimentos), busco estratégias para retomar o equilíbrio emocional.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
-        },
       ],
     },
     {
@@ -113,6 +113,16 @@ export const neuroticismo: FormDefinition = {
           maxLabel: "Concordo Totalmente",
         },
         {
+          id: "n12",
+          type: "likert",
+          label:
+            "Quando percebo que estou prestes a reagir com irritação, consigo parar e evitar uma resposta impulsiva.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
+        },
+        {
           id: "n10",
           type: "likert",
           label:
@@ -130,16 +140,6 @@ export const neuroticismo: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
         },
-        {
-          id: "n12",
-          type: "likert",
-          label:
-            "Quando percebo que estou prestes a reagir com irritação, consigo parar e evitar uma resposta impulsiva.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
-        },
       ],
     },
     {
@@ -154,6 +154,16 @@ export const neuroticismo: FormDefinition = {
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
+        },
+        {
+          id: "n18",
+          type: "likert",
+          label:
+            "Quando percebo sinais de desânimo, busco estratégias ativas para retomar a motivação, como redefinir metas ou pedir apoio.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
         },
         {
           id: "n14",
@@ -191,16 +201,6 @@ export const neuroticismo: FormDefinition = {
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
         },
-        {
-          id: "n18",
-          type: "likert",
-          label:
-            "Quando percebo sinais de desânimo, busco estratégias ativas para retomar a motivação, como redefinir metas ou pedir apoio.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
-        },
       ],
     },
     {
@@ -224,6 +224,16 @@ export const neuroticismo: FormDefinition = {
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
+        },
+        {
+          id: "n24",
+          type: "likert",
+          label:
+            "Quando percebo vergonha ou insegurança, consigo reconhecer o sentimento e, mesmo assim, tomar atitudes construtivas para melhor lidar com a situação.",
+          required: true,
+          minLabel: "Discordo Totalmente",
+          maxLabel: "Concordo Totalmente",
+          reverse: true,
         },
         {
           id: "n21",
@@ -251,16 +261,6 @@ export const neuroticismo: FormDefinition = {
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
-        },
-        {
-          id: "n24",
-          type: "likert",
-          label:
-            "Quando percebo vergonha ou insegurança, consigo reconhecer o sentimento e, mesmo assim, tomar atitudes construtivas para melhor lidar com a situação.",
-          required: true,
-          minLabel: "Discordo Totalmente",
-          maxLabel: "Concordo Totalmente",
-          reverse: true,
         },
       ],
     },
