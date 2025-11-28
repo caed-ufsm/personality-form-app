@@ -147,7 +147,7 @@ export async function POST(req: NextRequest) {
     }
 
     const bytes = await buildPdfReport(forms, {
-      title: "Relatório consolidado",
+      title: "Relatório Personalizado Completo",
     });
 
     const ab = new ArrayBuffer(bytes.byteLength);
@@ -156,7 +156,7 @@ export async function POST(req: NextRequest) {
     const headers: Record<string, string> = {
       "Content-Type": "application/pdf",
       "Content-Disposition":
-        'attachment; filename="relatorio-consolidado.pdf"',
+        'attachment; filename="relatorio-personalizado.pdf"',
       "Content-Length": String(bytes.byteLength),
     };
     if (idemHeader) headers["Idempotency-Key"] = idemHeader;

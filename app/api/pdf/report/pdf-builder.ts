@@ -211,9 +211,9 @@ const makeTheme = () => {
   const DANGER = rgb(0.72, 0.12, 0.12);
 
   const LEVEL = {
-    baixo: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.00) },
-    medio: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.00) },
-    alto: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.00) },
+    baixo: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.0) },
+    medio: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.0) },
+    alto: { fg: rgb(0.08, 0.28, 0.58), bg: rgb(0.92, 0.96, 1.0) },
   } as const;
 
   return { PRIMARY, ACCENT, TEXT, MUTED, DIVIDER, BG, CARD_BG, DANGER, LEVEL };
@@ -549,11 +549,10 @@ function pill(ctx: LayoutCtx, x: number, y: number, label: string, fg: any, bg: 
   return { w, h };
 }
 
-function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg: any }, desc: string) {
+/** ✅ NOVO: estimar altura do card pra poder “garantir” e registrar TOC com página certa */
+function estimateCardHeight(ctx: LayoutCtx, title: string, desc: string) {
   const pad = 14;
   const w = ctx.width - ctx.margin * 2;
-
-  // altura (estimativa simples e boa)
   const innerW = w - pad * 2;
   const titleSize = 14;
   const descSize = 11;
@@ -563,7 +562,30 @@ function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg:
   const descH = descLines.length * lineHeight(descSize);
   const h = Math.max(120, pad + titleH + 12 + descH + pad);
 
-  ensure(ctx, h + 16);
+  return h;
+}
+
+/** ✅ ALTERADO: card agora aceita preEnsured */
+function card(
+  ctx: LayoutCtx,
+  title: string,
+  badge: { text: string; fg: any; bg: any },
+  desc: string,
+  preEnsured = false
+) {
+  const pad = 14;
+  const w = ctx.width - ctx.margin * 2;
+
+  const innerW = w - pad * 2;
+  const titleSize = 14;
+  const descSize = 11;
+
+  const titleH = lineHeight(titleSize);
+  const descLines = wrapText(desc, ctx.fontRegular, descSize, innerW).slice(0, 6);
+  const descH = descLines.length * lineHeight(descSize);
+  const h = Math.max(120, pad + titleH + 12 + descH + pad);
+
+  if (!preEnsured) ensure(ctx, h + 16);
 
   const top = ctx.y;
   const y = top - h;
@@ -578,7 +600,6 @@ function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg:
     borderWidth: 1,
   });
 
-  // detalhe
   ctx.page.drawRectangle({
     x: ctx.margin,
     y: y + h - 4,
@@ -587,7 +608,6 @@ function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg:
     color: ctx.theme.ACCENT,
   });
 
-  // título
   ctx.page.drawText(title, {
     x: ctx.margin + pad,
     y: top - pad - titleH + 3,
@@ -596,12 +616,10 @@ function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg:
     color: ctx.theme.TEXT,
   });
 
-  // badge (direita)
   const badgeY = top - pad - 18;
-  const badgeX = ctx.margin + w - pad - 170; // espaço bom
+  const badgeX = ctx.margin + w - pad - 170;
   pill(ctx, badgeX, badgeY, badge.text, badge.fg, badge.bg);
 
-  // descrição
   let yy = top - pad - 30;
   const lh = lineHeight(descSize);
   for (const ln of descLines) {
@@ -615,12 +633,20 @@ function card(ctx: LayoutCtx, title: string, badge: { text: string; fg: any; bg:
     yy -= lh;
   }
 
-  // move fluxo
   ctx.y = y - 12;
 }
 
-/** ---------------- Builder (NOVO, mas “como o teu”: mesma assinatura e fluxo) ---------------- */
-export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }): Promise<Uint8Array> {
+/** ---------------- Builder ---------------- */
+type TocFactorEntry = {
+  label: string;       // nome do fator
+  page: number;        // página onde começa o fator
+  facetas: string[];   // nomes das características (facetas) daquele fator
+};
+
+export async function buildPdfReport(
+  forms: OneForm[],
+  opts?: { title?: string }
+): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create();
   const fontRegular = await pdfDoc.embedFont(StandardFonts.Helvetica);
   const fontBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
@@ -635,10 +661,8 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
     const { width, height } = page.getSize();
 
-    // fundo
     page.drawRectangle({ x: 0, y: 0, width, height, color: BG });
 
-    // faixa grande
     page.drawRectangle({ x: 0, y: height - 170, width, height: 170, color: PRIMARY });
 
     page.drawText("Programa de Autoconhecimento Docente", {
@@ -649,15 +673,14 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
       color: rgb(1, 1, 1),
     });
 
-    page.drawText("Relatório personalizado • UFSM", {
+    page.drawText("Relatório personalizado", {
       x: ctx.margin,
       y: height - 126,
-      size: 12,
+      size: 18,
       font: fontRegular,
       color: rgb(1, 1, 1),
     });
 
-    // texto na capa (sem header/rodapé)
     ctx.y = height - ctx.margin - 190;
 
     callout(
@@ -687,6 +710,13 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
       ],
       12
     );
+
+    callout(
+      ctx,
+      "Personalidade (Big Five)",
+      "Os formulários utilizam os Cinco Grandes Fatores da Personalidade — Abertura, Conscienciosidade, Extroversão, Amabilidade e Neuroticismo — para compreender como diferentes traços influenciam atitudes, comportamentos e potencial de crescimento pessoal.",
+      "info"
+    );
   }
 
   /** ---------------- SUMÁRIO (placeholder e preenchido no final) ---------------- */
@@ -695,11 +725,12 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   drawHeader(ctx);
 
   heading(ctx, "Sumário", 22, ctx.theme.TEXT);
-  paragraph(ctx, "Visão geral das seções do relatório.", 11, ctx.theme.MUTED);
   divider(ctx);
 
   const tocStartY = ctx.y;
-  const tocEntries: { label: string; page: number }[] = [];
+
+  // ✅ AGORA guardamos fator + facetas
+  const tocFactors: TocFactorEntry[] = [];
 
   /** ---------------- CONTEÚDO ---------------- */
   openContentPage(ctx);
@@ -708,7 +739,6 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
     const { id: formIdRaw, answers } = forms[i];
     const formKey = resolveFormKey(formIdRaw);
 
-    // cada fator começa numa página nova (estilo “seção”)
     if (i > 0) openContentPage(ctx);
 
     if (!formKey) {
@@ -720,31 +750,42 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
     const fb = FEEDBACKS[formKey];
     const label = fb.titulo?.trim() || formKey.charAt(0).toUpperCase() + formKey.slice(1);
 
-    // registra no sumário (página para o usuário é 1-based)
-    tocEntries.push({ label: `Fator: ${label}`, page: ctx.pageIndex + 1 });
+    // ✅ registra fator no sumário (página 1-based)
+    tocFactors.push({ label: `Fator: ${label}`, page: ctx.pageIndex + 1, facetas: [] });
 
     heading(ctx, `Fator: ${label}`, 24, ctx.theme.PRIMARY);
     if (fb.descricao) paragraph(ctx, fb.descricao, 11, ctx.theme.MUTED);
     divider(ctx);
 
-    // --- FACETAS (cards + conteúdo abaixo) ---
+    // --- FACETAS ---
     for (const [facetaNome, facetaData] of Object.entries(fb.facetas)) {
-      const facetaTitulo = (facetaData as any).titulo ?? facetaNome;
+      const facetaTitulo = String((facetaData as any).titulo ?? facetaNome);
       const desc = String((facetaData as any).descricao ?? "");
+
+      // ✅ adiciona no sumário "as características do fator"
+      tocFactors[tocFactors.length - 1].facetas.push(facetaTitulo);
 
       const avg = calcularMediaFaceta(formKey, (facetaData as any).perguntas, answers);
       const nivel = nivelPorMedia(avg);
 
       const map: Record<FeedbackLevel, string> = { baixo: "Baixo", medio: "Médio", alto: "Alto" };
-
       const lvl = ctx.theme.LEVEL[nivel];
       const badgeText = `Nível: ${map[nivel]}${avg != null ? ` • Média: ${avg.toFixed(2)}` : ""}`;
 
-      card(ctx, `Característica: ${String(facetaTitulo)}`, { text: badgeText, fg: lvl.fg, bg: lvl.bg }, desc);
+      // ✅ garante espaço antes, para evitar que o ensure interno mude a página
+      const hCard = estimateCardHeight(ctx, `Característica: ${facetaTitulo}`, desc);
+      ensure(ctx, hCard + 16);
+
+      card(
+        ctx,
+        `Característica: ${facetaTitulo}`,
+        { text: badgeText, fg: lvl.fg, bg: lvl.bg },
+        desc,
+        true
+      );
 
       const consolidado = (facetaData as any).feedbackConsolidado?.[nivel];
       if (consolidado) {
-        // título pequeno do consolidado
         subheading(ctx, String(consolidado.titulo), 12, ctx.theme.TEXT);
         paragraph(ctx, String(consolidado.definicao ?? ""), 11, ctx.theme.TEXT);
 
@@ -781,7 +822,6 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
         divider(ctx);
       } else {
-        // só dá um respiro entre facetas
         ctx.y -= 6;
       }
     }
@@ -789,11 +829,11 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
   /** ---------------- ENCERRAMENTO ---------------- */
   openContentPage(ctx);
-  heading(ctx, "Encerramento do Relatório", 22, ctx.theme.PRIMARY);
+  heading(ctx, "Mensagem final", 22, ctx.theme.PRIMARY);
 
   callout(
     ctx,
-    "Mensagem final",
+    "Encerramento",
     "Esperamos que este relatório tenha proporcionado insights valiosos sobre seu perfil e contribuído para o seu desenvolvimento pessoal e profissional.",
     "info"
   );
@@ -813,18 +853,25 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
     true
   );
 
-  /** ---------------- PREENCHER SUMÁRIO ---------------- */
+  /** ---------------- PREENCHER SUMÁRIO (com características) ---------------- */
   setPage(ctx, tocPage, 1);
   drawHeader(ctx);
   heading(ctx, "Sumário", 22, ctx.theme.TEXT);
-  paragraph(ctx, "Visão geral das seções do relatório.", 11, ctx.theme.MUTED);
+  paragraph(ctx, "Visão geral das seções do relatório e suas características.", 11, ctx.theme.MUTED);
   divider(ctx);
 
   ctx.y = tocStartY;
 
   const rowH = 16;
-  for (const it of tocEntries) {
-    ensure(ctx, rowH);
+
+  // ✅ estilos das facetas no sumário
+  const facetaSize = 9;
+  const facetaIndent = 18;
+  const facetaMaxW = ctx.width - ctx.margin * 2 - facetaIndent;
+
+  for (const it of tocFactors) {
+    ensure(ctx, rowH + 6);
+
     const left = it.label;
     const right = String(it.page);
 
@@ -836,7 +883,6 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
       color: ctx.theme.TEXT,
     });
 
-    // pontilhado
     const dots = "........................................................................";
     ctx.page.drawText(dots, {
       x: ctx.margin + 250,
@@ -855,6 +901,26 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
     });
 
     ctx.y -= rowH;
+
+    // ✅ agora: lista das características (facetas) do fator, indentada
+    if (it.facetas?.length) {
+      const facetaLine = it.facetas.join(" • ");
+      const lines = wrapText(facetaLine, ctx.fontRegular, facetaSize, facetaMaxW);
+
+      for (const ln of lines) {
+        ensure(ctx, lineHeight(facetaSize) + 2);
+        ctx.page.drawText(ln, {
+          x: ctx.margin + facetaIndent,
+          y: ctx.y - lineHeight(facetaSize) + 3,
+          size: facetaSize,
+          font: ctx.fontRegular,
+          color: ctx.theme.MUTED,
+        });
+        ctx.y -= lineHeight(facetaSize);
+      }
+
+      ctx.y -= 6; // respiro entre fatores
+    }
   }
 
   /** ---------------- PAGINAÇÃO (rodapé em todas, exceto capa) ---------------- */
@@ -862,11 +928,9 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   const total = pages.length;
 
   for (let i = 0; i < total; i++) {
-    // pula capa (página 0) — se quiser numerar também, remove esse if
     if (i === ctx.coverIndex) continue;
 
     const p = pages[i];
-    // desenha só o rodapé (não redesenha header pra não “pintar por cima” do conteúdo)
     const tmp = { ...ctx };
     setPage(tmp, p, i);
     drawFooter(tmp, i + 1, total);
