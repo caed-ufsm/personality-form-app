@@ -1,8 +1,10 @@
 {
     "AberturaExperiencia": {
+        "titulo": "Abertura à Experiência",
         "descricao": "O fator da personalidade Abertura à Experiência relaciona-se à imaginação, à curiosidade intelectual, à apreciação estética, à receptividade a ideias novas e à flexibilidade ao lidar com diferentes métodos ou abordagens de ensino, pesquisa ou extensão.",
         "facetas": {
             "Fantasia": {
+                "titulo": "Fantasia",
                 "descricao": "Tendência a usar a imaginação para visualizar possibilidades futuras ou criar analogias úteis em sala de aula ou pesquisa.",
                 "perguntas": [
                     {
@@ -63,7 +65,7 @@
                 "feedbackConsolidado": {
                     "baixo": {
                         "titulo": "FEEDBACK – Fantasia (Nível Baixo)",
-                        "definicao": "A faceta Fantasia refere-se à capacidade de criar cenários mentais que enriquecem o processo de ensino por meio de imaginação e criatividade. Em nível baixo, os docentes tendem a utilizar menos essa habilidade, preferindo métodos mais concretos e diretos, o que pode resultar em uma abordagem mais tradicional e menos inspiradora.",
+                        "definicao": "A caracteristica Fantasia refere-se à capacidade de criar cenários mentais que enriquecem o processo de ensino por meio de imaginação e criatividade. Em nível baixo, os docentes tendem a utilizar menos essa habilidade, preferindo métodos mais concretos e diretos, o que pode resultar em uma abordagem mais tradicional e menos inspiradora.",
                         "caracteristicas": [
                             "Pouco Uso da Imaginação: Tem dificuldade em criar cenários futuros ou associar metas de longo prazo com a rotina de ensino.",
                             "Preferência por Métodos Concretos: Dá prioridade a técnicas tradicionais, como a leitura e a resolução de exercícios, sem incorporar muitos recursos visuais ou narrativas criativas.",
@@ -89,7 +91,7 @@
                     },
                     "medio": {
                         "titulo": "FEEDBACK – Fantasia (Nível Médio)",
-                        "definicao": "A faceta Fantasia diz respeito à capacidade de usar a imaginação para criar cenários futuros, desenvolver analogias e elaborar narrativas que apoiem o ensino, a pesquisa e a extensão. Em nível médio, o docente utiliza a imaginação de forma equilibrada, combinando momentos de criatividade com métodos mais tradicionais. Essa postura permite gerar engajamento e inovação sem perder de vista a objetividade e a viabilidade das propostas.",
+                        "definicao": "A caracteristica Fantasia diz respeito à capacidade de usar a imaginação para criar cenários futuros, desenvolver analogias e elaborar narrativas que apoiem o ensino, a pesquisa e a extensão. Em nível médio, o docente utiliza a imaginação de forma equilibrada, combinando momentos de criatividade com métodos mais tradicionais. Essa postura permite gerar engajamento e inovação sem perder de vista a objetividade e a viabilidade das propostas.",
                         "caracteristicas": [
                             "Uso Seletivo da Imaginação: Aplica elementos criativos em aulas, projetos ou reuniões quando percebe que podem facilitar o entendimento ou motivar os participantes.",
                             "Visualização de Metas Relevantes: Consegue imaginar cenários de impacto positivo, mas prioriza aqueles que têm maior relação com o contexto e as possibilidades reais de execução.",
@@ -115,7 +117,7 @@
                     },
                     "alto": {
                         "titulo": "FEEDBACK – Fantasia (Nível Alto)",
-                        "definicao": "A faceta Fantasia diz respeito à tendência de usar a imaginação para visualizar possibilidades futuras, criar analogias e desenvolver narrativas que enriquecem o processo de ensino e pesquisa. Docentes com nível alto de fantasia empregam essa capacidade para formular aulas inovadoras, projetar impactos positivos em projetos de extensão ou pesquisa e idealizar melhorias no currículo, contribuindo para um ambiente de aprendizado dinâmico.",
+                        "definicao": "A caracteristica Fantasia diz respeito à tendência de usar a imaginação para visualizar possibilidades futuras, criar analogias e desenvolver narrativas que enriquecem o processo de ensino e pesquisa. Docentes com nível alto de fantasia empregam essa capacidade para formular aulas inovadoras, projetar impactos positivos em projetos de extensão ou pesquisa e idealizar melhorias no currículo, contribuindo para um ambiente de aprendizado dinâmico.",
                         "caracteristicas": [
                             "Motivação por Objetivos Futuros: Imagina cenários de sucesso, como ex-alunos se destacando em suas carreiras ou a aplicação efetiva dos seus ensinamentos.",
                             "Criação de Narrativas: Cria histórias e exemplos que tornam os conteúdos mais interessantes e facilitam a assimilação pelos discentes.",
@@ -143,6 +145,7 @@
                 }
             },
             "Sentimentos": {
+                "titulo": "Sentimentos",
                 "descricao": "Tendência a reconhecer e gerenciar emoções sem permitir que elas prejudiquem o exercício docente.",
                 "perguntas": [
                     {
@@ -203,7 +206,7 @@
                 "feedbackConsolidado": {
                     "baixo": {
                         "titulo": "FEEDBACK – Sentimentos (Nível Baixo)",
-                        "definicao": "A faceta Sentimentos analisa a frequência com que os docentes reconhecem e gerenciam suas emoções no ambiente de trabalho. Em nível baixo, a estabilidade emocional é predominante, resultando em uma postura mais reservada, que pode, contudo, ocultar sinais sutis de estresse ou fadiga, prejudicando a capacidade de realizar ajustes preventivos.",
+                        "definicao": "A caracteristica Sentimentos analisa a frequência com que os docentes reconhecem e gerenciam suas emoções no ambiente de trabalho. Em nível baixo, a estabilidade emocional é predominante, resultando em uma postura mais reservada, que pode, contudo, ocultar sinais sutis de estresse ou fadiga, prejudicando a capacidade de realizar ajustes preventivos.",
                         "caracteristicas": [
                             "Estabilidade Emocional: Mantém uma aparência de calma e constância, com pouca variação de humor, mesmo em períodos de alta demanda.",
                             "Resistência à Influência Emocional: Raramente demonstra reações intensas, o que pode ajudar a manter o foco, mas também pode mascarar sinais iniciais de estresse ou cansaço.",
@@ -227,7 +230,7 @@
                     },
                     "medio": {
                         "titulo": "FEEDBACK – Sentimentos (Nível Médio)",
-                        "definicao": "A faceta Sentimentos avalia a capacidade de reconhecer e gerenciar as próprias emoções para que não prejudiquem o exercício docente. Em nível médio, o docente demonstra uma consciência razoável de seus estados emocionais e busca regulá-los de forma funcional, mas pode enfrentar oscilações em contextos de alta pressão. Esse equilíbrio permite lidar com situações desafiadoras sem perder a objetividade, embora haja espaço para aprimorar a consistência no manejo emocional.",
+                        "definicao": "A caracteristica Sentimentos avalia a capacidade de reconhecer e gerenciar as próprias emoções para que não prejudiquem o exercício docente. Em nível médio, o docente demonstra uma consciência razoável de seus estados emocionais e busca regulá-los de forma funcional, mas pode enfrentar oscilações em contextos de alta pressão. Esse equilíbrio permite lidar com situações desafiadoras sem perder a objetividade, embora haja espaço para aprimorar a consistência no manejo emocional.",
                         "caracteristicas": [
                             "Atenção Moderada às Emoções: Percebe reações emocionais em situações críticas, como turmas desafiadoras ou mudanças institucionais, mas nem sempre aprofunda a análise sobre suas causas.",
                             "Gestão Funcional: Tenta controlar as emoções quando algum tema ou situação o afeta, conseguindo, na maior parte das vezes, manter a qualidade do ensino.",
@@ -254,7 +257,7 @@
                     },
                     "alto": {
                         "titulo": "FEEDBACK – Sentimentos (Nível Alto)",
-                        "definicao": "A faceta Sentimentos avalia a capacidade de reconhecer e gerenciar emoções sem que elas prejudiquem o exercício docente. Em nível alto, você demonstra uma sensibilidade aguda aos seus estados emocionais, percebendo variações como ansiedade ou entusiasmo em momentos críticos (por exemplo, semanas de provas, bancas ou reuniões de colegiado).",
+                        "definicao": "A caracteristica Sentimentos avalia a capacidade de reconhecer e gerenciar emoções sem que elas prejudiquem o exercício docente. Em nível alto, você demonstra uma sensibilidade aguda aos seus estados emocionais, percebendo variações como ansiedade ou entusiasmo em momentos críticos (por exemplo, semanas de provas, bancas ou reuniões de colegiado).",
                         "caracteristicas": [
                             "Percepção Emocional Intensa: Atenta às próprias reações emocionais diante de turmas desafiadoras e dificuldades institucionais.",
                             "Gestão Ativa das Emoções: Empenha-se em gerenciar os impactos emocionais que possam afetar a qualidade do ensino, mesmo quando temas do componente curricular o atingem fortemente.",
@@ -280,6 +283,7 @@
                 }
             },
             "Ações Variadas": {
+                "titulo": "Ações Variadas",
                 "descricao": "Tendência a experimentar novas estratégias e métodos, mostrando-se flexível e aberto(a) a adaptações.",
                 "perguntas": [
                     {
@@ -340,7 +344,7 @@
                 "feedbackConsolidado": {
                     "baixo": {
                         "titulo": "FEEDBACK – Ações Variadas (Nível Baixo)",
-                        "definicao": "A faceta Ações Variadas analisa a disposição para experimentar novas abordagens no ensino, pesquisa e extensão. Em nível baixo, os docentes tendem a preferir métodos tradicionais e rotinas já consolidadas, valorizando a estabilidade e a previsibilidade, mas, ao mesmo tempo, podem perder oportunidades de inovação que poderiam enriquecer a prática pedagógica.",
+                        "definicao": "A caracteristica Ações Variadas analisa a disposição para experimentar novas abordagens no ensino, pesquisa e extensão. Em nível baixo, os docentes tendem a preferir métodos tradicionais e rotinas já consolidadas, valorizando a estabilidade e a previsibilidade, mas, ao mesmo tempo, podem perder oportunidades de inovação que poderiam enriquecer a prática pedagógica.",
                         "caracteristicas": [
                             "Prefere métodos e práticas de ensino tradicionais, mantendo uma rotina consolidada.",
                             "Demonstra resistência a mudanças significativas, optando por estratégias que já estão comprovadas.",
@@ -367,7 +371,7 @@
                     },
                     "medio": {
                         "titulo": "FEEDBACK – Ações Variadas (Nível Médio)",
-                        "definicao": "A faceta Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Em nível médio, o docente demonstra interesse em explorar abordagens diferentes, mas o faz de forma seletiva e planejada, equilibrando inovação e estabilidade. Essa postura favorece a atualização profissional sem comprometer a consistência das práticas já consolidadas.",
+                        "definicao": "A caracteristica Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Em nível médio, o docente demonstra interesse em explorar abordagens diferentes, mas o faz de forma seletiva e planejada, equilibrando inovação e estabilidade. Essa postura favorece a atualização profissional sem comprometer a consistência das práticas já consolidadas.",
                         "caracteristicas": [
                             "Experimentação Moderada: Testa novas metodologias e ferramentas de forma pontual, priorizando aquelas que parecem ter maior potencial de aplicação no seu contexto.",
                             "Abertura a Capacitações: Mostra curiosidade em participar de formações pedagógicas e eventos fora da área habitual, mas seleciona aqueles mais alinhados às suas demandas e interesses.",
@@ -393,7 +397,7 @@
                     },
                     "alto": {
                         "titulo": "FEEDBACK – Ações Variadas (Nível Alto)",
-                        "definicao": "A faceta Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Docentes com nível alto utilizam metodologias inovadoras, como técnicas ativas, jogos educativos e ferramentas de avaliação diferenciadas, para renovar suas práticas e estimular o aprendizado dos discentes.",
+                        "definicao": "A caracteristica Ações Variadas refere-se à disposição para experimentar novas estratégias e métodos de ensino, pesquisa e extensão, demonstrando flexibilidade e abertura a adaptações. Docentes com nível alto utilizam metodologias inovadoras, como técnicas ativas, jogos educativos e ferramentas de avaliação diferenciadas, para renovar suas práticas e estimular o aprendizado dos discentes.",
                         "caracteristicas": [
                             "Testa metodologias ativas, jogos educativos e diversas ferramentas de avaliação com frequência.",
                             "Explora linhas de investigação que ampliam seus horizontes e enriquecem o conteúdo ministrado.",
@@ -420,6 +424,7 @@
                 }
             },
             "Valores": {
+                "titulo": "Valores",
                 "descricao": "Tendência a refletir criticamente sobre princípios e crenças, avaliando-os no contexto da universidade e da formação de cidadãos.",
                 "perguntas": [
                     {
@@ -480,7 +485,7 @@
                 "feedbackConsolidado": {
                     "baixo": {
                         "titulo": "FEEDBACK – Valores (Nível Baixo)",
-                        "definicao": "A faceta Valores avalia a propensão para refletir sobre princípios e crenças no contexto da universidade. Em nível baixo, os docentes tendem assim a seguir rigorosamente os padrões e normas institucionais, mantendo uma postura mais tradicional e objetiva, com menor inclinação para questionamentos ou para a busca de perspectivas diversas que possam enriquecer o ensino.",
+                        "definicao": "A caracteristica Valores avalia a propensão para refletir sobre princípios e crenças no contexto da universidade. Em nível baixo, os docentes tendem assim a seguir rigorosamente os padrões e normas institucionais, mantendo uma postura mais tradicional e objetiva, com menor inclinação para questionamentos ou para a busca de perspectivas diversas que possam enriquecer o ensino.",
                         "caracteristicas": [
                             "Conformidade com Padrões Institucionais: Adere estritamente às normas e orientações de ensino, sem se envolver em debates que desafiem o status quo.",
                             "Menor Reflexão Crítica: Foca no que é essencial para a aprovação e na execução dos métodos tradicionais, sem explorar amplamente alternativas ou novas abordagens.",
@@ -506,7 +511,7 @@
                     },
                     "medio": {
                         "titulo": "FEEDBACK – Valores (Nível Médio)",
-                        "definicao": "A faceta Valores avalia a tendência de refletir criticamente sobre princípios, crenças e convicções no contexto da universidade e da formação de cidadãos. Em nível médio, o docente demonstra abertura para revisar suas ideias e incorporar novas perspectivas, mas preserva parte significativa de suas convicções originais. Essa postura favorece o diálogo construtivo e o equilíbrio entre tradição e inovação, permitindo contribuir para a evolução institucional sem rupturas bruscas.",
+                        "definicao": "A caracteristica Valores avalia a tendência de refletir criticamente sobre princípios, crenças e convicções no contexto da universidade e da formação de cidadãos. Em nível médio, o docente demonstra abertura para revisar suas ideias e incorporar novas perspectivas, mas preserva parte significativa de suas convicções originais. Essa postura favorece o diálogo construtivo e o equilíbrio entre tradição e inovação, permitindo contribuir para a evolução institucional sem rupturas bruscas.",
                         "caracteristicas": [
                             "Reflexão Seletiva: Analisa o impacto de sua docência na comunidade e na transformação social, mas prioriza os temas mais próximos de sua realidade acadêmica.",
                             "Abertura Condicionada: Está disposto(a) a reconsiderar convicções pedagógicas quando confrontado(a) com evidências sólidas, mas mantém critérios claros para aceitar mudanças.",
@@ -533,7 +538,7 @@
                     },
                     "alto": {
                         "titulo": "FEEDBACK – Valores (Nível Alto)",
-                        "definicao": "A faceta Valores diz respeito à tendência de refletir criticamente sobre princípios, crenças e convicções, avaliando-os no contexto da universidade e na formação de cidadãos. Docentes com nível alto nessa faceta são profundamente engajados na transformação social, questionam suas convicções pedagógicas quando confrontados com novas evidências e buscam compreender diversas correntes teóricas para enriquecer o processo de ensino-aprendizagem.",
+                        "definicao": "A caracteristica Valores diz respeito à tendência de refletir criticamente sobre princípios, crenças e convicções, avaliando-os no contexto da universidade e na formação de cidadãos. Docentes com nível alto nessa caracteristica são profundamente engajados na transformação social, questionam suas convicções pedagógicas quando confrontados com novas evidências e buscam compreender diversas correntes teóricas para enriquecer o processo de ensino-aprendizagem.",
                         "caracteristicas": [
                             "Reflexão Crítica: Analisa como a própria docência pode impactar a transformação social e contribui para a comunidade acadêmica.",
                             "Abertura à Revisão: Está disposto(a) a revisar e modificar suas convicções pedagógicas diante de debates e evidências que as desafiem.",

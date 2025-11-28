@@ -27,7 +27,13 @@ type Faceta = {
   perguntas: PerguntaFeedback[];
   feedbackConsolidado: Record<FeedbackLevel, FeedbackConsolidado>;
 };
-type FeedbackForm = { facetas: Record<string, Faceta> };
+type FeedbackForm = {
+  titulo?: string;     // <-- adiciona
+  descricao?: string;  // <-- (opcional) se teu JSON também tem
+  facetas: Record<string, Faceta>;
+};
+
+
 export type OneForm = { id: string; answers: Record<string, number | string> };
 type FormKey =
   | "extroversao"
@@ -348,44 +354,54 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
   for (let i = 0; i < forms.length; i++) {
     const { id: formIdRaw, answers } = forms[i];
     const formKey = resolveFormKey(formIdRaw);
-    const label = formKey ? formKey.charAt(0).toUpperCase() + formKey.slice(1) : String(formIdRaw);
 
     if (i > 0) openContentPage();
 
-    heading(ctx, `Faceta: ${label}`, 22, PRIMARY);
-
     if (!formKey) {
+      const fallbackLabel = String(formIdRaw);
+      heading(ctx, `Fator: ${fallbackLabel}`, 22, PRIMARY);
       paragraph(ctx, "Feedback não encontrado para este formulário.", 12, TEXT_MUTED);
       continue;
     }
 
-    const fb = FEEDBACKS[formKey];
+    const fb = FEEDBACKS[formKey]; // <-- agora nunca é undefined
+
+    const label =
+      fb.titulo?.trim() ||
+      formKey.charAt(0).toUpperCase() + formKey.slice(1);
+
+    heading(ctx, `Fator: ${label}`, 26, PRIMARY);
+
 
     // --- FACETAS ---
     for (const [facetaNome, facetaData] of Object.entries(fb.facetas)) {
-      const titleSize = 16,
-        lhTitle = lineHeight(titleSize),
-        titleTopY = ctx.y - lhTitle + 3;
+      const facetaTitulo = (facetaData as any).titulo ?? facetaNome;
+
+      const subSize = 19;
+      const lh = lineHeight(subSize);
+      const topY = ctx.y - lh + 3; // mesmo padrão do título do fator
 
       ctx.page.drawRectangle({
-        x: ctx.margin - 8,
-        y: titleTopY - 2,
-        width: 6,
-        height: lhTitle - 2,
+        x: ctx.margin - 8,      // ajuste fino (igual o do fator)
+        y: topY - 2,            // alinhado ao texto
+        width: 5,
+        height: lh - 1,
         color: ACCENT,
       });
 
-      const avg = calcularMediaFaceta(formKey, facetaData.perguntas, answers);
+      subheading(ctx, `Característica: ${facetaTitulo}`, subSize, PRIMARY);
+
+      paragraph(ctx, (facetaData as any).descricao, 12, TEXT_MUTED);
+      ctx.y -= 20;
+
+      const avg = calcularMediaFaceta(formKey, (facetaData as any).perguntas, answers);
       const nivel = nivelPorMedia(avg);
+
       const map: Record<FeedbackLevel, string> = {
         baixo: "Baixo",
         medio: "Médio",
         alto: "Alto",
       };
-
-      subheading(ctx, `Característica: ${facetaNome}`, titleSize, PRIMARY);
-      paragraph(ctx, facetaData.descricao, 12, TEXT_MUTED);
-      ctx.y -= 20; // pula ~2 linhas
 
       paragraph(
         ctx,
@@ -395,7 +411,7 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
         true
       );
 
-      ctx.y -= 20; // pula ~2 linhas
+      ctx.y -= 20;
 
       const consolidado = facetaData.feedbackConsolidado[nivel];
       if (consolidado) {
@@ -430,10 +446,50 @@ export async function buildPdfReport(forms: OneForm[], opts?: { title?: string }
 
       ctx.y -= 8;
 
-      // ⭐ AQUI: QUEBRA DE PÁGINA APÓS FECHAR UMA FACETA
-      newPage(ctx);
     }
   }
+
+  // Última página (encerramento)
+  const lastPage = pdfDoc.addPage();
+  setPage(ctx, lastPage);
+
+  // Cabeçalho azul no topo
+  ctx.page.drawRectangle({
+    x: 0,
+    y: ctx.height - 40,
+    width: ctx.width,
+    height: 40,
+    color: PRIMARY,
+  });
+  ctx.page.drawText("Relatório Completo Personalizado", {
+    x: ctx.margin,
+    y: ctx.height - 30,
+    size: 12,
+    color: rgb(1, 1, 1),
+    font: fontBold,
+  });
+
+  ctx.y = ctx.height - ctx.margin - 40;
+
+  heading(ctx, "Encerramento do Relatório", 22, rgb(0.0, 0.25, 0.55));
+  paragraph(
+    ctx,
+    "Esperamos que este relatório tenha proporcionado insights valiosos sobre seu perfil psicológico e contribuído para o seu desenvolvimento pessoal e profissional.",
+    12
+  );
+  paragraph(
+    ctx,
+    "Lembre-se: autoconhecimento é uma jornada contínua. Use estas informações como ponto de partida para reflexões, melhorias e fortalecimento de suas habilidades pessoais e profissionais.",
+    12
+  );
+  paragraph(
+    ctx,
+    "Agradecemos por participar do Programa de Autoconhecimento Docentes.",
+    12,
+    rgb(0, 0, 0),
+    true
+  );
+
 
   const pdfBytes = await pdfDoc.save();
   return new Uint8Array(pdfBytes);
