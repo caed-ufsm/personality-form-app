@@ -222,7 +222,7 @@ export default function FormsIndexPage() {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "relatorio-consolidado.pdf";
+      a.download = "relatorio-personalizado.pdf";
       a.click();
       URL.revokeObjectURL(url);
 
@@ -480,7 +480,7 @@ export default function FormsIndexPage() {
           <p className="text-gray-700 mb-6 leading-relaxed">
             Após concluir todos os formulários, suas respostas serão enviadas de
             forma anônima e segura para gerar um{" "}
-            <strong>relatório personalizado</strong>
+            <strong>relatório personalizado completo</strong>
           </p>
 
           <div className="flex flex-col items-center gap-4">

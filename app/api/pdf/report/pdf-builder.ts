@@ -673,7 +673,7 @@ export async function buildPdfReport(
       color: rgb(1, 1, 1),
     });
 
-    page.drawText("Relatório personalizado", {
+    page.drawText("Relatório Completo Personalizado", {
       x: ctx.margin,
       y: height - 126,
       size: 18,
@@ -833,7 +833,7 @@ export async function buildPdfReport(
 
   callout(
     ctx,
-    "Encerramento",
+    "",
     "Esperamos que este relatório tenha proporcionado insights valiosos sobre seu perfil e contribuído para o seu desenvolvimento pessoal e profissional.",
     "info"
   );
@@ -853,11 +853,17 @@ export async function buildPdfReport(
     true
   );
 
+  paragraph(
+    ctx,
+    "Formas de contato para suporte, dúvidas ou sugestões: equipeedusaudecaed@ufsm.br",
+    12,
+    ctx.theme.TEXT
+  );
+
   /** ---------------- PREENCHER SUMÁRIO (com características) ---------------- */
   setPage(ctx, tocPage, 1);
   drawHeader(ctx);
   heading(ctx, "Sumário", 22, ctx.theme.TEXT);
-  paragraph(ctx, "Visão geral das seções do relatório e suas características.", 11, ctx.theme.MUTED);
   divider(ctx);
 
   ctx.y = tocStartY;
@@ -902,25 +908,36 @@ export async function buildPdfReport(
 
     ctx.y -= rowH;
 
-    // ✅ agora: lista das características (facetas) do fator, indentada
+    // ✅ agora: cada faceta em uma linha (com quebra e paginação)
     if (it.facetas?.length) {
-      const facetaLine = it.facetas.join(" • ");
-      const lines = wrapText(facetaLine, ctx.fontRegular, facetaSize, facetaMaxW);
+      const bulletIndentExtra = 12; // recuo extra para continuação (2ª linha em diante)
 
-      for (const ln of lines) {
-        ensure(ctx, lineHeight(facetaSize) + 2);
-        ctx.page.drawText(ln, {
-          x: ctx.margin + facetaIndent,
-          y: ctx.y - lineHeight(facetaSize) + 3,
-          size: facetaSize,
-          font: ctx.fontRegular,
-          color: ctx.theme.MUTED,
-        });
-        ctx.y -= lineHeight(facetaSize);
+      for (const faceta of it.facetas) {
+        const text = `• ${faceta}`;
+        const lines = wrapText(text, ctx.fontRegular, facetaSize, facetaMaxW);
+
+        for (let i = 0; i < lines.length; i++) {
+          const ln = lines[i];
+
+          ensure(ctx, lineHeight(facetaSize) + 2);
+
+          ctx.page.drawText(ln, {
+            x: ctx.margin + facetaIndent + (i === 0 ? 0 : bulletIndentExtra),
+            y: ctx.y - lineHeight(facetaSize) + 3,
+            size: facetaSize,
+            font: ctx.fontRegular,
+            color: ctx.theme.MUTED,
+          });
+
+          ctx.y -= lineHeight(facetaSize);
+        }
+
+        ctx.y -= 2; // espaço entre facetas
       }
 
       ctx.y -= 6; // respiro entre fatores
     }
+
   }
 
   /** ---------------- PAGINAÇÃO (rodapé em todas, exceto capa) ---------------- */
