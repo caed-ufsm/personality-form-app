@@ -871,8 +871,8 @@ export async function buildPdfReport(
   const rowH = 16;
 
   // ✅ estilos das facetas no sumário
-  const facetaSize = 9;
-  const facetaIndent = 18;
+  const facetaSize = 14;
+  const facetaIndent = 20;
   const facetaMaxW = ctx.width - ctx.margin * 2 - facetaIndent;
 
   for (const it of tocFactors) {

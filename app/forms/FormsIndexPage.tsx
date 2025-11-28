@@ -495,7 +495,7 @@ export default function FormsIndexPage() {
             >
               {isLoading
                 ? "⏳ Enviando e gerando PDF..."
-                : "📤 Enviar e gerar PDF completo"}
+                : "📑 Gerar Relatório Personalizado Completo"}
             </button>
 
             {!allComplete && (
