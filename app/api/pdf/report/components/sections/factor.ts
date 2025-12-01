@@ -1,8 +1,7 @@
 // components/sections/factor.ts
 import type { LayoutCtx } from "../layout";
 import type { EnsureFn } from "../primitives";
-import type { OneForm, FeedbackLevel } from "../data";
-import type { TocFactorEntry } from "../data.ts";
+import type { OneForm, FeedbackLevel, TocFactorEntry } from "../data"; // ✅ aqui
 import { FEEDBACKS, resolveFormKey } from "../data";
 import { calcularMediaFaceta, nivelPorMedia } from "../scoring";
 import { heading, paragraph, subheading, bulletList, divider } from "../primitives";
@@ -43,8 +42,6 @@ export function renderFactors(
       const facetaTitulo = String((facetaData as any).titulo ?? facetaNome);
       const desc = String((facetaData as any).descricao ?? "");
 
-      tocFactors[tocFactors.length - 1].facetas.push(facetaTitulo);
-
       const avg = calcularMediaFaceta(formKey, (facetaData as any).perguntas, answers);
       const nivel = nivelPorMedia(avg);
 
@@ -55,7 +52,20 @@ export function renderFactors(
       const hCard = estimateCardHeight(ctx, `Característica: ${facetaTitulo}`, desc);
       ensure(ctx, hCard + 16);
 
-      card(ctx, ensure, `Característica: ${facetaTitulo}`, { text: badgeText, fg: lvl.fg, bg: lvl.bg }, desc, true);
+      // ✅ registra a faceta com a página correta (após o ensure)
+      tocFactors[tocFactors.length - 1].facetas.push({
+        label: facetaTitulo,
+        page: ctx.pageIndex + 1,
+      });
+
+      card(
+        ctx,
+        ensure,
+        `Característica: ${facetaTitulo}`,
+        { text: badgeText, fg: lvl.fg, bg: lvl.bg },
+        desc,
+        true
+      );
 
       const consolidado = (facetaData as any).feedbackConsolidado?.[nivel];
       if (consolidado) {
