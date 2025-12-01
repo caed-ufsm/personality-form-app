@@ -1,25 +1,32 @@
 // app/api/pdf/report/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { buildPdfReport, OneForm } from "./pdf-builder";
+import { buildPdfReport } from "./pdf-builder";
+import type { OneForm } from "./components/data";
 
 /** ---------------- Rate limit / Idempotência (in-memory) ---------------- */
 type Bucket = { count: number; resetAt: number };
+
 declare global {
+  // eslint-disable-next-line no-var
   var __rateBuckets__pdfReport: Map<string, Bucket> | undefined;
+  // eslint-disable-next-line no-var
   var __idemKeys__pdfReport: Map<string, number> | undefined;
 }
 
-const buckets =
-  globalThis.__rateBuckets__pdfReport ?? new Map<string, Bucket>();
+const buckets = globalThis.__rateBuckets__pdfReport ?? new Map<string, Bucket>();
 globalThis.__rateBuckets__pdfReport = buckets;
 
-const idemKeys =
-  globalThis.__idemKeys__pdfReport ?? new Map<string, number>();
+const idemKeys = globalThis.__idemKeys__pdfReport ?? new Map<string, number>();
 globalThis.__idemKeys__pdfReport = idemKeys;
 
 const RATE_WINDOW_MS = 60_000;
 const RATE_MAX = 10;
 const IDEM_TTL_MS = 2 * 60_000;
+
+/** ---------------- Helpers ---------------- */
+function jsonError(message: string, status: number, headers?: Record<string, string>) {
+  return NextResponse.json({ error: message }, { status, headers });
+}
 
 function getClientIp(req: NextRequest) {
   const xf = req.headers.get("x-forwarded-for");
@@ -30,49 +37,76 @@ function getClientIp(req: NextRequest) {
 function checkRate(ip: string) {
   const now = Date.now();
   const b = buckets.get(ip);
+
   if (!b || b.resetAt <= now) {
-    buckets.set(ip, {
-      count: 1,
-      resetAt: now + RATE_WINDOW_MS,
-    });
-    return {
-      allowed: true,
-      remaining: RATE_MAX - 1,
-      retryAfter: RATE_WINDOW_MS / 1000,
-    };
+    buckets.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return { allowed: true, remaining: RATE_MAX - 1, retryAfter: RATE_WINDOW_MS / 1000 };
   }
+
   if (b.count >= RATE_MAX) {
-    return {
-      allowed: false,
-      remaining: 0,
-      retryAfter: Math.max(
-        0,
-        Math.ceil((b.resetAt - now) / 1000)
-      ),
-    };
+    return { allowed: false, remaining: 0, retryAfter: Math.max(0, Math.ceil((b.resetAt - now) / 1000)) };
   }
+
   b.count += 1;
-  return {
-    allowed: true,
-    remaining: RATE_MAX - b.count,
-    retryAfter: Math.max(
-      0,
-      Math.ceil((b.resetAt - now) / 1000)
-    ),
-  };
+  return { allowed: true, remaining: RATE_MAX - b.count, retryAfter: Math.max(0, Math.ceil((b.resetAt - now) / 1000)) };
+}
+
+function pruneIdempotency() {
+  const now = Date.now();
+  for (const [k, ts] of idemKeys) if (now - ts > IDEM_TTL_MS) idemKeys.delete(k);
 }
 
 function checkIdempotency(key?: string | null) {
-  if (!key) return { duplicate: false };
-  const now = Date.now();
+  if (!key) return { duplicate: false as const };
+  pruneIdempotency();
+  if (idemKeys.has(key)) return { duplicate: true as const };
+  idemKeys.set(key, Date.now());
+  return { duplicate: false as const };
+}
 
-  for (const [k, ts] of idemKeys)
-    if (now - ts > IDEM_TTL_MS) idemKeys.delete(k);
+async function readJsonBody(req: NextRequest): Promise<any> {
+  // Mantém seu comportamento: body vazio vira {}
+  const raw = await req.text();
+  return raw ? JSON.parse(raw) : {};
+}
 
-  if (idemKeys.has(key)) return { duplicate: true };
+function normalizeForms(body: any): OneForm[] | null {
+  // Payload: { forms } OU { formId, answers }
+  if (Array.isArray(body?.forms) && body.forms.length) {
+    const forms = body.forms
+      .map((f: any) => ({
+        id: String(f?.id || ""),
+        answers: f?.answers || {},
+      }))
+      .filter((f: OneForm) => f.id && f.answers && typeof f.answers === "object");
 
-  idemKeys.set(key, now);
-  return { duplicate: false };
+    return forms.length ? forms : null;
+  }
+
+  if (body?.formId && body?.answers && typeof body.answers === "object") {
+    return [
+      {
+        id: String(body.formId),
+        answers: body.answers as Record<string, number | string>,
+      },
+    ];
+  }
+
+  return null;
+}
+
+function pdfResponse(bytes: Uint8Array, idemKey?: string | null) {
+  const ab = new ArrayBuffer(bytes.byteLength);
+  new Uint8Array(ab).set(bytes);
+
+  const headers: Record<string, string> = {
+    "Content-Type": "application/pdf",
+    "Content-Disposition": 'attachment; filename="relatorio-personalizado.pdf"',
+    "Content-Length": String(bytes.byteLength),
+  };
+  if (idemKey) headers["Idempotency-Key"] = idemKey;
+
+  return new Response(ab, { status: 200, headers });
 }
 
 /** ---------------- Handler ---------------- */
@@ -82,67 +116,25 @@ export async function POST(req: NextRequest) {
     const ip = getClientIp(req);
     const rate = checkRate(ip);
     if (!rate.allowed) {
-      return NextResponse.json(
-        {
-          error: "Muitas requisições. Tente novamente em instantes.",
-        },
-        {
-          status: 429,
-          headers: { "Retry-After": String(rate.retryAfter) },
-        }
-      );
+      return jsonError("Muitas requisições. Tente novamente em instantes.", 429, {
+        "Retry-After": String(rate.retryAfter),
+      });
     }
 
     // Body + Idempotência
     const idemHeader = req.headers.get("idempotency-key");
-    const raw = await req.text();
-    const body = raw ? JSON.parse(raw) : {};
+    const body = await readJsonBody(req);
     const requestId = body?.requestId as string | undefined;
 
-    const idem = checkIdempotency(idemHeader || requestId || null);
-    if (idem.duplicate)
-      return NextResponse.json(
-        { error: "Submissão duplicada" },
-        { status: 409 }
-      );
+    const { duplicate } = checkIdempotency(idemHeader || requestId || null);
+    if (duplicate) return jsonError("Submissão duplicada", 409);
 
-    // ❌ REMOVIDO — NÃO HÁ MAIS HCAPTCHA
-
-    // Payload: { forms } OU { formId, answers }
-    let forms: OneForm[] = [];
-    if (Array.isArray(body?.forms) && body.forms.length) {
-      forms = body.forms
-        .map((f: any) => ({
-          id: String(f?.id || ""),
-          answers: f?.answers || {},
-        }))
-        .filter(
-          (f: OneForm) =>
-            f.id &&
-            f.answers &&
-            typeof f.answers === "object"
-        );
-    } else if (
-      body?.formId &&
-      body?.answers &&
-      typeof body.answers === "object"
-    ) {
-      forms = [
-        {
-          id: String(body.formId),
-          answers: body.answers as Record<
-            string,
-            number | string
-          >,
-        },
-      ];
-    } else {
-      return NextResponse.json(
-        {
-          error:
-            "Payload inválido. Envie {formId, answers} ou {forms: [{id, answers}]}",
-        },
-        { status: 400 }
+    // Payload -> forms
+    const forms = normalizeForms(body);
+    if (!forms) {
+      return jsonError(
+        "Payload inválido. Envie {formId, answers} ou {forms: [{id, answers}]}",
+        400
       );
     }
 
@@ -150,23 +142,9 @@ export async function POST(req: NextRequest) {
       title: "Relatório Personalizado Completo",
     });
 
-    const ab = new ArrayBuffer(bytes.byteLength);
-    new Uint8Array(ab).set(bytes);
-
-    const headers: Record<string, string> = {
-      "Content-Type": "application/pdf",
-      "Content-Disposition":
-        'attachment; filename="relatorio-personalizado.pdf"',
-      "Content-Length": String(bytes.byteLength),
-    };
-    if (idemHeader) headers["Idempotency-Key"] = idemHeader;
-
-    return new Response(ab, { status: 200, headers });
+    return pdfResponse(bytes, idemHeader);
   } catch (e) {
     console.error("[/api/pdf/report] ERROR:", e);
-    return NextResponse.json(
-      { error: "Erro ao gerar PDF" },
-      { status: 500 }
-    );
+    return jsonError("Erro ao gerar PDF", 500);
   }
 }
