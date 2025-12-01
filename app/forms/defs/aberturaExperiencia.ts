@@ -12,7 +12,7 @@ export const aberturaExperienciaV1: FormDefinition = {
   iconEmoji: "🌌",
   themeColor: "#3b82f6",
   tags: ["Personalidade", "Docência", "Criatividade"],
-  estimatedMinutes: 4,
+  estimatedMinutes: 12,
   totalQuestions: 24,
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",

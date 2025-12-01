@@ -83,37 +83,57 @@ export function subheading(ctx: LayoutCtx, ensure: EnsureFn, text: string, size 
   ctx.y -= 4;
 }
 
-/** Lista com bullets + quebra em múltiplas linhas */
+/** Lista com bullets + quebra em múltiplas linhas (alinhada) */
 export function bulletList(ctx: LayoutCtx, ensure: EnsureFn, items: string[], size = 11) {
-  const maxW = ctx.width - ctx.margin * 2 - 18;
+  // espaçamentos
+  const gapAfterList = 8;
+  const gapBetweenItems = 4;
+
+  const bulletToTextGap = 10;      // distância horizontal bolinha -> texto
+  const bulletRadius = Math.max(1.4, Math.min(2.0, size * 0.14));
+
+  // posições X
+  const bulletX = ctx.margin + 6;                 // centro do bullet
+  const textX = bulletX + bulletToTextGap + 2;    // início do texto
+
+  // largura disponível pro texto
+  const maxW = ctx.width - ctx.margin * 2 - (textX - ctx.margin);
+
   const lh = lineHeight(size);
+
+  // ajuste vertical do centro da bolinha em relação ao baseline do texto
+  // (pdf-lib posiciona texto pelo "baseline"; isso aqui aproxima o centro visual da linha)
+  const bulletCenterOffset = size * 0.35;
 
   for (const item of items) {
     const lines = wrapText(item, ctx.fontRegular, size, maxW);
-    ensure(ctx, lh * lines.length + 6);
+    ensure(ctx, lh * lines.length + gapBetweenItems + 2);
 
-    // bolinha
+    // baseline da primeira linha
+    const baselineY = ctx.y - lh + 3;
+
+    // bolinha alinhada ao centro visual da *primeira* linha
     ctx.page.drawCircle({
-      x: ctx.margin + 4,
-      y: ctx.y - lh / 2 + 3,
-      size: 1.6,
+      x: bulletX,
+      y: baselineY + bulletCenterOffset,
+      size: bulletRadius,
       color: ctx.theme.ACCENT,
     });
 
-    // primeira linha do item
+    // primeira linha
     ctx.page.drawText(lines[0] ?? "", {
-      x: ctx.margin + 18,
-      y: ctx.y - lh + 3,
+      x: textX,
+      y: baselineY,
       size,
       font: ctx.fontRegular,
       color: ctx.theme.TEXT,
     });
     ctx.y -= lh;
 
-    // continuação (quebras)
+    // linhas seguintes (alinhadas no mesmo X do texto)
     for (const extra of lines.slice(1)) {
       ctx.page.drawText(extra, {
-        x: ctx.margin + 18,
+        x: textX,
         y: ctx.y - lh + 3,
         size,
         font: ctx.fontRegular,
@@ -122,8 +142,8 @@ export function bulletList(ctx: LayoutCtx, ensure: EnsureFn, items: string[], si
       ctx.y -= lh;
     }
 
-    ctx.y -= 2;
+    ctx.y -= gapBetweenItems;
   }
 
-  ctx.y -= 6;
+  ctx.y -= gapAfterList;
 }

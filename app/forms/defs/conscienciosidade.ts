@@ -12,7 +12,7 @@ export const conscienciosidadeV1: FormDefinition = {
   iconEmoji: "📋",
   themeColor: "#a855f7", // tailwind blue-500
   tags: ["Personalidade", "Docência", "Gestão Acadêmica"],
-  estimatedMinutes: 4,
+  estimatedMinutes: 12,
   totalQuestions: 24, // ajustar depois conforme todas as facetas incluídas
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",

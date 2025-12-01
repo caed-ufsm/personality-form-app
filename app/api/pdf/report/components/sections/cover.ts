@@ -2,38 +2,56 @@
 import { rgb } from "pdf-lib";
 import type { LayoutCtx } from "../layout";
 import type { EnsureFn } from "../primitives";
-import { callout } from "../blocks";
 import { paragraph, subheading, bulletList } from "../primitives";
+import { callout } from "../blocks";
+
+function spacer(ctx: LayoutCtx, ensure: EnsureFn, h: number) {
+  ensure(ctx, h + 2);
+  ctx.y -= h;
+}
 
 export function renderCover(ctx: LayoutCtx, ensure: EnsureFn) {
   const page = ctx.page;
   const { PRIMARY, BG } = ctx.theme;
   const { width, height } = page.getSize();
 
-  // Fundo e faixa superior
+  // Fundo
   page.drawRectangle({ x: 0, y: 0, width, height, color: BG });
-  page.drawRectangle({ x: 0, y: height - 170, width, height: 170, color: PRIMARY });
 
-  // Títulos
+  // Faixa superior
+  const bandH = 170;
+  page.drawRectangle({ x: 0, y: height - bandH, width, height: bandH, color: PRIMARY });
+
+  // Títulos (um pouco mais espaçados)
+  const titleX = ctx.margin;
+  const titleTopPad = 26;
+
+  const title1Size = 24;
+  const title2Size = 18;
+
+  const title1Y = height - titleTopPad - title1Size; // base aproximada
+  const titleGap = 14;
+
   page.drawText("Programa de Autoconhecimento Docente", {
-    x: ctx.margin,
-    y: height - 96,
-    size: 24,
+    x: titleX,
+    y: title1Y,
+    size: title1Size,
     font: ctx.fontBold,
     color: rgb(1, 1, 1),
   });
 
   page.drawText("Relatório Completo Personalizado", {
-    x: ctx.margin,
-    y: height - 126,
-    size: 18,
+    x: titleX,
+    y: title1Y - title2Size - titleGap,
+    size: title2Size,
     font: ctx.fontRegular,
     color: rgb(1, 1, 1),
   });
 
-  // Posição inicial do cursor
-  ctx.y = height - ctx.margin - 190;
+  // Início do conteúdo com mais respiro abaixo da faixa
+  ctx.y = height - ctx.margin - bandH + 25;
 
+  // 1) Callout (Importante)
   callout(
     ctx,
     ensure,
@@ -42,6 +60,9 @@ export function renderCover(ctx: LayoutCtx, ensure: EnsureFn) {
     "danger"
   );
 
+  spacer(ctx, ensure, 10);
+
+  // 2) Parágrafo de introdução
   paragraph(
     ctx,
     ensure,
@@ -50,7 +71,11 @@ export function renderCover(ctx: LayoutCtx, ensure: EnsureFn) {
     ctx.theme.TEXT
   );
 
+  spacer(ctx, ensure, 8);
+
+  // 3) Objetivos
   subheading(ctx, ensure, "Objetivos do Programa", 15, ctx.theme.PRIMARY);
+  spacer(ctx, ensure, 4);
 
   bulletList(
     ctx,
@@ -66,11 +91,31 @@ export function renderCover(ctx: LayoutCtx, ensure: EnsureFn) {
     12
   );
 
+  spacer(ctx, ensure, 14);
+
+  // 4) Callout Big Five
   callout(
     ctx,
     ensure,
     "Personalidade (Big Five)",
-    "Os formulários utilizam os Cinco Grandes Fatores da Personalidade — Abertura, Conscienciosidade, Extroversão, Amabilidade e Neuroticismo — para compreender como diferentes traços influenciam atitudes, comportamentos e potencial de crescimento pessoal.",
+    "A seguir, veja um resumo rápido do que cada fator costuma representar. Lembre-se: não existe “bom” ou “ruim” — o objetivo é entender tendências e usar isso como ponto de partida para reflexão e desenvolvimento.",
     "info"
   );
+
+  bulletList(
+    ctx,
+    ensure,
+    [
+      "Abertura: curiosidade, criatividade e interesse por novas ideias e experiências.",
+      "Conscienciosidade: organização, disciplina, responsabilidade e foco em cumprir metas.",
+      "Extroversão: energia social, comunicação, entusiasmo e facilidade para interações.",
+      "Amabilidade: empatia, cooperação, cordialidade e preocupação com o outro.",
+      "Neuroticismo: sensibilidade ao estresse, variações emocionais e tendência a preocupações.",
+    ],
+    12
+  );
+
+
+
+  spacer(ctx, ensure, 6);
 }

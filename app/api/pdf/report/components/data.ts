@@ -8,8 +8,11 @@ import rawConscienciosidade from "@/lib/feedbacks/conscienciosidade.json";
 // components/data.ts
 export type TocFactorEntry = {
   label: string;
-  page: number;      // 1-based
-  facetas: string[];
+  page: number; // 1-based
+  facetas: Array<{
+    label: string;
+    page: number; // 1-based
+  }>;
 };
 
 /** ---------------- Tipos ---------------- */

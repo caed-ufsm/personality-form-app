@@ -12,7 +12,7 @@ export const amabilidadeV1: FormDefinition = {
   iconEmoji: "🤝",
   themeColor: "#10b981", // tailwind emerald-500
   tags: ["Personalidade", "Relações Interpessoais", "Docência"],
-  estimatedMinutes: 4,
+  estimatedMinutes: 12,
   totalQuestions: 24,
   versionLabel: "v1",
   lastUpdatedISO: "2025-09-22",
