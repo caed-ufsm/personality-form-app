@@ -1,5 +1,5 @@
 // app/api/forms/pdf/report/pdf-builder.ts
-import { PDFDocument, StandardFonts } from "pdf-lib";
+import { PDFDocument, StandardFonts, PDFName, PDFArray, } from "pdf-lib";
 
 import {
   FEEDBACKS,
@@ -31,6 +31,44 @@ function ensure(ctx: LayoutCtx, needed: number) {
   ensureBase(ctx, needed, openContentPage);
 }
 
+function addGoToPageLink(ctx: LayoutCtx, fromPageIndex: number, rect: { x: number; y: number; w: number; h: number }, toPageIndex: number) {
+  const pdfDoc = ctx.pdfDoc as PDFDocument; // supondo que seu ctx guarda o doc (muito comum no newLayout)
+  const pages = pdfDoc.getPages();
+
+  const fromPage = pages[fromPageIndex];
+  const toPage = pages[toPageIndex];
+
+  if (!fromPage || !toPage) return;
+
+  const x1 = rect.x;
+  const y1 = rect.y;
+  const x2 = rect.x + rect.w;
+  const y2 = rect.y + rect.h;
+
+  // Destino: ir para a página (Fit = encaixar página inteira)
+  const dest = pdfDoc.context.obj([toPage.ref, PDFName.of("Fit")]);
+
+  // Link annotation
+  const linkAnnot = pdfDoc.context.obj({
+    Type: PDFName.of("Annot"),
+    Subtype: PDFName.of("Link"),
+    Rect: [x1, y1, x2, y2],
+    Border: [0, 0, 0],
+    Dest: dest,
+  });
+
+  // Garante array de Annots
+  let annots = fromPage.node.lookup(PDFName.of("Annots"), PDFArray) as PDFArray | undefined;
+  if (!annots) {
+    annots = pdfDoc.context.obj([]) as PDFArray;
+    fromPage.node.set(PDFName.of("Annots"), annots);
+  }
+
+  annots.push(linkAnnot);
+}
+
+
+
 export async function buildPdfReport(
   forms: OneForm[],
   opts?: { title?: string }
@@ -44,7 +82,7 @@ export async function buildPdfReport(
 
   /** ---------------- CAPA (extraída) ---------------- */
   renderCover(ctx, ensure);
-  
+
 
   /** ---------------- SUMÁRIO (placeholder e preenchido no final) ---------------- */
   const tocPage = pdfDoc.addPage();
@@ -273,8 +311,26 @@ export async function buildPdfReport(
       color: ctx.theme.MUTED,
     });
 
+    // ✅ LINK CLICÁVEL APENAS PARA O FATOR
+    // it.page é 1-based, então vira 0-based:
+    const targetIndex = it.page - 1;
+
+    addGoToPageLink(
+      ctx,
+      1, // índice da página do sumário (tocPage) no seu setPage(ctx, tocPage, 1)
+      {
+        // retângulo clicável pegando a linha inteira
+        x: ctx.margin - 8,
+        y: yFactor - 4,
+        w: (ctx.width - ctx.margin) - (ctx.margin - 8),
+        h: lineHeight(factorSize) + 8,
+      },
+      targetIndex
+    );
+
     ctx.y -= factorRowH;
     ctx.y -= 6;
+
 
     // ---------- FACETAS ----------
     if (it.facetas?.length) {
