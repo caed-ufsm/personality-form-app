@@ -417,9 +417,7 @@ export default function FormPageClient({
                 | Média: {feedbackContent.media}
               </p>
               <p className="text-gray-700 mb-4">{feedbackContent.definicao}</p>
-              <p className="text-gray-700 font-medium">
-                {feedbackContent.conclusao}
-              </p>
+
               <div className="mt-6 flex justify-end">
                 <button
                   onClick={() => setModalOpen(false)}

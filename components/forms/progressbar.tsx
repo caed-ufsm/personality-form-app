@@ -12,7 +12,7 @@ export default function ProgressBar({ progress, filledCount, total, page, numPag
         <div className="h-full" style={{ width: `${progress}%`, background: UFSM_BLUE }} />
       </div>
       <div className="text-xs text-gray-600 mt-1">
-        Progresso: {filledCount}/{total} — Página {page + 1} de {numPages}
+        Progresso: {filledCount}/{total}
       </div>
     </div>
   );

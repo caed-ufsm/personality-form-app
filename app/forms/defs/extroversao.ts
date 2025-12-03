@@ -46,7 +46,7 @@ export const extroversao: FormDefinition = {
           id: "e6",
           type: "likert",
           label:
-            "Ao perceber que alguém está isolado ou com dificuldades, tomo a iniciativa de oferecer apoio ou abrir espaço para diálogo.",
+            "Ao perceber que alguém está isolado ou com dificuldades, não tomo a iniciativa de oferecer apoio ou abrir espaço para diálogo.",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",
@@ -91,7 +91,7 @@ export const extroversao: FormDefinition = {
           id: "e12",
           type: "likert",
           label:
-            "Consigo manter a firmeza ao me posicionar, mesmo em situações de pressão ou quando enfrento resistência.",
+            "Não consigo manter a firmeza ao me posicionar",
           required: true,
           minLabel: "Discordo Totalmente",
           maxLabel: "Concordo Totalmente",

@@ -64,7 +64,7 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Confiança (Nível Baixo)",
+            "titulo": "FEEDBACK – Confiança",
             "definicao": "A característica Confiança, no contexto do fator Amabilidade, envolve a disposição de acreditar na boa-fé de colegas, gestores e discentes. Em nível baixo, os docentes tendem a adotar uma postura mais cautelosa e desconfiante, o que pode dificultar a formação de parcerias e a troca de informações, impactando a colaboração e o desenvolvimento de projetos conjuntos na UFSM.",
             "caracteristicas": [
               "Postura Cautelosa: Adota uma abordagem mais crítica, verificando minuciosamente as informações e os procedimentos, o que pode limitar a cooperação.",
@@ -89,7 +89,7 @@
             "conclusao": "Docentes com baixo nível de confiança tendem a adotar uma postura cautelosa que, embora proteja contra erros e desvios, pode limitar a colaboração e a inovação. Ao implementar estratégias que incentivem parcerias pontuais, o uso de fontes oficiais e o feedback construtivo, é possível ampliar a interação e o compartilhamento de conhecimentos sem sacrificar o senso crítico. Esse equilíbrio permitirá uma melhoria na prática docente, contribuindo para um ambiente acadêmico mais colaborativo e dinâmico na UFSM."
           },
           "medio": {
-            "titulo": "FEEDBACK – Confiança (Nível Médio)",
+            "titulo": "FEEDBACK – Confiança",
             "definicao": "A característica Confiança, integrante do fator Amabilidade, refere-se à tendência de acreditar na boa-fé de colegas, gestores e discentes, favorecendo a cooperação e a construção de parcerias. Em nível médio, o docente adota uma postura equilibrada: demonstra abertura para confiar, especialmente em contextos já validados por experiências positivas, mas mantém certa cautela, verificando informações e estabelecendo critérios antes de se engajar plenamente em colaborações.",
             "caracteristicas": [
               "Abertura Moderada à Cooperação: Está disposto(a) a colaborar e compartilhar recursos, mas prefere iniciar parcerias com objetivos claros e papéis definidos.",
@@ -116,7 +116,7 @@
             "conclusao": "Docentes com nível médio de confiança mantêm um equilíbrio saudável entre abertura para colaboração e cautela para proteger a qualidade e a autonomia do trabalho. Ao adotar estratégias que ampliem gradualmente a rede de contatos e estabeleçam acordos claros, é possível fortalecer parcerias produtivas e contribuir para um ambiente acadêmico mais integrado e eficiente na UFSM, sem abrir mão do senso crítico."
           },
           "alto": {
-            "titulo": "FEEDBACK – Confiança (Nível Alto)",
+            "titulo": "FEEDBACK – Confiança",
             "definicao": "A característica Confiança, dentro do fator Amabilidade, diz respeito à tendência de acreditar na boa-fé e na integridade dos demais—sejam colegas, gestores ou discentes—promovendo relações colaborativas e um ambiente de trabalho positivo na UFSM. Docentes com nível alto de confiança demonstram facilidade em formar parcerias, compartilhar materiais e atuar de forma cooperativa.",
             "caracteristicas": [
               "Crença na Integridade: Assume que a gestão e a maioria dos colegas agem com o melhor interesse da comunidade universitária.",
@@ -203,7 +203,7 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Franqueza (Nível Baixo)",
+            "titulo": "FEEDBACK – Franqueza",
             "definicao": "A característica Franqueza envolve a disposição para comunicar dificuldades e dúvidas com clareza, contribuindo para o aprimoramento das práticas docentes. Em nível baixo, os docentes tendem e evitar expor suas limitações e erros, o que pode comprometer a busca de auxílio e a troca de informações que são essenciais para a melhoria contínua no ambiente acadêmico.",
             "caracteristicas": [
               "Reticência na Expressão: Evita expor dificuldades, dúvidas ou erros diante de colegas e discentes, muitas vezes por receio de julgamentos ou conflitos.",
@@ -228,7 +228,7 @@
             "conclusao": "Docentes com baixo nível de franqueza podem enfrentar desafios relacionados à falta de transparência, o que pode prejudicar tanto o desenvolvimento individual quanto o coletivo. Ao adotar estratégias que promovam a exposição gradual de dificuldades e o feedback construtivo, é possível transformar essa postura reservada em uma oportunidade de aprimoramento. Com a prática contínua, você poderá equilibrar a proteção da imagem profissional com a abertura para a colaboração, enriquecendo o ambiente de ensino e contribuindo para a evolução das práticas pedagógicas na UFSM."
           },
           "medio": {
-            "titulo": "FEEDBACK – Franqueza (Nível Médio)",
+            "titulo": "FEEDBACK – Franqueza",
             "definicao": "A característica Franqueza, no contexto do fator Amabilidade, refere-se à disposição para expressar dificuldades, dúvidas e limitações de forma clara, visando o aprimoramento das práticas docentes. Em nível médio, o docente apresenta um equilíbrio entre transparência e cautela: está disposto(a) a admitir desafios quando percebe que isso trará benefícios concretos para a equipe ou para a aprendizagem dos discentes, mas prefere manter certos aspectos reservados em situações mais sensíveis ou formais.",
             "caracteristicas": [
               "Transparência Seletiva: Compartilha dificuldades e dúvidas principalmente em ambientes de confiança ou quando acredita que a exposição pode gerar soluções práticas.",
@@ -255,7 +255,7 @@
             "conclusao": "Docentes com nível médio de franqueza equilibram a honestidade com a cautela, adaptando sua comunicação ao contexto e ao público. Ao adotar estratégias que favoreçam a exposição responsável de dificuldades, é possível ampliar a troca de conhecimentos, fortalecer parcerias e manter a credibilidade profissional. Esse equilíbrio contribui para um ambiente acadêmico produtivo, colaborativo e voltado à melhoria contínua na UFSM."
           },
           "alto": {
-            "titulo": "FEEDBACK – Franqueza (Nível Alto)",
+            "titulo": "FEEDBACK – Franqueza",
             "definicao": "A característica Franqueza refere-se à tendência de expressar dificuldades e dúvidas com clareza, promovendo uma comunicação honesta que visa aprimorar as práticas pedagógicas. Docentes com nível alto de franqueza não hesitam em expor os desafios e limitações de suas disciplinas, reconhecendo a importância da transparência para o desenvolvimento pessoal e coletivo.",
             "caracteristicas": [
               "Transparência na Comunicação: Prefere ser honesto(a) com pares e estudantes sobre os desafios enfrentados em cada disciplina, sem tentar mascarar suas dificuldades.",
@@ -343,7 +343,7 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Complacência (Nível Baixo)",
+            "titulo": "FEEDBACK – Complacência",
             "definicao": "A característica Complacência, ou Cooperação, avalia a tendência de evitar conflitos e buscar harmonia nas relações interpessoais. Docentes com baixo nível de complacência tendem a manter uma postura mais firme e competitiva, defendendo suas opiniões com rigor, o que pode gerar atritos em reuniões e interações, mas também pode assegurar que suas ideias sejam claramente expressas.",
             "caracteristicas": [
               "Postura Firme e Competitiva: Não hesita em expressar suas opiniões e em defender seus pontos de vista, mesmo que isso gere divergências com colegas e gestores.",
@@ -369,7 +369,7 @@
             "conclusao": "Docentes com baixo nível de complacência defendem suas ideias com firmeza, o que pode assegurar a clareza e a inovação no ambiente acadêmico. Contudo, é fundamental equilibrar essa postura com uma comunicação mais aberta e empática para evitar conflitos desnecessários e promover a colaboração. Ao adotar estratégias que enfatizem a escuta ativa, a modulação do tom e a abertura ao feedback, você pode transformar a assertividade em uma ferramenta poderosa para o desenvolvimento coletivo e para a melhoria contínua das práticas docentes na UFSM."
           },
           "medio": {
-            "titulo": "FEEDBACK – Complacência (Nível Médio)",
+            "titulo": "FEEDBACK – Complacência",
             "definicao": "A característica Complacência, também conhecida como Cooperação, diz respeito à tendência de evitar conflitos e buscar harmonia nas relações interpessoais. Em nível médio, o docente apresenta uma postura equilibrada: valoriza a boa convivência, mas não deixa de defender seus pontos de vista quando julga necessário. Essa postura combina flexibilidade com assertividade, permitindo que se mantenha a paz no ambiente acadêmico sem abrir mão de princípios e objetivos importantes.",
             "caracteristicas": [
               "Equilíbrio entre Harmonia e Firmeza: Procura evitar conflitos desnecessários, mas está disposto(a) a defender suas ideias quando acredita que elas são essenciais para o andamento do trabalho.",
@@ -396,7 +396,7 @@
             "conclusao": "Docentes com nível médio de complacência conseguem equilibrar a manutenção de um ambiente harmonioso com a defesa assertiva de ideias e interesses. Esse equilíbrio favorece a colaboração e o respeito mútuo, sem abrir mão da qualidade e dos princípios que orientam a prática acadêmica. Ao aplicar estratégias que reforcem seus limites e a clareza na comunicação, você potencializa os benefícios dessa postura moderada e contribui para um clima institucional construtivo e produtivo na UFSM."
           },
           "alto": {
-            "titulo": "FEEDBACK – Complacência (Nível Alto)",
+            "titulo": "FEEDBACK – Complacência",
             "definicao": "A característica Complacência, também conhecida como Cooperação, descreve a tendência a evitar conflitos e a buscar harmonia nas relações interpessoais. No contexto do magistério superior, docentes com alto nível de complacência priorizam a manutenção de um ambiente pacífico, contornando conflitos e cedendo em certas questões para preservar um bom clima entre discentes, colegas, gestores e demais colaboradores.",
             "caracteristicas": [
               "Busca por Harmonia: Esforça-se para contornar conflitos desnecessários, cedendo em pontos específicos para manter relações positivas.",
@@ -484,7 +484,7 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Sensibilidade (Nível Baixo)",
+            "titulo": "FEEDBACK – Sensibilidade",
             "definicao": "A característica Sensibilidade (Compaixão) refere-se à capacidade de reconhecer e responder às necessidades emocionais de colegas e discentes. Em nível baixo, os docentes tendem a manter um foco maior na condução do curso e na transmissão do conteúdo, sem se envolver profundamente com os aspectos emocionais das interações, o que pode levar à negligência de sinais de crise ou dificuldade entre os alunos.",
             "caracteristicas": [
               "Foco na Condução do Curso: Prioriza a realização das atividades acadêmicas e a gestão dos conteúdos, sem se deixar envolver demasiadamente pelas questões emocionais.",
@@ -510,7 +510,7 @@
             "conclusao": "Docentes com baixo nível de sensibilidade conseguem manter um forte foco na condução das atividades e na gestão do conteúdo, o que pode favorecer a eficiência operacional. Contudo, essa abordagem pode deixar de lado sinais importantes de dificuldades emocionais entre os discentes e colegas. Ao adotar estratégias que promovam a observação atenta, a oferta de apoio pontual e a solicitação de feedback, é possível equilibrar a objetividade com a necessidade de intervenção emocional. Esse equilíbrio é essencial para criar um ambiente de ensino acolhedor e para melhorar a qualidade do processo educativo na UFSM."
           },
           "medio": {
-            "titulo": "FEEDBACK – Sensibilidade (Nível Médio)",
+            "titulo": "FEEDBACK – Sensibilidade",
             "definicao": "A característica Sensibilidade (Compaixão) está relacionada à capacidade de reconhecer e responder às necessidades emocionais de colegas, discentes e demais membros da comunidade acadêmica. Em nível médio, o docente demonstra empatia e atenção às dificuldades dos outros, mas mantém limites claros para preservar o foco nas responsabilidades acadêmicas e evitar sobrecarga. Essa postura permite equilibrar acolhimento e objetividade, contribuindo para relações saudáveis e para um ambiente de ensino funcional.",
             "caracteristicas": [
               "Empatia Moderada: Reconhece e valoriza as dificuldades de discentes e colegas, oferecendo apoio quando possível, mas sem se envolver excessivamente.",
@@ -537,7 +537,7 @@
             "conclusao": "Docentes com nível médio de sensibilidade conseguem unir empatia e objetividade, oferecendo suporte de forma proporcional às demandas sem comprometer suas próprias responsabilidades. Essa postura contribui para um ambiente de ensino acolhedor, porém funcional, preservando a qualidade do trabalho acadêmico e o bem-estar coletivo. Ao adotar estratégias que reforcem limites claros e intervenções direcionadas, você potencializa os benefícios da sensibilidade e mantém a saúde emocional no exercício da docência na UFSM."
           },
           "alto": {
-            "titulo": "FEEDBACK – Sensibilidade (Nível Alto)",
+            "titulo": "FEEDBACK – Sensibilidade",
             "definicao": "A característica Sensibilidade (Compaixão) diz respeito à capacidade de lidar com colegas, discentes e demais membros da comunidade acadêmica com empatia e preocupação genuína, criando vínculos e facilitando relacionamentos. Docentes com nível alto de sensibilidade são altamente perceptivos às dificuldades dos alunos e de seus colegas, o que pode enriquecer o ambiente de ensino, embora haja o risco de sobrecarga emocional se não gerenciado adequadamente.",
             "caracteristicas": [
               "Empatia Acentuada: Sente intensa empatia por estudantes que enfrentam problemas de aprendizagem ou dificuldades pessoais, procurando sempre oferecer apoio.",

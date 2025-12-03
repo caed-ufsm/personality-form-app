@@ -64,8 +64,8 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Acolhimento (Nível Baixo)",
-            "definicao": "A caracteristica Acolhimento está relacionada à capacidade de interagir de forma empática e cooperativa com discentes, colegas e gestores. Em nível baixo, os docentes tendem a manter uma abordagem mais formal e restrita, limitando as interações ao âmbito estritamente acadêmico, o que pode resultar em uma menor troca de informações e oportunidades de colaboração.",
+            "titulo": "FEEDBACK – Acolhimento",
+            "definicao": "A característica Acolhimento está relacionada à capacidade de interagir de forma empática e cooperativa com discentes, colegas e gestores. Em nível baixo, os docentes tendem a manter uma abordagem mais formal e restrita, limitando as interações ao âmbito estritamente acadêmico, o que pode resultar em uma menor troca de informações e oportunidades de colaboração.",
             "caracteristicas": [
               "Interação Formal: Prefere manter contatos limitados e focados apenas nos assuntos acadêmicos, evitando envolvimentos emocionais ou interações prolongadas.",
               "Comunicação Restrita: Compartilha informações de forma pontual, sem buscar ativamente ajudar ou motivar discentes e colegas, mantendo um distanciamento das trocas colaborativas.",
@@ -89,8 +89,8 @@
             "conclusao": "Docentes com um baixo nível de acolhimento mantêm um foco intenso nas atividades essenciais, o que pode favorecer a eficiência no cumprimento de obrigações acadêmicas. No entanto, essa abordagem mais formal pode limitar as oportunidades de cooperação e de enriquecimento por meio da troca de conhecimentos. Ao adotar estratégias que promovam interações pontuais e a formação de grupos de afinidade, é possível equilibrar a objetividade com a colaboração, criando um ambiente de trabalho mais integrado e produtivo, sem comprometer a qualidade do ensino e da gestão."
           },
           "medio": {
-            "titulo": "FEEDBACK – Acolhimento (Nível Médio)",
-            "definicao": "A caracteristica Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores, promovendo trocas de conhecimento e colaboração. Em nível médio, o docente mantém uma postura equilibrada: participa de interações e oferece apoio quando necessário, mas também preserva momentos de foco e produtividade. Essa abordagem possibilita criar vínculos e colaborar, sem que isso comprometa de forma significativa a execução das responsabilidades acadêmicas.",
+            "titulo": "FEEDBACK – Acolhimento",
+            "definicao": "A característica Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores, promovendo trocas de conhecimento e colaboração. Em nível médio, o docente mantém uma postura equilibrada: participa de interações e oferece apoio quando necessário, mas também preserva momentos de foco e produtividade. Essa abordagem possibilita criar vínculos e colaborar, sem que isso comprometa de forma significativa a execução das responsabilidades acadêmicas.",
             "caracteristicas": [
               "Interações Seletivas: Participa de conversas e trocas de informações, priorizando momentos e contextos que considera relevantes para o trabalho ou para o desenvolvimento de projetos.",
               "Compartilhamento Moderado de Recursos: Oferece materiais e dicas quando percebe utilidade direta para o interlocutor, mas evita um compartilhamento excessivo que possa dispersar seu tempo e energia.",
@@ -115,8 +115,8 @@
             "conclusao": "Docentes com níveis médios de acolhimento conseguem equilibrar colaboração e foco, oferecendo apoio e trocando informações sem comprometer a produtividade. Ao aproveitar momentos estratégicos para ampliar a rede de contatos e manter canais de comunicação eficientes, é possível fortalecer as relações profissionais e contribuir para um ambiente acadêmico positivo, preservando ao mesmo tempo o desempenho individual."
           },
           "alto": {
-            "titulo": "FEEDBACK – Acolhimento (Nível Alto)",
-            "definicao": "A caracteristica Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores, promovendo trocas de conhecimento e colaboração. Docentes com alto nível de acolhimento demonstram grande disposição para apoiar e motivar estudantes e colegas, criando um ambiente de trabalho colaborativo e inspirador.",
+            "titulo": "FEEDBACK – Acolhimento",
+            "definicao": "A característica Acolhimento refere-se à tendência de interagir de forma amigável e empática com discentes, colegas e gestores, promovendo trocas de conhecimento e colaboração. Docentes com alto nível de acolhimento demonstram grande disposição para apoiar e motivar estudantes e colegas, criando um ambiente de trabalho colaborativo e inspirador.",
             "caracteristicas": [
               "Interação Proativa: Gosta de apoiar e motivar estudantes, colegas e outros membros da comunidade acadêmica, oferecendo orientações e soluções para dificuldades pessoais e profissionais.",
               "Compartilhamento de Recursos: Sente satisfação em compartilhar materiais didáticos, referências bibliográficas e dicas de avaliação, enriquecendo o ambiente de aprendizagem.",
@@ -203,8 +203,8 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Assertividade (Nível Baixo)",
-            "definicao": "A caracteristica Assertividade diz respeito à capacidade de expressar opiniões, necessidades e dúvidas de forma clara e segura. Em nível baixo, você tende a hesitar em expor suas ideias ou desafios, o que pode resultar na perda de oportunidades para demonstrar competência e receber feedback construtivo, prejudicando o desenvolvimento pessoal e a inovação no ambiente acadêmico.",
+            "titulo": "FEEDBACK – Assertividade",
+            "definicao": "A característica Assertividade diz respeito à capacidade de expressar opiniões, necessidades e dúvidas de forma clara e segura. Em nível baixo, você tende a hesitar em expor suas ideias ou desafios, o que pode resultar na perda de oportunidades para demonstrar competência e receber feedback construtivo, prejudicando o desenvolvimento pessoal e a inovação no ambiente acadêmico.",
             "caracteristicas": [
               "Hesitação na Expressão: Tem dificuldade em expor suas opiniões em conselhos, colegiados ou reuniões, preferindo permanecer em silêncio mesmo diante de questões importantes.",
               "Pouca Iniciativa de Liderança: Evita assumir a liderança em projetos coletivos, deixando de contribuir ativamente para a discussão e a melhoria dos processos.",
@@ -228,8 +228,8 @@
             "conclusao": "Um nível baixo de assertividade pode limitar a expressão das suas ideias e a capacidade de liderar iniciativas, prejudicando tanto o seu desenvolvimento profissional quanto a inovação no ambiente acadêmico. Ao adotar estratégias que estimulem a participação gradual e a preparação prévia, você poderá superar a hesitação e aproveitar as oportunidades de mostrar competência. Equilibrar a reserva com a iniciativa é essencial para aprimorar a comunicação e contribuir de maneira efetiva para a melhoria dos processos na universidade."
           },
           "medio": {
-            "titulo": "FEEDBACK – Assertividade (Nível Médio)",
-            "definicao": "A caracteristica Assertividade descreve a capacidade de expressar opiniões e necessidades com clareza, bem como defender pontos de vista de forma construtiva. Em nível médio, o docente consegue expor ideias e assumir posições em diversas situações, mas tende a dosar a participação conforme o contexto e a receptividade do grupo. Essa postura equilibrada favorece a colaboração e a manutenção de relações respeitosas, embora possa, ocasionalmente, levar à perda de oportunidades de influência.",
+            "titulo": "FEEDBACK – Assertividade",
+            "definicao": "A característica Assertividade descreve a capacidade de expressar opiniões e necessidades com clareza, bem como defender pontos de vista de forma construtiva. Em nível médio, o docente consegue expor ideias e assumir posições em diversas situações, mas tende a dosar a participação conforme o contexto e a receptividade do grupo. Essa postura equilibrada favorece a colaboração e a manutenção de relações respeitosas, embora possa, ocasionalmente, levar à perda de oportunidades de influência.",
             "caracteristicas": [
               "Participação Seletiva: Expõe opiniões e sugestões de forma mais ativa em temas com os quais se sente seguro ou tem experiência, mas pode se conter em discussões muito polêmicas ou pouco familiares.",
               "Liderança Contextual: Assume a liderança em projetos ou grupos de trabalho quando percebe necessidade, mas não busca constantemente o papel de coordenador.",
@@ -254,8 +254,8 @@
             "conclusao": "Docentes com níveis médios de assertividade conseguem equilibrar a expressão de ideias com a manutenção de um ambiente harmonioso. Ao investir em estratégias que garantam participação consistente, mesmo em temas mais complexos, é possível ampliar a influência e fortalecer a credibilidade, mantendo o respeito e a colaboração no ambiente acadêmico."
           },
           "alto": {
-            "titulo": "FEEDBACK – Assertividade (Nível Alto)",
-            "definicao": "A caracteristica Assertividade reflete a capacidade de expressar opiniões e necessidades com clareza, pedindo ajuda e defendendo pontos de vista de forma eficaz. Em nível alto, você demonstra confiança para expor suas ideias em conselhos, colegiados e reuniões do departamento, assumindo liderança em projetos coletivos e contribuindo ativamente para o aprimoramento dos processos acadêmicos.",
+            "titulo": "FEEDBACK – Assertividade",
+            "definicao": "A característica Assertividade reflete a capacidade de expressar opiniões e necessidades com clareza, pedindo ajuda e defendendo pontos de vista de forma eficaz. Em nível alto, você demonstra confiança para expor suas ideias em conselhos, colegiados e reuniões do departamento, assumindo liderança em projetos coletivos e contribuindo ativamente para o aprimoramento dos processos acadêmicos.",
             "caracteristicas": [
               "Expressão Clara e Confiante: Não tem medo de expor suas opiniões e compartilhar suas ideias, mesmo que sejam divergentes da maioria.",
               "Liderança Proativa: Assume a liderança em projetos coletivos quando identifica a ausência de iniciativa, incentivando a participação e o debate.",
@@ -341,8 +341,8 @@
         ],
         "feedbackConsolidado": {
           "baixo": {
-            "titulo": "FEEDBACK – Emoções Positivas (Nível Baixo)",
-            "definicao": "A caracteristica Emoções Positivas mede a frequência com que você experimenta sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível baixo, os docentes podem ter dificuldade em reconhecer pequenas conquistas e manter o ânimo, o que pode tornar a rotina de ensino mais monótona e menos motivadora, afetando o engajamento dos alunos e a própria satisfação profissional.",
+            "titulo": "FEEDBACK – Emoções Positivas",
+            "definicao": "A característica Emoções Positivas mede a frequência com que você experimenta sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível baixo, os docentes podem ter dificuldade em reconhecer pequenas conquistas e manter o ânimo, o que pode tornar a rotina de ensino mais monótona e menos motivadora, afetando o engajamento dos alunos e a própria satisfação profissional.",
             "caracteristicas": [
               "Baixa Frequência de Sentimentos Positivos: Dificuldade em perceber e celebrar pequenos progressos, focando mais nos desafios e obstáculos.",
               "Postura Emocional Neutra: Mantém uma atitude mais sóbria e reservada, com menos demonstrações de entusiasmo nas atividades diárias.",
@@ -366,8 +366,8 @@
             "conclusao": "Docentes com um nível baixo de emoções positivas podem enfrentar desafios na manutenção do entusiasmo e na inspiração de seus alunos, o que pode afetar tanto a inovação quanto a motivação no ambiente de ensino. Ao implementar estratégias que valorizem pequenas vitórias, incluam estímulos positivos e incentivem o feedback construtivo, é possível transformar essa postura neutra em uma fonte de motivação e resiliência. Esse equilíbrio contribuirá para um ambiente de trabalho mais dinâmico e para a melhoria contínua das práticas docentes na UFSM."
           },
           "medio": {
-            "titulo": "FEEDBACK – Emoções Positivas (Nível Médio)",
-            "definicao": "A caracteristica Emoções Positivas avalia a frequência com que o docente vivencia sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível médio, o docente consegue reconhecer e valorizar conquistas relevantes e manter a motivação na maior parte do tempo, embora possa apresentar oscilações de ânimo em períodos de maior pressão. Essa postura equilibrada permite manter o foco e a resiliência, mas pode reduzir o impulso para celebrar pequenos avanços ou estimular constantemente a inovação.",
+            "titulo": "FEEDBACK – Emoções Positivas",
+            "definicao": "A característica Emoções Positivas avalia a frequência com que o docente vivencia sentimentos de entusiasmo, alegria e otimismo no trabalho. Em nível médio, o docente consegue reconhecer e valorizar conquistas relevantes e manter a motivação na maior parte do tempo, embora possa apresentar oscilações de ânimo em períodos de maior pressão. Essa postura equilibrada permite manter o foco e a resiliência, mas pode reduzir o impulso para celebrar pequenos avanços ou estimular constantemente a inovação.",
             "caracteristicas": [
               "Valorização Moderada de Conquistas: Reconhece vitórias importantes, como bons resultados em projetos ou avaliações positivas, mas pode deixar passar despercebidos pequenos avanços do dia a dia.",
               "Otimismo Condicional: Mantém uma atitude positiva na maior parte das situações, mas tende a sentir queda de motivação diante de desafios prolongados ou de resultados abaixo do esperado.",
@@ -392,8 +392,8 @@
             "conclusao": "Docentes com níveis médios de emoções positivas conseguem manter um ambiente equilibrado e produtivo, valorizando conquistas e recuperando a motivação após momentos de baixa. Ao adotar práticas que reforcem o reconhecimento diário e promovam o compartilhamento de resultados, é possível potencializar o impacto positivo no ambiente acadêmico, inspirando colegas e alunos de forma consistente."
           },
           "alto": {
-            "titulo": "FEEDBACK – Emoções Positivas (Nível Alto)",
-            "definicao": "A caracteristica Emoções Positivas avalia a capacidade de manter uma visão otimista e entusiasmada sobre o trabalho na UFSM, reconhecendo as próprias conquistas e sentindo satisfação nas atividades diárias. Docentes com nível alto de emoções positivas demonstram grande motivação ao ver o desenvolvimento dos discentes, celebram pequenas vitórias e mantêm uma atitude positiva mesmo diante de desafios pessoais e profissionais.",
+            "titulo": "FEEDBACK – Emoções Positivas",
+            "definicao": "A característica Emoções Positivas avalia a capacidade de manter uma visão otimista e entusiasmada sobre o trabalho na UFSM, reconhecendo as próprias conquistas e sentindo satisfação nas atividades diárias. Docentes com nível alto de emoções positivas demonstram grande motivação ao ver o desenvolvimento dos discentes, celebram pequenas vitórias e mantêm uma atitude positiva mesmo diante de desafios pessoais e profissionais.",
             "caracteristicas": [
               "Entusiasmo no Desenvolvimento Acadêmico: Sente grande satisfação ao observar o progresso e o desenvolvimento dos alunos nas disciplinas ministradas.",
               "Valorização de Conquistas: Celebra pequenas vitórias, como a aceitação de artigos, o engajamento de turmas ou o sucesso em projetos, o que impulsiona a inovação e a busca por melhorias.",
