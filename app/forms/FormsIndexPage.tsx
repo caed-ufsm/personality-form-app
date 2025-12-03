@@ -390,12 +390,6 @@ export default function FormsIndexPage() {
                         </p>
                       )}
 
-                      {typeof f.estimatedMinutes === "number" && (
-                        <p className="text-sm text-gray-600 mb-4">
-                          ⏱ {f.estimatedMinutes} min
-                        </p>
-                      )}
-
                       <div className="flex flex-col gap-3">
                         <Link
                           href={`/forms/${f.id}`}
@@ -439,12 +433,6 @@ export default function FormsIndexPage() {
                   {f.description && (
                     <p className="text-base text-gray-700">{f.description}</p>
                   )}
-
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600">
-                    {typeof f.estimatedMinutes === "number" && (
-                      <span>⏱ {f.estimatedMinutes} min</span>
-                    )}
-                  </div>
 
                   <div className="flex flex-wrap items-center gap-3">
                     <Link

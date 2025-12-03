@@ -317,7 +317,7 @@ export default function FormPageClient({
           {/* 🔹 Sessão explicativa sobre a escala Likert */}
           <div className="mb-8 p-6 border border-blue-200 bg-blue-50 rounded-2xl shadow-sm">
             <h2 className="text-xl font-semibold text-blue-900 mb-3">
-              Como responder às perguntas
+              Como responder os formulários
             </h2>
             <p className="text-gray-700 leading-relaxed mb-4">
               As afirmações a seguir utilizam uma <strong>escala de 1 a 5</strong>.

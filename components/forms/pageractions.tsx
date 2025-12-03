@@ -189,7 +189,7 @@ export default function PagerActions<TValues extends FieldValues = FieldValues>(
             </h3>
 
             <p className="mt-2 text-sm text-gray-600">
-              Isso vai apagar apenas as respostas desta característica (faceta).
+              Isso vai apagar apenas as respostas desta característica.
             </p>
 
             <div className="mt-5 flex flex-col-reverse sm:flex-row sm:justify-end gap-2">

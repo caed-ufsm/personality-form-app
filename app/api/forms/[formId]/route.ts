@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import { getFormDefinition } from "../../../forms/lib/registry";
 import { schemaFromConfig } from "../../../forms/lib/schemaFromConfig";
 import type { FormDefinition } from "../../../forms/lib/types";
