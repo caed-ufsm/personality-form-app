@@ -58,6 +58,76 @@ export default function FormsIndexPage() {
     Record<string, boolean>
   >({});
 
+  /** ---------------- PDF MODAL STATES ---------------- */
+  const [pdfModalOpen, setPdfModalOpen] = React.useState(false);
+  const [pdfBlob, setPdfBlob] = React.useState<Blob | null>(null);
+  const [pdfUrl, setPdfUrl] = React.useState<string | null>(null);
+  const [shareError, setShareError] = React.useState<string | null>(null);
+  const pdfFilename = "relatorio-personalizado.pdf";
+
+  /** cria/revoga URL do blob */
+  React.useEffect(() => {
+    if (!pdfBlob) return;
+
+    const url = URL.createObjectURL(pdfBlob);
+    setPdfUrl(url);
+
+    return () => {
+      URL.revokeObjectURL(url);
+      setPdfUrl(null);
+    };
+  }, [pdfBlob]);
+
+  function closePdfModal() {
+    setPdfModalOpen(false);
+    setShareError(null);
+    setPdfBlob(null); // isso automaticamente revoga URL via effect
+  }
+
+  function downloadPdf() {
+    if (!pdfUrl) return;
+    const a = document.createElement("a");
+    a.href = pdfUrl;
+    a.download = pdfFilename;
+    a.click();
+  }
+
+  async function sharePdf() {
+    setShareError(null);
+    if (!pdfBlob) return;
+
+    const file = new File([pdfBlob], pdfFilename, { type: "application/pdf" });
+    const navAny = navigator as any;
+
+    // Melhor caso: share com arquivo (Android/iOS modernos)
+    if (navigator.share && navAny.canShare?.({ files: [file] })) {
+      try {
+        await navigator.share({
+          title: "Relatório Personalizado",
+          text: "Segue meu relatório em PDF.",
+          files: [file],
+        });
+        return;
+      } catch (e: any) {
+        // Cancelamento do usuário -> ok
+        if (e?.name === "AbortError") return;
+        setShareError(
+          "Não foi possível compartilhar. Você pode baixar o PDF e enviar manualmente."
+        );
+        return;
+      }
+    }
+
+    // Fallback: abre o PDF em nova aba (a pessoa salva/compartilha por lá)
+    if (pdfUrl) {
+      window.open(pdfUrl, "_blank", "noopener,noreferrer");
+    } else {
+      setShareError(
+        "Seu navegador não suporta compartilhar arquivo direto. Baixe o PDF e envie pelo WhatsApp."
+      );
+    }
+  }
+
   /** ---------------- UTILS ---------------- */
   type Nullable<T> = T | null | undefined;
 
@@ -216,17 +286,11 @@ export default function FormsIndexPage() {
       }
 
       /** --------------------------------------------------------
-       * 5. Baixar o PDF
+       * 5. Guardar PDF e abrir modal (não baixa automático)
        * -------------------------------------------------------- */
       const blob = await pdfRes.blob();
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "relatorio-personalizado.pdf";
-      a.click();
-      URL.revokeObjectURL(url);
-
-      alert("✅ PDF gerado com sucesso!");
+      setPdfBlob(blob);
+      setPdfModalOpen(true);
     } catch (e: any) {
       alert("Erro: " + e.message);
     } finally {
@@ -494,6 +558,72 @@ export default function FormsIndexPage() {
           </div>
         </div>
       </section>
+
+      {/* ---------------- PDF MODAL ---------------- */}
+      {pdfModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          {/* overlay */}
+          <button
+            className="absolute inset-0 bg-black/40"
+            onClick={closePdfModal}
+            aria-label="Fechar modal"
+          />
+
+          {/* modal */}
+          <div className="relative w-full max-w-lg rounded-2xl bg-white p-6 shadow-xl">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <h3 className="text-xl font-bold text-gray-900">PDF pronto ✅</h3>
+                <p className="mt-1 text-gray-600">
+                  Agora você pode baixar o relatório ou (no celular) compartilhar
+                  direto pro WhatsApp.
+                </p>
+              </div>
+
+              <button
+                onClick={closePdfModal}
+                className="rounded-lg px-3 py-2 text-gray-500 hover:bg-gray-100"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="mt-5 flex flex-col gap-3">
+              <button
+                onClick={downloadPdf}
+                disabled={!pdfUrl}
+                className="w-full rounded-xl bg-[#0353a3] px-5 py-3 text-white font-semibold hover:bg-blue-800 disabled:bg-gray-300"
+              >
+                ⬇️ Baixar PDF
+              </button>
+
+              <button
+                onClick={sharePdf}
+                disabled={!pdfBlob}
+                className="w-full rounded-xl border border-gray-300 px-5 py-3 font-semibold text-gray-800 hover:bg-gray-50 disabled:opacity-50"
+              >
+                📤 Compartilhar (WhatsApp / etc.)
+              </button>
+
+              {shareError && (
+                <p className="text-sm text-red-600">{shareError}</p>
+              )}
+
+              {/* opcional: abrir PDF numa aba */}
+              {pdfUrl && (
+                <a
+                  href={pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-center text-sm text-blue-700 hover:underline mt-1"
+                >
+                  Abrir PDF em uma nova aba
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
