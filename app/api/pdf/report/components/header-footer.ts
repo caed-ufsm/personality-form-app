@@ -65,62 +65,116 @@ export function openContentPage(ctx: LayoutCtx) {
   drawHeader(ctx);
 }
 
-export function drawFinalFooter(ctx: LayoutCtx, opts?: { title?: string; subtitle?: string }) {
+
+export function drawFinalFooterCAED(ctx: LayoutCtx) {
   const page = ctx.page;
   const { PRIMARY } = ctx.theme;
   const { width } = page.getSize();
 
-  const bandH = 78; // altura da faixa do footer
+  const bandH = 140; // altura do footer (ajusta se quiser)
 
-  // faixa inferior
+  // fundo
   page.drawRectangle({ x: 0, y: 0, width, height: bandH, color: PRIMARY });
 
-  const title = opts?.title ?? "Programa de Autoconhecimento Aplicado à Docência na UFSM";
-  const subtitle = opts?.subtitle ?? "Contato: equipeedusaudecaed@ufsm.br";
-
-  const x = ctx.margin;
-  const maxW = width - ctx.margin * 2;
-
-  let titleSize = 12;
-  const titleMin = 10;
-  const subSize = 10;
-  const gap = 6;
-
-  // até 2 linhas (reduz o size se precisar)
-  let titleLines = wrapText(title, ctx.fontBold, titleSize, maxW);
-  while (titleLines.length > 2 && titleSize > titleMin) {
-    titleSize -= 1;
-    titleLines = wrapText(title, ctx.fontBold, titleSize, maxW);
-  }
-  if (titleLines.length > 2) titleLines = [titleLines[0], titleLines[1]];
-
-  const blockH =
-    titleLines.length * lineHeight(titleSize) +
-    gap +
-    lineHeight(subSize);
-
-  // topo virtual do bloco dentro da faixa, centralizado verticalmente
-  let yTop = bandH - (bandH - blockH) / 2;
-
-  // título (linhas)
-  for (const line of titleLines) {
-    page.drawText(line, {
-      x,
-      y: yTop - titleSize,
-      size: titleSize,
-      font: ctx.fontBold,
-      color: rgb(1, 1, 1),
-    });
-    yTop -= lineHeight(titleSize);
-  }
-
-  // subtítulo
-  yTop -= gap;
-  page.drawText(subtitle, {
-    x,
-    y: yTop - subSize,
-    size: subSize,
-    font: ctx.fontRegular,
+  // linha fina no topo do footer
+  page.drawLine({
+    start: { x: 30, y: bandH - 18 },
+    end: { x: width - 30, y: bandH - 18 },
+    thickness: 1,
     color: rgb(1, 1, 1),
+    opacity: 0.35,
+  });
+
+  const marginX = 48; // padding lateral interno do footer
+  const topPad = 36;  // padding do topo (abaixo da linha)
+  const colGap = 26;
+
+  const innerW = width - marginX * 2;
+  const colW = (innerW - colGap * 2) / 3;
+
+  const x1 = marginX;
+  const x2 = marginX + colW + colGap;
+  const x3 = marginX + (colW + colGap) * 2;
+
+  const titleSize = 11;
+  const textSize = 10;
+  const titleLH = lineHeight(titleSize);
+  const textLH = lineHeight(textSize);
+
+  const WHITE = rgb(1, 1, 1);
+
+  // baseline (começa do topo do footer e vai descendo)
+  const y0 = bandH - topPad;
+
+  // ------- COLUNA 1 (Endereço) -------
+  let y = y0;
+
+  page.drawText("COORDENADORIA DE AÇÕES EDUCACIONAIS -", {
+    x: x1,
+    y,
+    size: titleSize,
+    font: ctx.fontBold,
+    color: WHITE,
+  });
+  y -= titleLH;
+
+  page.drawText("CAED/PROGRAD", {
+    x: x1,
+    y,
+    size: titleSize,
+    font: ctx.fontBold,
+    color: WHITE,
+  });
+  y -= titleLH + 6;
+
+  const addrLines = [
+    "Av. Roraima nº 1000",
+    "Prédio 67",
+    "Cidade Universitária",
+    "Bairro Camobi",
+    "Santa Maria - RS",
+    "CEP: 97105-900",
+  ];
+
+  for (const line of addrLines) {
+    page.drawText(line, {
+      x: x1,
+      y,
+      size: textSize,
+      font: ctx.fontRegular,
+      color: WHITE,
+    });
+    y -= textLH + 2;
+  }
+
+  // ------- COLUNA 2 (Contato) -------
+  y = y0;
+
+  page.drawText("Contato e Informações", {
+    x: x2,
+    y,
+    size: titleSize,
+    font: ctx.fontBold,
+    color: WHITE,
+  });
+  y -= titleLH + 10;
+
+  page.drawText("Telefone: +55 (55) 3220-9622", {
+    x: x2,
+    y,
+    size: textSize,
+    font: ctx.fontRegular,
+    color: WHITE,
+  });
+
+  // ------- COLUNA 3 (Email) -------
+  y = y0 - (titleLH + 10); // alinha com a linha do telefone
+
+  page.drawText("Email: equipeedusaudecaed@ufsm.br", {
+    x: x3,
+    y,
+    size: textSize,
+    font: ctx.fontRegular,
+    color: WHITE,
   });
 }
