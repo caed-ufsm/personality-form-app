@@ -65,29 +65,29 @@ export function openContentPage(ctx: LayoutCtx) {
   drawHeader(ctx);
 }
 
-
 export function drawFinalFooterCAED(ctx: LayoutCtx) {
   const page = ctx.page;
   const { PRIMARY } = ctx.theme;
   const { width } = page.getSize();
 
-  const bandH = 140; // altura do footer (ajusta se quiser)
+  // ✅ footer maior (começa mais em cima)
+  const bandH = 200;
 
   // fundo
   page.drawRectangle({ x: 0, y: 0, width, height: bandH, color: PRIMARY });
 
-  // linha fina no topo do footer
+  // linha no topo do footer
+  const lineY = bandH - 22;
   page.drawLine({
-    start: { x: 30, y: bandH - 18 },
-    end: { x: width - 30, y: bandH - 18 },
+    start: { x: 30, y: lineY },
+    end: { x: width - 30, y: lineY },
     thickness: 1,
     color: rgb(1, 1, 1),
     opacity: 0.35,
   });
 
-  const marginX = 48; // padding lateral interno do footer
-  const topPad = 36;  // padding do topo (abaixo da linha)
-  const colGap = 26;
+  const marginX = 56;
+  const colGap = 34;
 
   const innerW = width - marginX * 2;
   const colW = (innerW - colGap * 2) / 3;
@@ -103,29 +103,35 @@ export function drawFinalFooterCAED(ctx: LayoutCtx) {
 
   const WHITE = rgb(1, 1, 1);
 
-  // baseline (começa do topo do footer e vai descendo)
-  const y0 = bandH - topPad;
+  // topo do conteúdo (logo abaixo da linha)
+  const y0 = lineY - 22;
 
-  // ------- COLUNA 1 (Endereço) -------
+  // helper pra desenhar lista de linhas
+  function drawLines(
+    x: number,
+    yStart: number,
+    lines: string[],
+    size: number,
+    font: any,
+    gapAfter = 0
+  ) {
+    let y = yStart;
+    for (const ln of lines) {
+      page.drawText(ln, { x, y, size, font, color: WHITE });
+      y -= lineHeight(size) + 2;
+    }
+    return y - gapAfter;
+  }
+
+  // ===== COLUNA 1 =====
   let y = y0;
 
-  page.drawText("COORDENADORIA DE AÇÕES EDUCACIONAIS -", {
-    x: x1,
-    y,
-    size: titleSize,
-    font: ctx.fontBold,
-    color: WHITE,
-  });
-  y -= titleLH;
+  // ✅ quebra o título grande pra não invadir a col2
+  const col1Title = wrapText("COORDENADORIA DE AÇÕES EDUCACIONAIS -", ctx.fontBold, titleSize, colW);
+  y = drawLines(x1, y, col1Title, titleSize, ctx.fontBold, 0);
 
-  page.drawText("CAED/PROGRAD", {
-    x: x1,
-    y,
-    size: titleSize,
-    font: ctx.fontBold,
-    color: WHITE,
-  });
-  y -= titleLH + 6;
+  page.drawText("CAED/PROGRAD", { x: x1, y, size: titleSize, font: ctx.fontBold, color: WHITE });
+  y -= titleLH + 8;
 
   const addrLines = [
     "Av. Roraima nº 1000",
@@ -135,29 +141,13 @@ export function drawFinalFooterCAED(ctx: LayoutCtx) {
     "Santa Maria - RS",
     "CEP: 97105-900",
   ];
+  y = drawLines(x1, y, addrLines, textSize, ctx.fontRegular, 0);
 
-  for (const line of addrLines) {
-    page.drawText(line, {
-      x: x1,
-      y,
-      size: textSize,
-      font: ctx.fontRegular,
-      color: WHITE,
-    });
-    y -= textLH + 2;
-  }
-
-  // ------- COLUNA 2 (Contato) -------
+  // ===== COLUNA 2 =====
   y = y0;
 
-  page.drawText("Contato e Informações", {
-    x: x2,
-    y,
-    size: titleSize,
-    font: ctx.fontBold,
-    color: WHITE,
-  });
-  y -= titleLH + 10;
+  const col2Title = wrapText("Contato e Informações", ctx.fontBold, titleSize, colW);
+  y = drawLines(x2, y, col2Title, titleSize, ctx.fontBold, 8);
 
   page.drawText("Telefone: +55 (55) 3220-9622", {
     x: x2,
@@ -167,14 +157,17 @@ export function drawFinalFooterCAED(ctx: LayoutCtx) {
     color: WHITE,
   });
 
-  // ------- COLUNA 3 (Email) -------
-  y = y0 - (titleLH + 10); // alinha com a linha do telefone
+  // ===== COLUNA 3 =====
+  y = y0;
 
-  page.drawText("Email: equipeedusaudecaed@ufsm.br", {
-    x: x3,
-    y,
-    size: textSize,
-    font: ctx.fontRegular,
-    color: WHITE,
-  });
+  // alinha com a linha do telefone (mesmo “nível” visual)
+  y = y - (col2Title.length * (titleLH + 2) + 8);
+
+  // email
+  const emailLines = wrapText("Email: equipeedusaudecaed@ufsm.br", ctx.fontRegular, textSize, colW);
+  y = drawLines(x3, y, emailLines, textSize, ctx.fontRegular, 8);
+
+  // ✅ agora os nomes descem de verdade (sem sobrepor)
+  const nomes = ["Renato", "Ana", "Dante"];
+  drawLines(x3, y, nomes, textSize, ctx.fontRegular, 0);
 }
