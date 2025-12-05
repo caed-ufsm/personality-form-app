@@ -69,7 +69,7 @@ export function renderFactors(
 
       const consolidado = (facetaData as any).feedbackConsolidado?.[nivel];
       if (consolidado) {
-        subheading(ctx, ensure, String(consolidado.titulo), 12, ctx.theme.TEXT);
+        //subheading(ctx, ensure, String(consolidado.titulo), 12, ctx.theme.TEXT);
         paragraph(ctx, ensure, String(consolidado.definicao ?? ""), 11, ctx.theme.TEXT);
 
         const section = (t: string) => {
