@@ -179,7 +179,7 @@ export function renderCover(ctx: LayoutCtx, ensure: EnsureFn) {
   justifiedParagraph(
     ctx,
     ensure,
-    "Olá, docente! Este é seu Relatório Personalizado Completo do Programa de Autoconhecimento Aplicado à Docência na UFSM. Aqui você encontrará um feedback personalizado e mais aprofundado sobre as características dos seus fatores de personalidade, baseado nos escores dos formulários que você respondeu. Para cada característica, você saberá um pouco mais sobre as vantagens, as dificuldades e as estratégias de desenvolvimento possíveis. Esperamos que essa ferramenta possa apoiar seu desenvolvimento pessoal e profissional.",
+    "Olá, docente! Este é seu Relatório Completo Personalizado do Programa de Autoconhecimento Aplicado à Docência na UFSM. Aqui você encontrará um feedback personalizado e mais aprofundado sobre as características dos seus fatores de personalidade, baseado nos escores dos formulários que você respondeu. Para cada característica, você saberá um pouco mais sobre as vantagens, as dificuldades e as estratégias de desenvolvimento possíveis. Esperamos que essa ferramenta possa apoiar seu desenvolvimento pessoal e profissional.",
     13,
     ctx.theme.TEXT,
     { extraLineGap: 2, indent: 0 }

@@ -40,7 +40,7 @@ const RSSIcon = () => (
 export default function Footer({
   orgTitle = "COORDENADORIA DE AÇÕES EDUCACIONAIS — CAED",
   leftBlock = {
-    title: "COORDENADORIA DE AÇÕES EDUCACIONAIS - CAED",
+    title: "COORDENADORIA DE AÇÕES EDUCACIONAIS - CAED/PROGRAD",
     lines: [
       { label: "Av. Roraima nº 1000" },
       { label: "Prédio 67" },
@@ -114,7 +114,7 @@ export default function Footer({
       {/* base bar */}
       <div className="bg-[#003a74]">
         <div className="mx-auto max-w-7xl px-6 py-4 text-xs text-white/80 sm:px-8 lg:px-10">
-          © {new Date().getFullYear()} UFSM • CAEd — Todos os direitos reservados.
+          © {new Date().getFullYear()} UFSM • CAEd/PROGRAD — Todos os direitos reservados.
         </div>
       </div>
       

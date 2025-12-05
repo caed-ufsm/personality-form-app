@@ -21,7 +21,7 @@ function isActivePath(pathname: string, href: string) {
 }
 
 export default function Header({
-  brand = { name: 'Programa de Autoconhecimento Docente — CAEd', href: '/', logoSrc: '' },
+  brand = { name: 'Programa de Autoconhecimento Aplicado à Docência na UFSM', href: '/', logoSrc: '' },
   items = [
     { label: 'Home', href: '/' },
     { label: 'Formulários', href: '/forms' },

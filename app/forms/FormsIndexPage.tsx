@@ -326,8 +326,7 @@ export default function FormsIndexPage() {
             onClick={() => setShowInfo((prev) => !prev)}
           >
             <span>
-              Complete todos os formulários para gerar seu relatório
-              personalizado
+              Complete todos os formulários para gerar seu Relatório Completo Personalizado
             </span>
 
             <svg
@@ -349,7 +348,7 @@ export default function FormsIndexPage() {
 
           {/* DESKTOP TITLE */}
           <h2 className="hidden md:block text-xl font-semibold text-blue-900 mb-3">
-            Complete todos os formulários para gerar seu relatório personalizado
+            Complete todos os formulários para gerar seu Relatório Completo Personalizado
           </h2>
 
           {/* CONTENT */}
@@ -365,7 +364,7 @@ export default function FormsIndexPage() {
           >
             <p className="text-gray-700 leading-relaxed">
               Ao responder todos os formulários, você poderá gerar um{" "}
-              <strong>PDF completo e personalizado</strong> com os resultados
+              <strong>Relatório Completo Personalizado</strong> com os resultados
               consolidados. Esse relatório apresentará suas principais
               características, vantagens potenciais, dificuldades potenciais e
               estratégias com base nas suas respostas.
@@ -532,7 +531,7 @@ export default function FormsIndexPage() {
           <p className="text-gray-700 mb-6 leading-relaxed">
             Após concluir todos os formulários, suas respostas serão enviadas de
             forma anônima e segura para gerar um{" "}
-            <strong>relatório personalizado completo</strong>
+            <strong>Relatório Completo Personalizado</strong>
           </p>
 
           <div className="flex flex-col items-center gap-4">

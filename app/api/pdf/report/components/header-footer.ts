@@ -1,7 +1,8 @@
-// app/api/forms/pdf/report/header-footer.ts
+// components/header-footer.ts
 import { rgb } from "pdf-lib";
-import type { LayoutCtx } from "./layout";
+import { lineHeight, wrapText, type LayoutCtx } from "./layout";
 import { setPage } from "./layout";
+
 
 /** Cabeçalho padrão (fundo + barra superior + título) */
 export function drawHeader(ctx: LayoutCtx) {
@@ -62,4 +63,64 @@ export function openContentPage(ctx: LayoutCtx) {
 
   setPage(ctx, p, idx);
   drawHeader(ctx);
+}
+
+export function drawFinalFooter(ctx: LayoutCtx, opts?: { title?: string; subtitle?: string }) {
+  const page = ctx.page;
+  const { PRIMARY } = ctx.theme;
+  const { width } = page.getSize();
+
+  const bandH = 78; // altura da faixa do footer
+
+  // faixa inferior
+  page.drawRectangle({ x: 0, y: 0, width, height: bandH, color: PRIMARY });
+
+  const title = opts?.title ?? "Programa de Autoconhecimento Aplicado à Docência na UFSM";
+  const subtitle = opts?.subtitle ?? "Contato: equipeedusaudecaed@ufsm.br";
+
+  const x = ctx.margin;
+  const maxW = width - ctx.margin * 2;
+
+  let titleSize = 12;
+  const titleMin = 10;
+  const subSize = 10;
+  const gap = 6;
+
+  // até 2 linhas (reduz o size se precisar)
+  let titleLines = wrapText(title, ctx.fontBold, titleSize, maxW);
+  while (titleLines.length > 2 && titleSize > titleMin) {
+    titleSize -= 1;
+    titleLines = wrapText(title, ctx.fontBold, titleSize, maxW);
+  }
+  if (titleLines.length > 2) titleLines = [titleLines[0], titleLines[1]];
+
+  const blockH =
+    titleLines.length * lineHeight(titleSize) +
+    gap +
+    lineHeight(subSize);
+
+  // topo virtual do bloco dentro da faixa, centralizado verticalmente
+  let yTop = bandH - (bandH - blockH) / 2;
+
+  // título (linhas)
+  for (const line of titleLines) {
+    page.drawText(line, {
+      x,
+      y: yTop - titleSize,
+      size: titleSize,
+      font: ctx.fontBold,
+      color: rgb(1, 1, 1),
+    });
+    yTop -= lineHeight(titleSize);
+  }
+
+  // subtítulo
+  yTop -= gap;
+  page.drawText(subtitle, {
+    x,
+    y: yTop - subSize,
+    size: subSize,
+    font: ctx.fontRegular,
+    color: rgb(1, 1, 1),
+  });
 }

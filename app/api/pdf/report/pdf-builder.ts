@@ -10,7 +10,7 @@ import {
   ensure as ensureBase,
 } from "./components/layout";
 
-import { drawFooter, openContentPage } from "./components/header-footer";
+import { drawFinalFooter, drawFooter, openContentPage } from "./components/header-footer";
 
 import { divider, paragraph, heading, subheading } from "./components/primitives";
 import { callout } from "./components/blocks";
@@ -199,6 +199,10 @@ export async function buildPdfReport(
     9.5,
     ctx.theme.MUTED
   );
+
+  drawFinalFooter(ctx, {
+  subtitle: "Contato: equipeedusaudecaed@ufsm.br",
+  });
 
   /** ---------------- RENDERIZAR SUMÁRIO (via toc.ts) ---------------- */
   renderToc(ctx, ensure, tocPage, tocPageIndex, tocStartY, tocFactors);

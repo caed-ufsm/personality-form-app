@@ -24,11 +24,11 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
       {/* Hero */}
       <header>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-[#004c97]">
-          CAEd — Coordenadoria de Ações Educacionais (UFSM)
+          CAEd/PROGRAD — Coordenadoria de Ações Educacionais (UFSM)
         </h1>
         <br></br>
         <p className="mt-4 max-w-4xl text-lg leading-relaxed">
-          A Coordenadoria de Ações Educacionais (CAED) , subunidade administrativa vinculada à Pró-Reitoria de Graduação, desenvolve ações de apoio junto ao público  da UFSM. O trabalho desenvolvido visa, de modo geral, o acesso e a permanência dos estudantes na Instituição, a promoção da aprendizagem, a acessibilidade, as ações afirmativas e a promoção de ações na área da educação-saúde.
+          A Coordenadoria de Ações Educacionais (CAED/PROGRAD) , subunidade administrativa vinculada à Pró-Reitoria de Graduação, desenvolve ações de apoio junto ao público  da UFSM. O trabalho desenvolvido visa, de modo geral, o acesso e a permanência dos estudantes na Instituição, a promoção da aprendizagem, a acessibilidade, as ações afirmativas e a promoção de ações na área da educação-saúde.
         </p>
         <div className="mt-5 flex flex-wrap items-center gap-3">
           <button
