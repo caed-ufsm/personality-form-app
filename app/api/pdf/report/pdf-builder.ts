@@ -169,7 +169,7 @@ export async function buildPdfReport(
   paragraph(
     ctx,
     ensure,
-    "Agradecemos por participar do Programa de Autoconhecimento Docente.",
+    "Agradecemos por participar do Programa de Autoconhecimento Aplicado à Docência na UFSM.",
     12,
     ctx.theme.TEXT,
     true
