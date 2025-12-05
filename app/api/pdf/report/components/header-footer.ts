@@ -71,7 +71,7 @@ export function drawFinalFooterCAED(ctx: LayoutCtx) {
   const { width } = page.getSize();
 
   // ✅ footer maior (começa mais em cima)
-  const bandH = 200;
+  const bandH = 350;
 
   // fundo
   page.drawRectangle({ x: 0, y: 0, width, height: bandH, color: PRIMARY });
@@ -157,17 +157,14 @@ export function drawFinalFooterCAED(ctx: LayoutCtx) {
     color: WHITE,
   });
 
-  // ===== COLUNA 3 =====
-  y = y0;
-
-  // alinha com a linha do telefone (mesmo “nível” visual)
-  y = y - (col2Title.length * (titleLH + 2) + 8);
-
   // email
   const emailLines = wrapText("Email: equipeedusaudecaed@ufsm.br", ctx.fontRegular, textSize, colW);
   y = drawLines(x3, y, emailLines, textSize, ctx.fontRegular, 8);
 
+  // ===== COLUNA 3 =====
+  y = y0;
+
   // ✅ agora os nomes descem de verdade (sem sobrepor)
-  const nomes = ["Renato", "Ana", "Dante"];
+  const nomes = ["Renato Favarin Dos Santos (Psicólogo-CAEd/PROGRAD)", "Ana Júlia Vicentini (Psicóloga-CAEd/PROGRAD)", "Dante Dardaque Santos (Sistemas de Informação-UFSM) "];
   drawLines(x3, y, nomes, textSize, ctx.fontRegular, 0);
 }
