@@ -1,8 +1,9 @@
 import FormsIndexPage from "./FormsIndexPage";
 
 export const metadata = {
-  title: "Formulários CAEd — UFSM",
-  description: "Página de formulários (CAEd/UFSM).",
+  title: 'Programa de Autoconhecimento Docente',
+  description:
+    'Página institucional com informações sobre a Coordenadoria de Ações Educacionais (CAEd/UFSM).',
 };
 
 export default function Page() {

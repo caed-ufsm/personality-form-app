@@ -1,170 +1,233 @@
 // app/grupo/page.tsx
-import Link from "next/link";
+
+export const metadata = {
+  title: 'Programa de Autoconhecimento Docente',
+  description:
+    'Página institucional com informações sobre a Coordenadoria de Ações Educacionais (CAEd/UFSM).',
+};
+
+
+const icons = {
+  oque: (
+    <svg
+      className="w-6 h-6 text-[#004c97]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M13 16h-1v-4h-1m1 4v-4m0 0V8m0 4h1M4 6h16M4 10h16M4 14h16M4 18h16"
+      />
+    </svg>
+  ),
+  pessoas: (
+    <svg
+      className="w-6 h-6 text-[#004c97]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M5.121 17.804A3 3 0 017 17h10a3 3 0 012.879 2.804M15 11a3 3 0 10-6 0z"
+      />
+    </svg>
+  ),
+  ingresso: (
+    <svg
+      className="w-6 h-6 text-[#004c97]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+    </svg>
+  ),
+  calendario: (
+    <svg
+      className="w-6 h-6 text-[#004c97]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M8 7V3m8 4V3M3 11h18M5 21h14a2 2 0 002-2V7H3v12z"
+      />
+    </svg>
+  ),
+  privacy: (
+    <svg
+      className="w-6 h-6 text-[#004c97]"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 11c1.6 0 3-1.6 3-3.5S13.6 4 12 4 9 5.6 9 7.5 10.4 11 12 11z"
+      />
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17.5 21a5.5 5.5 0 10-11 0h11z"
+      />
+    </svg>
+  ),
+};
 
 export default function GrupoPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
-      {/* Hero */}
-      <section className="bg-[#004c97] text-white">
-        <div className="mx-auto max-w-5xl px-6 py-14">
-          <p className="text-sm/6 opacity-90">Próxima etapa do programa</p>
-          <h1 className="mt-2 text-3xl font-semibold tracking-tight md:text-4xl">
-            Grupo de Acompanhamento (em breve)
-          </h1>
-          <p className="mt-4 max-w-2xl text-white/90">
-            Além dos formulários, queremos oferecer um espaço de troca e
-            reflexão guiada, com encontros e atividades orientadas ao
-            autoconhecimento aplicado à docência.
-          </p>
+    <main className="min-h-screen">
+      {/* HERO */}
+      <section className="mx-auto max-w-6xl px-6 pt-20 pb-14">
+        <p className="text-sm text-slate-500 tracking-wide mb-3">
+          Próxima etapa do programa
+        </p>
 
-          <div className="mt-6 flex flex-wrap gap-3">
-            <a
-              href="#interesse"
-              className="inline-flex items-center justify-center rounded-lg bg-white px-4 py-2 text-sm font-medium text-[#004c97] shadow-sm hover:bg-white/90"
-            >
-              Quero participar
-            </a>
-            <Link
-              href="/about"
-              className="inline-flex items-center justify-center rounded-lg border border-white/30 px-4 py-2 text-sm font-medium text-white hover:bg-white/10"
-            >
-              Ver sobre o projeto
-            </Link>
-          </div>
-        </div>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#004c97] mb-4">
+          Grupos de Reflexão <span className="text-[#004c97]/90">(em breve)</span>
+        </h1>
+
+        <p className="text-lg leading-relaxed text-slate-700 max-w-4xl">
+          Além dos formulários, queremos oferecer um espaço de troca e reflexão
+          guiada, com encontros orientados ao autoconhecimento aplicado à
+          docência. Esses encontros serão online e contínuos, coordenados pelo
+          psicólogo Renato Favarin dos Santos, permitindo participação sem
+          ordem fixa conforme seu interesse.
+        </p>
       </section>
 
-      {/* Conteúdo */}
-      <section className="mx-auto max-w-5xl px-6 py-10">
-        <div className="grid gap-6 md:grid-cols-2">
-          <Card title="O que é o grupo?">
-            <ul className="list-disc space-y-1 pl-5">
-              <li><b>Objetivo:</b> apoiar a aplicação prática do autoconhecimento na docência.</li>
-              <li><b>Formato:</b> encontros guiados + materiais/atividades entre encontros.</li>
-              <li><b>Modalidade:</b> online e/ou presencial (a definir).</li>
-              <li><b>Duração:</b> ciclo curto (ex.: 4–8 semanas) — ajustável.</li>
+      {/* CONTEÚDO */}
+      <section className="mx-auto max-w-6xl px-6 pb-24">
+        <h2 className="text-3xl md:text-4xl font-bold text-[#004c97] mb-10">
+          Sobre o Grupo de Acompanhamento
+        </h2>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          <Card title="O que é?" icon={icons.oque}>
+            <ul className="list-disc pl-6 space-y-1 text-lg leading-relaxed">
+              <li>
+                Atividade <b>não obrigatória</b> do Programa.
+              </li>
+              <li>Encontros focados na prática aplicada.</li>
+              <li>
+                <b>Formato:</b> encontros guiados + materiais.
+              </li>
+              <li>
+                <b>Modalidade:</b> online.
+              </li>
             </ul>
           </Card>
 
-          <Card title="Para quem é?">
-            <ul className="list-disc space-y-1 pl-5">
-              <li>Docentes e/ou técnicos envolvidos com atividades de ensino na UFSM.</li>
-              <li>Participantes que concluíram a etapa de formulários (preferencial).</li>
-              <li>Vagas podem ser <b>limitadas</b> por turma (se necessário).</li>
+          <Card title="Para quem?" icon={icons.pessoas}>
+            <ul className="list-disc pl-6 space-y-1 text-lg leading-relaxed">
+              <li>Docentes da UFSM que concluíram a etapa dos formulários.</li>
             </ul>
           </Card>
 
-          <Card title="Como funciona o ingresso?">
-            <ul className="list-disc space-y-1 pl-5">
-              <li>Inscrição por <b>lista de interesse</b>.</li>
-              <li>Se houver muitas inscrições, podemos priorizar por ordem/afinidade com os objetivos.</li>
-              <li>Você será contatado(a) por e-mail com orientações quando abrir.</li>
+          <Card title="Como participar?" icon={icons.ingresso}>
+            <ul className="list-disc pl-6 space-y-1 text-lg leading-relaxed">
+              <li>Preencher o formulário de interesse.</li>
+              <li>Vagas podem ser limitadas.</li>
             </ul>
           </Card>
 
-          <Card title="Datas / previsão">
-            <p>
-              Planejado para a <b>próxima etapa</b> do projeto. Avisaremos com antecedência
-              assim que o cronograma e o formato forem definidos.
+          <Card title="Quando?" icon={icons.calendario}>
+            <p className="text-lg leading-relaxed">
+              <b>Início previsto:</b> 2026/1
             </p>
-            <p className="mt-2 text-sm text-slate-500">
-              Sugestão: inserir aqui um “Previsto para: 2026/1” quando tiver uma estimativa.
+            <p className="mt-1 text-lg leading-relaxed">
+              O cronograma será enviado aos inscritos.
             </p>
           </Card>
+        </div>
 
-          <Card title="Privacidade e consentimento" className="md:col-span-2">
-            <p>
-              A participação será <b>voluntária</b>. Informaremos claramente quais dados serão coletados,
-              para qual finalidade e por quanto tempo, incluindo um termo de consentimento quando a etapa abrir.
+        {/* PRIVACIDADE */}
+        <div className="mt-10">
+          <Card title="Privacidade e consentimento" icon={icons.privacy}>
+            <p className="text-lg leading-relaxed">
+              A participação será <b>voluntária</b> e transparente.
             </p>
-            <ul className="mt-3 list-disc space-y-1 pl-5">
-              <li>Uso apenas para fins do programa e melhoria das ações educacionais.</li>
-              <li>Compartilhamento restrito à equipe responsável, quando aplicável.</li>
+            <ul className="mt-3 list-disc pl-6 space-y-1 text-lg leading-relaxed">
+              <li>Uso dos dados apenas para fins do Programa.</li>
+              <li>Compartilhamento restrito à equipe responsável.</li>
               <li>Você poderá desistir a qualquer momento.</li>
             </ul>
           </Card>
         </div>
+        {/* SESSÃO DESTACADA — CHAMADA PARA AÇÃO */}
+        <section className="mt-20 w-full bg-[#004c97]/5 py-16">
+          <div className="mx-auto max-w-4xl px-6 text-center">
 
-        {/* Form simples */}
-        <div
-          id="interesse"
-          className="mt-10 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-        >
-          <h2 className="text-lg font-semibold text-slate-900">
-            Entrar na lista de interesse
-          </h2>
-          <p className="mt-1 text-sm text-slate-600">
-            Preencha para receber um aviso quando a etapa do grupo estiver disponível.
-          </p>
+            <h2 className="text-4xl font-bold text-[#004c97] mb-4">
+              Entrar na lista de interesse
+            </h2>
 
-          <form className="mt-5 grid gap-4 md:grid-cols-2">
-            <div className="md:col-span-1">
-              <label className="text-sm font-medium text-slate-700">Nome</label>
-              <input
-                type="text"
-                placeholder="Seu nome"
-                className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-[#004c97]"
-              />
-            </div>
-
-            <div className="md:col-span-1">
-              <label className="text-sm font-medium text-slate-700">E-mail</label>
-              <input
-                type="email"
-                placeholder="voce@ufsm.br"
-                className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-[#004c97]"
-              />
-            </div>
-
-            <div className="md:col-span-2">
-              <label className="text-sm font-medium text-slate-700">
-                Preferência de modalidade (opcional)
-              </label>
-              <select className="mt-1 w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm outline-none focus:border-[#004c97]">
-                <option value="">Sem preferência</option>
-                <option value="online">Online</option>
-                <option value="presencial">Presencial</option>
-                <option value="hibrido">Híbrido</option>
-              </select>
-            </div>
-
-            <div className="md:col-span-2 flex flex-wrap items-center justify-between gap-3">
-              <label className="flex items-start gap-2 text-sm text-slate-600">
-                <input type="checkbox" className="mt-1" />
-                Concordo em receber contato por e-mail sobre a abertura da próxima etapa.
-              </label>
-
-              <button
-                type="button"
-                className="inline-flex items-center justify-center rounded-lg bg-[#004c97] px-4 py-2 text-sm font-medium text-white shadow-sm hover:opacity-95"
-              >
-                Enviar interesse
-              </button>
-            </div>
-
-            <p className="md:col-span-2 text-xs text-slate-500">
-              * Ilustração: este formulário ainda não está conectado a um backend.
+            <p className="text-lg text-slate-700 max-w-2xl mx-auto mb-8 leading-relaxed">
+              Preencha rapidamente o formulário para ser avisado(a) quando os grupos de reflexão
+              estiverem disponíveis. Isso garante que você receba o cronograma e novidades da próxima etapa.
             </p>
-          </form>
-        </div>
+
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSe0Paabn1t_gqS_H8pSToEvYh8wUTso_nYcQvm8lUxRtFKnSw/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+        inline-flex items-center gap-2
+        px-8 py-4 rounded-xl font-semibold text-white text-lg
+        bg-[#004c97] hover:bg-[#003870]
+        shadow-lg hover:shadow-xl transition
+      "
+            >
+              Preencher formulário
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
+          </div>
+        </section>
+
       </section>
     </main>
   );
 }
 
-function Card({
-  title,
-  children,
-  className = "",
-}: {
+type CardProps = {
   title: string;
+  icon: React.ReactNode;
   children: React.ReactNode;
   className?: string;
-}) {
+};
+
+function Card({ title, icon, children, className = "" }: CardProps) {
   return (
-    <div className={`rounded-2xl border border-slate-200 bg-white p-6 shadow-sm ${className}`}>
-      <h3 className="text-base font-semibold text-slate-900">{title}</h3>
-      <div className="mt-3 text-sm text-slate-700">{children}</div>
+    <div
+      className={`rounded-2xl border border-[#004c97]/20 bg-white p-8 shadow-sm hover:shadow-md transition ${className}`}
+    >
+      <div className="flex items-center gap-3 mb-4">
+        {icon}
+        <h3 className="text-2xl font-semibold text-[#004c97]">{title}</h3>
+      </div>
+
+      <div className="text-lg leading-relaxed text-slate-700">{children}</div>
     </div>
   );
 }

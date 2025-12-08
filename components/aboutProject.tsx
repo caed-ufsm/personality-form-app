@@ -36,12 +36,13 @@ export default function AboutProject({ className = '' }: AboutProjectProps) {
           <h2 className="text-2xl font-semibold text-[#004c97] mb-4">Como funciona?</h2>
 
           <p className="text-lg leading-relaxed">
-            Você preencherá cinco formulários relacionados aos grandes fatores da personalidade e receberá feedbacks instantâneos ao final de cada característica avaliada.
+            Você preencherá cinco formulários relacionados aos grandes fatores da personalidade e receberá feedbacks instantâneos ao final de cada característica avaliada, permitindo uma compreensão rápida do seu perfil.
           </p>
           <p className="mt-2 text-lg leading-relaxed">
-            Ao responder todos os formulários, você poderá baixar um relatório completo personalizado, baseado em suas respostas.
+            Ao responder todos os formulários, você poderá baixar um relatório completo personalizado, baseado em suas respostas, reunindo todas as informações de forma clara e organizada.
           </p>
         </div>
+
 
         {/* DIREITA */}
         <div>
