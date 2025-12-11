@@ -72,7 +72,7 @@ export default function AboutCAED({ className = '' }: AboutCAEDProps) {
         <p className="text-lg leading-relaxed">
           Nossa equipe conta com dois psicólogos da CAEd, Renato Favarin dos Santos e Ana Júlia
           Vicentini, com um estudante do curso de Sistemas de Informação, Dante Dardaque Santos,
-          e com o apoio da professora Andréia Schwertner Charão.
+          e com o apoio da professora do Departamento de Linguagens e Sistemas de Computação,  Andrea Schwertner Charão.
         </p>
       </div>
     </section>
