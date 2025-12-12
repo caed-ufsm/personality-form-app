@@ -380,6 +380,43 @@ export default function FormsIndexPage() {
         </div>
       </header>
 
+            {/* ÁREA FINAL DE ENVIO -------------------------------------------------- */}
+      <section className="mt-10 mb-16 border-t pt-10">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">
+            Enviar todos os formulários
+          </h2>
+
+          <p className="text-gray-700 mb-6 leading-relaxed">
+            Após concluir todos os formulários abaixo, suas respostas serão enviadas de
+            forma anônima e segura para gerar um{" "}
+            <strong>Relatório Completo Personalizado</strong>
+          </p>
+
+          <div className="flex flex-col items-center gap-4">
+            <button
+              onClick={handleSend}
+              disabled={!allComplete || isLoading}
+              className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${
+                allComplete && !isLoading
+                  ? "bg-[#0353a3] hover:bg-blue-800"
+                  : "bg-gray-400 cursor-not-allowed"
+              }`}
+            >
+              {isLoading
+                ? "⏳ Enviando e gerando PDF..."
+                : "📑 Gerar Relatório Personalizado Completo"}
+            </button>
+
+            {!allComplete && (
+              <p className="text-lg text-red-600 mt-2">
+                ⚠️ Você ainda não respondeu todos os formulários.
+              </p>
+            )}
+          </div>
+        </div>
+      </section>
+
       {/* LISTA DE FORMULÁRIOS ------------------------------------------------- */}
       {sortedForms.length === 0 ? (
         <p className="text-lg text-gray-500">Nenhum formulário cadastrado.</p>
@@ -520,43 +557,6 @@ export default function FormsIndexPage() {
           })}
         </ul>
       )}
-
-      {/* ÁREA FINAL DE ENVIO -------------------------------------------------- */}
-      <section className="mt-16 border-t pt-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-gray-800 mb-4">
-            Enviar todos os formulários
-          </h2>
-
-          <p className="text-gray-700 mb-6 leading-relaxed">
-            Após concluir todos os formulários, suas respostas serão enviadas de
-            forma anônima e segura para gerar um{" "}
-            <strong>Relatório Completo Personalizado</strong>
-          </p>
-
-          <div className="flex flex-col items-center gap-4">
-            <button
-              onClick={handleSend}
-              disabled={!allComplete || isLoading}
-              className={`rounded-lg px-8 py-4 text-lg font-semibold text-white transition ${
-                allComplete && !isLoading
-                  ? "bg-[#0353a3] hover:bg-blue-800"
-                  : "bg-gray-400 cursor-not-allowed"
-              }`}
-            >
-              {isLoading
-                ? "⏳ Enviando e gerando PDF..."
-                : "📑 Gerar Relatório Personalizado Completo"}
-            </button>
-
-            {!allComplete && (
-              <p className="text-sm text-red-600 mt-2">
-                ⚠️ Você ainda não respondeu todos os formulários.
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
 
       {/* ---------------- PDF MODAL ---------------- */}
       {pdfModalOpen && (

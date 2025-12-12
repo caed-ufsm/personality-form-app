@@ -390,8 +390,7 @@ export default function FormPageClient({
           </div>
 
           <p className="text-xs text-gray-500 mt-4">
-            Suas respostas são salvas como rascunho neste navegador. A geração do
-            PDF acontece somente na etapa final de envio (página de resumo).
+            Suas respostas são salvas como rascunho neste navegador. A geração do relatório acontece somente após preencher todos formulários.
           </p>
         </div>
       </section>
