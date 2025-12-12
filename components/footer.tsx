@@ -56,9 +56,6 @@ export default function Footer({ className = "" }: { className?: string }) {
         <div className="max-w-5xl text-sm text-white/85">
           <ul className="space-y-2 leading-relaxed">
             <li>
-              <strong>CAEd (PROGRAD/UFSM):</strong> Coordenação institucional do projeto.
-            </li>
-            <li>
               <strong>Psicólogo Renato Favarin dos Santos:</strong> Desenvolvimento e condução técnica do conteúdo.
             </li>
             <li>
